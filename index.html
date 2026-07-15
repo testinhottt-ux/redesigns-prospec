@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redesigns - Portfólio de Sites</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        .hero {
+            padding: 80px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #03080F 0%, #0088CC 50%, #00DFFF 100%);
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #00DFFF;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #121212;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #1a1a1a;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #0088CC;
+            box-shadow: 0 20px 40px rgba(0, 136, 204, 0.2);
+        }
+        .card-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #0088CC 0%, #00DFFF 100%);
+        }
+        .card-header h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .card-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .card-body {
+            padding: 30px;
+        }
+        .card-body p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid #0088CC;
+            color: #0088CC;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #0088CC;
+            color: #ffffff;
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #1a1a1a;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Portfólio de Redesigns</h1>
+        <p>Sites profissionais nível awards</p>
+    </div>
+    
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h2>BRMG</h2>
+                    <p>Consultoria</p>
+                </div>
+                <div class="card-body">
+                    <p>Site redesenhado com design moderno e profissional. Layout responsivo com animações suaves.</p>
+                    <a href="brmg/" class="btn">Ver Redesign</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2>NECC</h2>
+                    <p>Clínica Médica</p>
+                </div>
+                <div class="card-body">
+                    <p>Núcleo de Especialidades Clínicas e Cirúrgicas. Design premium com foco em confiança.</p>
+                    <a href="necc/" class="btn">Ver Redesign</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2>Lorena Figueiredo</h2>
+                    <p>Advocacia</p>
+                </div>
+                <div class="card-body">
+                    <p>Escritório de advocacia com design elegante e sofisticado. Transmitindo credibilidade.</p>
+                    <a href="lorena-figueiredo/" class="btn">Ver Redesign</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2>Starnet</h2>
+                    <p>Tecnologia</p>
+                </div>
+                <div class="card-body">
+                    <p>Empresa de tecnologia com design futurista e inovador. Interface moderna e intuitiva.</p>
+                    <a href="starnet/" class="btn">Ver Redesign</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Tiago Maciel - Analista & Desenvolvedor de Sistemas</p>
+    </footer>
+</body>
+</html>

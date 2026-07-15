@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRMG | Corretora de Seguros & Negócios</title>
+<meta name="description" content="BRMG Corretora de Seguros e Negócios - Proteção e confiança desde 2005. Seguros auto, residencial, saúde, empresarial, vida e viagem em Belo Horizonte.">
+<link rel="preconnect" href="https://fonts.cdnfonts.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://fonts.cdnfonts.com/css/clash-display" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/satoshi@5.0.0/400.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/satoshi@5.0.0/500.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/satoshi@5.0.0/700.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#0A1628;
+--gold:#C9A84C;
+--cream:#F5F0E8;
+--navy-light:#152238;
+--navy-mid:#1E3050;
+--cream-dark:#E8E0D0;
+--gold-light:#D4B86A;
+--gold-dark:#A88A3A;
+--text-primary:#F5F0E8;
+--text-secondary:rgba(245,240,232,0.7);
+--text-dark:#0A1628;
+--font-display:'Clash Display',sans-serif;
+--font-body:'Satoshi',sans-serif;
+--space-xs:0.25rem;
+--space-sm:0.5rem;
+--space-md:1rem;
+--space-lg:1.5rem;
+--space-xl:2rem;
+--space-2xl:3rem;
+--space-3xl:4rem;
+--space-4xl:6rem;
+--space-5xl:8rem;
+--transition-fast:0.2s cubic-bezier(0.4,0,0.2,1);
+--transition-base:0.3s cubic-bezier(0.4,0,0.2,1);
+--transition-slow:0.6s cubic-bezier(0.4,0,0.2,1);
+--transition-spring:0.8s cubic-bezier(0.34,1.56,0.64,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);background:var(--navy);color:var(--cream);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:600;line-height:1.1}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{font-family:var(--font-body);cursor:pointer;border:none;background:none}
+ul{list-style:none}
+.container{width:100%;max-width:1400px;margin:0 auto;padding:0 var(--space-xl)}
+@media(max-width:768px){.container{padding:0 var(--space-md)}}
+.preloader{position:fixed;inset:0;z-index:10000;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:var(--space-lg);transition:opacity 0.6s ease,visibility 0.6s ease}
+.preloader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.preloader-logo{font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:700;color:var(--gold);letter-spacing:0.1em;opacity:0;animation:preloaderFadeIn 0.8s ease forwards}
+.preloader-bar{width:200px;height:2px;background:var(--navy-mid);border-radius:2px;overflow:hidden}
+.preloader-bar::after{content:'';display:block;width:100%;height:100%;background:var(--gold);transform:translateX(-100%);animation:preloaderSlide 1.5s ease-in-out forwards}
+@keyframes preloaderFadeIn{to{opacity:1}}
+@keyframes preloaderSlide{to{transform:translateX(0)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:var(--space-lg) 0;transition:all var(--transition-base)}
+nav.scrolled{background:rgba(10,22,40,0.95);backdrop-filter:blur(20px);padding:var(--space-md) 0;border-bottom:1px solid rgba(201,168,76,0.1)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);letter-spacing:0.05em;transition:var(--transition-fast)}
+.nav-logo:hover{color:var(--gold-light)}
+.nav-links{display:flex;align-items:center;gap:var(--space-2xl)}
+.nav-links a{font-size:0.875rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-secondary);transition:var(--transition-fast);position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:var(--transition-base)}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--gold);color:var(--navy);padding:var(--space-sm) var(--space-xl);font-weight:700;font-size:0.875rem;letter-spacing:0.05em;text-transform:uppercase;transition:var(--transition-base);border:1px solid var(--gold)}
+.nav-cta:hover{background:transparent;color:var(--gold)}
+.nav-cta::after{display:none !important}
+.nav-toggle{display:none;flex-direction:column;gap:5px;width:30px;cursor:pointer;padding:5px 0}
+.nav-toggle span{width:100%;height:2px;background:var(--cream);transition:var(--transition-base)}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:900px){
+.nav-links{position:fixed;top:0;right:-100%;width:80%;max-width:400px;height:100vh;background:var(--navy);flex-direction:column;justify-content:center;gap:var(--space-2xl);transition:var(--transition-slow);border-left:1px solid rgba(201,168,76,0.1)}
+.nav-links.active{right:0}
+.nav-links a{font-size:1.125rem}
+.nav-toggle{display:flex}
+}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);animation:heroZoom 20s ease-in-out infinite alternate}
+@keyframes heroZoom{0%{transform:scale(1.1)}100%{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,22,40,0.92) 0%,rgba(10,22,40,0.7) 50%,rgba(10,22,40,0.85) 100%)}
+.hero-grain{position:absolute;inset:0;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:2;padding:var(--space-5xl) 0}
+.hero-badge{display:inline-flex;align-items:center;gap:var(--space-sm);background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);padding:var(--space-sm) var(--space-lg);font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--space-2xl);opacity:0;transform:translateY(20px);animation:heroReveal 0.8s ease 1.8s forwards}
+.hero-badge i{font-size:0.625rem}
+.hero-title{font-size:clamp(3rem,8vw,7rem);font-weight:700;line-height:0.95;margin-bottom:var(--space-xl)}
+.hero-title .line{display:block;overflow:hidden}
+.hero-title .line span{display:inline-block;opacity:0;transform:translateY(100%);animation:heroRevealLine 1s ease forwards}
+.hero-title .line:nth-child(1) span{animation-delay:2s}
+.hero-title .line:nth-child(2) span{animation-delay:2.15s}
+.hero-title .line:nth-child(3) span{animation-delay:2.3s}
+.hero-title .gold{color:var(--gold)}
+@keyframes heroRevealLine{to{opacity:1;transform:translateY(0)}}
+@keyframes heroReveal{to{opacity:1;transform:translateY(0)}}
+.hero-subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--text-secondary);max-width:550px;margin-bottom:var(--space-2xl);line-height:1.7;opacity:0;transform:translateY(20px);animation:heroReveal 0.8s ease 2.5s forwards}
+.hero-actions{display:flex;gap:var(--space-lg);flex-wrap:wrap;opacity:0;transform:translateY(20px);animation:heroReveal 0.8s ease 2.7s forwards}
+.btn-primary{background:var(--gold);color:var(--navy);padding:var(--space-lg) var(--space-2xl);font-weight:700;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;transition:var(--transition-base);display:inline-flex;align-items:center;gap:var(--space-sm);border:1px solid var(--gold)}
+.btn-primary:hover{background:transparent;color:var(--gold)}
+.btn-secondary{background:transparent;color:var(--cream);padding:var(--space-lg) var(--space-2xl);font-weight:700;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;transition:var(--transition-base);display:inline-flex;align-items:center;gap:var(--space-sm);border:1px solid rgba(245,240,232,0.3)}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+.hero-scroll{position:absolute;bottom:var(--space-2xl);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:var(--space-sm);color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0;animation:heroReveal 0.8s ease 3s forwards}
+.hero-scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.5)}50%{opacity:1;transform:scaleY(1)}}
+section{padding:var(--space-5xl) 0}
+.section-header{margin-bottom:var(--space-4xl)}
+.section-label{display:inline-flex;align-items:center;gap:var(--space-sm);font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--space-lg)}
+.section-label::before{content:'';width:40px;height:1px;background:var(--gold)}
+.section-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.05;margin-bottom:var(--space-lg)}
+.section-desc{font-size:1.0625rem;color:var(--text-secondary);max-width:600px;line-height:1.7}
+.about{background:var(--navy)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4xl);align-items:center}
+.about-visual{position:relative}
+.about-image{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid rgba(201,168,76,0.2)}
+.about-accent{position:absolute;bottom:-20px;right:-20px;width:200px;height:200px;border:1px solid rgba(201,168,76,0.2);z-index:-1}
+.about-accent-2{position:absolute;top:-20px;left:-20px;width:100px;height:100px;background:rgba(201,168,76,0.05);z-index:-1}
+.about-content{padding:var(--space-xl) 0}
+.about-text{font-size:1.0625rem;color:var(--text-secondary);line-height:1.8;margin-bottom:var(--space-2xl)}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-xl)}
+.about-stat{text-align:left;padding-top:var(--space-lg);border-top:1px solid rgba(201,168,76,0.2)}
+.about-stat-number{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--gold);line-height:1}
+.about-stat-label{font-size:0.8125rem;color:var(--text-secondary);margin-top:var(--space-sm);letter-spacing:0.02em}
+@media(max-width:900px){
+.about-grid{grid-template-columns:1fr;gap:var(--space-2xl)}
+.about-visual{order:-1}
+.about-image{aspect-ratio:16/10}
+}
+.services{background:var(--navy-light);position:relative;overflow:hidden}
+.services::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(to left,rgba(201,168,76,0.02),transparent);pointer-events:none}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-xl)}
+.service-card{background:rgba(10,22,40,0.6);border:1px solid rgba(201,168,76,0.1);padding:var(--space-2xl);transition:var(--transition-slow);position:relative;overflow:hidden;cursor:pointer}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(to right,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:var(--transition-slow)}
+.service-card::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(201,168,76,0.05),transparent);opacity:0;transition:var(--transition-slow)}
+.service-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card:hover::after{opacity:1}
+.service-icon{width:60px;height:60px;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);margin-bottom:var(--space-xl);font-size:1.25rem;color:var(--gold);transition:var(--transition-base);position:relative;z-index:1}
+.service-card:hover .service-icon{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.service-title{font-family:var(--font-display);font-size:1.25rem;font-weight:600;margin-bottom:var(--space-md);position:relative;z-index:1}
+.service-desc{font-size:0.9375rem;color:var(--text-secondary);line-height:1.7;position:relative;z-index:1}
+.service-link{display:inline-flex;align-items:center;gap:var(--space-sm);margin-top:var(--space-xl);font-size:0.8125rem;font-weight:500;color:var(--gold);letter-spacing:0.05em;text-transform:uppercase;transition:var(--transition-base);position:relative;z-index:1}
+.service-link i{transition:var(--transition-base)}
+.service-card:hover .service-link i{transform:translateX(4px)}
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr}}
+.stats{background:var(--navy);position:relative}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-xl);text-align:center;padding:var(--space-3xl);border:1px solid rgba(201,168,76,0.1);background:rgba(201,168,76,0.02)}
+.stats-item{padding:var(--space-lg)}
+.stats-number{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;color:var(--gold);line-height:1}
+.stats-label{font-size:0.875rem;color:var(--text-secondary);margin-top:var(--space-sm);text-transform:uppercase;letter-spacing:0.1em}
+@media(max-width:768px){.stats-inner{grid-template-columns:repeat(2,1fr);padding:var(--space-xl)}}
+@media(max-width:480px){.stats-inner{grid-template-columns:1fr}}
+.testimonials{background:var(--navy-light);overflow:hidden}
+.testimonials-track{display:flex;gap:var(--space-xl);transition:transform var(--transition-slow)}
+.testimonial-card{min-width:calc(50% - var(--space-xl) / 2);background:var(--navy);border:1px solid rgba(201,168,76,0.1);padding:var(--space-2xl);position:relative;flex-shrink:0}
+.testimonial-card::before{content:'\201C';font-family:var(--font-display);font-size:6rem;color:rgba(201,168,76,0.15);position:absolute;top:var(--space-md);right:var(--space-xl);line-height:1}
+.testimonial-text{font-size:1.0625rem;line-height:1.8;color:var(--text-secondary);margin-bottom:var(--space-xl);position:relative;z-index:1;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:var(--space-md)}
+.testimonial-avatar{width:48px;height:48px;background:var(--navy-mid);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:1.125rem}
+.testimonial-info h4{font-family:var(--font-display);font-size:0.9375rem;font-weight:600}
+.testimonial-info p{font-size:0.8125rem;color:var(--text-secondary)}
+.testimonials-controls{display:flex;gap:var(--space-md);margin-top:var(--space-2xl)}
+.testimonials-btn{width:48px;height:48px;border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;color:var(--gold);transition:var(--transition-base)}
+.testimonials-btn:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+@media(max-width:900px){.testimonial-card{min-width:100%}}
+.contact{background:var(--navy);position:relative}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4xl)}
+.contact-info{padding:var(--space-xl) 0}
+.contact-info-item{display:flex;gap:var(--space-lg);align-items:flex-start;padding:var(--space-xl) 0;border-bottom:1px solid rgba(201,168,76,0.1)}
+.contact-info-item:last-child{border-bottom:none}
+.contact-info-icon{width:48px;height:48px;flex-shrink:0;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1rem}
+.contact-info-text h4{font-family:var(--font-display);font-size:0.875rem;font-weight:600;margin-bottom:var(--space-xs);letter-spacing:0.05em;text-transform:uppercase}
+.contact-info-text p{font-size:0.9375rem;color:var(--text-secondary);line-height:1.6}
+.contact-info-text a{color:var(--text-secondary);transition:var(--transition-fast)}
+.contact-info-text a:hover{color:var(--gold)}
+.contact-form{padding:var(--space-2xl);background:var(--navy-light);border:1px solid rgba(201,168,76,0.1)}
+.form-group{margin-bottom:var(--space-lg)}
+.form-group label{display:block;font-size:0.8125rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:var(--space-sm)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:var(--space-md) var(--space-lg);background:var(--navy);border:1px solid rgba(201,168,76,0.2);color:var(--cream);font-family:var(--font-body);font-size:0.9375rem;transition:var(--transition-fast);outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.1)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(245,240,232,0.3)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-group select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C9A84C' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.form-group select option{background:var(--navy);color:var(--cream)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg)}
+.form-submit{width:100%;padding:var(--space-lg);background:var(--gold);color:var(--navy);font-weight:700;font-size:0.875rem;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--gold);transition:var(--transition-base);cursor:pointer}
+.form-submit:hover{background:transparent;color:var(--gold)}
+.form-submit:disabled{opacity:0.5;cursor:not-allowed}
+.form-message{margin-top:var(--space-md);padding:var(--space-md);font-size:0.875rem;display:none}
+.form-message.success{display:block;background:rgba(46,125,50,0.2);border:1px solid rgba(46,125,50,0.4);color:#81C784}
+.form-message.error{display:block;background:rgba(198,40,40,0.2);border:1px solid rgba(198,40,40,0.4);color:#EF9A9A}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+footer{background:var(--navy-light);border-top:1px solid rgba(201,168,76,0.1)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--space-3xl);padding:var(--space-4xl) 0 var(--space-3xl)}
+.footer-brand h3{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:var(--space-lg)}
+.footer-brand p{font-size:0.9375rem;color:var(--text-secondary);line-height:1.7;max-width:350px}
+.footer-col h4{font-family:var(--font-display);font-size:0.875rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:var(--space-lg);color:var(--cream)}
+.footer-col ul{display:flex;flex-direction:column;gap:var(--space-md)}
+.footer-col ul a{font-size:0.875rem;color:var(--text-secondary);transition:var(--transition-fast)}
+.footer-col ul a:hover{color:var(--gold)}
+.footer-social{display:flex;gap:var(--space-md);margin-top:var(--space-xl)}
+.footer-social a{width:40px;height:40px;border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;color:var(--gold);transition:var(--transition-base);font-size:0.875rem}
+.footer-social a:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding:var(--space-xl) 0;border-top:1px solid rgba(201,168,76,0.1)}
+.footer-bottom p{font-size:0.8125rem;color:var(--text-secondary)}
+.footer-legal{display:flex;gap:var(--space-xl)}
+.footer-legal a{font-size:0.8125rem;color:var(--text-secondary);transition:var(--transition-fast)}
+.footer-legal a:hover{color:var(--gold)}
+@media(max-width:900px){
+.footer-top{grid-template-columns:1fr 1fr;gap:var(--space-2xl)}
+.footer-brand{grid-column:1/-1}
+.footer-bottom{flex-direction:column;gap:var(--space-md);text-align:center}
+}
+@media(max-width:600px){.footer-top{grid-template-columns:1fr}}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+.reveal-delay-5{transition-delay:0.5s}
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
+.hero-bg img{transform:none !important;animation:none !important}
+.reveal{opacity:1;transform:none}
+}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+::selection{background:var(--gold);color:var(--navy)}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--navy-mid);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+</style>
+</head>
+<body>
+<div class="preloader" id="preloader">
+<div class="preloader-logo">BRMG</div>
+<div class="preloader-bar"></div>
+</div>
+<nav id="navbar">
+<div class="container nav-inner">
+<a href="#" class="nav-logo">BRMG</a>
+<div class="nav-links" id="navLinks">
+<a href="#inicio">Início</a>
+<a href="#sobre">Sobre</a>
+<a href="#servicos">Serviços</a>
+<a href="#depoimentos">Depoimentos</a>
+<a href="#contato">Contato</a>
+<a href="#contato" class="nav-cta">Fale Conosco</a>
+</div>
+<div class="nav-toggle" id="navToggle" role="button" aria-label="Menu de navegação" tabindex="0">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</nav>
+<section class="hero" id="inicio">
+<div class="hero-bg">
+<img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1920&q=80" alt="Edifício moderno representando confiança e proteção" loading="eager">
+</div>
+<div class="hero-overlay"></div>
+<div class="hero-grain"></div>
+<div class="hero-content container">
+<div class="hero-badge">
+<i class="fas fa-shield-halved"></i>
+Proteção desde 2005
+</div>
+<h1 class="hero-title">
+<span class="line"><span>Segurança</span></span>
+<span class="line"><span><span class="gold">Sem</span> Limites</span></span>
+<span class="line"><span>Para Seu Futuro</span></span>
+</h1>
+<p class="hero-subtitle">Corretora de seguros e negócios dedicada a oferecer as melhores soluções em proteção para pessoas e empresas em Belo Horizonte e todo o Brasil.</p>
+<div class="hero-actions">
+<a href="#contato" class="btn-primary">Solicitar Cotação <i class="fas fa-arrow-right"></i></a>
+<a href="#servicos" class="btn-secondary">Nossos Serviços <i class="fas fa-chevron-down"></i></a>
+</div>
+</div>
+<div class="hero-scroll">
+<span>Scroll</span>
+<div class="hero-scroll-line"></div>
+</div>
+</section>
+<section class="about" id="sobre">
+<div class="container">
+<div class="about-grid">
+<div class="about-visual reveal">
+<img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80" alt="Escritório profissional BRMG" class="about-image">
+<div class="about-accent"></div>
+<div class="about-accent-2"></div>
+</div>
+<div class="about-content">
+<div class="section-header reveal">
+<span class="section-label">Sobre Nós</span>
+<h2 class="section-title">Quase Duas Décadas<br>de <span style="color:var(--gold)">Confiança</span></h2>
+</div>
+<p class="about-text reveal reveal-delay-1">Desde 2005, a BRMG Corretora de Seguros e Negócios é referência em Belo Horizonte quando o assunto é proteção e planejamento financeiro. Nossa equipe de profissionais qualificados trabalha incansavelmente para encontrar as melhores soluções em seguros para cada perfil de cliente.</p>
+<p class="about-text reveal reveal-delay-2">Acreditamos que a segurança financeira não é um luxo, mas um direito. Por isso, oferecemos assessoria personalizada, comparando as melhores apólices do mercado para garantir que você tenha a cobertura ideal ao menor custo possível.</p>
+<div class="about-stats reveal reveal-delay-3">
+<div class="about-stat">
+<div class="about-stat-number" data-count="19">0</div>
+<div class="about-stat-label">Anos de Mercado</div>
+</div>
+<div class="about-stat">
+<div class="about-stat-number" data-count="15000">0</div>
+<div class="about-stat-label">Clientes Atendidos</div>
+</div>
+<div class="about-stat">
+<div class="about-stat-number" data-count="30">0</div>
+<div class="about-stat-label">Seguradoras Parceiras</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="services" id="servicos">
+<div class="container">
+<div class="section-header reveal">
+<span class="section-label">Nossos Serviços</span>
+<h2 class="section-title">Soluções Completas em<br><span style="color:var(--gold)">Seguros</span></h2>
+<p class="section-desc">Oferecemos uma ampla gama de produtos de seguro para proteger o que mais importa na sua vida.</p>
+</div>
+<div class="services-grid">
+<div class="service-card reveal reveal-delay-1">
+<div class="service-icon"><i class="fas fa-car"></i></div>
+<h3 class="service-title">Seguro Auto</h3>
+<p class="service-desc">Proteção completa para seu veículo contra roubo, colisão, danos por fenômenos naturais e muito mais.</p>
+<a href="#contato" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="service-card reveal reveal-delay-2">
+<div class="service-icon"><i class="fas fa-house"></i></div>
+<h3 class="service-title">Seguro Residencial</h3>
+<p class="service-desc">Segurança para sua casa ou apartamento contra incêndio, roubo, danos elétricos e desastres naturais.</p>
+<a href="#contato" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="service-card reveal reveal-delay-3">
+<div class="service-icon"><i class="fas fa-heart-pulse"></i></div>
+<h3 class="service-title">Plano de Saúde</h3>
+<p class="service-desc">Planos de saúde e odontológicos com as melhores operadoras do mercado, adaptados às suas necessidades.</p>
+<a href="#contato" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="service-card reveal reveal-delay-1">
+<div class="service-icon"><i class="fas fa-building"></i></div>
+<h3 class="service-title">Seguro Empresarial</h3>
+<p class="service-desc">Proteção completa para seu negócio, incluindo responsabilidade civil, quebra de estoque e muito mais.</p>
+<a href="#contato" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="service-card reveal reveal-delay-2">
+<div class="service-icon"><i class="fas fa-heart"></i></div>
+<h3 class="service-title">Seguro de Vida</h3>
+<p class="service-desc">Garanta a tranquilidade da sua família com coberturas por morte, invalidez e doenças graves.</p>
+<a href="#contato" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="service-card reveal reveal-delay-3">
+<div class="service-icon"><i class="fas fa-plane"></i></div>
+<h3 class="service-title">Seguro de Viagem</h3>
+<p class="service-desc">Viaje tranquilo com cobertura médica, cancelamento, extravio de bagagem e assistência 24h.</p>
+<a href="#contato" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</section>
+<section class="stats" id="numeros">
+<div class="container">
+<div class="stats-inner reveal">
+<div class="stats-item">
+<div class="stats-number" data-count="19">0</div>
+<div class="stats-label">Anos de Experiência</div>
+</div>
+<div class="stats-item">
+<div class="stats-number" data-count="15000">0</div>
+<div class="stats-label">Clientes Atendidos</div>
+</div>
+<div class="stats-item">
+<div class="stats-number" data-count="30">0</div>
+<div class="stats-label">Seguradoras Parceiras</div>
+</div>
+<div class="stats-item">
+<div class="stats-number" data-count="98">0</div>
+<div class="stats-label">Satisfação %</div>
+</div>
+</div>
+</div>
+</section>
+<section class="testimonials" id="depoimentos">
+<div class="container">
+<div class="section-header reveal">
+<span class="section-label">Depoimentos</span>
+<h2 class="section-title">O Que Nossos<br><span style="color:var(--gold)">Clientes</span> Dizem</h2>
+</div>
+<div class="testimonials-track" id="testimonialsTrack">
+<div class="testimonial-card">
+<p class="testimonial-text">A BRMG transformou minha experiência com seguros. Profissionais atenciosos que realmente se importam com o cliente. Recomendo de olhos fechados.</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">MC</div>
+<div class="testimonial-info">
+<h4>Maria Clara Souza</h4>
+<p>Empresária</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">Já sou cliente há mais de 10 anos e nunca me decepcionaram. O atendimento é sempre personalizado e as cotações são as melhores do mercado.</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">RL</div>
+<div class="testimonial-info">
+<h4>Roberto Lima</h4>
+<p>Médico</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">Quando precisei acionar meu seguro residencial, a BRMG esteve do meu lado em todo o processo. Profissionalismo e empatia de sobra.</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">AF</div>
+<div class="testimonial-info">
+<h4>Ana Ferreira</h4>
+<p>Arquiteta</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">A assessoria da BRMG me ajudou a encontrar o plano de saúde ideal para minha família. Economizei muito e tenho cobertura completa.</p>
+<div class="testimonial-author">
+<div class="testimonial-avatar">PS</div>
+<div class="testimonial-info">
+<h4>Pedro Santos</h4>
+<p>Engenheiro</p>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonials-controls">
+<button class="testimonials-btn" id="prevBtn" aria-label="Depoimento anterior"><i class="fas fa-arrow-left"></i></button>
+<button class="testimonials-btn" id="nextBtn" aria-label="Próximo depoimento"><i class="fas fa-arrow-right"></i></button>
+</div>
+</div>
+</section>
+<section class="contact" id="contato">
+<div class="container">
+<div class="section-header reveal">
+<span class="section-label">Contato</span>
+<h2 class="section-title">Fale <span style="color:var(--gold)">Conosco</span></h2>
+<p class="section-desc">Estamos prontos para ajudar você a encontrar a melhor solução em seguros.</p>
+</div>
+<div class="contact-grid">
+<div class="contact-info reveal">
+<div class="contact-info-item">
+<div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+<div class="contact-info-text">
+<h4>Telefone</h4>
+<p><a href="tel:+5531983186929">(31) 98318-6929</a></p>
+<p><a href="tel:+5531998905860">(31) 99890-5860</a></p>
+</div>
+</div>
+<div class="contact-info-item">
+<div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+<div class="contact-info-text">
+<h4>E-mail</h4>
+<p><a href="mailto:andrealvim@brmgseguros.com.br">andrealvim@brmgseguros.com.br</a></p>
+</div>
+</div>
+<div class="contact-info-item">
+<div class="contact-info-icon"><i class="fas fa-location-dot"></i></div>
+<div class="contact-info-text">
+<h4>Endereço</h4>
+<p>Av. Raja Gabaglia 2000 Sala 234<br>Torre 1 Estoril<br>Belo Horizonte - MG</p>
+</div>
+</div>
+<div class="contact-info-item">
+<div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+<div class="contact-info-text">
+<h4>Horário</h4>
+<p>Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</p>
+</div>
+</div>
+</div>
+<div class="contact-form reveal reveal-delay-2">
+<form id="contactForm">
+<div class="form-row">
+<div class="form-group">
+<label for="name">Nome Completo</label>
+<input type="text" id="name" name="name" placeholder="Seu nome" required>
+</div>
+<div class="form-group">
+<label for="email">E-mail</label>
+<input type="email" id="email" name="email" placeholder="seu@email.com" required>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="phone">Telefone</label>
+<input type="tel" id="phone" name="phone" placeholder="(31) 99999-9999" required>
+</div>
+<div class="form-group">
+<label for="insurance">Tipo de Seguro</label>
+<select id="insurance" name="insurance" required>
+<option value="">Selecione...</option>
+<option value="auto">Seguro Auto</option>
+<option value="residencial">Seguro Residencial</option>
+<option value="saude">Plano de Saúde</option>
+<option value="empresarial">Seguro Empresarial</option>
+<option value="vida">Seguro de Vida</option>
+<option value="viagem">Seguro de Viagem</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label for="message">Mensagem</label>
+<textarea id="message" name="message" placeholder="Como podemos ajudar?" rows="5"></textarea>
+</div>
+<button type="submit" class="form-submit">Enviar Mensagem <i class="fas fa-paper-plane"></i></button>
+<div class="form-message" id="formMessage"></div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="container">
+<div class="footer-top">
+<div class="footer-brand">
+<h3>BRMG</h3>
+<p>Corretora de Seguros e Negócios. Protegendo o que mais importa desde 2005 em Belo Horizonte e todo o Brasil.</p>
+<div class="footer-social">
+<a href="https://facebook.com/brmgcorretoradeseguros" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+<a href="https://instagram.com/brmgseguros" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://wa.me/5531983186929" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</div>
+</div>
+<div class="footer-col">
+<h4>Serviços</h4>
+<ul>
+<li><a href="#servicos">Seguro Auto</a></li>
+<li><a href="#servicos">Seguro Residencial</a></li>
+<li><a href="#servicos">Plano de Saúde</a></li>
+<li><a href="#servicos">Seguro Empresarial</a></li>
+<li><a href="#servicos">Seguro de Vida</a></li>
+<li><a href="#servicos">Seguro de Viagem</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Empresa</h4>
+<ul>
+<li><a href="#sobre">Sobre Nós</a></li>
+<li><a href="#depoimentos">Depoimentos</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Contato</h4>
+<ul>
+<li><a href="tel:+5531983186929">(31) 98318-6929</a></li>
+<li><a href="tel:+5531998905860">(31) 99890-5860</a></li>
+<li><a href="mailto:andrealvim@brmgseguros.com.br">andrealvim@brmgseguros.com.br</a></li>
+<li><a href="#">Av. Raja Gabaglia 2000<br>Sala 234 Torre 1<br>Estoril BH/MG</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2025 BRMG Corretora de Seguros & Negócios. Todos os direitos reservados.</p>
+<div class="footer-legal">
+<a href="#">Política de Privacidade</a>
+<a href="#">Termos de Uso</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+(function(){
+var preloader=document.getElementById("preloader");
+window.addEventListener("load",function(){
+setTimeout(function(){preloader.classList.add("hidden")},1800)
+});
+setTimeout(function(){preloader.classList.add("hidden")},3000);
+
+var navbar=document.getElementById("navbar");
+window.addEventListener("scroll",function(){
+if(window.scrollY>50){navbar.classList.add("scrolled")}else{navbar.classList.remove("scrolled")}
+});
+
+var navToggle=document.getElementById("navToggle");
+var navLinks=document.getElementById("navLinks");
+navToggle.addEventListener("click",function(){
+navToggle.classList.toggle("active");
+navLinks.classList.toggle("active")
+});
+document.querySelectorAll(".nav-links a").forEach(function(link){
+link.addEventListener("click",function(){
+navToggle.classList.remove("active");
+navLinks.classList.remove("active")
+})
+});
+
+var revealElements=document.querySelectorAll(".reveal");
+var revealObserver=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){entry.target.classList.add("visible");revealObserver.unobserve(entry.target)}
+})
+},{threshold:0.15,rootMargin:"0px 0px -50px 0px"});
+revealElements.forEach(function(el){revealObserver.observe(el)});
+
+function animateCount(el){
+var target=parseInt(el.getAttribute("data-count"));
+var duration=2000;
+var startTime=null;
+function step(timestamp){
+if(!startTime)startTime=timestamp;
+var progress=Math.min((timestamp-startTime)/duration,1);
+var eased=1-Math.pow(1-progress,3);
+var current=Math.floor(eased*target);
+if(target>=1000){
+el.textContent=current.toLocaleString("pt-BR")
+}else{
+el.textContent=current
+}
+if(progress<1){requestAnimationFrame(step)}else{
+if(target>=1000){el.textContent=target.toLocaleString("pt-BR")+"+"}
+else if(target===98){el.textContent=target+"%"}
+else{el.textContent=target+"+"}
+}
+}
+requestAnimationFrame(step)
+}
+
+var statsElements=document.querySelectorAll("[data-count]");
+var statsObserver=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){
+var el=entry.target;
+animateCount(el);
+statsObserver.unobserve(el)
+}
+})
+},{threshold:0.5});
+statsElements.forEach(function(el){statsObserver.observe(el)});
+
+var track=document.getElementById("testimonialsTrack");
+var prevBtn=document.getElementById("prevBtn");
+var nextBtn=document.getElementById("nextBtn");
+var currentIndex=0;
+var cards=track.querySelectorAll(".testimonial-card");
+var cardWidth=0;
+var gap=32;
+
+function updateCardWidth(){
+var containerWidth=track.parentElement.offsetWidth;
+var visibleCards=window.innerWidth>900?2:1;
+cardWidth=(containerWidth-gap*(visibleCards-1))/visibleCards;
+cards.forEach(function(card){card.style.minWidth=cardWidth+"px"})
+}
+
+function moveTestimonials(){
+var offset=currentIndex*(cardWidth+gap);
+track.style.transform="translateX(-"+offset+"px)"
+}
+
+nextBtn.addEventListener("click",function(){
+var visibleCards=window.innerWidth>900?2:1;
+var maxIndex=cards.length-visibleCards;
+if(currentIndex<maxIndex){currentIndex++}else{currentIndex=0}
+moveTestimonials()
+});
+
+prevBtn.addEventListener("click",function(){
+if(currentIndex>0){currentIndex--}
+else{var visibleCards=window.innerWidth>900?2:1;currentIndex=cards.length-visibleCards}
+moveTestimonials()
+});
+
+updateCardWidth();
+window.addEventListener("resize",function(){updateCardWidth();moveTestimonials()});
+
+var form=document.getElementById("contactForm");
+var formMessage=document.getElementById("formMessage");
+
+form.addEventListener("submit",function(e){
+e.preventDefault();
+var name=document.getElementById("name").value.trim();
+var email=document.getElementById("email").value.trim();
+var phone=document.getElementById("phone").value.trim();
+var insurance=document.getElementById("insurance").value;
+var message=document.getElementById("message").value.trim();
+
+if(!name||!email||!phone||!insurance){
+formMessage.textContent="Por favor, preencha todos os campos obrigatórios.";
+formMessage.className="form-message error";
+return
+}
+
+var emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if(!emailRegex.test(email)){
+formMessage.textContent="Por favor, insira um e-mail válido.";
+formMessage.className="form-message error";
+return
+}
+
+var phoneClean=phone.replace(/\D/g,"");
+if(phoneClean.length<10){
+formMessage.textContent="Por favor, insira um telefone válido.";
+formMessage.className="form-message error";
+return
+}
+
+formMessage.textContent="Mensagem enviada com sucesso! Entraremos em contato em breve.";
+formMessage.className="form-message success";
+form.reset();
+setTimeout(function(){formMessage.className="form-message"},5000)
+});
+
+var phoneInput=document.getElementById("phone");
+phoneInput.addEventListener("input",function(e){
+var value=e.target.value.replace(/\D/g,"");
+if(value.length>0){
+if(value.length<=2){value="("+value}
+else if(value.length<=7){value="("+value.substring(0,2)+") "+value.substring(2)}
+else if(value.length<=11){value="("+value.substring(0,2)+") "+value.substring(2,7)+"-"+value.substring(7)}
+else{value="("+value.substring(0,2)+") "+value.substring(2,7)+"-"+value.substring(7,11)}
+}
+e.target.value=value
+});
+})();
+</script>
+</body>
+</html>
