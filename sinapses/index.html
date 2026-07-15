@@ -222,22 +222,57 @@
       border-color: var(--violet-light);
       background: rgba(124,58,237,0.08);
     }
-    .hero-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      text-align: right;
+    /* ===== PROOF STRIP ===== */
+    .proof-strip {
+      padding: 4.5rem 4vw;
+      background: var(--dark-2);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
     }
-    .hero-stat .num {
+    .proof-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    .proof-stat {
+      text-align: center;
+      padding: 2rem 1rem;
+      position: relative;
+    }
+    .proof-stat:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 60%;
+      background: linear-gradient(to bottom, transparent, rgba(124,58,237,0.3), transparent);
+    }
+    .proof-stat .number {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem; font-weight: 400;
-      background: linear-gradient(135deg, var(--violet-light), var(--teal-light));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-size: clamp(2.8rem, 4vw, 3.8rem);
+      font-weight: 400;
       line-height: 1;
+      background: linear-gradient(135deg, var(--violet-light) 0%, var(--teal-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
     }
-    .hero-stat .label {
-      font-size: 0.75rem; color: var(--text-3);
-      letter-spacing: 0.06em; margin-top: 0.2rem;
+    .proof-stat .stat-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+    .proof-stat .stat-sub {
+      font-size: 0.7rem;
+      color: var(--text-3);
+      opacity: 0.6;
+      margin-top: 0.3rem;
     }
 
     @keyframes pulse {
@@ -697,7 +732,6 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .hero-content { grid-template-columns: 1fr; }
-      .hero-stats { flex-direction: row; text-align: left; gap: 2.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .service-card.featured { grid-column: span 2; }
@@ -712,7 +746,8 @@
       .team-grid { grid-template-columns: 1fr; }
       .testimonial-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
-      .hero-stats { flex-direction: column; gap: 1.5rem; }
+      .proof-strip-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .proof-stat:not(:last-child)::after { display: none; }
       .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
       .cursor, .cursor-follower { display: none; }
     }
@@ -758,22 +793,29 @@
         <a href="#services" class="btn btn-outline">Ver Especialidades</a>
       </div>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="num">7+</div>
-        <div class="label">Especialidades</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num">1000+</div>
-        <div class="label">Pacientes</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num">9 anos</div>
-        <div class="label">de Atuação</div>
-      </div>
-    </div>
   </div>
 </section>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-strip-inner">
+    <div class="proof-stat reveal reveal-d1">
+      <div class="number">7+</div>
+      <div class="stat-label">Especialidades</div>
+      <div class="stat-sub">Áreas da saúde mental</div>
+    </div>
+    <div class="proof-stat reveal reveal-d2">
+      <div class="number">1000+</div>
+      <div class="stat-label">Pacientes Atendidos</div>
+      <div class="stat-sub">Vidas transformadas</div>
+    </div>
+    <div class="proof-stat reveal reveal-d3">
+      <div class="number">9</div>
+      <div class="stat-label">Anos de Atuação</div>
+      <div class="stat-sub">Experiência comprovada</div>
+    </div>
+  </div>
+</div>
 
 <!-- MARQUEE -->
 <div class="marquee">
