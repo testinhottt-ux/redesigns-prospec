@@ -7,264 +7,249 @@
 <meta name="description" content="Clínica oncológica especializada em Sete Lagoas. Oncologia clínica, cirúrgica, radioterapia, quimioterapia e cuidados paliativos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
---navy:#13232f;
---navy-deep:#0d1a23;
---navy-mid:#1a2e3d;
---teal:#223645;
---teal-light:#2c4a5c;
+--primary:#13232f;
+--theme:#223645;
+--blue:#364c88;
+--blue-light:#3d5a9e;
 --green:#8fb569;
 --green-bright:#a3c97d;
---green-dark:#6d9444;
---green-muted:rgba(143,181,105,0.12);
---cream:#FAF8F5;
---white:#FFFFFF;
---text:#1a1a1a;
---text-secondary:#4a5568;
---text-muted:#718096;
---text-light:#a0aec0;
---border:rgba(0,0,0,0.06);
---shadow-sm:0 1px 3px rgba(0,0,0,0.04);
---shadow-md:0 4px 20px rgba(0,0,0,0.06);
---shadow-lg:0 12px 40px rgba(0,0,0,0.08);
---shadow-xl:0 24px 60px rgba(0,0,0,0.12);
---radius:16px;
---radius-lg:24px;
---transition:cubic-bezier(0.16,1,0.3,1);
+--green-dark:#7aa356;
+--gray:#f4f9fc;
+--text:#647589;
+--heading:#223645;
+--white:#fff;
+--border:#e5ecf3;
 }
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-
-/* ===== CURSOR ===== */
-.cursor{width:16px;height:16px;border:1.5px solid var(--green);border-radius:50%;position:fixed;pointer-events:none;z-index:10000;transition:transform 0.2s var(--transition),background 0.2s ease,opacity 0.2s ease;mix-blend-mode:difference;opacity:0.8}
-.cursor.active{transform:scale(2.8);background:var(--green);border-color:var(--green);opacity:0.4}
+body{font-family:'Rubik',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif;color:var(--heading);font-weight:600;line-height:1.15}
 
 /* ===== REVEAL ===== */
-.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s var(--transition),transform 0.8s var(--transition)}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-d1{transition-delay:0.08s}.reveal-d2{transition-delay:0.16s}.reveal-d3{transition-delay:0.24s}.reveal-d4{transition-delay:0.32s}
+.reveal-d1{transition-delay:0.08s}.reveal-d2{transition-delay:0.16s}.reveal-d3{transition-delay:0.24s}
 
 /* ===== NAV ===== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 3rem;transition:all 0.5s var(--transition)}
-.nav.scrolled{background:rgba(13,26,35,0.97);backdrop-filter:blur(24px) saturate(1.2);padding:0.75rem 3rem;box-shadow:0 1px 0 rgba(143,181,105,0.08)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all 0.4s ease}
+.nav-top{background:var(--primary);padding:0.5rem 3rem;display:flex;justify-content:flex-end;align-items:center;gap:1.5rem}
+.nav-top a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.72rem;font-weight:500;transition:color 0.3s ease}
+.nav-top a:hover{color:var(--green)}
+.nav-top .btn-top{background:var(--blue);color:#fff !important;padding:0.4rem 1.2rem;border-radius:4px;font-size:0.7rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase}
+.nav-top .btn-top:hover{background:var(--green)}
+.nav-main{background:var(--white);padding:0 3rem;transition:all 0.4s ease;box-shadow:0 1px 0 var(--border)}
+.nav.scrolled .nav-main{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
 .nav-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
-.nav-logo-img{height:40px;width:auto;border-radius:6px;transition:transform 0.3s ease}
-.nav-logo:hover .nav-logo-img{transform:scale(1.03)}
-.nav-logo-text{font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;letter-spacing:0.02em;white-space:nowrap}
-.nav-logo-text em{color:var(--green);font-style:normal}
-.nav-links{display:flex;align-items:center;gap:2.25rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.3s ease;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--green);transition:width 0.4s var(--transition)}
-.nav-links a:hover{color:#fff}
-.nav-links a:hover::after{width:100%}
-.nav-cta{background:var(--green);color:#fff !important;padding:0.55rem 1.4rem;border-radius:100px;font-weight:600 !important;transition:all 0.35s var(--transition) !important}
-.nav-cta::after{display:none !important}
-.nav-cta:hover{background:var(--green-dark);transform:translateY(-1px);box-shadow:0 8px 24px rgba(143,181,105,0.25)}
-.mobile-toggle{display:none;width:26px;height:18px;flex-direction:column;justify-content:space-between;cursor:pointer;position:relative}
-.mobile-toggle span{display:block;width:100%;height:2px;background:#fff;border-radius:2px;transition:0.3s ease;transform-origin:center}
-.mobile-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-.mobile-toggle.active span:nth-child(2){opacity:0}
-.mobile-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.nav-logo{display:flex;align-items:center}
+.nav-logo img{height:52px;width:auto;padding:6px 0}
+.nav-links{display:flex;align-items:center;gap:0;list-style:none}
+.nav-links li{position:relative}
+.nav-links a{color:var(--text);text-decoration:none;font-size:0.85rem;font-weight:500;padding:1.8rem 1.2rem;display:block;transition:color 0.3s ease}
+.nav-links a:hover{color:var(--heading)}
+.nav-links .has-sub::after{content:'\f107';font-family:'Font Awesome 5 Free';font-weight:900;font-size:0.6rem;margin-left:0.4rem;transition:transform 0.3s ease}
+.nav-links .has-sub:hover::after{transform:rotate(180deg)}
+.nav-links .submenu{position:absolute;top:100%;left:0;width:260px;background:var(--white);border-top:3px solid var(--blue);box-shadow:0 8px 30px rgba(0,0,0,0.08);opacity:0;visibility:hidden;transform:translateY(8px);transition:all 0.3s ease;padding:0.75rem 0;z-index:100}
+.nav-links li:hover .submenu{opacity:1;visibility:visible;transform:translateY(0)}
+.submenu li a{padding:0.6rem 1.5rem !important;font-size:0.82rem !important;display:block;border-bottom:1px solid var(--border)}
+.submenu li:last-child a{border-bottom:none}
+.submenu li a:hover{color:var(--blue) !important;background:var(--gray)}
+.nav-cta{margin-left:1rem}
+.nav-cta a{background:var(--green) !important;color:#fff !important;border-radius:30px;padding:0.65rem 1.6rem !important;font-weight:600 !important;letter-spacing:0.02em;transition:all 0.3s ease !important}
+.nav-cta a:hover{background:var(--green-dark) !important;transform:translateY(-1px);box-shadow:0 6px 20px rgba(143,181,105,0.3)}
+.mobile-toggle{display:none;width:28px;height:20px;flex-direction:column;justify-content:space-between;cursor:pointer}
+.mobile-toggle span{display:block;width:100%;height:2.5px;background:var(--heading);border-radius:2px;transition:0.3s ease}
 
 /* ===== HERO ===== */
-.hero{height:100vh;min-height:700px;position:relative;display:flex;align-items:center;overflow:hidden}
-.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease}
+.hero{min-height:900px;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
 .hero-slide.active{opacity:1}
-.hero-slide-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05);transition:transform 8s ease}
+.hero-slide-bg{position:absolute;inset:0;background-size:cover;background-position:center top;transform:scale(1.04);transition:transform 8s ease-out}
 .hero-slide.active .hero-slide-bg{transform:scale(1)}
-.hero-slide-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,26,35,0.92) 0%,rgba(26,46,61,0.7) 40%,rgba(13,26,35,0.5) 100%)}
+.hero-slide-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(19,35,47,0.88) 0%,rgba(34,54,69,0.55) 50%,rgba(19,35,47,0.35) 100%)}
 .hero-content{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:0 3rem;width:100%}
-.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 1rem;background:rgba(143,181,105,0.1);border:1px solid rgba(143,181,105,0.2);border-radius:100px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:2rem;backdrop-filter:blur(8px)}
-.hero-badge-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
-.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(3.2rem,6.5vw,5.8rem);font-weight:400;color:#fff;line-height:1.02;letter-spacing:-0.02em;max-width:720px;margin-bottom:1.5rem}
+.hero h5{font-family:'Rubik',sans-serif;font-weight:500;color:rgba(255,255,255,0.6);font-size:1rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.8rem,5.5vw,4.5rem);color:#fff;margin-bottom:1.25rem;letter-spacing:-1.5px}
 .hero h1 em{font-style:italic;color:var(--green)}
-.hero-desc{font-size:1.05rem;color:rgba(255,255,255,0.55);max-width:500px;line-height:1.8;margin-bottom:2.5rem;font-weight:300}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 2rem;border-radius:100px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.4s var(--transition);border:none;cursor:pointer;letter-spacing:0.02em}
-.btn-green{background:var(--green);color:#fff;box-shadow:0 4px 16px rgba(143,181,105,0.2)}
-.btn-green:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 12px 36px rgba(143,181,105,0.3)}
-.btn-ghost{border:1px solid rgba(255,255,255,0.2);color:#fff;background:rgba(255,255,255,0.03);backdrop-filter:blur(8px)}
-.btn-ghost:hover{border-color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.08)}
-.hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.75rem;z-index:3}
-.hero-scroll-text{font-size:0.65rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35)}
-.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--green),transparent);animation:scrollPulse 2s ease infinite}
-@keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
-.hero-nav{position:absolute;bottom:3rem;right:3rem;display:flex;gap:0.5rem;z-index:3}
-.hero-nav-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);cursor:pointer;transition:all 0.4s var(--transition);border:none;padding:0}
-.hero-nav-dot.active{background:var(--green);width:24px;border-radius:4px}
+.hero-desc{font-size:1rem;color:rgba(255,255,255,0.55);max-width:480px;line-height:1.75;margin-bottom:2rem;font-weight:300}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 2rem;border-radius:30px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.35s ease;border:none;cursor:pointer;font-family:'Rubik',sans-serif;letter-spacing:0.3px}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--green);color:#fff;transform:translateY(-2px);box-shadow:0 10px 30px rgba(54,76,136,0.25)}
+.btn-icon{border-radius:30px;padding-left:3.5rem;position:relative}
+.btn-icon span{position:absolute;left:0.35rem;top:50%;transform:translateY(-50%);width:38px;height:38px;line-height:38px;text-align:center;background:#fff;color:var(--heading);border-radius:50%;font-size:1.1rem;font-weight:600;transition:all 0.3s ease}
+.btn-icon:hover span{background:var(--green);color:#fff}
+.btn-white-outline{background:transparent;border:2px solid rgba(255,255,255,0.3);color:#fff;border-radius:30px;padding:0.85rem 2rem}
+.btn-white-outline:hover{border-color:#fff;background:rgba(255,255,255,0.1)}
+.hero-nav{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem;z-index:3}
+.hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.25);cursor:pointer;transition:all 0.3s ease;border:none}
+.hero-dot.active{background:var(--green);width:28px;border-radius:5px}
 
 /* ===== MARQUEE ===== */
-.marquee-section{padding:0.9rem 0;background:var(--navy-deep);border-top:1px solid rgba(143,181,105,0.06);overflow:hidden}
+.marquee-section{padding:0.85rem 0;background:var(--primary);overflow:hidden}
 .marquee{display:flex;gap:3rem;animation:marqueeScroll 30s linear infinite;width:max-content}
-.marquee-item{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.25);white-space:nowrap;display:flex;align-items:center;gap:0.75rem;letter-spacing:0.06em;text-transform:uppercase}
-.marquee-item span{width:4px;height:4px;background:var(--green);border-radius:50%;flex-shrink:0}
+.marquee-item{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.2);white-space:nowrap;display:flex;align-items:center;gap:0.75rem;letter-spacing:0.06em;text-transform:uppercase}
+.marquee-item span{width:4px;height:4px;background:var(--green);border-radius:50%}
 @keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ===== ABOUT ===== */
-.about{padding:8rem 3rem;background:var(--white);position:relative}
-.about::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
-.about-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:6rem;align-items:center}
-.about-visual{position:relative}
-.about-img-wrapper{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-xl)}
-.about-img-wrapper img{width:100%;display:block;transition:transform 0.8s var(--transition)}
-.about-img-wrapper:hover img{transform:scale(1.03)}
-.about-badge{position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(13,26,35,0.9);backdrop-filter:blur(12px);border:1px solid rgba(143,181,105,0.2);border-radius:var(--radius);padding:1rem 1.5rem;display:flex;align-items:center;gap:1rem}
-.about-badge-num{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--green);line-height:1}
-.about-badge-text{font-size:0.7rem;font-weight:500;color:rgba(255,255,255,0.7);line-height:1.4;text-transform:uppercase;letter-spacing:0.05em}
-.about-label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
-.about-label::before{content:'';width:20px;height:1.5px;background:var(--green)}
-.about-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;line-height:1.12;color:var(--navy);margin-bottom:1.5rem}
-.about-title em{font-style:italic;color:var(--green)}
-.about-text{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin-bottom:1rem;font-weight:300}
-.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)}
-.about-stat-num{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--navy);line-height:1}
-.about-stat-label{font-size:0.7rem;color:var(--text-muted);margin-top:0.25rem;text-transform:uppercase;letter-spacing:0.06em;font-weight:500}
+.about{padding:7rem 0;background:var(--white)}
+.about-inner{max-width:1320px;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-img-wrap{position:relative}
+.about-img-wrap img{width:100%;border-radius:8px;box-shadow:0 16px 40px rgba(0,0,0,0.1)}
+.about-shape{position:absolute;top:-30px;left:-30px;width:120px;height:120px;border:3px solid var(--green);border-radius:8px;z-index:-1;opacity:0.3}
+.section-tag{font-family:'Rubik',sans-serif;font-size:0.8rem;font-weight:500;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:1rem}
+.section-title{font-size:clamp(2rem,3vw,2.5rem);margin-bottom:1.5rem;color:var(--heading)}
+.about-text{font-size:0.9rem;line-height:1.85;color:var(--text);margin-bottom:1rem}
+.about-list{margin-top:1.5rem;display:flex;flex-direction:column;gap:0.75rem}
+.about-list li{display:flex;align-items:center;gap:0.75rem;font-size:0.88rem;color:var(--text)}
+.about-list li i{color:var(--green);font-size:0.8rem}
 
 /* ===== SERVICES ===== */
-.services{padding:8rem 3rem;background:var(--cream);position:relative}
-.services-inner{max-width:1320px;margin:0 auto}
-.section-header{text-align:center;max-width:600px;margin:0 auto 4.5rem}
-.section-header .about-label{justify-content:center}
-.section-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;color:var(--navy);line-height:1.12}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.service-card{background:var(--white);border-radius:var(--radius-lg);padding:2.5rem 2rem;text-align:center;transition:all 0.5s var(--transition);border:1px solid var(--border);position:relative;overflow:hidden}
-.service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl);border-color:rgba(143,181,105,0.15)}
-.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--teal-light));transform:scaleX(0);transition:transform 0.5s var(--transition);transform-origin:left}
+.services{padding:7rem 0;background:var(--gray)}
+.services-inner{max-width:1320px;margin:0 auto;padding:0 3rem}
+.section-header{text-align:center;max-width:650px;margin:0 auto 4rem}
+.section-header .section-tag{justify-content:center}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.service-card{background:var(--white);border-radius:12px;padding:2.5rem 2rem;text-align:center;transition:all 0.4s ease;border:1px solid var(--border);position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.06);border-color:rgba(143,181,105,0.3)}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transition:transform 0.4s ease;transform-origin:left}
 .service-card:hover::before{transform:scaleX(1)}
-.service-icon{width:60px;height:60px;margin:0 auto 1.5rem;background:var(--green-muted);border-radius:14px;display:flex;align-items:center;justify-content:center;transition:all 0.4s var(--transition)}
-.service-card:hover .service-icon{background:var(--green);transform:scale(1.05)}
-.service-icon img{width:36px;height:36px;object-fit:contain;filter:brightness(0.9);transition:filter 0.4s ease}
+.service-icon{width:72px;height:72px;margin:0 auto 1.5rem;background:var(--gray);border-radius:16px;display:flex;align-items:center;justify-content:center;transition:all 0.4s ease}
+.service-card:hover .service-icon{background:var(--green)}
+.service-icon img{width:40px;height:40px;object-fit:contain;transition:filter 0.4s ease}
 .service-card:hover .service-icon img{filter:brightness(0) invert(1)}
-.service-card h3{font-family:'DM Serif Display',serif;font-size:1.2rem;font-weight:400;color:var(--navy);margin-bottom:0.75rem}
-.service-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.7;font-weight:300}
-.service-link{display:inline-flex;align-items:center;gap:0.375rem;margin-top:1.25rem;font-size:0.78rem;font-weight:600;color:var(--green);text-decoration:none;transition:gap 0.3s var(--transition)}
-.service-link:hover{gap:0.75rem}
+.service-card h3{font-size:1.15rem;margin-bottom:0.75rem;color:var(--heading)}
+.service-card p{font-size:0.85rem;color:var(--text);line-height:1.7}
+.service-link{display:inline-flex;align-items:center;gap:0.375rem;margin-top:1.25rem;font-size:0.82rem;font-weight:600;color:var(--green);text-decoration:none;transition:gap 0.3s ease}
+.service-link:hover{gap:0.65rem}
 
 /* ===== TEAM ===== */
-.team{padding:8rem 3rem;background:var(--white);position:relative}
-.team::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
-.team-inner{max-width:1320px;margin:0 auto}
+.team{padding:7rem 0;background:var(--white)}
+.team-inner{max-width:1320px;margin:0 auto;padding:0 3rem}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.team-card{text-align:center;transition:all 0.5s var(--transition);padding:2rem 1rem;border-radius:var(--radius-lg)}
-.team-card:hover{transform:translateY(-6px);background:var(--cream)}
-.team-avatar{width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 1.25rem;border:3px solid var(--cream);box-shadow:var(--shadow-md);transition:all 0.5s var(--transition)}
-.team-card:hover .team-avatar{border-color:var(--green);box-shadow:0 12px 36px rgba(143,181,105,0.15)}
-.team-card .specialty{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:0.35rem}
-.team-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:var(--navy);margin-bottom:0.25rem;line-height:1.3}
-.team-card .crm{font-size:0.72rem;color:var(--text-light);font-weight:400}
-
-/* ===== PROOF STRIP ===== */
-.proof-strip{padding:5rem 3rem;background:var(--navy);position:relative;overflow:hidden}
-.proof-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(143,181,105,0.06) 0%,transparent 60%)}
-.proof-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;gap:3rem;align-items:center}
-.proof-item{text-align:center}
-.proof-num{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5vw,3.5rem);color:var(--green);line-height:1;margin-bottom:0.5rem}
-.proof-label{font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em}
-.proof-divider{width:1px;height:60px;background:rgba(255,255,255,0.08);margin:0 auto}
+.team-card{text-align:center;transition:all 0.4s ease;padding:2rem 1rem;border-radius:12px}
+.team-card:hover{transform:translateY(-4px);background:var(--gray)}
+.team-avatar{width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 1.25rem;border:4px solid var(--gray);box-shadow:0 8px 24px rgba(0,0,0,0.08);transition:all 0.4s ease}
+.team-card:hover .team-avatar{border-color:var(--green);box-shadow:0 12px 32px rgba(143,181,105,0.15)}
+.team-card h6{font-family:'Rubik',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:0.35rem}
+.team-card h3{font-size:1.05rem;margin-bottom:0.2rem;color:var(--heading)}
+.team-card .crm{font-size:0.72rem;color:var(--text)}
 
 /* ===== CTA ===== */
-.cta{padding:8rem 3rem;background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 50%,var(--navy-mid) 100%);position:relative;overflow:hidden}
-.cta::before{content:'ONCOSEVEN';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'DM Serif Display',serif;font-size:clamp(5rem,14vw,13rem);font-weight:400;color:rgba(255,255,255,0.015);white-space:nowrap;pointer-events:none;letter-spacing:0.05em}
-.cta::after{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(143,181,105,0.08) 0%,transparent 70%);pointer-events:none}
-.cta-inner{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.cta-title{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;color:#fff;line-height:1.12;margin-bottom:1.25rem}
-.cta-title em{font-style:italic;color:var(--green)}
-.cta-desc{font-size:1rem;color:rgba(255,255,255,0.5);margin-bottom:2.5rem;line-height:1.75;font-weight:300}
+.cta{padding:6rem 0;background:var(--primary);position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:-150px;right:-150px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(143,181,105,0.08) 0%,transparent 70%)}
+.cta-inner{max-width:700px;margin:0 auto;text-align:center;padding:0 3rem;position:relative;z-index:1}
+.cta h2{font-size:clamp(2rem,3.5vw,2.8rem);color:#fff;margin-bottom:1rem}
+.cta h2 em{font-style:italic;color:var(--green)}
+.cta p{font-size:0.95rem;color:rgba(255,255,255,0.5);margin-bottom:2rem;line-height:1.7}
 
 /* ===== CONTACT ===== */
-.contact{padding:8rem 3rem;background:var(--cream);position:relative}
-.contact::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
-.contact-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem}
-.contact-info{display:flex;flex-direction:column;gap:1rem}
-.contact-card{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--white);border-radius:var(--radius);border:1px solid var(--border);transition:all 0.35s var(--transition)}
-.contact-card:hover{border-color:rgba(143,181,105,0.2);box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.contact-icon{width:42px;height:42px;min-width:42px;background:var(--green-muted);border-radius:11px;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease}
+.contact{padding:7rem 0;background:var(--gray)}
+.contact-inner{max-width:1320px;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-cards{display:flex;flex-direction:column;gap:1rem}
+.contact-card{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--white);border-radius:12px;border:1px solid var(--border);transition:all 0.3s ease}
+.contact-card:hover{border-color:rgba(143,181,105,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.04);transform:translateY(-2px)}
+.contact-icon{width:44px;height:44px;min-width:44px;background:rgba(54,76,136,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease}
 .contact-card:hover .contact-icon{background:var(--green)}
-.contact-icon svg{width:18px;height:18px;stroke:var(--green);fill:none;stroke-width:1.5;transition:stroke 0.3s ease}
-.contact-card:hover .contact-icon svg{stroke:#fff}
-.contact-card h4{font-size:0.82rem;font-weight:600;color:var(--navy);margin-bottom:0.125rem}
-.contact-card p{font-size:0.82rem;color:var(--text-muted);line-height:1.6}
-.contact-map{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);min-height:420px;box-shadow:var(--shadow-md)}
-.contact-map iframe{width:100%;height:100%;border:0;filter:grayscale(0.5) brightness(0.97)}
+.contact-icon i{font-size:0.9rem;color:var(--blue);transition:color 0.3s ease}
+.contact-card:hover .contact-icon i{color:#fff}
+.contact-card h4{font-size:0.85rem;font-weight:600;color:var(--heading);margin-bottom:0.15rem}
+.contact-card p{font-size:0.82rem;color:var(--text);line-height:1.6;margin-bottom:0}
+.contact-map{border-radius:12px;overflow:hidden;border:1px solid var(--border);min-height:400px;box-shadow:0 8px 24px rgba(0,0,0,0.04)}
+.contact-map iframe{width:100%;height:100%;border:0;filter:grayscale(0.4) brightness(0.97)}
 
 /* ===== FOOTER ===== */
-.footer{background:var(--navy-deep);padding:4.5rem 3rem 2rem}
-.footer-inner{max-width:1320px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
-.footer-brand{display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem}
-.footer-brand img{height:36px;border-radius:5px}
-.footer-brand-name{font-family:'DM Serif Display',serif;font-size:1rem;color:#fff}
-.footer-brand-name em{color:var(--green);font-style:normal}
+.footer{background:var(--primary);padding:4rem 0 0}
+.footer-inner{max-width:1320px;margin:0 auto;padding:0 3rem}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+.footer-logo{margin-bottom:1.25rem}
+.footer-logo img{height:44px;width:auto}
 .footer-desc{font-size:0.82rem;color:rgba(255,255,255,0.4);line-height:1.75;max-width:320px}
-.footer h4{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-bottom:1rem}
+.footer h4{font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-bottom:1.25rem}
 .footer ul{list-style:none}
-.footer li{margin-bottom:0.5rem}
+.footer li{margin-bottom:0.6rem}
 .footer a{color:rgba(255,255,255,0.35);text-decoration:none;font-size:0.82rem;transition:color 0.3s ease}
 .footer a:hover{color:var(--green)}
-.footer-bottom{padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;font-size:0.72rem;color:rgba(255,255,255,0.2)}
+.footer-bottom{padding:1.5rem 0;display:flex;justify-content:space-between;align-items:center;font-size:0.72rem;color:rgba(255,255,255,0.2)}
 
 /* ===== WHATSAPP ===== */
-.whatsapp{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:all 0.35s var(--transition);text-decoration:none}
+.whatsapp{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:all 0.35s ease;text-decoration:none}
 .whatsapp:hover{transform:scale(1.1) translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
-.whatsapp svg{width:24px;height:24px;fill:#fff}
+.whatsapp i{color:#fff;font-size:1.4rem}
+
+/* ===== FONT AWESOME ===== */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
 .nav-links{display:none}
 .mobile-toggle{display:flex}
-.about-inner{grid-template-columns:1fr;gap:4rem}
+.nav-top{display:none}
+.about-inner{grid-template-columns:1fr;gap:3rem}
 .services-grid{grid-template-columns:repeat(2,1fr)}
 .team-grid{grid-template-columns:repeat(2,1fr)}
-.proof-inner{grid-template-columns:1fr;gap:2rem}
-.proof-divider{width:60px;height:1px}
 .contact-inner{grid-template-columns:1fr}
 .footer-top{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-.nav{padding:0.9rem 1.5rem}
-.nav.scrolled{padding:0.7rem 1.5rem}
+.nav-main{padding:0 1.5rem}
+.hero{min-height:700px}
 .hero-content{padding:0 1.5rem}
-.about,.services,.team,.cta,.contact{padding:5rem 1.5rem}
+.about,.services,.team,.cta,.contact{padding:4rem 0}
+.about-inner,.services-inner,.team-inner,.cta-inner,.contact-inner,.footer-inner{padding:0 1.5rem}
 .services-grid{grid-template-columns:1fr}
 .team-grid{grid-template-columns:1fr}
-.proof-strip{padding:3.5rem 1.5rem}
-.footer{padding:3rem 1.5rem 1.5rem}
+.footer{padding:3rem 0 0}
 .footer-top{grid-template-columns:1fr}
 .footer-bottom{flex-direction:column;gap:0.75rem;text-align:center}
-.hero-nav{right:1.5rem;bottom:2rem}
+.hero-nav{bottom:2rem}
 }
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
+<div class="nav-top">
+<a href="tel:3132557037"><i class="fas fa-phone-alt"></i> (31) 3255-7037</a>
+<a href="https://api.whatsapp.com/send?phone=553132557037" target="_blank" class="btn-top">Agende uma consulta</a>
+</div>
+<div class="nav-main">
 <div class="nav-inner">
 <a href="#" class="nav-logo">
-<img src="https://oncoseven.com.br/assets/img/logo/logooncoseven.jpg" alt="ONCOSEVEN" class="nav-logo-img">
-<span class="nav-logo-text">ONCO<em>SEVEN</em></span>
+<img src="https://oncoseven.com.br/assets/img/logo/logooncoseven.jpg" alt="ONCOSEVEN">
 </a>
 <ul class="nav-links">
+<li><a href="#home">Início</a></li>
 <li><a href="#sobre">Sobre</a></li>
-<li><a href="#servicos">Departamentos</a></li>
-<li><a href="#equipe">Equipe</a></li>
+<li class="has-sub"><a href="#servicos">Departamentos</a>
+<ul class="submenu">
+<li><a href="https://oncoseven.com.br/departamentos/oncologia_clinica">Oncologia Clínica</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/quimioterapia">Quimioterapia</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/infusoes_nao_oncologicas">Infusões não oncológicas</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/oncologia_cirurgica">Oncologia Cirúrgica</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/radioterapia">Radioterapia</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/cuidados_paliativos">Cuidados Paliativos</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/prevencao">Prevenção</a></li>
+</ul>
+</li>
+<li><a href="https://oncoseven.com.br/informativos">Informativos</a></li>
+<li><a href="#equipe">Corpo Clínico</a></li>
 <li><a href="#contato">Contato</a></li>
-<li><a href="https://api.whatsapp.com/send?phone=553132557037" class="nav-cta" target="_blank">Agendar</a></li>
+<li class="nav-cta"><a href="https://api.whatsapp.com/send?phone=553132557037" target="_blank">+ Agendar</a></li>
 </ul>
 <div class="mobile-toggle" id="mobileToggle">
 <span></span><span></span><span></span>
 </div>
 </div>
+</div>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="hero">
+<section class="hero" id="home">
 <div class="hero-slide active">
 <div class="hero-slide-bg" style="background-image:url('https://oncoseven.com.br/assets/img/slider/slider-bg-1.jpg')"></div>
 </div>
@@ -272,24 +257,19 @@ body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);ov
 <div class="hero-slide-bg" style="background-image:url('https://oncoseven.com.br/assets/img/slider/slider-bg-2in1.jpg')"></div>
 </div>
 <div class="hero-content">
-<div class="hero-badge"><span class="hero-badge-dot"></span>Clínica Oncológica em Sete Lagoas</div>
+<h5>Clínica oncológica especializada</h5>
 <h1>Cuidamos de <em>você.</em></h1>
 <p class="hero-desc">A ONCOSEVEN busca ser a mais completa e resolutiva estrutura na linha de cuidados em câncer na região.</p>
 <div class="hero-actions">
-<a href="https://api.whatsapp.com/send?phone=553132557037" class="btn btn-green" target="_blank">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-Agendar Consulta
+<a href="https://api.whatsapp.com/send?phone=553132557037" class="btn btn-primary btn-icon" target="_blank">
+<span>+</span>Falar com um atendente
 </a>
-<a href="#servicos" class="btn btn-ghost">Nossos Departamentos</a>
+<a href="#servicos" class="btn btn-white-outline">Nossos Departamentos</a>
 </div>
-</div>
-<div class="hero-scroll">
-<span class="hero-scroll-text">Scroll</span>
-<div class="hero-scroll-line"></div>
 </div>
 <div class="hero-nav">
-<button class="hero-nav-dot active" data-slide="0"></button>
-<button class="hero-nav-dot" data-slide="1"></button>
+<button class="hero-dot active" data-slide="0"></button>
+<button class="hero-dot" data-slide="1"></button>
 </div>
 </section>
 
@@ -316,34 +296,21 @@ Agendar Consulta
 <!-- ABOUT -->
 <section class="about" id="sobre">
 <div class="about-inner">
-<div class="about-visual reveal">
-<div class="about-img-wrapper">
+<div class="about-img-wrap reveal">
 <img src="https://oncoseven.com.br/assets/img/about/about1.png" alt="ONCOSEVEN Clínica">
-</div>
-<div class="about-badge">
-<div class="about-badge-num">7+</div>
-<div class="about-badge-text">Especialidades<br>Médicas</div>
-</div>
+<div class="about-shape"></div>
 </div>
 <div>
-<div class="about-label reveal">Sobre a Clínica</div>
-<h2 class="about-title reveal">Humanidade é o que <em>nos move</em></h2>
+<div class="section-tag reveal">Sobre a clínica</div>
+<h2 class="section-title reveal">Humanidade é o que nos move</h2>
 <p class="about-text reveal">Nosso maior objetivo é proporcionar excelência no atendimento, com tratamento multidisciplinar, atenção personalizada, conforto e segurança. Isso sem nunca deixar de lado a humanização e o acolhimento de que cada paciente necessita.</p>
 <p class="about-text reveal">O corpo clínico é composto por profissionais com formação internacional e experiência nos melhores hospitais do Brasil. Além disso, são utilizadas tecnologias e técnicas de vanguarda para os diversos tipos de tratamento do câncer.</p>
-<div class="about-stats reveal">
-<div class="about-stat">
-<div class="about-stat-num">6</div>
-<div class="about-stat-label">Médicos</div>
-</div>
-<div class="about-stat">
-<div class="about-stat-num">2018</div>
-<div class="about-stat-label">Fundação</div>
-</div>
-<div class="about-stat">
-<div class="about-stat-num">100%</div>
-<div class="about-stat-label">Humanizado</div>
-</div>
-</div>
+<ul class="about-list reveal">
+<li><i class="fas fa-check-circle"></i>Tratamento multidisciplinar</li>
+<li><i class="fas fa-check-circle"></i>Profissionais com formação internacional</li>
+<li><i class="fas fa-check-circle"></i>Tecnologias de vanguarda</li>
+<li><i class="fas fa-check-circle"></i>Atenção humanizada e personalizada</li>
+</ul>
 </div>
 </div>
 </section>
@@ -352,7 +319,7 @@ Agendar Consulta
 <section class="services" id="servicos">
 <div class="services-inner">
 <div class="section-header">
-<div class="about-label reveal">Departamentos</div>
+<div class="section-tag reveal">Departamentos</div>
 <h2 class="section-title reveal">Todo o suporte no tratamento oncológico</h2>
 </div>
 <div class="services-grid">
@@ -360,58 +327,38 @@ Agendar Consulta
 <div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/oncologia_clinica.png" alt=""></div>
 <h3>Oncologia Clínica</h3>
 <p>Tratamento medicamentoso dos diversos tipos de câncer com protocolos baseados em evidências científicas.</p>
-<a href="https://oncoseven.com.br/departamentos/oncologia_clinica" class="service-link">Saiba mais →</a>
+<a href="https://oncoseven.com.br/departamentos/oncologia_clinica" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
 </div>
 <div class="service-card reveal reveal-d2">
 <div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/oncologia_cirurgica.png" alt=""></div>
 <h3>Oncologia Cirúrgica</h3>
 <p>Cirurgia oncológica com técnicas de vanguarda, realizada sozinha ou em combinação com outros tratamentos.</p>
-<a href="https://oncoseven.com.br/departamentos/oncologia_cirurgica" class="service-link">Saiba mais →</a>
+<a href="https://oncoseven.com.br/departamentos/oncologia_cirurgica" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
 </div>
 <div class="service-card reveal reveal-d3">
 <div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/raiox.png" alt=""></div>
 <h3>Radioterapia</h3>
 <p>Especialidade médica que utiliza radiação para tratamento oncológico, em conjunto com cirurgia e oncologia clínica.</p>
-<a href="https://oncoseven.com.br/departamentos/radioterapia" class="service-link">Saiba mais →</a>
+<a href="https://oncoseven.com.br/departamentos/radioterapia" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
 </div>
 <div class="service-card reveal reveal-d1">
 <div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/quimioterapia.png" alt=""></div>
 <h3>Quimioterapia</h3>
 <p>Tratamento com medicamentos para combater as células doentes, com protocolos personalizados para cada paciente.</p>
-<a href="https://oncoseven.com.br/departamentos/quimioterapia" class="service-link">Saiba mais →</a>
+<a href="https://oncoseven.com.br/departamentos/quimioterapia" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
 </div>
 <div class="service-card reveal reveal-d2">
 <div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/paliativos.png" alt=""></div>
 <h3>Cuidados Paliativos</h3>
 <p>Foco na pessoa e não na doença, tratando e controlando sintomas para melhorar a qualidade de vida.</p>
-<a href="https://oncoseven.com.br/departamentos/cuidados_paliativos" class="service-link">Saiba mais →</a>
+<a href="https://oncoseven.com.br/departamentos/cuidados_paliativos" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
 </div>
 <div class="service-card reveal reveal-d3">
 <div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/prevencao.png" alt=""></div>
 <h3>Prevenção</h3>
 <p>Adoção de uma vida saudável e exames preventivos para detecção precoce do câncer.</p>
-<a href="https://oncoseven.com.br/departamentos/prevencao" class="service-link">Saiba mais →</a>
+<a href="https://oncoseven.com.br/departamentos/prevencao" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
 </div>
-</div>
-</div>
-</section>
-
-<!-- PROOF STRIP -->
-<section class="proof-strip">
-<div class="proof-inner">
-<div class="proof-item reveal">
-<div class="proof-num">7+</div>
-<div class="proof-label">Especialidades</div>
-</div>
-<div class="proof-divider"></div>
-<div class="proof-item reveal reveal-d1">
-<div class="proof-num">6</div>
-<div class="proof-label">Médicos</div>
-</div>
-<div class="proof-divider"></div>
-<div class="proof-item reveal reveal-d2">
-<div class="proof-num">2018</div>
-<div class="proof-label">Fundação</div>
 </div>
 </div>
 </section>
@@ -420,43 +367,43 @@ Agendar Consulta
 <section class="team" id="equipe">
 <div class="team-inner">
 <div class="section-header">
-<div class="about-label reveal">Corpo Clínico</div>
+<div class="section-tag reveal">Corpo Clínico</div>
 <h2 class="section-title reveal">Especialistas com formação internacional</h2>
 </div>
 <div class="team-grid">
 <div class="team-card reveal reveal-d1">
 <img src="https://oncoseven.com.br/public/imagens/3adaa7fa518afd3f1e3ae36c0a60b963.png" alt="Dr. Alexandre" class="team-avatar">
-<div class="specialty">Cirurgião Oncológico</div>
+<h6>Cirurgião Oncológico</h6>
 <h3>Dr. Alexandre Moreira Guimarães</h3>
 <div class="crm">CRM MG 53.829 – RQE 44.609</div>
 </div>
 <div class="team-card reveal reveal-d2">
 <img src="https://oncoseven.com.br/public/imagens/c72cfb85e8f4b87ef4b6ccc81003611c.png" alt="Dra. Bruna" class="team-avatar">
-<div class="specialty">Médica Especialista em Oncologia</div>
+<h6>Médica Especialista em Oncologia</h6>
 <h3>Dra. Bruna Fischer Caldas Andrade</h3>
 <div class="crm">CRM MG 74.986</div>
 </div>
 <div class="team-card reveal reveal-d3">
 <img src="https://oncoseven.com.br/public/imagens/416755b2d78c4b0e660df6d74e3545ca.png" alt="Dra. Luciana" class="team-avatar">
-<div class="specialty">Médica Oncologista Clínica</div>
+<h6>Médica Oncologista Clínica</h6>
 <h3>Dra. Luciana Caetano Botelho Salomão</h3>
 <div class="crm">CRM MG 57.133 - RQE 43.646</div>
 </div>
 <div class="team-card reveal reveal-d1">
 <img src="https://oncoseven.com.br/public/imagens/7540e160018b27d20ee0b36f26d4fbe4.png" alt="Dra. Ellen" class="team-avatar">
-<div class="specialty">Médica Oncologista Clínica</div>
+<h6>Médica Oncologista Clínica</h6>
 <h3>Dra. Ellen Brandão Leite Faria</h3>
 <div class="crm">CRM MG 31.592 - RQE 11.136</div>
 </div>
 <div class="team-card reveal reveal-d2">
 <img src="https://oncoseven.com.br/public/imagens/f4b435b7b2c173616b7b7870ff6a10f7.jpg" alt="Dr. Leonardo" class="team-avatar">
-<div class="specialty">Médico Clínico</div>
+<h6>Médico Clínico</h6>
 <h3>Dr. Leonardo de Souza Nogueira</h3>
 <div class="crm">CRM MG 84.640 – RQE 63.234</div>
 </div>
 <div class="team-card reveal reveal-d3">
 <img src="https://oncoseven.com.br/public/imagens/01ca8cdc86b55d941c262a45b73a5828.jpg" alt="Dr. Camilo" class="team-avatar">
-<div class="specialty">Médico Oncologista Clínico</div>
+<h6>Médico Oncologista Clínico</h6>
 <h3>Dr. Camilo Tupinambá</h3>
 <div class="crm">CRM MG 69.366 – RQE 57.750</div>
 </div>
@@ -467,14 +414,13 @@ Agendar Consulta
 <!-- CTA -->
 <section class="cta">
 <div class="cta-inner">
-<h2 class="cta-title reveal">Agende sua <em>consulta</em> hoje</h2>
-<p class="cta-desc reveal">Nossa equipe está pronta para oferecer o melhor atendimento oncológico com humanidade e excelência.</p>
+<h2 class="reveal">Agende sua <em>consulta</em> hoje</h2>
+<p class="reveal">Nossa equipe está pronta para oferecer o melhor atendimento oncológico com humanidade e excelência.</p>
 <div class="hero-actions reveal" style="justify-content:center">
-<a href="https://api.whatsapp.com/send?phone=553132557037" class="btn btn-green" target="_blank">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-Agendar pelo WhatsApp
+<a href="https://api.whatsapp.com/send?phone=553132557037" class="btn btn-primary btn-icon" target="_blank">
+<span>+</span>Agendar pelo WhatsApp
 </a>
-<a href="tel:3132557037" class="btn btn-ghost">Ligar: (31) 3255-7037</a>
+<a href="tel:3132557037" class="btn btn-white-outline">Ligar: (31) 3255-7037</a>
 </div>
 </div>
 </section>
@@ -483,31 +429,23 @@ Agendar pelo WhatsApp
 <section class="contact" id="contato">
 <div class="contact-inner">
 <div>
-<div class="about-label reveal">Contato</div>
+<div class="section-tag reveal">Contato</div>
 <h2 class="section-title reveal" style="margin-bottom:2rem">Entre em contato conosco</h2>
-<div class="contact-info">
+<div class="contact-cards">
 <div class="contact-card reveal">
-<div class="contact-icon">
-<svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-</div>
+<div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
 <div><h4>Telefone / WhatsApp</h4><p>(31) 3255-7037</p></div>
 </div>
 <div class="contact-card reveal">
-<div class="contact-icon">
-<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-</div>
+<div class="contact-icon"><i class="fas fa-envelope"></i></div>
 <div><h4>E-mail</h4><p>oncoseven@oncoseven.com.br</p></div>
 </div>
 <div class="contact-card reveal">
-<div class="contact-icon">
-<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-</div>
+<div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
 <div><h4>Endereço</h4><p>R. João Anastácio, 50 - Chácara do Paiva<br>Sete Lagoas - MG</p></div>
 </div>
 <div class="contact-card reveal">
-<div class="contact-icon">
-<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-</div>
+<div class="contact-icon"><i class="far fa-clock"></i></div>
 <div><h4>Horário</h4><p>Seg a Sex: 7h - 18h<br>Sábado: 7h - 12h</p></div>
 </div>
 </div>
@@ -523,9 +461,8 @@ Agendar pelo WhatsApp
 <div class="footer-inner">
 <div class="footer-top">
 <div>
-<div class="footer-brand">
+<div class="footer-logo">
 <img src="https://oncoseven.com.br/assets/img/logo/footer-logo2.png" alt="ONCOSEVEN">
-<span class="footer-brand-name">ONCO<em>SEVEN</em></span>
 </div>
 <p class="footer-desc">A clínica ONCOSEVEN foi inaugurada em 2018. Buscamos ser a mais completa e resolutiva estrutura na linha de cuidados em câncer na região.</p>
 </div>
@@ -559,33 +496,29 @@ Agendar pelo WhatsApp
 </footer>
 
 <a href="https://api.whatsapp.com/send?phone=553132557037" class="whatsapp" target="_blank">
-<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
 (function(){
-var cursor=document.getElementById('cursor');
-document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX-8+'px';cursor.style.top=e.clientY-8+'px'});
-document.querySelectorAll('a,.service-card,.team-card').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('active')});el.addEventListener('mouseleave',function(){cursor.classList.remove('active')})});
-
 var nav=document.getElementById('nav');
-window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60)});
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>50)});
 
 var slides=document.querySelectorAll('.hero-slide');
-var dots=document.querySelectorAll('.hero-nav-dot');
+var dots=document.querySelectorAll('.hero-dot');
 var current=0;
 function goToSlide(n){slides[current].classList.remove('active');dots[current].classList.remove('active');current=n;slides[current].classList.add('active');dots[current].classList.add('active')}
 dots.forEach(function(dot){dot.addEventListener('click',function(){goToSlide(parseInt(this.dataset.slide))})});
 setInterval(function(){goToSlide((current+1)%slides.length)},7000);
 
-var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
 
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor){anchor.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
 
 var toggle=document.getElementById('mobileToggle');
 var links=document.querySelector('.nav-links');
-toggle.addEventListener('click',function(){toggle.classList.toggle('active');if(toggle.classList.contains('active')){links.style.display='flex';links.style.flexDirection='column';links.style.position='absolute';links.style.top='100%';links.style.left='0';links.style.right='0';links.style.background='rgba(13,26,35,0.98)';links.style.padding='1.5rem';links.style.gap='1rem';links.style.borderTop='1px solid rgba(143,181,105,0.1)'}else{links.style.display='none'}});
+toggle.addEventListener('click',function(){if(links.style.display==='flex'){links.style.display='none'}else{links.style.display='flex';links.style.flexDirection='column';links.style.position='absolute';links.style.top='100%';links.style.left='0';links.style.right='0';links.style.background='#fff';links.style.padding='1.5rem';links.style.gap='0';links.style.boxShadow='0 8px 30px rgba(0,0,0,0.08)'}});
 })();
 </script>
 </body>
