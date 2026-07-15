@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONCOSEVEN - Clínica Oncológica em Sete Lagoas</title>
+<meta name="description" content="Clínica oncológica especializada em Sete Lagoas. Oncologia clínica, cirúrgica, radioterapia, quimioterapia e cuidados paliativos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#13232f;
+--navy-light:#1d3040;
+--teal:#223645;
+--teal-light:#2a4558;
+--green:#8fb569;
+--green-light:#a8c984;
+--green-dark:#6d9444;
+--cream:#FAF8F5;
+--white:#FFFFFF;
+--text:#1a1a1a;
+--text-muted:#6B7280;
+--text-light:#9CA3AF;
+--border:rgba(0,0,0,0.06);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* CURSOR */
+.cursor{width:18px;height:18px;border:2px solid var(--teal);border-radius:50%;position:fixed;pointer-events:none;z-index:10000;transition:transform 0.15s ease,background 0.15s ease;mix-blend-mode:difference}
+.cursor.active{transform:scale(2.5);background:var(--green);border-color:var(--green)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(50px);transition:all 0.9s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.1s}.reveal-d2{transition-delay:0.2s}.reveal-d3{transition-delay:0.3s}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.25rem 3rem;transition:all 0.4s ease}
+.nav.scrolled{background:rgba(19,35,47,0.95);backdrop-filter:blur(20px);padding:0.9rem 3rem;box-shadow:0 1px 0 rgba(255,255,255,0.05)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo img{height:44px;width:auto}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.3s ease;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--green);transition:width 0.3s ease}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--green);color:#fff !important;padding:0.6rem 1.5rem;border-radius:100px;font-weight:600 !important;transition:all 0.3s ease !important}
+.nav-cta::after{display:none !important}
+.nav-cta:hover{background:var(--green-dark);transform:translateY(-1px)}
+.mobile-toggle{display:none;width:28px;height:20px;flex-direction:column;justify-content:space-between;cursor:pointer}
+.mobile-toggle span{display:block;width:100%;height:2px;background:#fff;transition:0.3s ease}
+
+/* HERO */
+.hero{height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.hero-slide.active{opacity:1}
+.hero-slide-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.hero-slide-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(19,35,47,0.85) 0%,rgba(34,54,69,0.6) 50%,rgba(19,35,47,0.4) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 3rem;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 1rem;background:rgba(143,181,105,0.15);border:1px solid rgba(143,181,105,0.3);border-radius:100px;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:1.5rem}
+.hero-badge-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:300;color:#fff;line-height:1.05;letter-spacing:-0.02em;max-width:700px;margin-bottom:1.25rem}
+.hero h1 em{font-style:italic;color:var(--green)}
+.hero-desc{font-size:1.05rem;color:rgba(255,255,255,0.65);max-width:480px;line-height:1.75;margin-bottom:2rem;font-weight:300}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 2rem;border-radius:100px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.35s ease;border:none;cursor:pointer}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 12px 40px rgba(143,181,105,0.3)}
+.btn-outline{border:1px solid rgba(255,255,255,0.25);color:#fff;background:transparent}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.1)}
+.hero-nav{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;gap:0.75rem;z-index:3}
+.hero-nav-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.25);cursor:pointer;transition:all 0.3s ease;border:none}
+.hero-nav-dot.active{background:var(--green);width:28px;border-radius:5px}
+
+/* MARQUEE */
+.marquee-section{padding:1rem 0;background:var(--navy);border-top:1px solid rgba(255,255,255,0.05);overflow:hidden}
+.marquee{display:flex;gap:3rem;animation:marqueeScroll 25s linear infinite;width:max-content}
+.marquee-item{font-size:0.85rem;font-weight:500;color:rgba(255,255,255,0.3);white-space:nowrap;display:flex;align-items:center;gap:0.75rem;letter-spacing:0.05em}
+.marquee-item span{width:4px;height:4px;background:var(--green);border-radius:50%}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about{padding:7rem 3rem;background:var(--white)}
+.about-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-image{position:relative}
+.about-image-main{width:100%;border-radius:20px;box-shadow:0 30px 60px rgba(0,0,0,0.1)}
+.about-image-accent{position:absolute;bottom:-20px;right:-20px;width:180px;height:180px;background:var(--green);border-radius:20px;opacity:0.15;z-index:-1}
+.about-label{font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--green);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+.about-label::before{content:'';width:20px;height:1.5px;background:var(--green)}
+.about-title{font-family:'Cormorant Garamond',serif;font-size:2.75rem;font-weight:400;line-height:1.15;color:var(--navy);margin-bottom:1.5rem}
+.about-title em{font-style:italic;color:var(--green)}
+.about-text{font-size:0.95rem;color:var(--text-muted);line-height:1.85;margin-bottom:1.25rem;font-weight:300}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+.about-stat-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:400;color:var(--navy);line-height:1}
+.about-stat-label{font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem;text-transform:uppercase;letter-spacing:0.05em}
+
+/* SERVICES */
+.services{padding:7rem 3rem;background:var(--cream)}
+.services-inner{max-width:1280px;margin:0 auto}
+.section-header{text-align:center;max-width:600px;margin:0 auto 4rem}
+.section-header .about-label{justify-content:center}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.75rem);font-weight:400;color:var(--navy);line-height:1.15}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.service-card{background:var(--white);border-radius:20px;padding:2.5rem;text-align:center;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);border:1px solid var(--border);position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,0.06);border-color:rgba(143,181,105,0.2)}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--teal));transform:scaleX(0);transition:transform 0.5s ease;transform-origin:left}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:64px;height:64px;margin:0 auto 1.5rem;background:rgba(143,181,105,0.1);border-radius:16px;display:flex;align-items:center;justify-content:center}
+.service-icon img{width:40px;height:40px;object-fit:contain}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--navy);margin-bottom:0.75rem}
+.service-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.7;font-weight:300}
+.service-link{display:inline-flex;align-items:center;gap:0.375rem;margin-top:1.25rem;font-size:0.8rem;font-weight:600;color:var(--green);text-decoration:none;transition:gap 0.3s ease}
+.service-link:hover{gap:0.75rem}
+
+/* TEAM */
+.team{padding:7rem 3rem;background:var(--white)}
+.team-inner{max-width:1280px;margin:0 auto}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.team-card{text-align:center;transition:all 0.5s ease}
+.team-card:hover{transform:translateY(-4px)}
+.team-avatar{width:200px;height:200px;border-radius:50%;object-fit:cover;margin:0 auto 1.25rem;border:4px solid var(--cream);box-shadow:0 12px 32px rgba(0,0,0,0.08);transition:all 0.5s ease}
+.team-card:hover .team-avatar{border-color:var(--green);box-shadow:0 16px 40px rgba(143,181,105,0.15)}
+.team-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--navy);margin-bottom:0.25rem}
+.team-card .specialty{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:0.25rem}
+.team-card .crm{font-size:0.75rem;color:var(--text-light)}
+
+/* CTA */
+.cta{padding:7rem 3rem;background:var(--navy);position:relative;overflow:hidden}
+.cta::before{content:'ONCOSEVEN';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(6rem,15vw,14rem);font-weight:700;color:rgba(255,255,255,0.02);white-space:nowrap;pointer-events:none}
+.cta-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:#fff;line-height:1.15;margin-bottom:1.25rem}
+.cta-title em{font-style:italic;color:var(--green)}
+.cta-desc{font-size:1rem;color:rgba(255,255,255,0.55);margin-bottom:2.5rem;line-height:1.7}
+
+/* CONTACT */
+.contact{padding:7rem 3rem;background:var(--cream)}
+.contact-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-info{display:flex;flex-direction:column;gap:1.25rem}
+.contact-card{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--white);border-radius:14px;border:1px solid var(--border);transition:all 0.3s ease}
+.contact-card:hover{border-color:rgba(143,181,105,0.2);box-shadow:0 8px 24px rgba(0,0,0,0.04)}
+.contact-icon{width:44px;height:44px;min-width:44px;background:rgba(143,181,105,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.contact-icon svg{width:20px;height:20px;stroke:var(--green);fill:none;stroke-width:1.5}
+.contact-card h4{font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:0.125rem}
+.contact-card p{font-size:0.85rem;color:var(--text-muted);line-height:1.6}
+.contact-map{border-radius:20px;overflow:hidden;border:1px solid var(--border);min-height:400px}
+.contact-map iframe{width:100%;height:100%;border:0;filter:grayscale(0.6) brightness(0.95)}
+
+/* FOOTER */
+.footer{background:var(--navy);padding:4rem 3rem 2rem}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-logo img{height:40px;width:auto;margin-bottom:1rem}
+.footer-desc{font-size:0.85rem;color:rgba(255,255,255,0.45);line-height:1.7;max-width:320px}
+.footer h4{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#fff;margin-bottom:1rem}
+.footer ul{list-style:none}
+.footer li{margin-bottom:0.5rem}
+.footer a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.85rem;transition:color 0.3s ease}
+.footer a:hover{color:var(--green)}
+.footer-bottom{padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(255,255,255,0.25)}
+
+/* WHATSAPP */
+.whatsapp{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all 0.3s ease;text-decoration:none}
+.whatsapp:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,0.5)}
+.whatsapp svg{width:26px;height:26px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.nav-links{display:none}
+.mobile-toggle{display:flex}
+.about-inner{grid-template-columns:1fr;gap:3rem}
+.services-grid{grid-template-columns:repeat(2,1fr)}
+.team-grid{grid-template-columns:repeat(2,1fr)}
+.contact-inner{grid-template-columns:1fr}
+.footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+.nav{padding:1rem 1.5rem}
+.hero-content{padding:0 1.5rem}
+.about,.services,.team,.cta,.contact{padding:4rem 1.5rem}
+.services-grid{grid-template-columns:1fr}
+.team-grid{grid-template-columns:1fr}
+.footer{padding:3rem 1.5rem 1.5rem}
+.footer-top{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;gap:0.75rem;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+<div class="nav-inner">
+<a href="#"><img src="https://oncoseven.com.br/assets/img/logo/logooncoseven.jpg" alt="ONCOSEVEN" class="nav-logo"></a>
+<ul class="nav-links">
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#servicos">Departamentos</a></li>
+<li><a href="#equipe">Equipe</a></li>
+<li><a href="#contato">Contato</a></li>
+<li><a href="https://api.whatsapp.com/send?phone=553132557037" class="nav-cta" target="_blank">Agendar</a></li>
+</ul>
+<div class="mobile-toggle" id="mobileToggle">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="hero-slide active">
+<div class="hero-slide-bg" style="background-image:url('https://oncoseven.com.br/assets/img/slider/slider-bg-1.jpg')"></div>
+</div>
+<div class="hero-slide">
+<div class="hero-slide-bg" style="background-image:url('https://oncoseven.com.br/assets/img/slider/slider-bg-2in1.jpg')"></div>
+</div>
+<div class="hero-content">
+<div class="hero-badge"><span class="hero-badge-dot"></span>Clínica Oncológica em Sete Lagoas</div>
+<h1>Cuidamos de <em>você.</em></h1>
+<p class="hero-desc">A ONCOSEVEN busca ser a mais completa e resolutiva estrutura na linha de cuidados em câncer na região.</p>
+<div class="hero-actions">
+<a href="https://api.whatsapp.com/send?phone=553132557037" class="btn btn-green" target="_blank">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+Agendar Consulta
+</a>
+<a href="#servicos" class="btn btn-outline">Nossos Departamentos</a>
+</div>
+</div>
+<div class="hero-nav">
+<button class="hero-nav-dot active" data-slide="0"></button>
+<button class="hero-nav-dot" data-slide="1"></button>
+</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+<div class="marquee">
+<div class="marquee-item"><span></span>Oncologia Clínica</div>
+<div class="marquee-item"><span></span>Oncologia Cirúrgica</div>
+<div class="marquee-item"><span></span>Radioterapia</div>
+<div class="marquee-item"><span></span>Quimioterapia</div>
+<div class="marquee-item"><span></span>Cuidados Paliativos</div>
+<div class="marquee-item"><span></span>Prevenção</div>
+<div class="marquee-item"><span></span>Infusões não oncológicas</div>
+<div class="marquee-item"><span></span>Oncologia Clínica</div>
+<div class="marquee-item"><span></span>Oncologia Cirúrgica</div>
+<div class="marquee-item"><span></span>Radioterapia</div>
+<div class="marquee-item"><span></span>Quimioterapia</div>
+<div class="marquee-item"><span></span>Cuidados Paliativos</div>
+<div class="marquee-item"><span></span>Prevenção</div>
+<div class="marquee-item"><span></span>Infusões não oncológicas</div>
+</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="sobre">
+<div class="about-inner">
+<div class="about-image reveal">
+<img src="https://oncoseven.com.br/assets/img/about/about1.png" alt="ONCOSEVEN Clínica" class="about-image-main">
+<div class="about-image-accent"></div>
+</div>
+<div>
+<div class="about-label reveal">Sobre a Clínica</div>
+<h2 class="about-title reveal">Humanidade é o que <em>nos move</em></h2>
+<p class="about-text reveal">Nosso maior objetivo é proporcionar excelência no atendimento, com tratamento multidisciplinar, atenção personalizada, conforto e segurança. Isso sem nunca deixar de lado a humanização e o acolhimento de que cada paciente necessita.</p>
+<p class="about-text reveal">O corpo clínico é composto por profissionais com formação internacional e experiência nos melhores hospitais do Brasil. Além disso, são utilizadas tecnologias e técnicas de vanguarda para os diversos tipos de tratamento do câncer.</p>
+<div class="about-stats reveal">
+<div class="about-stat">
+<div class="about-stat-num">7+</div>
+<div class="about-stat-label">Especialidades</div>
+</div>
+<div class="about-stat">
+<div class="about-stat-num">6</div>
+<div class="about-stat-label">Médicos</div>
+</div>
+<div class="about-stat">
+<div class="about-stat-num">2018</div>
+<div class="about-stat-label">Fundação</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicos">
+<div class="services-inner">
+<div class="section-header">
+<div class="about-label reveal">Departamentos</div>
+<h2 class="section-title reveal">Todo o suporte no tratamento oncológico</h2>
+</div>
+<div class="services-grid">
+<div class="service-card reveal reveal-d1">
+<div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/oncologia_clinica.png" alt=""></div>
+<h3>Oncologia Clínica</h3>
+<p>Tratamento medicamentoso dos diversos tipos de câncer com protocolos baseados em evidências científicas.</p>
+<a href="https://oncoseven.com.br/departamentos/oncologia_clinica" class="service-link">Saiba mais →</a>
+</div>
+<div class="service-card reveal reveal-d2">
+<div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/oncologia_cirurgica.png" alt=""></div>
+<h3>Oncologia Cirúrgica</h3>
+<p>Cirurgia oncológica com técnicas de vanguarda, realizada sozinha ou em combinação com outros tratamentos.</p>
+<a href="https://oncoseven.com.br/departamentos/oncologia_cirurgica" class="service-link">Saiba mais →</a>
+</div>
+<div class="service-card reveal reveal-d3">
+<div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/raiox.png" alt=""></div>
+<h3>Radioterapia</h3>
+<p>Especialidade médica que utiliza radiação para tratamento oncológico, em conjunto com cirurgia e oncologia clínica.</p>
+<a href="https://oncoseven.com.br/departamentos/radioterapia" class="service-link">Saiba mais →</a>
+</div>
+<div class="service-card reveal reveal-d1">
+<div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/quimioterapia.png" alt=""></div>
+<h3>Quimioterapia</h3>
+<p>Tratamento com medicamentos para combater as células doentes, com protocolos personalizados para cada paciente.</p>
+<a href="https://oncoseven.com.br/departamentos/quimioterapia" class="service-link">Saiba mais →</a>
+</div>
+<div class="service-card reveal reveal-d2">
+<div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/paliativos.png" alt=""></div>
+<h3>Cuidados Paliativos</h3>
+<p>Foco na pessoa e não na doença, tratando e controlando sintomas para melhorar a qualidade de vida.</p>
+<a href="https://oncoseven.com.br/departamentos/cuidados_paliativos" class="service-link">Saiba mais →</a>
+</div>
+<div class="service-card reveal reveal-d3">
+<div class="service-icon"><img src="https://oncoseven.com.br/assets/img/services/prevencao.png" alt=""></div>
+<h3>Prevenção</h3>
+<p>Adoção de uma vida saudável e exames preventivos para detecção precoce do câncer.</p>
+<a href="https://oncoseven.com.br/departamentos/prevencao" class="service-link">Saiba mais →</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="equipe">
+<div class="team-inner">
+<div class="section-header">
+<div class="about-label reveal">Corpo Clínico</div>
+<h2 class="section-title reveal">Especialistas com formação internacional</h2>
+</div>
+<div class="team-grid">
+<div class="team-card reveal reveal-d1">
+<img src="https://oncoseven.com.br/public/imagens/3adaa7fa518afd3f1e3ae36c0a60b963.png" alt="Dr. Alexandre" class="team-avatar">
+<div class="specialty">Cirurgião Oncológico</div>
+<h3>Dr. Alexandre Moreira Guimarães</h3>
+<div class="crm">CRM MG 53.829 – RQE 44.609</div>
+</div>
+<div class="team-card reveal reveal-d2">
+<img src="https://oncoseven.com.br/public/imagens/c72cfb85e8f4b87ef4b6ccc81003611c.png" alt="Dra. Bruna" class="team-avatar">
+<div class="specialty">Médica Especialista em Oncologia</div>
+<h3>Dra. Bruna Fischer Caldas Andrade</h3>
+<div class="crm">CRM MG 74.986</div>
+</div>
+<div class="team-card reveal reveal-d3">
+<img src="https://oncoseven.com.br/public/imagens/416755b2d78c4b0e660df6d74e3545ca.png" alt="Dra. Luciana" class="team-avatar">
+<div class="specialty">Médica Oncologista Clínica</div>
+<h3>Dra. Luciana Caetano Botelho Salomão</h3>
+<div class="crm">CRM MG 57.133 - RQE 43.646</div>
+</div>
+<div class="team-card reveal reveal-d1">
+<img src="https://oncoseven.com.br/public/imagens/7540e160018b27d20ee0b36f26d4fbe4.png" alt="Dra. Ellen" class="team-avatar">
+<div class="specialty">Médica Oncologista Clínica</div>
+<h3>Dra. Ellen Brandão Leite Faria</h3>
+<div class="crm">CRM MG 31.592 - RQE 11.136</div>
+</div>
+<div class="team-card reveal reveal-d2">
+<img src="https://oncoseven.com.br/public/imagens/f4b435b7b2c173616b7b7870ff6a10f7.jpg" alt="Dr. Leonardo" class="team-avatar">
+<div class="specialty">Médico Clínico</div>
+<h3>Dr. Leonardo de Souza Nogueira</h3>
+<div class="crm">CRM MG 84.640 – RQE 63.234</div>
+</div>
+<div class="team-card reveal reveal-d3">
+<img src="https://oncoseven.com.br/public/imagens/01ca8cdc86b55d941c262a45b73a5828.jpg" alt="Dr. Camilo" class="team-avatar">
+<div class="specialty">Médico Oncologista Clínico</div>
+<h3>Dr. Camilo Tupinambá</h3>
+<div class="crm">CRM MG 69.366 – RQE 57.750</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<div class="cta-inner">
+<h2 class="cta-title reveal">Agende sua <em>consulta</em> hoje</h2>
+<p class="cta-desc reveal">Nossa equipe está pronta para oferecer o melhor atendimento oncológico com humanidade e excelência.</p>
+<div class="hero-actions reveal" style="justify-content:center">
+<a href="https://api.whatsapp.com/send?phone=553132557037" class="btn btn-green" target="_blank">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+Agendar pelo WhatsApp
+</a>
+<a href="tel:3132557037" class="btn btn-outline">Ligar: (31) 3255-7037</a>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contato">
+<div class="contact-inner">
+<div>
+<div class="about-label reveal">Contato</div>
+<h2 class="section-title reveal" style="margin-bottom:2rem">Entre em contato conosco</h2>
+<div class="contact-info">
+<div class="contact-card reveal">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</div>
+<div><h4>Telefone / WhatsApp</h4><p>(31) 3255-7037</p></div>
+</div>
+<div class="contact-card reveal">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+</div>
+<div><h4>E-mail</h4><p>oncoseven@oncoseven.com.br</p></div>
+</div>
+<div class="contact-card reveal">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+</div>
+<div><h4>Endereço</h4><p>R. João Anastácio, 50 - Chácara do Paiva<br>Sete Lagoas - MG</p></div>
+</div>
+<div class="contact-card reveal">
+<div class="contact-icon">
+<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+</div>
+<div><h4>Horário</h4><p>Seg a Sex: 7h - 18h<br>Sábado: 7h - 12h</p></div>
+</div>
+</div>
+</div>
+<div class="contact-map reveal">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.5!2d-44.03!3d-19.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sR.+Jo%C3%A3o+Anast%C3%A1cio+50+Sete+Lagoas+MG!5e0!3m2!1spt-BR!2sbr!4v1" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-top">
+<div>
+<div class="footer-logo"><img src="https://oncoseven.com.br/assets/img/logo/footer-logo2.png" alt="ONCOSEVEN"></div>
+<p class="footer-desc">A clínica ONCOSEVEN foi inaugurada em 2018. Buscamos ser a mais completa e resolutiva estrutura na linha de cuidados em câncer na região.</p>
+</div>
+<div>
+<h4>Departamentos</h4>
+<ul>
+<li><a href="https://oncoseven.com.br/departamentos/oncologia_clinica">Oncologia Clínica</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/quimioterapia">Quimioterapia</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/oncologia_cirurgica">Oncologia Cirúrgica</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/radioterapia">Radioterapia</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/cuidados_paliativos">Cuidados Paliativos</a></li>
+<li><a href="https://oncoseven.com.br/departamentos/prevencao">Prevenção</a></li>
+</ul>
+</div>
+<div>
+<h4>Links Rápidos</h4>
+<ul>
+<li><a href="#sobre">Sobre a Clínica</a></li>
+<li><a href="#equipe">Corpo Clínico</a></li>
+<li><a href="#contato">Contato</a></li>
+<li><a href="https://oncoseven.com.br/faq">FAQ</a></li>
+<li><a href="http://instagram.com/oncoseven" target="_blank">Instagram</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<span>&copy; 2026 Clínica ONCOSEVEN. Todos os direitos reservados.</span>
+<span>R. João Anastácio, 50 - Sete Lagoas/MG</span>
+</div>
+</div>
+</footer>
+
+<a href="https://api.whatsapp.com/send?phone=553132557037" class="whatsapp" target="_blank">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+(function(){
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX-9+'px';cursor.style.top=e.clientY-9+'px'});
+document.querySelectorAll('a,.service-card,.team-card').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('active')});el.addEventListener('mouseleave',function(){cursor.classList.remove('active')})});
+
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>50)});
+
+var slides=document.querySelectorAll('.hero-slide');
+var dots=document.querySelectorAll('.hero-nav-dot');
+var current=0;
+function goToSlide(n){slides[current].classList.remove('active');dots[current].classList.remove('active');current=n;slides[current].classList.add('active');dots[current].classList.add('active')}
+dots.forEach(function(dot){dot.addEventListener('click',function(){goToSlide(parseInt(this.dataset.slide))})});
+setInterval(function(){goToSlide((current+1)%slides.length)},6000);
+
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
+
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor){anchor.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+
+document.getElementById('mobileToggle').addEventListener('click',function(){var links=document.querySelector('.nav-links');links.style.display=links.style.display==='flex'?'none':'flex';if(links.style.display==='flex'){links.style.flexDirection='column';links.style.position='absolute';links.style.top='100%';links.style.left='0';links.style.right='0';links.style.background='rgba(19,35,47,0.98)';links.style.padding='1.5rem';links.style.gap='1rem'}});
+})();
+</script>
+</body>
+</html>
