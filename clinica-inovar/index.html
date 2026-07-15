@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Inovar | Medicina e Odontologia em Sete Lagoas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1565C0;
+            --primary-deep: #0D47A1;
+            --primary-light: #42A5F5;
+            --accent: #00BCD4;
+            --accent-light: #4DD0E1;
+            --navy: #0A1628;
+            --navy-light: #122240;
+            --off-white: #F4F6F8;
+            --cream: #FAFBFC;
+            --text: #1A1A2E;
+            --text-muted: #5A6275;
+            --text-light: #8892A4;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+            mix-blend-mode: difference;
+        }
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.08s ease;
+        }
+        .cursor.hover {
+            transform: scale(2.5);
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.8s;
+        }
+        .preloader.hidden { opacity: 0; visibility: hidden; }
+        .preloader-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -2px;
+            overflow: hidden;
+        }
+        .preloader-text span {
+            display: inline-block;
+            animation: slideUp 0.6s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        .preloader-text span:nth-child(1) { animation-delay: 0.1s; }
+        .preloader-text span:nth-child(2) { animation-delay: 0.15s; }
+        .preloader-text span:nth-child(3) { animation-delay: 0.2s; }
+        .preloader-text span:nth-child(4) { animation-delay: 0.25s; }
+        .preloader-text span:nth-child(5) { animation-delay: 0.3s; }
+        .preloader-text span:nth-child(6) { animation-delay: 0.35s; }
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .preloader-bar {
+            width: 120px;
+            height: 2px;
+            background: rgba(255,255,255,0.15);
+            margin-top: 28px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .preloader-bar::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            animation: loadBar 1.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            transform-origin: left;
+        }
+        @keyframes loadBar {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .navbar.scrolled {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(30px) saturate(180%);
+            padding: 16px 60px;
+            box-shadow: 0 1px 40px rgba(0,0,0,0.06);
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: color 0.4s ease;
+        }
+        .navbar.scrolled .logo { color: var(--primary); }
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .navbar.scrolled .nav-links a { color: var(--text); }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-cta {
+            background: var(--accent) !important;
+            color: var(--white) !important;
+            padding: 12px 30px !important;
+            border-radius: 100px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px !important;
+            transition: all 0.3s ease !important;
+        }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,188,212,0.35);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: var(--navy);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0,188,212,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -300px;
+            left: -100px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(21,101,192,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 140px 80px 80px 100px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0,188,212,0.1);
+            border: 1px solid rgba(0,188,212,0.2);
+            padding: 10px 24px;
+            border-radius: 100px;
+            margin-bottom: 36px;
+            width: fit-content;
+            backdrop-filter: blur(10px);
+        }
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .hero-badge span {
+            color: var(--accent-light);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.02;
+            margin-bottom: 28px;
+            letter-spacing: -2px;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        .hero h1 .line {
+            display: block;
+            overflow: hidden;
+        }
+        .hero h1 .line span {
+            display: inline-block;
+            animation: revealLine 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        .hero h1 .line:nth-child(1) span { animation-delay: 0.3s; }
+        .hero h1 .line:nth-child(2) span { animation-delay: 0.45s; }
+        .hero h1 .line:nth-child(3) span { animation-delay: 0.6s; }
+        @keyframes revealLine {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-desc {
+            font-size: 17px;
+            color: rgba(255,255,255,0.55);
+            max-width: 480px;
+            margin-bottom: 48px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        .hero-buttons { display: flex; gap: 20px; align-items: center; }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            padding: 18px 42px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            border-radius: 100px;
+        }
+        .btn-primary:hover::before { transform: translateY(0); }
+        .btn-primary span { position: relative; z-index: 1; color: var(--white); transition: color 0.4s; }
+        .btn-primary:hover span { color: var(--navy); }
+        .btn-primary svg { position: relative; z-index: 1; transition: transform 0.3s ease; }
+        .btn-primary:hover svg { transform: translateX(4px); }
+        .btn-secondary {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+        .btn-secondary:hover { color: var(--accent); }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-image-wrapper {
+            position: relative;
+            width: 520px;
+            height: 620px;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(10,22,40,0.6) 100%);
+        }
+        .hero-floating {
+            position: absolute;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px 28px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        .hero-floating-1 { bottom: 100px; left: 40px; animation-delay: 0s; }
+        .hero-floating-2 { top: 120px; right: 40px; animation-delay: 2s; }
+        .hero-floating h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .hero-floating p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* Marquee */
+        .marquee-section {
+            padding: 20px 0;
+            background: var(--navy);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            overflow: hidden;
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 0 50px;
+            white-space: nowrap;
+        }
+        .marquee-item span {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: rgba(255,255,255,0.4);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .marquee-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Services Bento */
+        .services-section {
+            padding: 140px 80px;
+            background: var(--cream);
+        }
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 80px;
+        }
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+        .bento-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .bento-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+        }
+        .bento-card.span-8 { grid-column: span 8; }
+        .bento-card.span-4 { grid-column: span 4; }
+        .bento-card.span-6 { grid-column: span 6; }
+        .bento-card.span-5 { grid-column: span 5; }
+        .bento-card.span-7 { grid-column: span 7; }
+        .bento-card.span-12 { grid-column: span 12; }
+        .bento-card.dark {
+            background: var(--navy);
+            color: var(--white);
+        }
+        .bento-card.dark .bento-desc { color: rgba(255,255,255,0.5); }
+        .bento-card.dark .bento-label { color: var(--accent-light); }
+        .bento-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(0,188,212,0.08);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .bento-card.dark .bento-icon { background: rgba(0,188,212,0.15); }
+        .bento-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        .bento-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .bento-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.15;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        .bento-card.dark .bento-title { color: var(--white); }
+        .bento-desc {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .bento-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 20px;
+            transition: gap 0.3s ease;
+        }
+        .bento-cta:hover { gap: 14px; }
+        .bento-card.dark .bento-cta { color: var(--accent-light); }
+
+        /* Stats Strip */
+        .stats-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            margin: 0 80px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
+            transform: translateY(-40px);
+            position: relative;
+            z-index: 10;
+        }
+        .stat-item {
+            padding: 48px 32px;
+            text-align: center;
+            border-right: 1px solid rgba(0,0,0,0.05);
+            transition: background 0.3s ease;
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-item:hover { background: var(--off-white); }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* About Split */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            padding: 140px 80px;
+            align-items: center;
+        }
+        .about-visual {
+            position: relative;
+        }
+        .about-img-main {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+        .about-img-accent {
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 220px;
+            height: 220px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 6px solid var(--cream);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+        .about-content {
+            padding-left: 80px;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 44px;
+        }
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .about-feature-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(0,188,212,0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .about-feature-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        .about-feature h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .about-feature p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Doctors */
+        .doctors-section { padding: 140px 80px; background: var(--off-white); }
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .doctor-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+        .doctor-image {
+            position: relative;
+            height: 340px;
+            overflow: hidden;
+        }
+        .doctor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .doctor-card:hover .doctor-image img { transform: scale(1.08); }
+        .doctor-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(10,22,40,0.7) 100%);
+        }
+        .doctor-info {
+            padding: 28px;
+        }
+        .doctor-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .doctor-specialty {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 160px 80px;
+            background: var(--navy);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0,188,212,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .cta-section .section-title {
+            color: var(--white);
+            font-size: 56px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-section .section-subtitle {
+            color: rgba(255,255,255,0.5);
+            max-width: 560px;
+            margin: 20px auto 48px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        .btn-white {
+            background: var(--white);
+            color: var(--navy);
+            padding: 18px 44px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .btn-outline {
+            color: rgba(255,255,255,0.7);
+            padding: 18px 44px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            border: 1.5px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* Contact */
+        .contact-section {
+            padding: 140px 80px;
+            background: var(--cream);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .form-group { margin-bottom: 24px; }
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1.5px solid rgba(0,0,0,0.08);
+            border-radius: 14px;
+            font-size: 15px;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--white);
+            transition: all 0.3s ease;
+            color: var(--text);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(0,188,212,0.08);
+        }
+        .form-group textarea { min-height: 130px; resize: vertical; }
+        .contact-info-card {
+            background: var(--navy);
+            border-radius: 24px;
+            padding: 48px;
+            color: var(--white);
+        }
+        .contact-info-card .section-label { color: var(--accent-light); }
+        .contact-info-card .section-title {
+            color: var(--white);
+            font-size: 36px;
+            margin-top: 12px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-top: 36px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .contact-item:first-of-type { border-top: none; margin-top: 40px; }
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(0,188,212,0.12);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        .contact-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+        .contact-item p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 80px 80px 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        .footer-brand .logo {
+            font-size: 30px;
+            margin-bottom: 18px;
+            display: block;
+        }
+        .footer-brand p {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+        .footer-column h4 {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 12px; }
+        .footer-column a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer-column a:hover { color: var(--accent); }
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-bottom p { color: rgba(255,255,255,0.25); font-size: 13px; }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 64px;
+            height: 64px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 35px rgba(37,211,102,0.35);
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 15px 45px rgba(37,211,102,0.45); }
+        .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 { font-size: 56px; }
+            .hero-content { padding: 140px 60px 80px; }
+            .bento-card.span-8, .bento-card.span-7 { grid-column: span 12; }
+            .bento-card.span-4, .bento-card.span-5 { grid-column: span 6; }
+        }
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-visual { display: none; }
+            .hero-content { padding: 160px 40px 80px; }
+            .hero h1 { font-size: 48px; }
+            .bento-card.span-8, .bento-card.span-7,
+            .bento-card.span-4, .bento-card.span-5,
+            .bento-card.span-6, .bento-card.span-12 { grid-column: span 12; }
+            .stats-strip { grid-template-columns: repeat(2, 1fr); margin: 0 40px; transform: translateY(-20px); }
+            .about-section, .contact-grid { grid-template-columns: 1fr; }
+            .about-content { padding-left: 0; }
+            .about-img-accent { display: none; }
+            .doctors-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-section, .about-section, .doctors-section, .cta-section, .contact-section { padding-left: 40px; padding-right: 40px; }
+        }
+        @media (max-width: 768px) {
+            .cursor, .cursor-follower { display: none; }
+            .navbar { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero-content { padding: 140px 24px 60px; }
+            .hero h1 { font-size: 36px; }
+            .hero-buttons { flex-direction: column; align-items: flex-start; }
+            .section-title { font-size: 34px; }
+            .stats-strip { grid-template-columns: 1fr; margin: 0 20px; }
+            .bento-card { padding: 28px; }
+            .doctors-grid { grid-template-columns: 1fr; }
+            .about-features { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .services-section, .about-section, .doctors-section, .cta-section, .contact-section { padding-left: 20px; padding-right: 20px; }
+            .footer { padding: 60px 20px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="preloader">
+        <div class="preloader-text">
+            <span>I</span><span>n</span><span>o</span><span>v</span><span>a</span><span>r</span>
+        </div>
+        <div class="preloader-bar"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="#" class="logo">Inovar</a>
+        <ul class="nav-links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#medicos">Equipe</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#agendar" class="nav-cta">Agendar Consulta</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <div class="hero-badge-dot"></div>
+                <span>Sete Lagoas — MG</span>
+            </div>
+            <h1>
+                <span class="line"><span>Inovando a</span></span>
+                <span class="line"><span><em>saúde</em> com</span></span>
+                <span class="line"><span>tecnologia e acolhimento</span></span>
+            </h1>
+            <p class="hero-desc">Clínica médica e odontológica com atendimento humanizado, equipamentos de última geração e profissionais comprometidos com o seu bem-estar.</p>
+            <div class="hero-buttons">
+                <a href="#agendar" class="btn-primary">
+                    <span>Agendar Consulta</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#servicos" class="btn-secondary">
+                    Nossos Serviços
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&q=80" alt="Clínica Inovar">
+                <div class="hero-image-overlay"></div>
+            </div>
+            <div class="hero-floating hero-floating-1">
+                <h4>98%</h4>
+                <p>Pacientes satisfeitos</p>
+            </div>
+            <div class="hero-floating hero-floating-2">
+                <h4>15+</h4>
+                <p>Especialidades</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Medicina Geral</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Cardiologia</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Odontologia</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Vacinas</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Ultrassom</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Exames Laboratoriais</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Infusão de Medicamentos</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Dermatologia</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Medicina Geral</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Cardiologia</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Odontologia</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Vacinas</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Ultrassom</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Exames Laboratoriais</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Infusão de Medicamentos</span></div>
+            <div class="marquee-item"><div class="marquee-dot"></div><span>Dermatologia</span></div>
+        </div>
+    </div>
+
+    <section class="services-section" id="servicos">
+        <div class="section-header reveal">
+            <div class="section-label">Nossos Serviços</div>
+            <h2 class="section-title">Excelência em cada especialidade</h2>
+            <p class="section-subtitle">Oferecemos uma completa gama de serviços médicos e odontológicos com tecnologia de ponta e atendimento humanizado.</p>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-card span-8 dark reveal">
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div class="bento-label">Destaque</div>
+                <div class="bento-title">Medicina Geral e<br>Especialidades</div>
+                <div class="bento-desc">Atendimento médico completo com mais de 15 especialidades. Diagnóstico preciso e tratamento humanizado para toda a família.</div>
+                <a href="#agendar" class="bento-cta">Agendar consulta →</a>
+            </div>
+            <div class="bento-card span-4 reveal reveal-delay-1">
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                </div>
+                <div class="bento-label">Odontologia</div>
+                <div class="bento-title">Sorriso com<br>excelência</div>
+                <div class="bento-desc">Tratamentos dentários completos com tecnologia moderna.</div>
+            </div>
+            <div class="bento-card span-4 reveal">
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </div>
+                <div class="bento-label">Proteção</div>
+                <div class="bento-title">Centro de<br>Vacinas</div>
+                <div class="bento-desc">Imunizantes para todas as idades com segurança e qualidade.</div>
+            </div>
+            <div class="bento-card span-4 reveal reveal-delay-1">
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="bento-label">Diagnóstico</div>
+                <div class="bento-title">Ultrassom e<br>Exames</div>
+                <div class="bento-desc">Equipamentos de última geração para diagnósticos precisos.</div>
+            </div>
+            <div class="bento-card span-6 reveal">
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="bento-label">Tratamento</div>
+                <div class="bento-title">Infusão de Medicamentos</div>
+                <div class="bento-desc">Administração de medicamentos por via intravenosa com supervisão médica constante.</div>
+            </div>
+            <div class="bento-card span-6 reveal reveal-delay-1">
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div class="bento-label">Laboratório</div>
+                <div class="bento-title">Exames Laboratoriais</div>
+                <div class="bento-desc">Laboratório completo para realização de exames com resultados rápidos e precisos.</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-strip">
+        <div class="stat-item reveal">
+            <div class="stat-number">10k+</div>
+            <div class="stat-label">Pacientes</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Especialidades</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Médicos</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Satisfação</div>
+        </div>
+    </div>
+
+    <section class="about-section" id="sobre">
+        <div class="about-visual reveal">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80" alt="Equipe médica" class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=600&q=80" alt="Tecnologia médica" class="about-img-accent">
+        </div>
+        <div class="about-content">
+            <div class="section-label">Sobre a Clínica</div>
+            <h2 class="section-title">Inovar em saúde é o nosso compromisso</h2>
+            <p class="section-subtitle">A Clínica Inovar foi idealizada para proporcionar um atendimento individualizado e de qualidade para a família setelagoana e região.</p>
+            <div class="about-features">
+                <div class="about-feature">
+                    <div class="about-feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <div>
+                        <h4>Atendimento Humanizado</h4>
+                        <p>Cada paciente é tratado com carinho e atenção individualizada.</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div>
+                        <h4>Tecnologia Moderna</h4>
+                        <p>Equipamentos de última geração para diagnósticos precisos.</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div>
+                        <h4>Profissionais Qualificados</h4>
+                        <p>Equipe médica com alta qualificação e experiência.</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                    </div>
+                    <div>
+                        <h4>Convênios Aceitos</h4>
+                        <p>Trabalhamos com os principais convênios da região.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="doctors-section" id="medicos">
+        <div class="section-header reveal">
+            <div class="section-label">Nossa Equipe</div>
+            <h2 class="section-title">Médicos especialistas</h2>
+            <p class="section-subtitle">Contamos com uma equipe de profissionais qualificados e experientes dedicados à sua saúde.</p>
+        </div>
+        <div class="doctors-grid">
+            <div class="doctor-card reveal">
+                <div class="doctor-image">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80" alt="Dr. Carlos Silva">
+                    <div class="doctor-overlay"></div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-name">Dr. Carlos Silva</div>
+                    <div class="doctor-specialty">Clínico Geral</div>
+                </div>
+            </div>
+            <div class="doctor-card reveal reveal-delay-1">
+                <div class="doctor-image">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="Dra. Ana Santos">
+                    <div class="doctor-overlay"></div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-name">Dra. Ana Santos</div>
+                    <div class="doctor-specialty">Cardiologista</div>
+                </div>
+            </div>
+            <div class="doctor-card reveal reveal-delay-2">
+                <div class="doctor-image">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=80" alt="Dr. Pedro Costa">
+                    <div class="doctor-overlay"></div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-name">Dr. Pedro Costa</div>
+                    <div class="doctor-specialty">Dentista</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="agendar">
+        <h2 class="section-title reveal">Agende sua consulta<br>agora</h2>
+        <p class="section-subtitle reveal">Cuide da sua saúde com quem entende. Nossa equipe está pronta para atender você com excelência.</p>
+        <div class="cta-buttons reveal">
+            <a href="https://wa.me/5531997352034" class="btn-white">
+                Agendar pelo WhatsApp
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="tel:3132556658" class="btn-outline">Ligar Agora</a>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contato">
+        <div class="contact-grid">
+            <div>
+                <div class="section-label">Contato</div>
+                <h2 class="section-title">Entre em contato</h2>
+                <p class="section-subtitle">Preencha o formulário e entraremos em contato o mais breve possível.</p>
+                <form style="margin-top: 40px;">
+                    <div class="form-group">
+                        <label>Nome completo</label>
+                        <input type="text" placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" placeholder="(31) 99999-9999">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Mensagem</label>
+                        <textarea placeholder="Como podemos ajudar?"></textarea>
+                    </div>
+                    <a href="https://wa.me/5531997352034" class="btn-primary" style="width: 100%; justify-content: center;">
+                        <span>Enviar Mensagem</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </form>
+            </div>
+            <div class="contact-info-card">
+                <div class="section-label">Informações</div>
+                <h3 class="section-title" style="font-size: 36px;">Fale conosco</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                        <h4>Endereço</h4>
+                        <p>R. Nestor de Andrade, 142 - lj 1 e 2<br>Chácara do Paiva, Sete Lagoas - MG<br>CEP: 35700-167</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div>
+                        <h4>Telefone</h4>
+                        <p>(31) 3255-6658<br>(31) 9 9735-2034 (WhatsApp)</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div>
+                        <h4>Horário</h4>
+                        <p>Segunda a Sexta: 7h - 19h<br>Sábado: 7h - 12h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">Inovar</a>
+                <p>Clínica médica e odontológica em Sete Lagoas. Saúde com tecnologia, acolhimento e excelência.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Especialidades</h4>
+                <ul>
+                    <li><a href="#">Clínica Geral</a></li>
+                    <li><a href="#">Cardiologia</a></li>
+                    <li><a href="#">Odontologia</a></li>
+                    <li><a href="#">Vacinas</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="#">Ultrassom</a></li>
+                    <li><a href="#">Exames Laboratoriais</a></li>
+                    <li><a href="#">Infusão</a></li>
+                    <li><a href="#">Agendamento Online</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="tel:3132556658">(31) 3255-6658</a></li>
+                    <li><a href="https://wa.me/5531997352034">WhatsApp</a></li>
+                    <li><a href="#">Sete Lagoas - MG</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Clínica Inovar. Todos os direitos reservados.</p>
+            <p>R. Nestor de Andrade, 142 - Chácara do Paiva</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5531997352034" class="whatsapp-float">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+            cursor.style.left = cursorX - 10 + 'px';
+            cursor.style.top = cursorY - 10 + 'px';
+        });
+
+        function animateFollower() {
+            followerX += (cursorX - followerX) * 0.12;
+            followerY += (cursorY - followerY) * 0.12;
+            follower.style.left = followerX - 4 + 'px';
+            follower.style.top = followerY - 4 + 'px';
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+
+        document.querySelectorAll('a, button, .bento-card, .doctor-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => document.querySelector('.preloader').classList.add('hidden'), 2200);
+        });
+
+        // Navbar
+        window.addEventListener('scroll', () => {
+            document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 80);
+        });
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>

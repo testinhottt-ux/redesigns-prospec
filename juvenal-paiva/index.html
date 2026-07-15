@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Juvenal Paiva | Saúde com excelência em Sete Lagoas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A4D2E;
+            --primary-light: #2D7A4A;
+            --primary-dark: #0D2818;
+            --accent: #C9A84C;
+            --accent-soft: #E8D5A3;
+            --cream: #FAF7F2;
+            --off-white: #FEFDFB;
+            --text: #1A1A1A;
+            --text-muted: #6B6B6B;
+            --border: rgba(26,26,26,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--off-white);
+            color: var(--text);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.15s ease, background 0.15s ease;
+            mix-blend-mode: difference;
+        }
+        .cursor.active { transform: scale(2.5); background: var(--accent); border-color: var(--accent); }
+
+        /* Smooth Reveal */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 28px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            mix-blend-mode: difference;
+        }
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--off-white);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.4s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            background: var(--off-white) !important;
+            color: var(--primary-dark) !important;
+            padding: 12px 28px !important;
+            border-radius: 100px !important;
+            font-weight: 500 !important;
+        }
+        .nav-cta::after { display: none !important; }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: var(--primary-dark);
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 48px 80px;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1920&q=85') center/cover;
+            opacity: 0.4;
+            transform: scale(1.1);
+            transition: transform 8s ease;
+        }
+        .hero:hover .hero-bg { transform: scale(1); }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(13,40,24,0.3) 0%, rgba(13,40,24,0.8) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+        .hero-eyebrow {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(48px, 8vw, 120px);
+            font-weight: 300;
+            color: var(--off-white);
+            line-height: 0.95;
+            letter-spacing: -2px;
+            max-width: 900px;
+            margin-bottom: 32px;
+        }
+        .hero-title em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 60px;
+        }
+        .hero-description {
+            font-size: 16px;
+            color: rgba(255,255,255,0.7);
+            max-width: 400px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+        }
+        .btn-hero {
+            padding: 18px 44px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+        }
+        .btn-hero-primary {
+            background: var(--accent);
+            color: var(--primary-dark);
+        }
+        .btn-hero-primary:hover {
+            background: var(--off-white);
+            transform: translateY(-3px);
+        }
+        .btn-hero-secondary {
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--off-white);
+        }
+        .btn-hero-secondary:hover {
+            border-color: var(--off-white);
+            background: rgba(255,255,255,0.1);
+        }
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.5);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(180deg, var(--accent), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+            50% { opacity: 1; transform: scaleY(1); }
+        }
+
+        /* Marquee */
+        .marquee-section {
+            padding: 24px 0;
+            background: var(--primary-dark);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+        .marquee {
+            display: flex;
+            gap: 60px;
+            animation: marquee 20s linear infinite;
+        }
+        .marquee-item {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: rgba(255,255,255,0.4);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .marquee-item span {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* About Split */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+        .about-image {
+            position: relative;
+            overflow: hidden;
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s ease;
+        }
+        .about-image:hover img { transform: scale(1.05); }
+        .about-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26,77,46,0.2), transparent);
+        }
+        .about-content {
+            padding: 120px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--cream);
+        }
+        .about-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+        .about-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--primary-dark);
+            margin-bottom: 32px;
+        }
+        .about-text {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+        .about-stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 300;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .about-stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Services - Bento Grid */
+        .services {
+            padding: 160px 48px;
+            background: var(--off-white);
+        }
+        .services-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 100px;
+        }
+        .services-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        .services-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 400;
+            color: var(--primary-dark);
+            line-height: 1.1;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .bento-card {
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+        .bento-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.08);
+        }
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+        .bento-card:hover::before { transform: scaleX(1); }
+
+        .bento-card-1 { grid-column: span 8; min-height: 380px; }
+        .bento-card-2 { grid-column: span 4; min-height: 380px; background: var(--primary-dark); color: var(--off-white); }
+        .bento-card-3 { grid-column: span 4; min-height: 340px; }
+        .bento-card-4 { grid-column: span 4; min-height: 340px; }
+        .bento-card-5 { grid-column: span 4; min-height: 340px; }
+        .bento-card-6 { grid-column: span 6; min-height: 320px; background: var(--accent); color: var(--primary-dark); }
+        .bento-card-7 { grid-column: span 6; min-height: 320px; }
+
+        .bento-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 80px;
+            font-weight: 300;
+            opacity: 0.1;
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            line-height: 1;
+        }
+        .bento-card-2 .bento-number,
+        .bento-card-6 .bento-number { opacity: 0.2; color: var(--primary-dark); }
+        .bento-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            background: rgba(26,77,46,0.08);
+        }
+        .bento-card-2 .bento-icon { background: rgba(255,255,255,0.1); }
+        .bento-card-6 .bento-icon { background: rgba(26,77,46,0.15); }
+        .bento-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        .bento-card-2 .bento-icon svg,
+        .bento-card-6 .bento-icon svg { stroke: var(--primary-dark); }
+        .bento-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .bento-card-2 h3,
+        .bento-card-6 h3 { color: var(--primary-dark); }
+        .bento-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.7;
+            font-weight: 300;
+        }
+
+        /* Program Section */
+        .program {
+            padding: 160px 48px;
+            background: var(--primary-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        .program::before {
+            content: 'CUIDAR';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 200px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.03);
+            white-space: nowrap;
+        }
+        .program-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .program-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 64px;
+            font-weight: 300;
+            color: var(--off-white);
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+        .program-content h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        .program-content p {
+            font-size: 17px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+        .program-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .benefit-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--primary-dark);
+            fill: none;
+            stroke-width: 2;
+        }
+        .benefit span {
+            font-size: 14px;
+            color: var(--off-white);
+            font-weight: 400;
+        }
+        .program-visual {
+            position: relative;
+        }
+        .program-image {
+            width: 100%;
+            border-radius: 32px;
+            box-shadow: 0 60px 120px rgba(0,0,0,0.4);
+        }
+        .program-float {
+            position: absolute;
+            background: var(--off-white);
+            padding: 24px 32px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        .program-float-1 { bottom: -40px; left: -40px; }
+        .program-float-2 { top: 40px; right: -40px; }
+        .program-float h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .program-float p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 160px 48px;
+            background: var(--cream);
+        }
+        .testimonials-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 80px;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .testimonial {
+            background: var(--off-white);
+            padding: 48px;
+            border-radius: 24px;
+            position: relative;
+            border: 1px solid var(--border);
+            transition: all 0.5s ease;
+        }
+        .testimonial:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+        }
+        .testimonial-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 72px;
+            color: var(--accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: -20px;
+        }
+        .testimonial-text {
+            font-size: 16px;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            font-weight: 300;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .testimonial-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .testimonial-name {
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .testimonial-role {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 180px 48px;
+            background: var(--accent);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: rgba(26,77,46,0.1);
+            border-radius: 50%;
+        }
+        .cta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(48px, 6vw, 80px);
+            font-weight: 300;
+            color: var(--primary-dark);
+            line-height: 1.1;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-subtitle {
+            font-size: 18px;
+            color: rgba(13,40,24,0.7);
+            max-width: 500px;
+            margin: 0 auto 48px;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        .btn-cta-primary {
+            background: var(--primary-dark);
+            color: var(--off-white);
+            padding: 20px 48px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+        }
+        .btn-cta-primary:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        .btn-cta-secondary {
+            border: 2px solid var(--primary-dark);
+            color: var(--primary-dark);
+            padding: 20px 48px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+        }
+        .btn-cta-secondary:hover {
+            background: var(--primary-dark);
+            color: var(--off-white);
+        }
+
+        /* Contact */
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+        }
+        .contact-map {
+            position: relative;
+        }
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(100%) contrast(1.1);
+        }
+        .contact-info {
+            padding: 120px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--off-white);
+        }
+        .contact-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        .contact-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 400;
+            color: var(--primary-dark);
+            margin-bottom: 48px;
+            line-height: 1.1;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--cream);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        .contact-item h4 {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .contact-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 48px 40px;
+            background: var(--primary-dark);
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--off-white);
+            margin-bottom: 16px;
+        }
+        .footer-tagline {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            max-width: 300px;
+            line-height: 1.6;
+        }
+        .footer-links {
+            display: flex;
+            gap: 80px;
+        }
+        .footer-column h4 {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--off-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 12px; }
+        .footer-column a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        .footer-column a:hover { color: var(--accent); }
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-bottom p {
+            color: rgba(255,255,255,0.3);
+            font-size: 13px;
+        }
+
+        /* WhatsApp */
+        .whatsapp {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 64px;
+            height: 64px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 40px rgba(37,211,102,0.4);
+            z-index: 999;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+        .whatsapp:hover { transform: scale(1.1) translateY(-4px); }
+        .whatsapp svg { width: 32px; height: 32px; fill: white; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav { padding: 20px 24px; }
+            .nav-links { display: none; }
+            .hero { padding: 0 24px 60px; }
+            .hero-bottom { flex-direction: column; gap: 40px; }
+            .about { grid-template-columns: 1fr; }
+            .about-content { padding: 80px 24px; }
+            .bento-grid { grid-template-columns: repeat(4, 1fr); }
+            .bento-card-1, .bento-card-6, .bento-card-7 { grid-column: span 4; }
+            .bento-card-2, .bento-card-3, .bento-card-4, .bento-card-5 { grid-column: span 2; }
+            .program-grid { grid-template-columns: 1fr; gap: 60px; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .contact { grid-template-columns: 1fr; }
+            .contact-map { height: 400px; }
+            .contact-info { padding: 80px 24px; }
+            .footer-content { flex-direction: column; gap: 48px; }
+            .footer-links { gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 48px; }
+            .services { padding: 100px 24px; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-card-1, .bento-card-2, .bento-card-3, .bento-card-4, .bento-card-5, .bento-card-6, .bento-card-7 { grid-column: span 1; }
+            .program { padding: 100px 24px; }
+            .program-content h2 { font-size: 44px; }
+            .program-benefits { grid-template-columns: 1fr; }
+            .testimonials { padding: 100px 24px; }
+            .cta { padding: 120px 24px; }
+            .footer-links { flex-direction: column; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <nav class="nav">
+        <a href="#" class="nav-logo">Juvenal Paiva</a>
+        <ul class="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#programa">Programa Cuidar</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato" class="nav-cta">Agendar</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow reveal-up">Clínica Médica Multi-Especialidades</div>
+            <h1 class="hero-title reveal-up">Saúde com <em>excelência</em> e acessibilidade</h1>
+            <div class="hero-bottom">
+                <p class="hero-description reveal-up">Mais de 15 anos cuidando da comunidade de Sete Lagoas com atendimento humanizado, profissionais qualificados e preços justos.</p>
+                <div class="hero-cta reveal-up">
+                    <a href="#agendar" class="btn-hero btn-hero-primary">Agendar Consulta</a>
+                    <a href="#servicos" class="btn-hero btn-hero-secondary">Nossos Serviços</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+            Scroll
+        </div>
+    </section>
+
+    <div class="marquee-section">
+        <div class="marquee">
+            <div class="marquee-item"><span></span>Cardiologia</div>
+            <div class="marquee-item"><span></span>Clínica Geral</div>
+            <div class="marquee-item"><span></span>Endocrinologia</div>
+            <div class="marquee-item"><span></span>Angiologia</div>
+            <div class="marquee-item"><span></span>Geriatria</div>
+            <div class="marquee-item"><span></span>Ultrassom</div>
+            <div class="marquee-item"><span></span>Vídeoendoscopia</div>
+            <div class="marquee-item"><span></span>Ecocardiograma</div>
+            <div class="marquee-item"><span></span>Cardiologia</div>
+            <div class="marquee-item"><span></span>Clínica Geral</div>
+            <div class="marquee-item"><span></span>Endocrinologia</div>
+            <div class="marquee-item"><span></span>Angiologia</div>
+            <div class="marquee-item"><span></span>Geriatria</div>
+            <div class="marquee-item"><span></span>Ultrassom</div>
+            <div class="marquee-item"><span></span>Vídeoendoscopia</div>
+            <div class="marquee-item"><span></span>Ecocardiograma</div>
+        </div>
+    </div>
+
+    <section class="about" id="sobre">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=85" alt="Equipe médica">
+            <div class="about-image-overlay"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-label reveal-up">Sobre a Clínica</div>
+            <h2 class="about-title reveal-up">Uma história de cuidado e compromisso com a saúde</h2>
+            <p class="about-text reveal-up">Fundada pelo Dr. Celso Paiva, filho do renomado Dr. Juvenal Paiva, a clínica nasceu do sonho de oferecer atendimento médico de qualidade a preço acessível para a comunidade de Sete Lagoas e região.</p>
+            <div class="about-stats reveal-up">
+                <div class="about-stat">
+                    <div class="about-stat-number">15+</div>
+                    <div class="about-stat-label">Anos de história</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-number">50k+</div>
+                    <div class="about-stat-label">Pacientes atendidos</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-number">20+</div>
+                    <div class="about-stat-label">Especialidades</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicos">
+        <div class="services-header">
+            <div class="services-label reveal-up">Especialidades</div>
+            <h2 class="services-title reveal-up">Cuidando de cada aspecto da sua saúde</h2>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-card bento-card-1 reveal-scale">
+                <div class="bento-number">01</div>
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h3>Clínica Geral</h3>
+                <p>Atendimento preventivo e curativo para toda a família. Check-ups completos e orientação médica personalizada.</p>
+            </div>
+            <div class="bento-card bento-card-2 reveal-scale">
+                <div class="bento-number">02</div>
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Cardiologia</h3>
+                <p>Diagnóstico e tratamento do coração com equipamentos de última geração.</p>
+            </div>
+            <div class="bento-card bento-card-3 reveal-scale">
+                <div class="bento-number">03</div>
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                </div>
+                <h3>Endocrinologia</h3>
+                <p>Tratamento de diabetes, tireoide e distúrbios hormonais.</p>
+            </div>
+            <div class="bento-card bento-card-4 reveal-scale">
+                <div class="bento-number">04</div>
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <h3>Angiologia</h3>
+                <p>Diagnóstico e tratamento de doenças vasculares.</p>
+            </div>
+            <div class="bento-card bento-card-5 reveal-scale">
+                <div class="bento-number">05</div>
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Geriatria</h3>
+                <p>Cuidados especializados para a terceira idade.</p>
+            </div>
+            <div class="bento-card bento-card-6 reveal-scale">
+                <div class="bento-number">06</div>
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Ultrassom</h3>
+                <p>Exames com equipamentos de última geração.</p>
+            </div>
+            <div class="bento-card bento-card-7 reveal-scale">
+                <div class="bento-number">07</div>
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <h3>Exames</h3>
+                <p>Vídeoendoscopia, ecocardiograma e laboratório.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="program" id="programa">
+        <div class="program-grid">
+            <div class="program-content">
+                <h2 class="reveal-up">Programa <em>Cuidar</em> Juvenal Paiva</h2>
+                <p class="reveal-up">Seu programa de benefícios da saúde em Sete Lagoas e região. Acesse descontos exclusivos, benefícios para toda a família e consultas a preço justo.</p>
+                <div class="program-benefits reveal-up">
+                    <div class="benefit">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span>Descontos exclusivos</span>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span>Benefícios familiares</span>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span>Preços acessíveis</span>
+                    </div>
+                    <div class="benefit">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span>Atendimento prioritário</span>
+                    </div>
+                </div>
+            </div>
+            <div class="program-visual reveal-scale">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=85" alt="Programa Cuidar" class="program-image">
+                <div class="program-float program-float-1">
+                    <h4>15+</h4>
+                    <p>Anos de confiança</p>
+                </div>
+                <div class="program-float program-float-2">
+                    <h4>98%</h4>
+                    <p>Satisfação</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="depoimentos">
+        <div class="testimonials-header">
+            <div class="services-label reveal-up">Depoimentos</div>
+            <h2 class="services-title reveal-up">O que nossos pacientes dizem</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial reveal-up">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Excelente atendimento! O médico foi muito atencioso e o preço é muito justo. Recomendo para toda a família.</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Maria Santos" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Maria Santos</div>
+                        <div class="testimonial-role">Paciente há 5 anos</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial reveal-up">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Fiz meu check-up anual e fiquei muito satisfeito com a qualidade do atendimento e a modernidade dos equipamentos.</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="João Oliveira" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">João Oliveira</div>
+                        <div class="testimonial-role">Paciente há 3 anos</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial reveal-up">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">A melhor clínica de Sete Lagoas! Atendimento rápido, profissionais qualificados e preços acessíveis.</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Ana Costa" class="testimonial-avatar">
+                    <div>
+                        <div class="testimonial-name">Ana Costa</div>
+                        <div class="testimonial-role">Paciente há 7 anos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="agendar">
+        <h2 class="cta-title reveal-up">Agende sua consulta hoje</h2>
+        <p class="cta-subtitle reveal-up">Cuide da sua saúde com quem entende. Nossos médicos estão prontos para atender você.</p>
+        <div class="cta-buttons reveal-up">
+            <a href="https://wa.me/5531996205054" class="btn-cta-primary">Agendar pelo WhatsApp</a>
+            <a href="tel:3121065520" class="btn-cta-secondary">Ligar Agora</a>
+        </div>
+    </section>
+
+    <section class="contact" id="contato">
+        <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.5!2d-44.24!3d-19.46!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI3JzM2LjAiUyA0NMKwMTQnMjQuMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="contact-info">
+            <div class="contact-label reveal-up">Contato</div>
+            <h2 class="contact-title reveal-up">Entre em contato conosco</h2>
+            <div class="contact-item reveal-up">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                    <h4>Endereço</h4>
+                    <p>R. Teófilo Otoni, 420 - Centro<br>Sete Lagoas - MG, 35700-007</p>
+                </div>
+            </div>
+            <div class="contact-item reveal-up">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                    <h4>Telefone</h4>
+                    <p>(31) 2106-5520<br>(31) 99620-5054</p>
+                </div>
+            </div>
+            <div class="contact-item reveal-up">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                    <h4>Horário</h4>
+                    <p>Segunda a Sexta: 7h - 19h<br>Sábado: 7h - 12h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">Juvenal Paiva</div>
+                <p class="footer-tagline">Clínica médica multi-especialidades em Sete Lagoas. Saúde acessível e de qualidade para toda a família.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Especialidades</h4>
+                    <ul>
+                        <li><a href="#">Clínica Geral</a></li>
+                        <li><a href="#">Cardiologia</a></li>
+                        <li><a href="#">Endocrinologia</a></li>
+                        <li><a href="#">Angiologia</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Exames</h4>
+                    <ul>
+                        <li><a href="#">Ultrassom</a></li>
+                        <li><a href="#">Ecocardiograma</a></li>
+                        <li><a href="#">Vídeoendoscopia</a></li>
+                        <li><a href="#">Laboratório</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="tel:3121065520">(31) 2106-5520</a></li>
+                        <li><a href="https://wa.me/5531996205054">WhatsApp</a></li>
+                        <li><a href="#">Centro, Sete Lagoas</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Clínica Juvenal Paiva. Todos os direitos reservados.</p>
+            <p>CNPJ: 05.116.221/0001-43</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5531996205054" class="whatsapp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
+        document.querySelectorAll('a, .bento-card, .testimonial').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+
+        // Reveal animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Counter animation
+        const animateCounters = () => {
+            document.querySelectorAll('.about-stat-number, .program-float h4').forEach(counter => {
+                const text = counter.innerText;
+                const target = parseInt(text);
+                if (isNaN(target)) return;
+                let current = 0;
+                const step = target / 60;
+                const update = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.innerText = Math.floor(current) + (text.includes('+') ? '+' : '') + (text.includes('k') ? 'k' : '') + (text.includes('%') ? '%' : '');
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.innerText = text;
+                    }
+                };
+                const obs = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) { update(); obs.disconnect(); }
+                });
+                obs.observe(counter);
+            });
+        };
+        window.addEventListener('load', animateCounters);
+    </script>
+</body>
+</html>
