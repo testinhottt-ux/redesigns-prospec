@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Pet - Pet Shop | Sete Lagoas</title>
+    <meta name="description" content="Meu Pet - Excelente Loja de Animais em Sete Lagoas. Rações, acessórios, medicamentos, consultório veterinário, banho e tosa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="paw-print">🐾</div>
+            <div class="loader-text">Meu Pet</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-icon">🐾</span>
+                <span class="logo-text">Meu Pet</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#plans" class="nav-link">Planos</a></li>
+                <li><a href="#gallery" class="nav-link">Galeria</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="images/hero-dog.jpg" alt="Cachorro feliz" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge" data-animate="fade-up">Pet Shop em Sete Lagoas</div>
+            <h1 class="hero-title" data-animate="fade-up" data-delay="100">
+                Meu Pet<br>
+                <span class="highlight">Todo Carinho Para o Seu Pet</span>
+            </h1>
+            <p class="hero-subtitle" data-animate="fade-up" data-delay="200">
+                Rações, acessórios, medicamentos, consultório veterinário, banho e tosa
+            </p>
+            <div class="hero-buttons" data-animate="fade-up" data-delay="300">
+                <a href="tel:+5531987677991" class="btn btn-primary">Ligar Agora</a>
+                <a href="#services" class="btn btn-secondary">Nossos Serviços</a>
+            </div>
+        </div>
+        <div class="scroll-indicator" data-animate="fade-up" data-delay="400">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Role para baixo</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content" data-animate="fade-right">
+                    <span class="section-tag">Sobre Nós</span>
+                    <h2 class="section-title">Excelente Loja de Animais<br>em Sete Lagoas</h2>
+                    <p class="about-text">
+                        Meu Pet oferece uma linha completa de rações, acessórios, medicamentos, 
+                        consultório veterinário, banho e tosa em Sete Lagoas. Somos apaixonados 
+                        por animais, assim como você.
+                    </p>
+                    <p class="about-text">
+                        Venha conferir as novidades que temos em nosso estoque para servir 
+                        bem nossos amigos de quatro patas. Ligue para (31) 98767-7991, 
+                        caso queira tirar alguma dúvida.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="10">0</span>
+                            <span class="stat-label">Anos de Experiência</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="5000">0</span>
+                            <span class="stat-label">Pets Atendidos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="98">0</span>
+                            <span class="stat-label">% Satisfação</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image" data-animate="fade-left">
+                    <div class="image-wrapper">
+                        <img src="images/cat.jpg" alt="Gato fofo">
+                        <div class="image-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Nossos Serviços</span>
+                <h2 class="section-title">Nossos Produtos e Serviços</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-animate="fade-up" data-delay="0">
+                    <div class="service-icon">🍖</div>
+                    <h3 class="service-title">Rações e Alimentação</h3>
+                    <p class="service-desc">Oferecemos alimentação animal de alta qualidade. Todos os tipos de rações, de diversas marcas, para todos os tipos de animais.</p>
+                    <a href="#contact" class="service-link">Saiba mais →</a>
+                </div>
+                <div class="service-card" data-animate="fade-up" data-delay="100">
+                    <div class="service-icon">🏥</div>
+                    <h3 class="service-title">Consultório Veterinário</h3>
+                    <p class="service-desc">Consultório veterinário completo para cuidar da saúde do seu pet com exames, vacinas e tratamentos.</p>
+                    <a href="#contact" class="service-link">Saiba mais →</a>
+                </div>
+                <div class="service-card" data-animate="fade-up" data-delay="200">
+                    <div class="service-icon">🛁</div>
+                    <h3 class="service-title">Banho & Tosa</h3>
+                    <p class="service-desc">Banho e tosa profissional para seu pet ficar limpo, cheiroso e bem cuidado.</p>
+                    <a href="#contact" class="service-link">Saiba mais →</a>
+                </div>
+                <div class="service-card" data-animate="fade-up" data-delay="300">
+                    <div class="service-icon">🛍️</div>
+                    <h3 class="service-title">Acessórios e Petiscos</h3>
+                    <p class="service-desc">Colares, guias, plaquinhas de identificação e petiscos para mimar seu宠物.</p>
+                    <a href="#contact" class="service-link">Saiba mais →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="plans" id="plans">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Produtos</span>
+                <h2 class="section-title">Nossos Produtos</h2>
+                <p class="section-subtitle">Moda e Acessórios para PET</p>
+            </div>
+            <div class="plans-grid">
+                <div class="plan-card featured" data-animate="fade-up" data-delay="0">
+                    <div class="plan-badge">Destaque</div>
+                    <div class="plan-header">
+                        <h3 class="plan-name">Plaquinha de Identificação</h3>
+                        <div class="plan-price">
+                            <span class="currency">R$</span>
+                            <span class="amount">10</span>
+                            <span class="period">,00</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span> Personalizada</li>
+                        <li><span class="check">✓</span> Nome do pet</li>
+                        <li><span class="check">✓</span> Seu telefone</li>
+                        <li><span class="check">✓</span> Diversas cores</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Enviar Mensagem</a>
+                </div>
+                <div class="plan-card" data-animate="fade-up" data-delay="100">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Colares e Guias</h3>
+                        <div class="plan-price">
+                            <span class="currency">R$</span>
+                            <span class="amount">Variedade</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span> Diversas marcas</li>
+                        <li><span class="check">✓</span> Tamanhos variados</li>
+                        <li><span class="check">✓</span> Cores disponíveis</li>
+                        <li><span class="check">✓</span> Qualidade garantida</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Saiba mais</a>
+                </div>
+                <div class="plan-card" data-animate="fade-up" data-delay="200">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Petiscos e Rações</h3>
+                        <div class="plan-price">
+                            <span class="currency">R$</span>
+                            <span class="amount">Variedade</span>
+                        </div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span> Marcas premium</li>
+                        <li><span class="check">✓</span> Para todos os pets</li>
+                        <li><span class="check">✓</span> Dieta e nutrição</li>
+                        <li><span class="check">✓</span> Orientação especializada</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Galeria</span>
+                <h2 class="section-title">Nossos Pets Felizes</h2>
+            </div>
+            <div class="gallery-grid" data-animate="fade-up">
+                <div class="gallery-item large">
+                    <img src="images/dog-bath.jpg" alt="Banho para cachorro">
+                    <div class="gallery-overlay">
+                        <span>Banho & Tosa</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cat-portrait.jpg" alt="Gato fofo">
+                    <div class="gallery-overlay">
+                        <span>Gatos</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/dog-grooming.jpg" alt="Tosa de cachorro">
+                    <div class="gallery-overlay">
+                        <span>Estética</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/puppy.jpg" alt="Filhote">
+                    <div class="gallery-overlay">
+                        <span>Filhotes</span>
+                    </div>
+                </div>
+                <div class="gallery-item large">
+                    <img src="images/dog-play.jpg" alt="Cachorros brincando">
+                    <div class="gallery-overlay">
+                        <span>Diversão</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/golden.jpg" alt="Golden Retriever">
+                    <div class="gallery-overlay">
+                        <span>Raças</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info" data-animate="fade-right">
+                    <span class="section-tag">Contato</span>
+                    <h2 class="section-title">Entre em Contato<br>Ou Faça uma Visita</h2>
+                    <p class="contact-text">Estamos prontos para atender você e seu pet com todo carinho e profissionalismo.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <strong>Endereço</strong>
+                                <p>Rua Nossa Senhora Das Graças, 44<br>Bairro Nossa Senhora Das Graças<br>Sete Lagoas - MG, 35700-576</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <strong>Telefone</strong>
+                                <p>(31) 98767-7991</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <strong>E-mail</strong>
+                                <p>silalcantara@yahoo.com.br</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕐</div>
+                            <div>
+                                <strong>Horário</strong>
+                                <p>Disponibilidade 24h<br>Atendimento com hora marcada</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-facilities">
+                        <h4>Facilidades</h4>
+                        <div class="facilities-grid">
+                            <span class="facility">✓ Aceita cartões</span>
+                            <span class="facility">✓ Wi-Fi</span>
+                            <span class="facility">✓ Estacionamento</span>
+                            <span class="facility">✓ Bom para crianças</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper" data-animate="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <h3 class="form-title">Envie sua mensagem</h3>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Assunto">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">Localização</span>
+                <h2 class="section-title">Como Chegar</h2>
+            </div>
+            <div class="map-container" data-animate="fade-up">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.5!2d-44.2444971!3d-19.4474966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI2JzUxLjAiUyA0NMKwMTQnNDAuMiJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                    width="100%" 
+                    height="450" 
+                    style="border:0; border-radius: 20px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="map-info" data-animate="fade-up">
+                <div class="map-info-item">
+                    <span class="map-info-icon">📍</span>
+                    <span>Rua Nossa Senhora Das Graças, 44 - Sete Lagoas/MG</span>
+                </div>
+                <div class="map-info-item">
+                    <span class="map-info-icon">📞</span>
+                    <span>(31) 98767-7991</span>
+                </div>
+                <a href="https://www.google.com/maps/search/-19.4474966,-44.2444971" target="_blank" class="btn btn-primary">
+                    Abrir no Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <span class="logo-icon">🐾</span>
+                        <span class="logo-text">Meu Pet</span>
+                    </a>
+                    <p class="footer-desc">Excelente Loja de Animais em Sete Lagoas. Rações, acessórios, medicamentos, consultório veterinário, banho e tosa.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#plans">Produtos</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p>📍 Sete Lagoas - MG</p>
+                    <p>📞 (31) 98767-7991</p>
+                    <p>✉️ silalcantara@yahoo.com.br</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Meu Pet - Sete Lagoas/MG - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <span>↑</span>
+    </button>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5531987677991" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
