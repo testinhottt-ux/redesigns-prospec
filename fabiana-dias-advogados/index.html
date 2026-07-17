@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabiana Dias Advocacia | Assessoria Jurídica</title>
+<meta name="description" content="Escritório de advocacia em Sete Lagoas/MG. Especialistas em Direito Ambiental, Civil, Consumidor, Empresarial, Trabalhista, Tributário e Previdenciário.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+    --primary: #1b5b9a;
+    --primary-dark: #0f3a5f;
+    --primary-light: #2a78c4;
+    --accent: #c9a96e;
+    --accent-light: #dfc89a;
+    --dark: #070d14;
+    --dark2: #0b1420;
+    --dark3: #111d2e;
+    --white: #ffffff;
+    --gray: #7a8fa3;
+    --text: #b0c4d8;
+    --heading: 'Cormorant Garamond', Georgia, serif;
+    --body: 'Inter', sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:var(--body);background:var(--dark);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* Preloader */
+.preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--dark);display:flex;align-items:center;justify-content:center;z-index:10000;transition:opacity .6s,visibility .6s}
+.preloader.hidden{opacity:0;visibility:hidden}
+.preloader-inner{text-align:center}
+.preloader-logo{font-family:var(--heading);font-size:3rem;font-weight:600;color:var(--accent);letter-spacing:.2em;margin-bottom:2rem}
+.preloader-bar{width:200px;height:2px;background:var(--dark3);margin:0 auto;overflow:hidden}
+.preloader-progress{width:0;height:100%;background:var(--accent);animation:progress 1.5s ease forwards}
+@keyframes progress{to{width:100%}}
+
+/* Navigation */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:1.5rem 0;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.header.scrolled{background:rgba(7,13,20,.95);backdrop-filter:blur(20px);padding:1rem 0;border-bottom:1px solid rgba(27,91,154,.2)}
+.nav{display:flex;align-items:center;justify-content:space-between;max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem)}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;z-index:1001}
+.logo-mark{font-family:var(--heading);font-size:1.5rem;font-weight:600;color:var(--accent);letter-spacing:.1em;width:50px;height:50px;display:flex;align-items:center;justify-content:center;border:2px solid var(--accent);transition:all .4s cubic-bezier(.4,0,.2,1)}
+.nav-logo:hover .logo-mark{background:var(--accent);color:var(--dark)}
+.logo-text{font-size:.875rem;font-weight:500;color:var(--white);letter-spacing:.05em;text-transform:uppercase}
+.nav-links{display:flex;gap:2.5rem}
+.nav-link{font-size:.8125rem;font-weight:500;color:var(--gray);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;position:relative;padding:.5rem 0;transition:color .2s}
+.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--accent);transition:width .4s cubic-bezier(.4,0,.2,1)}
+.nav-link:hover,.nav-link.active{color:var(--accent)}
+.nav-link:hover::after,.nav-link.active::after{width:100%}
+.nav-toggle{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:10px;z-index:1001}
+.nav-toggle span{width:30px;height:2px;background:var(--white);transition:all .4s cubic-bezier(.4,0,.2,1)}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--dark);z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .8s cubic-bezier(.4,0,.2,1)}
+.mobile-menu.active{opacity:1;visibility:visible}
+.mobile-menu-inner{display:flex;flex-direction:column;align-items:center;gap:2rem}
+.mobile-link{font-family:var(--heading);font-size:2.5rem;font-weight:400;color:var(--white);text-decoration:none;transition:color .2s}
+.mobile-link:hover{color:var(--accent)}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+.hero-gradient{position:absolute;top:0;right:0;width:60%;height:100%;background:radial-gradient(ellipse at center,rgba(27,91,154,.12) 0%,transparent 70%)}
+.hero-pattern{position:absolute;top:0;right:0;width:40%;height:100%;background-image:linear-gradient(rgba(27,91,154,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(27,91,154,.04) 1px,transparent 1px);background-size:50px 50px;mask-image:linear-gradient(to left,white 0%,transparent 100%);-webkit-mask-image:linear-gradient(to left,white 0%,transparent 100%)}
+.hero-content{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:8rem clamp(1.5rem,5vw,4rem) 2rem;width:100%;flex:1;display:flex;flex-direction:column;justify-content:center}
+.hero-tag{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s ease .5s forwards}
+.tag-line{width:40px;height:1px;background:var(--accent)}
+.tag-text{font-size:.8125rem;font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:.2em}
+.hero-title{font-family:var(--heading);font-weight:400;line-height:1.1;margin-bottom:2rem}
+.title-line{display:block;font-size:clamp(3rem,8vw,6rem);color:var(--white);opacity:0;transform:translateY(40px);animation:fadeUp .8s ease forwards}
+.title-line:nth-child(1){animation-delay:.6s}
+.title-line:nth-child(2){animation-delay:.7s}
+.title-line:nth-child(3){animation-delay:.8s}
+.title-accent{font-style:italic;color:var(--gray)}
+.title-highlight{color:var(--accent);font-weight:600}
+.hero-subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--gray);max-width:500px;margin-bottom:3rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s ease .9s forwards}
+.hero-cta{display:flex;gap:1.5rem;flex-wrap:wrap;opacity:0;transform:translateY(20px);animation:fadeUp .8s ease 1s forwards}
+.btn{display:inline-flex;align-items:center;gap:.75rem;padding:1rem 2rem;font-size:.875rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em;text-decoration:none;border-radius:4px;transition:all .4s cubic-bezier(.4,0,.2,1);cursor:pointer;border:none}
+.btn-primary{background:var(--accent);color:var(--dark)}
+.btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,169,110,.3)}
+.btn-secondary{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.3)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.hero-scroll{display:none}
+.hero-scroll span{font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gray)}
+.scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollLine 2s ease infinite}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Hero Stats - CENTRALIZADO NA PARTE INFERIOR */
+.hero-stats{display:flex;justify-content:center;gap:6rem;padding:2.5rem 0;opacity:0;animation:fadeUp .8s ease 1.3s forwards;background:linear-gradient(to top,rgba(7,13,20,.6) 0%,transparent 100%);border-top:1px solid rgba(27,91,154,.2);z-index:2;position:relative}
+.stat{text-align:center}
+.stat-number{font-family:var(--heading);font-size:3rem;font-weight:600;color:var(--white);line-height:1}
+.stat-suffix{font-family:var(--heading);font-size:2rem;color:var(--accent)}
+.stat-label{display:block;font-size:.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-top:.5rem}
+
+/* Marquee */
+.marquee-section{padding:2rem 0;border-top:1px solid rgba(27,91,154,.15);border-bottom:1px solid rgba(27,91,154,.15);overflow:hidden;background:var(--dark2)}
+.marquee{display:flex;overflow:hidden}
+.marquee-content{display:flex;align-items:center;gap:3rem;animation:marquee 30s linear infinite;white-space:nowrap}
+.marquee-content span{font-family:var(--heading);font-size:1.25rem;font-weight:400;color:var(--gray);text-transform:uppercase;letter-spacing:.1em}
+.marquee-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* Sections */
+.container{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem)}
+.section-tag{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;justify-content:center}
+.section-tag span:last-child{font-size:.8125rem;font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:.2em}
+.section-title{font-family:var(--heading);font-size:clamp(2.5rem,5vw,4rem);font-weight:400;color:var(--white);line-height:1.2;text-align:center;margin-bottom:3rem}
+
+/* About */
+.about{padding:8rem 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.about-content .section-tag{justify-content:flex-start}
+.about-content .section-title{text-align:left;margin-bottom:1.5rem}
+.about-text{font-size:1.125rem;color:var(--text);margin-bottom:1.5rem;line-height:1.8}
+.about-features{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem}
+.feature{display:flex;align-items:flex-start;gap:1.25rem}
+.feature-icon{width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:rgba(27,91,154,.15);border-radius:4px;flex-shrink:0}
+.feature-icon i{font-size:1.25rem;color:var(--primary-light)}
+.feature-text h4{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+.feature-text p{font-size:.875rem;color:var(--gray)}
+.about-visual{position:relative}
+.about-image-wrapper{position:relative;overflow:hidden;border-radius:8px}
+.about-image{width:100%;height:500px;object-fit:cover;transition:transform .8s cubic-bezier(.4,0,.2,1)}
+.about-image-wrapper:hover .about-image{transform:scale(1.05)}
+.about-image-accent{position:absolute;top:-20px;right:-20px;width:150px;height:150px;border:2px solid var(--accent);border-radius:8px;z-index:-1}
+.about-experience{position:absolute;bottom:-30px;left:-30px;background:var(--accent);padding:2rem;border-radius:8px;text-align:center}
+.experience-number{display:block;font-family:var(--heading);font-size:3rem;font-weight:600;color:var(--dark);line-height:1}
+.experience-text{font-size:.75rem;color:var(--dark);text-transform:uppercase;letter-spacing:.1em;opacity:.8}
+
+/* Areas */
+.areas{padding:8rem 0;background:var(--dark2)}
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.area-card{position:relative;background:var(--dark);border-radius:8px;overflow:hidden;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.area-card:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.area-image{position:relative;height:250px;overflow:hidden}
+.area-image img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.4,0,.2,1)}
+.area-card:hover .area-image img{transform:scale(1.1)}
+.area-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,transparent 0%,rgba(7,13,20,.95) 100%)}
+.area-content{padding:2rem;position:relative}
+.area-number{font-family:var(--heading);font-size:3rem;font-weight:600;color:rgba(27,91,154,.2);position:absolute;top:-40px;right:20px;line-height:1}
+.area-title{font-family:var(--heading);font-size:1.5rem;font-weight:500;color:var(--white);margin-bottom:1rem}
+.area-desc{font-size:.875rem;color:var(--gray);line-height:1.7;margin-bottom:1.5rem}
+.area-expand{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,169,110,.3);border-radius:50%;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.area-expand i{color:var(--accent);font-size:.875rem;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.area-card:hover .area-expand{background:var(--accent);border-color:var(--accent)}
+.area-card:hover .area-expand i{color:var(--dark);transform:rotate(45deg)}
+
+/* Team */
+.team{padding:8rem 0}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
+.team-card{text-align:center}
+.team-image{position:relative;margin-bottom:1.5rem;overflow:hidden;border-radius:8px}
+.team-image img{width:100%;height:300px;object-fit:cover;filter:grayscale(100%);transition:all .8s cubic-bezier(.4,0,.2,1)}
+.team-card:hover .team-image img{filter:grayscale(0%);transform:scale(1.05)}
+.team-social{position:absolute;bottom:0;left:0;width:100%;padding:1.5rem;background:linear-gradient(to top,rgba(7,13,20,.9) 0%,transparent 100%);display:flex;justify-content:center;gap:1rem;transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1)}
+.team-card:hover .team-social{transform:translateY(0)}
+.team-social a{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--accent);border-radius:50%;color:var(--dark);text-decoration:none;transition:all .2s}
+.team-social a:hover{background:var(--white);transform:translateY(-3px)}
+.team-name{font-family:var(--heading);font-size:1.25rem;font-weight:500;color:var(--white);margin-bottom:.25rem}
+.team-role{font-size:.8125rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:.75rem}
+.team-bio{font-size:.8125rem;color:var(--gray);line-height:1.6}
+
+/* CTA */
+.cta-section{padding:6rem 0;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:50px 50px}
+.cta-content{text-align:center;position:relative;z-index:1}
+.cta-title{font-family:var(--heading);font-size:clamp(2rem,4vw,3rem);font-weight:400;color:var(--white);margin-bottom:1rem}
+.cta-text{font-size:1.125rem;color:rgba(255,255,255,.7);margin-bottom:2rem}
+.cta-section .btn-primary{background:var(--accent);color:var(--dark)}
+.cta-section .btn-primary:hover{background:var(--accent-light);box-shadow:0 10px 30px rgba(0,0,0,.3)}
+
+/* Contact */
+.contact{padding:8rem 0;background:var(--dark2)}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:3rem}
+.contact-card{background:var(--dark);padding:2.5rem;border-radius:8px;text-align:center;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.contact-card:hover{transform:translateY(-5px);border:1px solid rgba(201,169,110,.2)}
+.contact-icon{width:60px;height:60px;display:flex;align-items:center;justify-content:center;background:rgba(27,91,154,.15);border-radius:50%;margin:0 auto 1.5rem}
+.contact-icon i{font-size:1.5rem;color:var(--primary-light)}
+.contact-card h4{font-family:var(--heading);font-size:1.5rem;font-weight:500;color:var(--white);margin-bottom:1rem}
+.contact-card p{font-size:.9375rem;color:var(--gray);margin-bottom:1.5rem;line-height:1.7}
+.contact-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.875rem;font-weight:500;color:var(--accent);text-decoration:none;transition:color .2s}
+.contact-link:hover{color:var(--accent-light)}
+.contact-info{display:flex;justify-content:center;flex-wrap:wrap;gap:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.05)}
+.contact-item{display:flex;align-items:center;gap:.75rem}
+.contact-item i{color:var(--accent);font-size:1.125rem}
+.contact-item a{font-size:.9375rem;color:var(--text);text-decoration:none;transition:color .2s}
+.contact-item a:hover{color:var(--accent)}
+
+/* Map Section - MINIMALISTA */
+.map-section{padding:6rem 0;background:var(--dark);text-align:center}
+.map-section .section-title{margin-bottom:1rem}
+.map-container{max-width:1200px;margin:0 auto;border-radius:12px;overflow:hidden;border:1px solid rgba(27,91,154,.2);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.map-container iframe{display:block;width:100%;height:400px;border:none}
+.map-gps{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;font-size:.9375rem;color:var(--accent);text-decoration:none;transition:color .2s}
+.map-gps i{font-size:1.125rem}
+.map-gps:hover{color:var(--accent-light)}
+
+/* Footer */
+.footer{padding:4rem 0 2rem;border-top:1px solid rgba(27,91,154,.15)}
+.footer-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:2rem;border-bottom:1px solid rgba(27,91,154,.15);margin-bottom:2rem}
+.footer-logo{font-family:var(--heading);font-size:2rem;font-weight:600;color:var(--accent);letter-spacing:.1em}
+.footer-tagline{font-size:.875rem;color:var(--gray);margin-top:.5rem}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-size:.875rem;color:var(--gray);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-social{display:flex;gap:1rem}
+.footer-social a{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.1);border-radius:50%;color:var(--gray);text-decoration:none;transition:all .2s}
+.footer-social a:hover{border-color:var(--accent);color:var(--accent)}
+.footer-bottom{text-align:center;padding-top:1rem}
+.footer-bottom p{font-size:.8125rem;color:var(--gray)}
+
+/* WhatsApp Float */
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:1.75rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:999;transition:all .4s cubic-bezier(.4,0,.2,1);animation:pulse 2s infinite}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.5)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 15px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* Responsive */
+@media(max-width:1200px){.team-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:992px){
+.nav-links{display:none}
+.nav-toggle{display:flex}
+.about-grid{grid-template-columns:1fr;gap:4rem}
+.about-visual{order:-1}
+.areas-grid{grid-template-columns:repeat(2,1fr)}
+.team-grid{grid-template-columns:repeat(2,1fr)}
+.hero-stats{gap:4rem;padding:2rem 0}
+.footer-top{flex-direction:column;gap:2rem;text-align:center}
+}
+@media(max-width:768px){
+.hero-stats{gap:3rem;padding:1.5rem 0;flex-wrap:wrap}
+.areas-grid{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr}
+.contact-info{flex-direction:column;align-items:center;gap:1.5rem}
+.footer-links{flex-wrap:wrap;justify-content:center}
+}
+@media(max-width:480px){
+.team-grid{grid-template-columns:1fr}
+.hero-stats{gap:2rem}
+.hero-cta{flex-direction:column}
+.btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="preloader" id="preloader">
+<div class="preloader-inner">
+<div class="preloader-logo">FD</div>
+<div class="preloader-bar"><div class="preloader-progress"></div></div>
+</div></div>
+
+<header class="header" id="header">
+<nav class="nav">
+<a href="#" class="nav-logo">
+<span class="logo-mark">FD</span>
+<span class="logo-text">Fabiana Dias</span>
+</a>
+<div class="nav-links">
+<a href="#home" class="nav-link active" data-section="home">Home</a>
+<a href="#sobre" class="nav-link" data-section="sobre">Quem Somos</a>
+<a href="#areas" class="nav-link" data-section="areas">Áreas</a>
+<a href="#equipe" class="nav-link" data-section="equipe">Equipe</a>
+<a href="#contato" class="nav-link" data-section="contato">Contato</a>
+</div>
+<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu-inner">
+<a href="#home" class="mobile-link">Home</a>
+<a href="#sobre" class="mobile-link">Quem Somos</a>
+<a href="#areas" class="mobile-link">Áreas</a>
+<a href="#equipe" class="mobile-link">Equipe</a>
+<a href="#contato" class="mobile-link">Contato</a>
+</div></div>
+
+<section class="hero" id="home">
+<div class="hero-bg">
+<div class="hero-gradient"></div>
+<div class="hero-pattern"></div>
+</div>
+<div class="hero-content">
+<div class="hero-tag"><span class="tag-line"></span><span class="tag-text">Desde 2004</span></div>
+<h1 class="hero-title">
+<span class="title-line">Assessoria jurídica</span>
+<span class="title-line title-accent">com foco no</span>
+<span class="title-line title-highlight">resultado</span>
+</h1>
+<p class="hero-subtitle">Excelência na atuação em consultorias e serviços jurídicos nos diversos seguimentos do direito.</p>
+<div class="hero-cta">
+<a href="#contato" class="btn btn-primary"><span>Agende sua consulta</span><i class="fas fa-arrow-right"></i></a>
+<a href="#areas" class="btn btn-secondary"><span>Nossas áreas</span></a>
+</div>
+</div>
+<div class="hero-stats">
+<div class="stat"><span class="stat-number" data-count="20">0</span><span class="stat-suffix">+</span><span class="stat-label">Anos de experiência</span></div>
+<div class="stat"><span class="stat-number" data-count="3">0</span><span class="stat-label">Unidades</span></div>
+<div class="stat"><span class="stat-number" data-count="7">0</span><span class="stat-label">Áreas de atuação</span></div>
+</div>
+</section>
+
+<div class="marquee-section">
+<div class="marquee">
+<div class="marquee-content">
+<span>Direito Ambiental</span><span class="marquee-dot"></span>
+<span>Direito Civil</span><span class="marquee-dot"></span>
+<span>Direito do Consumidor</span><span class="marquee-dot"></span>
+<span>Direito Empresarial</span><span class="marquee-dot"></span>
+<span>Direito Trabalhista</span><span class="marquee-dot"></span>
+<span>Direito Tributário</span><span class="marquee-dot"></span>
+<span>Direito Previdenciário</span><span class="marquee-dot"></span>
+</div></div></div>
+
+<section class="about" id="sobre">
+<div class="container">
+<div class="about-grid">
+<div class="about-content">
+<div class="section-tag"><span class="tag-line"></span><span>Quem Somos</span></div>
+<h2 class="section-title">Tradição e excelência em advocacia</h2>
+<p class="about-text">O Fabiana Dias Sociedade de Advogados atua no mercado de Sete Lagoas/MG e região desde 2004. Consolidou-se no mercado jurídico, sendo reconhecido pela excelência na atuação em consultorias e serviços jurídicos nos diversos seguimentos do direito.</p>
+<p class="about-text">Especialmente em Direito Ambiental, Civil, Consumidor, Empresarial, Trabalhista, Tributário e Previdenciário, tanto na esfera extrajudicial, quanto judicial.</p>
+<div class="about-features">
+<div class="feature">
+<div class="feature-icon"><i class="fas fa-gavel"></i></div>
+<div class="feature-text"><h4>Excelência Jurídica</h4><p>Atuação pautada pela ética e resultados</p></div>
+</div>
+<div class="feature">
+<div class="feature-icon"><i class="fas fa-handshake"></i></div>
+<div class="feature-text"><h4>Atendimento Personalizado</h4><p>Cada cliente recebe atenção exclusiva</p></div>
+</div>
+</div></div>
+<div class="about-visual">
+<div class="about-image-wrapper">
+<img src="images/fabiana.jpg" alt="Fabiana Dias" class="about-image">
+<div class="about-image-accent"></div>
+</div>
+<div class="about-experience"><span class="experience-number">20+</span><span class="experience-text">Anos de experiência</span></div>
+</div></div></div>
+</section>
+
+<section class="areas" id="areas">
+<div class="container">
+<div class="section-tag"><span class="tag-line"></span><span>Áreas de Atuação</span></div>
+<h2 class="section-title">Especialidades jurídicas</h2>
+<div class="areas-grid">
+<div class="area-card">
+<div class="area-image"><img src="images/direito-trabalho.jpg" alt="Direito do Trabalho"><div class="area-overlay"></div></div>
+<div class="area-content"><span class="area-number">01</span><h3 class="area-title">Direito do Trabalho</h3><p class="area-desc">Assessoria e consultoria nos mais diversos campos das relações trabalhistas, seja na área preventiva, consultiva ou contenciosa.</p><div class="area-expand"><i class="fas fa-plus"></i></div></div>
+</div>
+<div class="area-card">
+<div class="area-image"><img src="images/direito-previdenciario.jpg" alt="Direito Previdenciário"><div class="area-overlay"></div></div>
+<div class="area-content"><span class="area-number">02</span><h3 class="area-title">Direito Previdenciário</h3><p class="area-desc">Assessoria e consultoria no âmbito da Previdência Social, para fins de obtenção de aposentadorias ou demais benefícios.</p><div class="area-expand"><i class="fas fa-plus"></i></div></div>
+</div>
+<div class="area-card">
+<div class="area-image"><img src="images/direito-familia.jpg" alt="Direito de Família"><div class="area-overlay"></div></div>
+<div class="area-content"><span class="area-number">03</span><h3 class="area-title">Direito de Família</h3><p class="area-desc">Atuação humanizada, primando pela conservação e fortalecimento das relações através do respeito mútuo.</p><div class="area-expand"><i class="fas fa-plus"></i></div></div>
+</div>
+<div class="area-card">
+<div class="area-image"><img src="images/direito-tributario.jpg" alt="Direito Tributário"><div class="area-overlay"></div></div>
+<div class="area-content"><span class="area-number">04</span><h3 class="area-title">Direito Tributário</h3><p class="area-desc">Assessoria através de análise, elaboração e implementação de estratégias visando o adequado planejamento tributário.</p><div class="area-expand"><i class="fas fa-plus"></i></div></div>
+</div>
+<div class="area-card">
+<div class="area-image"><img src="images/direito-consumidor.jpg" alt="Direito Ambiental"><div class="area-overlay"></div></div>
+<div class="area-content"><span class="area-number">05</span><h3 class="area-title">Direito Ambiental</h3><p class="area-desc">Assessoria e consultoria aos clientes na esfera ambiental, defesas administrativas e atuação em processos judiciais.</p><div class="area-expand"><i class="fas fa-plus"></i></div></div>
+</div>
+<div class="area-card">
+<div class="area-image"><img src="images/direito-consumidor.jpg" alt="Direito do Consumidor"><div class="area-overlay"></div></div>
+<div class="area-content"><span class="area-number">06</span><h3 class="area-title">Direito do Consumidor</h3><p class="area-desc">Assessoria e consultoria nas relações consumeristas, orientação na elaboração de contratos e atuação judicial.</p><div class="area-expand"><i class="fas fa-plus"></i></div></div>
+</div>
+</div></div>
+</section>
+
+<section class="team" id="equipe">
+<div class="container">
+<div class="section-tag"><span class="tag-line"></span><span>Nossa Equipe</span></div>
+<h2 class="section-title">Profissionais dedicados</h2>
+<div class="team-grid">
+<div class="team-card">
+<div class="team-image"><img src="images/fabiana.jpg" alt="Fabiana Dias"><div class="team-social"><a href="https://instagram.com/fabianadiasadvogados" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://api.whatsapp.com/send?phone=5531997912335" target="_blank"><i class="fab fa-whatsapp"></i></a></div></div>
+<div class="team-info"><h4 class="team-name">Fabiana dos Santos Dias</h4><span class="team-role">Advogada</span><p class="team-bio">Especialista em Direito Tributário e mestranda em Direito pelas Faculdades de Direito Milton Campos.</p></div>
+</div>
+<div class="team-card">
+<div class="team-image"><img src="images/irlen.jpg" alt="Irlen Dias"><div class="team-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a></div></div>
+<div class="team-info"><h4 class="team-name">Irlen Dias Figueredo</h4><span class="team-role">Advogada</span><p class="team-bio">Especialista em Direito Previdenciário pela PUC-MG.</p></div>
+</div>
+<div class="team-card">
+<div class="team-image"><img src="images/leidiane.jpg" alt="Leidiane Costa"><div class="team-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a></div></div>
+<div class="team-info"><h4 class="team-name">Leidiane Costa Ribeiro</h4><span class="team-role">Advogada</span><p class="team-bio">Especialista em Direito Civil pela ESA/FUMEC.</p></div>
+</div>
+<div class="team-card">
+<div class="team-image"><img src="images/thalita.jpg" alt="Thalita Dias"><div class="team-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a></div></div>
+<div class="team-info"><h4 class="team-name">Thalita Dias Figueiredo</h4><span class="team-role">Advogada</span><p class="team-bio">Especialista em Direito do Trabalho pela ESA/UCAM.</p></div>
+</div>
+<div class="team-card">
+<div class="team-image"><img src="images/ana.jpg" alt="Ana Carolina"><div class="team-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a></div></div>
+<div class="team-info"><h4 class="team-name">Ana Carolina A. Barbosa</h4><span class="team-role">Coordenadora</span><p class="team-bio">Graduada em Direito pelo UNIFEMM. Coordenadora administrativo-financeira.</p></div>
+</div>
+</div></div>
+</section>
+
+<section class="cta-section">
+<div class="container">
+<div class="cta-content">
+<h2 class="cta-title">Precisa de assessoria jurídica?</h2>
+<p class="cta-text">Entre em contato conosco para uma avaliação do seu caso. Estamos prontos para ajudar.</p>
+<a href="https://api.whatsapp.com/send?phone=5531997912335&text=Ol%C3%A1%2C%20estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20uma%20consultoria." class="btn btn-primary btn-large" target="_blank"><i class="fab fa-whatsapp"></i><span>Fale conosco pelo WhatsApp</span></a>
+</div></div>
+</section>
+
+<section class="map-section" id="mapa">
+<div class="container">
+<div class="section-tag"><span class="tag-line"></span><span>Localização</span></div>
+<h2 class="section-title">Sete Lagoas</h2>
+<div class="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.0!2d-44.245!3d-19.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI3JzAwLjAiUyA0NMKwMTQnNDIuMCJX!5e0!3m2!1spt-BR!2sbr!4v1!4m5!3m4!1s0xa6a5c5c5c5c5c5c5%3A0x0!8m2!3d-19.45!4d-44.245" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<a class="map-gps" href="https://goo.gl/maps/TDErMF7qczNnVRHN7" target="_blank"><i class="fas fa-map-pin"></i> R. Juca Cândido, 505 - Jardim Cambuí, Sete Lagoas/MG</a>
+</div>
+</section>
+
+<section class="contact" id="contato">
+<div class="container">
+<div class="section-tag"><span class="tag-line"></span><span>Contato</span></div>
+<h2 class="section-title">Nossas unidades</h2>
+<div class="contact-grid">
+<div class="contact-card">
+<div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+<h4>Sete Lagoas</h4><p>R. Juca Cândido, 505<br>Bairro Jardim Cambuí</p>
+<a href="https://goo.gl/maps/TDErMF7qczNnVRHN7" class="contact-link" target="_blank"><i class="fas fa-directions"></i><span>Como chegar</span></a>
+</div>
+<div class="contact-card">
+<div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+<h4>Belo Horizonte</h4><p>R. Tupis, 185, sala 1202<br>Bairro Centro</p>
+<a href="https://goo.gl/maps/JScvtDXPcpugdx7i9" class="contact-link" target="_blank"><i class="fas fa-directions"></i><span>Como chegar</span></a>
+</div>
+<div class="contact-card">
+<div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+<h4>Paraopeba</h4><p>R. Américo Barbosa, 16<br>Bairro Centro</p>
+<a href="https://goo.gl/maps/EwruFx17r8zqKV1r8" class="contact-link" target="_blank"><i class="fas fa-directions"></i><span>Como chegar</span></a>
+</div>
+</div>
+<div class="contact-info">
+<div class="contact-item"><i class="fas fa-phone"></i><a href="tel:3137721427">(31) 3772-1427</a></div>
+<div class="contact-item"><i class="fab fa-whatsapp"></i><a href="https://api.whatsapp.com/send?phone=5531997912335" target="_blank">(31) 99791-2335</a></div>
+<div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:atendimento@fabianadias.com.br">atendimento@fabianadias.com.br</a></div>
+<div class="contact-item"><i class="fab fa-instagram"></i><a href="https://instagram.com/fabianadiasadvogados" target="_blank">@fabianadiasadvogados</a></div>
+</div></div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-top">
+<div class="footer-brand"><span class="footer-logo">FD</span><p class="footer-tagline">Assessoria jurídica com foco no resultado.</p></div>
+<div class="footer-links">
+<a href="#home">Home</a><a href="#sobre">Quem Somos</a><a href="#areas">Áreas</a><a href="#equipe">Equipe</a><a href="#contato">Contato</a>
+</div>
+<div class="footer-social">
+<a href="https://instagram.com/fabianadiasadvogados" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://api.whatsapp.com/send?phone=5531997912335" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div></div>
+<div class="footer-bottom"><p>&copy; 2026 Fabiana Dias Sociedade de Advogados. Todos os direitos reservados.</p></div>
+</div>
+</footer>
+
+<a href="https://api.whatsapp.com/send?phone=5531997912335&text=Ol%C3%A1%2C%20estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20site." class="whatsapp-float" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Preloader
+    setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 2000);
+
+    // Header scroll
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const current = window.pageYOffset;
+        if (current > 100) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+        lastScroll = current;
+    });
+
+    // Mobile menu
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mobile-link').forEach(l => {
+        l.addEventListener('click', () => {
+            toggle.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Active nav link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(s => {
+            if (pageYOffset >= s.offsetTop - 200) current = s.getAttribute('id');
+        });
+        navLinks.forEach(l => {
+            l.classList.toggle('active', l.dataset.section === current);
+        });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+            e.preventDefault();
+            const t = document.querySelector(this.getAttribute('href'));
+            if (t) t.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Counters
+    const counters = document.querySelectorAll('.stat-number');
+    let animated = false;
+    const animateCounters = () => {
+        if (animated) return;
+        const rect = document.querySelector('.hero-stats').getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            animated = true;
+            counters.forEach(c => {
+                const target = parseInt(c.dataset.count);
+                const step = target / (2000 / 16);
+                let currentNum = 0;
+                const update = () => {
+                    currentNum += step;
+                    c.textContent = currentNum < target ? Math.floor(currentNum) : target;
+                    if (currentNum < target) requestAnimationFrame(update);
+                };
+                update();
+            });
+        }
+    };
+    window.addEventListener('scroll', animateCounters);
+    animateCounters();
+
+    // Intersection Observer
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.opacity = '1';
+                e.target.style.transform = 'translateY(0)';
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.area-card, .team-card, .contact-card, .feature').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        obs.observe(el);
+    });
+
+    // Reveal sections
+    const secObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.opacity = '1';
+                e.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section').forEach(s => {
+        if (s.id !== 'home') {
+            s.style.opacity = '0';
+            s.style.transform = 'translateY(30px)';
+            s.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            secObs.observe(s);
+        }
+    });
+
+    // Back to top
+    const btt = document.createElement('button');
+    btt.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    Object.assign(btt.style, {
+        position: 'fixed', bottom: '6rem', right: '2rem',
+        width: '50px', height: '50px', background: 'var(--accent)',
+        border: 'none', borderRadius: '50%', color: '#000',
+        fontSize: '1rem', cursor: 'pointer', opacity: '0',
+        visibility: 'hidden', transition: 'all 0.3s ease', zIndex: '998'
+    });
+    document.body.appendChild(btt);
+    window.addEventListener('scroll', () => {
+        btt.style.opacity = window.pageYOffset > 500 ? '1' : '0';
+        btt.style.visibility = window.pageYOffset > 500 ? 'visible' : 'hidden';
+    });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+});
+</script>
+</body>
+</html>
