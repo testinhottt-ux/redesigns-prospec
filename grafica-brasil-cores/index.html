@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gráfica Brasil Cores — impressos personalizados com preço e qualidade em Sete Lagoas MG. Cartões de visita, panfletos, calendários, envelopes e muito mais, para todo o Brasil.">
+<title>Gráfica Brasil Cores — Impressos personalizados · Sete Lagoas MG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#151318;
+  --ink-2:#211e26;
+  --paper:#f6f2ec;
+  --paper-2:#ede7dd;
+  --mag:#e5195f;
+  --mag-2:#ff3d7f;
+  --cyan:#1b8f9c;
+  --amber:#eab308;
+  --muted:#6d675f;
+  --line:rgba(21,19,24,.12);
+  --fd:'Fraunces',serif;
+  --fb:'Sora',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:600;line-height:1.02;letter-spacing:-.02em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--mag);display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';width:30px;height:1px;background:var(--mag)}
+
+/* Preloader */
+#preloader{position:fixed;inset:0;z-index:10000;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity .6s ease,visibility .6s ease}
+#preloader.done{opacity:0;visibility:hidden}
+.pre-mark{font-family:var(--fd);font-weight:600;font-size:clamp(30px,6vw,56px);color:var(--paper);letter-spacing:-.02em}
+.pre-mark i{font-style:italic;color:var(--mag-2)}
+.pre-bar{width:180px;height:2px;background:rgba(246,242,236,.15);overflow:hidden;border-radius:2px}
+.pre-bar span{display:block;height:100%;width:0;background:var(--mag);animation:load 1.6s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes load{to{width:100%}}
+
+/* Navbar */
+header{position:fixed;top:0;left:0;right:0;z-index:900;transition:all .4s ease}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0;transition:all .4s ease}
+header.scrolled{background:rgba(246,242,236,.75);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+header.scrolled .nav{padding:14px 0}
+.brand{font-family:var(--fd);font-weight:600;font-size:23px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.brand .dots{display:flex;gap:3px}
+.brand .dots b{width:9px;height:9px;border-radius:50%;display:block}
+.brand .dots b:nth-child(1){background:var(--cyan)}
+.brand .dots b:nth-child(2){background:var(--mag)}
+.brand .dots b:nth-child(3){background:var(--amber)}
+.brand i{font-style:italic;color:var(--mag)}
+.menu{display:flex;gap:36px;align-items:center}
+.menu a{font-size:14px;color:var(--ink);position:relative;padding:4px 0}
+.menu a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--mag);transition:width .3s ease}
+.menu a:hover::after{width:100%}
+.nav-cta{font-family:var(--fb);font-size:13px;font-weight:600;background:var(--ink);color:var(--paper);padding:12px 22px;border-radius:40px;transition:transform .2s ease,background .3s ease}
+.nav-cta:hover{background:var(--mag);transform:translateY(-2px)}
+.nav-cta:active{transform:scale(.97)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding-bottom:60px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,19,24,.5) 0%,rgba(21,19,24,.72) 55%,rgba(21,19,24,.95) 100%)}
+.hero-grid{position:absolute;inset:0;z-index:-1;opacity:.5;background-image:linear-gradient(rgba(246,242,236,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(246,242,236,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(180deg,transparent,#000 40%)}
+.hero .wrap{position:relative;width:100%}
+.hero-top{position:absolute;top:-42vh;left:32px;right:32px;display:flex;justify-content:space-between;color:rgba(246,242,236,.55);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-family:var(--fb)}
+.hero-inner{display:grid;grid-template-columns:1.5fr .9fr;gap:48px;align-items:end;color:var(--paper)}
+.hero h1{font-size:clamp(46px,8.4vw,112px);color:var(--paper);font-weight:500}
+.hero h1 i{font-style:italic;color:var(--mag-2)}
+.hero-eyebrow{color:var(--mag-2);margin-bottom:24px}
+.hero-eyebrow::before{background:var(--mag-2)}
+.hero-side{padding-bottom:14px}
+.hero-side p{color:rgba(246,242,236,.82);font-size:16px;font-weight:300;margin-bottom:24px;max-width:340px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--fb);font-size:14px;font-weight:600;padding:15px 26px;border-radius:44px;display:inline-flex;align-items:center;gap:10px;transition:transform .2s ease,background .3s ease,color .3s ease;cursor:pointer;border:0}
+.btn-primary{background:var(--mag);color:#fff}
+.btn-primary:hover{background:var(--mag-2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--paper);border:1px solid rgba(246,242,236,.35)}
+.btn-ghost:hover{background:rgba(246,242,236,.1);transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
+.hero-stats{display:flex;gap:44px;margin-top:52px;border-top:1px solid rgba(246,242,236,.18);padding-top:24px}
+.hero-stats .st b{font-family:var(--fd);font-size:38px;font-weight:600;color:var(--paper);display:block}
+.hero-stats .st b i{font-style:normal;color:var(--mag-2)}
+.hero-stats .st span{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:rgba(246,242,236,.55)}
+
+/* Sections */
+.sec{padding:120px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:60px}
+.sec-head h2{font-size:clamp(34px,4.8vw,60px)}
+.sec-head p{max-width:360px;color:var(--muted);font-weight:300}
+
+/* Produtos - editorial cards grid */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:16px}
+.prod{position:relative;border-radius:16px;overflow:hidden;background:var(--paper-2);border:1px solid var(--line)}
+.prod img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.prod:hover img{transform:scale(1.07)}
+.prod::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 32%,rgba(21,19,24,.86) 100%)}
+.prod .cap{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;color:var(--paper)}
+.prod .cap b{font-family:var(--fd);font-size:21px;font-weight:600;display:block}
+.prod .cap span{font-size:13px;font-weight:300;color:rgba(246,242,236,.78);opacity:0;transform:translateY(8px);transition:.4s;display:block;margin-top:4px}
+.prod:hover .cap span{opacity:1;transform:none}
+.prod .tag{position:absolute;top:16px;left:16px;z-index:2;font-family:var(--fb);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);background:rgba(21,19,24,.5);backdrop-filter:blur(6px);padding:6px 12px;border-radius:30px}
+.prod.big{grid-column:span 2;grid-row:span 2}
+.prod.wide{grid-column:span 2}
+.prod.chip{background:var(--mag);border:0;display:flex;align-items:center;justify-content:center;padding:26px;text-align:center}
+.prod.chip::after{display:none}
+.prod.chip b{font-family:var(--fd);color:#fff;font-size:26px;font-weight:600;position:static}
+.prod.chip.cyan{background:var(--cyan)}
+.prod.chip.amber{background:var(--amber)}
+.prod.chip.amber b{color:var(--ink)}
+.more-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.more-list span{font-family:var(--fb);font-size:14px;border:1px solid var(--line);border-radius:30px;padding:9px 18px;background:var(--paper-2);transition:.25s}
+.more-list span:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+
+/* Serviços/como funciona */
+.steps{background:var(--ink);color:var(--paper)}
+.steps .sec-head h2{color:var(--paper)}
+.steps .sec-head p{color:rgba(246,242,236,.6)}
+.step-list{border-top:1px solid rgba(246,242,236,.14)}
+.step-row{display:grid;grid-template-columns:90px 1.1fr 1.4fr;gap:32px;align-items:center;padding:32px 0;border-bottom:1px solid rgba(246,242,236,.14);transition:padding .35s ease,background .35s ease}
+.step-row:hover{background:rgba(246,242,236,.03);padding-left:18px;padding-right:18px}
+.step-num{font-family:var(--fd);font-size:44px;font-style:italic;color:var(--mag-2);font-weight:500;line-height:1}
+.step-row h3{font-size:26px;font-weight:500;color:var(--paper)}
+.step-row p{color:rgba(246,242,236,.6);font-weight:300;font-size:15px}
+
+/* Sobre */
+.about{background:var(--paper-2)}
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:72px;align-items:center}
+.about-visual{position:relative}
+.about-visual img{border-radius:20px;width:100%;height:540px;object-fit:cover}
+.about-badge{position:absolute;bottom:-24px;left:-24px;background:var(--ink);color:var(--paper);padding:24px 28px;border-radius:16px;box-shadow:0 30px 60px rgba(21,19,24,.28)}
+.about-badge b{font-family:var(--fd);font-size:44px;font-weight:600;display:block;color:var(--mag-2)}
+.about-badge span{font-size:13px;color:rgba(246,242,236,.7)}
+.about-txt h2{font-size:clamp(30px,4vw,52px);margin:20px 0 22px}
+.about-txt p{color:var(--muted);margin-bottom:18px;font-weight:300}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chips b{font-family:var(--fb);font-size:13px;font-weight:600;padding:8px 16px;border-radius:30px;background:#fff;border:1px solid var(--line)}
+
+/* Band */
+.band{background:var(--ink);color:var(--paper);padding:78px 0}
+.band-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.band .st{border-left:1px solid rgba(246,242,236,.16);padding-left:22px}
+.band .st b{font-family:var(--fd);font-size:clamp(40px,5vw,64px);font-weight:600;display:block}
+.band .st b i{font-style:italic;color:var(--mag-2)}
+.band .st span{font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:rgba(246,242,236,.55)}
+
+/* Depoimentos */
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.quote{background:var(--paper-2);border:1px solid var(--line);border-radius:20px;padding:36px 34px;transition:.35s}
+.quote:hover{transform:translateY(-4px);box-shadow:0 24px 50px rgba(21,19,24,.08)}
+.quote .mark{font-family:var(--fd);font-size:56px;line-height:.5;color:var(--mag);opacity:.4}
+.quote p{font-size:19px;font-weight:300;margin:12px 0 24px}
+.quote .who{display:flex;align-items:center;gap:14px}
+.quote .who .av{width:46px;height:46px;border-radius:50%;background:var(--cyan);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:600}
+.quote .who b{font-family:var(--fb);font-size:15px;font-weight:600}
+.quote .who span{font-size:13px;color:var(--muted);display:block}
+
+/* CTA */
+.cta{background:var(--mag);color:#fff;text-align:center;border-radius:26px;padding:82px 32px;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;opacity:.16;background-image:radial-gradient(circle at 20% 30%,#fff 1.4px,transparent 1.4px);background-size:24px 24px}
+.cta h2{font-size:clamp(32px,4.6vw,60px);color:#fff;position:relative}
+.cta h2 i{font-style:italic}
+.cta p{color:rgba(255,255,255,.9);max-width:520px;margin:18px auto 32px;font-weight:300;position:relative}
+.cta .btn-primary{background:var(--ink);position:relative}
+.cta .btn-primary:hover{background:#000}
+
+/* Contato */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+.contact-info h2{font-size:clamp(30px,4vw,48px);margin:18px 0 26px}
+.info-row{display:flex;gap:18px;padding:20px 0;border-top:1px solid var(--line)}
+.info-row .ic{font-family:var(--fb);font-weight:600;color:var(--mag);font-size:13px;letter-spacing:.1em;text-transform:uppercase;width:88px;flex:none;padding-top:3px}
+.info-row b{font-family:var(--fd);font-size:18px;font-weight:600;display:block}
+.info-row span{color:var(--muted);font-size:14px}
+.info-row a{color:var(--mag);font-weight:500}
+.map{border-radius:20px;overflow:hidden;border:1px solid var(--line);height:200px;margin-top:24px}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.25) contrast(1.05)}
+form{background:var(--ink);border-radius:22px;padding:38px 36px}
+form h3{color:var(--paper);font-size:24px;margin-bottom:24px}
+.field{margin-bottom:18px}
+.field label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(246,242,236,.55);font-family:var(--fb);display:block;margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;background:rgba(246,242,236,.05);border:1px solid rgba(246,242,236,.15);border-radius:12px;padding:14px 16px;color:var(--paper);font-family:var(--fb);font-size:15px;transition:.3s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--mag);background:rgba(246,242,236,.08)}
+.field textarea{resize:vertical;min-height:100px}
+.field select option{color:#111}
+form .btn-primary{width:100%;justify-content:center;margin-top:6px}
+
+/* Footer */
+footer{background:var(--ink);color:rgba(246,242,236,.6);padding:70px 0 30px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:46px;border-bottom:1px solid rgba(246,242,236,.14)}
+.foot-brand .brand{color:var(--paper);font-size:26px;margin-bottom:16px}
+.foot-brand p{font-weight:300;max-width:320px;font-size:15px}
+.foot-col h4{color:var(--paper);font-size:13px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:16px}
+.foot-col a,.foot-col p{display:block;font-size:15px;font-weight:300;margin-bottom:10px;transition:color .3s}
+.foot-col a:hover{color:var(--mag-2)}
+.foot-bot{display:flex;justify-content:space-between;padding-top:24px;font-size:13px;flex-wrap:wrap;gap:10px}
+.foot-bot a{color:var(--mag-2)}
+
+/* WhatsApp */
+.wa{position:fixed;bottom:26px;right:26px;z-index:800;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(37,211,102,.45);transition:transform .3s ease}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:32px;height:32px;fill:#fff}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .menu,.nav-cta{display:none}
+  .burger{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:26px}
+  .prod-grid{grid-template-columns:1fr 1fr;grid-auto-rows:190px}
+  .prod.big{grid-column:span 2;grid-row:span 1}
+  .about-grid,.contact-grid,.quotes{grid-template-columns:1fr;gap:40px}
+  .about-visual img{height:400px}
+  .band-grid{grid-template-columns:1fr 1fr;gap:34px 24px}
+  .step-row{grid-template-columns:60px 1fr;gap:16px}
+  .step-row p{display:none}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px}
+  .sec{padding:78px 0}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:14px}
+  .hero-stats{flex-wrap:wrap;gap:20px 32px}
+  .prod-grid{grid-template-columns:1fr}
+  .prod.big,.prod.wide{grid-column:span 1}
+  .band-grid{grid-template-columns:1fr 1fr}
+  form,.cta{padding:32px 22px}
+}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="pre-mark">Brasil<i>Cores</i></div>
+  <div class="pre-bar"><span></span></div>
+</div>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="dots"><b></b><b></b><b></b></span>Brasil<i>Cores</i></a>
+    <nav class="menu">
+      <a href="#produtos">Produtos</a>
+      <a href="#como">Como funciona</a>
+      <a href="#sobre">A Gráfica</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#contato" class="nav-cta">Orçamento no WhatsApp</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?w=1920&q=80" alt="Impressão gráfica profissional"></div>
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="hero-top">
+      <span>Sete Lagoas · Minas Gerais</span>
+      <span>Impressos personalizados · para todo o Brasil</span>
+    </div>
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow hero-eyebrow">Desde 2002 · +20 anos imprimindo</span>
+        <h1>Sua marca no <i>papel</i>, com cor de verdade.</h1>
+      </div>
+      <div class="hero-side">
+        <p>Cartões, panfletos, calendários, envelopes e muito mais — preço justo, qualidade de gráfica e entrega para todo o Brasil.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary">Pedir orçamento</a>
+          <a href="#produtos" class="btn btn-ghost">Ver produtos</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="st"><b data-count="20">0</b><span>Anos de gráfica</span></div>
+      <div class="st"><b data-count="16">0</b><span>Linhas de produto</span></div>
+      <div class="st"><b><i>BR</i></b><span>Entrega para todo o Brasil</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section class="sec" id="produtos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">O que imprimimos</span>
+        <h2 style="margin-top:18px">Um catálogo pra<br>toda necessidade</h2>
+      </div>
+      <p>Do cartão de visita ao calendário da sua empresa — tudo personalizado, com acabamento profissional.</p>
+    </div>
+    <div class="prod-grid reveal">
+      <div class="prod big">
+        <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" alt="Impressos coloridos" loading="lazy">
+        <span class="tag">Mais pedido</span>
+        <div class="cap"><b>Cartões de Visita</b><span>Verniz total, laminação fosca, cartão duplo. Sua primeira impressão bem feita.</span></div>
+      </div>
+      <div class="prod">
+        <img src="https://images.unsplash.com/photo-1607435097405-db48f377bff6?w=800&q=80" alt="Panfletos e flyers" loading="lazy">
+        <div class="cap"><b>Panfletos &amp; Flyers</b><span>Divulgação que chega na mão do cliente.</span></div>
+      </div>
+      <div class="prod chip cyan"><b>Calendários de Bolso &amp; de Mesa</b></div>
+      <div class="prod wide">
+        <img src="https://images.unsplash.com/photo-1558522195-e1201b090344?w=800&q=80" alt="Papel timbrado e envelopes" loading="lazy">
+        <span class="tag">Papelaria</span>
+        <div class="cap"><b>Envelopes &amp; Papel Timbrado</b><span>Identidade da sua empresa em cada correspondência.</span></div>
+      </div>
+      <div class="prod chip amber"><b>Sacolas de Papel &amp; Imã de Geladeira</b></div>
+      <div class="prod">
+        <img src="https://images.unsplash.com/photo-1607435097405-db48f377bff6?w=600&q=80" alt="Receituários e postais" loading="lazy">
+        <div class="cap"><b>Receituários</b><span>Para clínicas e consultórios.</span></div>
+      </div>
+    </div>
+    <div class="more-list reveal">
+      <span>Encartes e Jornal</span><span>Jornal Apergaminhado</span><span>Marcador de Páginas</span>
+      <span>Pasta de Documentos</span><span>Postais</span><span>Tag's</span><span>Ventarolas</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="steps sec" id="como">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Simples assim</span>
+        <h2 style="margin-top:18px">Do orçamento à<br>entrega, sem enrolação</h2>
+      </div>
+      <p>Um processo direto pelo WhatsApp — você aprova a arte e a gente imprime.</p>
+    </div>
+    <div class="step-list">
+      <div class="step-row reveal"><span class="step-num">01</span><h3>Pediu o orçamento</h3><p>Fale no WhatsApp o que precisa e a quantidade. Resposta rápida com preço justo.</p></div>
+      <div class="step-row reveal"><span class="step-num">02</span><h3>Aprovou a arte</h3><p>Enviamos a prova digital. Você confere cores e textos antes de imprimir.</p></div>
+      <div class="step-row reveal"><span class="step-num">03</span><h3>A gente imprime</h3><p>Acabamento profissional — verniz, laminação e o padrão de qualidade Brasil Cores.</p></div>
+      <div class="step-row reveal"><span class="step-num">04</span><h3>Recebeu em casa</h3><p>Retirada na loja em Sete Lagoas ou entrega para todo o Brasil.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="about sec" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1000&q=80" alt="Equipe de atendimento e design">
+      <div class="about-badge"><b>+20</b><span>anos imprimindo em Sete Lagoas</span></div>
+    </div>
+    <div class="about-txt reveal">
+      <span class="eyebrow">A Gráfica</span>
+      <h2>Preço e qualidade que você encontra aqui.</h2>
+      <p>A Gráfica Brasil Cores é uma gráfica completa de Sete Lagoas, especializada em impressão de personalizados e uma infinidade de produtos, com qualidade e preço justo para todo o Brasil.</p>
+      <p>São mais de duas décadas de experiência transformando a marca de cada cliente em impressos que chamam atenção — do pequeno negócio à grande empresa.</p>
+      <div class="chips">
+        <b>Qualidade profissional</b><b>Preço justo</b><b>Atendimento próximo</b><b>Entrega Brasil</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<section class="band">
+  <div class="wrap band-grid">
+    <div class="st reveal"><b data-count="20">0</b><span>Anos de mercado</span></div>
+    <div class="st reveal"><b data-count="16">0</b><span>Produtos no catálogo</span></div>
+    <div class="st reveal"><b><i>08–18</i></b><span>Seg. a Sex.</span></div>
+    <div class="st reveal"><b><i>BR</i></b><span>Entrega nacional</span></div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Quem imprime aqui</span>
+        <h2 style="margin-top:18px">Clientes que confiam</h2>
+      </div>
+      <p>Comércios, consultórios e empresas de Sete Lagoas e região.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal">
+        <div class="mark">“</div>
+        <p>Faço os cartões e panfletos da minha loja com eles. Cor perfeita, prazo cumprido e o preço melhor da cidade.</p>
+        <div class="who"><span class="av">AL</span><div><b>Ana Lúcia</b><span>Comerciante · Sete Lagoas</span></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="mark">“</div>
+        <p>Peço os receituários e calendários do consultório todo ano. Atendimento pelo WhatsApp resolve rapidinho.</p>
+        <div class="who"><span class="av">DR</span><div><b>Dr. Rafael</b><span>Consultório odontológico</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Vamos imprimir a<br>sua <i>próxima ideia?</i></h2>
+      <p>Mande sua arte ou conte o que precisa. A gente faz o orçamento na hora, sem compromisso.</p>
+      <a href="#contato" class="btn btn-primary">Pedir orçamento agora</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="sec" id="contato" style="padding-top:0">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Fale com a gente</span>
+      <h2>Estamos a um<br>WhatsApp de distância.</h2>
+      <div class="info-row"><span class="ic">Loja</span><div><b>Rua D, nº 60</b><span>B. Nossa Senhora de Lourdes · Sete Lagoas — MG · CEP 35703-498</span></div></div>
+      <div class="info-row"><span class="ic">WhatsApp</span><div><b><a href="https://wa.me/553199500725" target="_blank" rel="noopener">(31) 99500-0725</a></b><span>O jeito mais rápido de orçar</span></div></div>
+      <div class="info-row"><span class="ic">Telefones</span><div><b>(31) 3774-6763</b><span>Também: (31) 3775-3451 · (31) 3773-0806</span></div></div>
+      <div class="info-row"><span class="ic">Horário</span><div><b>Seg. a Sex., 08h às 18h</b><span>Atendimento na loja e por telefone</span></div></div>
+      <div class="map"><iframe loading="lazy" src="https://maps.google.com/maps?q=Rua%20D%2060%20Nossa%20Senhora%20de%20Lourdes%20Sete%20Lagoas%20MG&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Mapa Gráfica Brasil Cores"></iframe></div>
+    </div>
+    <form class="reveal" onsubmit="event.preventDefault();this.querySelector('button').textContent='Enviado ✓ — te chamamos no WhatsApp'">
+      <h3>Solicite seu orçamento</h3>
+      <div class="field"><label>Nome</label><input type="text" placeholder="Seu nome" required></div>
+      <div class="field"><label>WhatsApp</label><input type="tel" placeholder="(31) 90000-0000" required></div>
+      <div class="field"><label>O que você quer imprimir?</label>
+        <select>
+          <option>Cartões de Visita</option><option>Panfletos e Flyers</option>
+          <option>Calendários</option><option>Envelopes / Papel Timbrado</option>
+          <option>Receituários</option><option>Sacolas de Papel</option><option>Outro</option>
+        </select>
+      </div>
+      <div class="field"><label>Detalhes / quantidade</label><textarea placeholder="Ex.: 1.000 cartões, frente e verso, verniz total..."></textarea></div>
+      <button type="submit" class="btn btn-primary">Enviar solicitação</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand"><span class="dots"><b></b><b></b><b></b></span>Brasil<i>Cores</i></div>
+        <p>Gráfica completa em Sete Lagoas — MG. Impressos personalizados com preço e qualidade para todo o Brasil, há mais de 20 anos.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Produtos</h4>
+        <a href="#produtos">Cartões de Visita</a><a href="#produtos">Panfletos e Flyers</a>
+        <a href="#produtos">Calendários</a><a href="#produtos">Envelopes</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <p>Rua D, 60 · N. Sra. de Lourdes<br>Sete Lagoas MG</p>
+        <p>WhatsApp: (31) 99500-0725</p>
+        <p>(31) 3774-6763 · Seg–Sex 08h–18h</p>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Gráfica Brasil Cores · Brasil Cores Serviços Gráficos Ltda.</span>
+      <span>Redesign proposta · conceito <a href="#top">nível awards</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/553199500725?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20impress%C3%A3o." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.1 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<script>
+window.addEventListener('load',function(){setTimeout(function(){document.getElementById('preloader').classList.add('done')},1700)});
+var header=document.getElementById('header');
+window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>40)});
+document.getElementById('burger').addEventListener('click',function(){document.querySelector('.menu').style.display='flex'});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+function runCount(el){var t=+el.dataset.count,c=0,step=Math.max(1,Math.ceil(t/50));var iv=setInterval(function(){c+=step;if(c>=t){c=t;clearInterval(iv)}el.textContent=c},24)}
+var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){runCount(e.target);co.unobserve(e.target)}})},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(function(el){co.observe(el)});
+</script>
+</body>
+</html>
