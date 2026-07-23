@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mauro Motores — Motores elétricos, bombas d'água, rebobinagem e assistência técnica em Sete Lagoas MG. Mais de uma década de tradição em manutenção industrial.">
+<title>Mauro Motores — Motores, Bombas e Assistência Técnica · Sete Lagoas MG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111013;
+  --ink-2:#1b1a1f;
+  --paper:#f4f1ea;
+  --paper-2:#ece7dc;
+  --copper:#c05a20;
+  --copper-2:#e07a34;
+  --steel:#2c3b44;
+  --muted:#6c665c;
+  --line:rgba(17,16,19,.12);
+  --font-d:'Space Grotesk',sans-serif;
+  --font-b:'Sora',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-b);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  opacity:.035;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4{font-family:var(--font-d);font-weight:600;line-height:1.05;letter-spacing:-.02em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{
+  font-family:var(--font-d);font-size:12px;font-weight:600;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--copper);display:inline-flex;align-items:center;gap:12px;
+}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--copper)}
+
+/* ===== Preloader ===== */
+#preloader{
+  position:fixed;inset:0;z-index:10000;background:var(--ink);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:26px;
+  transition:opacity .6s ease,visibility .6s ease;
+}
+#preloader.done{opacity:0;visibility:hidden}
+.pre-mark{font-family:var(--font-d);font-weight:700;font-size:clamp(28px,6vw,52px);color:var(--paper);letter-spacing:-.03em}
+.pre-mark span{color:var(--copper)}
+.pre-bar{width:180px;height:2px;background:rgba(244,241,234,.15);overflow:hidden;border-radius:2px}
+.pre-bar i{display:block;height:100%;width:0;background:var(--copper);animation:load 1.6s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes load{to{width:100%}}
+
+/* ===== Navbar ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:900;transition:all .4s ease}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0;transition:all .4s ease}
+header.scrolled{background:rgba(244,241,234,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+header.scrolled .nav{padding:16px 0}
+.brand{font-family:var(--font-d);font-weight:700;font-size:22px;letter-spacing:-.03em;display:flex;align-items:center;gap:11px}
+.brand .dot{width:11px;height:11px;background:var(--copper);border-radius:50%;box-shadow:0 0 0 4px rgba(192,90,32,.18)}
+.brand em{font-style:normal;color:var(--copper)}
+.menu{display:flex;gap:38px;align-items:center}
+.menu a{font-size:14px;font-weight:400;color:var(--ink);position:relative;padding:4px 0}
+.menu a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--copper);transition:width .3s ease}
+.menu a:hover::after{width:100%}
+.nav-cta{
+  font-family:var(--font-d);font-size:13px;font-weight:600;letter-spacing:.02em;
+  background:var(--ink);color:var(--paper);padding:12px 22px;border-radius:40px;
+  transition:transform .2s ease,background .3s ease;
+}
+.nav-cta:hover{background:var(--copper);transform:translateY(-2px)}
+.nav-cta:active{transform:scale(.97)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0}
+.burger span{width:26px;height:2px;background:var(--ink);transition:.3s}
+
+/* ===== Hero ===== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding-bottom:64px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(17,16,19,.55) 0%,rgba(17,16,19,.72) 55%,rgba(17,16,19,.94) 100%);}
+.hero-grid{position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:linear-gradient(rgba(244,241,234,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(244,241,234,.06) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:linear-gradient(180deg,transparent,#000 40%);}
+.hero .wrap{position:relative;width:100%}
+.hero-top{position:absolute;top:-40vh;left:32px;right:32px;display:flex;justify-content:space-between;color:rgba(244,241,234,.55);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-family:var(--font-d)}
+.hero-inner{display:grid;grid-template-columns:1.5fr .9fr;gap:48px;align-items:end;color:var(--paper)}
+.hero h1{font-size:clamp(46px,8vw,104px);color:var(--paper);font-weight:600}
+.hero h1 b{font-weight:600;color:var(--copper-2);font-style:italic;font-family:var(--font-d)}
+.hero-eyebrow{color:var(--copper-2);margin-bottom:26px}
+.hero-eyebrow::before{background:var(--copper-2)}
+.hero-side{padding-bottom:14px}
+.hero-side p{color:rgba(244,241,234,.82);font-size:16px;font-weight:300;margin-bottom:26px;max-width:340px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  font-family:var(--font-d);font-size:14px;font-weight:600;letter-spacing:.01em;
+  padding:15px 26px;border-radius:44px;display:inline-flex;align-items:center;gap:10px;
+  transition:transform .2s ease,background .3s ease,color .3s ease;cursor:pointer;border:0;
+}
+.btn-primary{background:var(--copper);color:#fff}
+.btn-primary:hover{background:var(--copper-2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--paper);border:1px solid rgba(244,241,234,.35)}
+.btn-ghost:hover{background:rgba(244,241,234,.1);transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
+.hero-stats{display:flex;gap:44px;margin-top:56px;border-top:1px solid rgba(244,241,234,.18);padding-top:26px}
+.hero-stats .st b{font-family:var(--font-d);font-size:38px;font-weight:600;color:var(--paper);display:block;letter-spacing:-.03em}
+.hero-stats .st span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,241,234,.55)}
+.hero-stats .st b i{color:var(--copper-2);font-style:normal}
+
+/* ===== Section base ===== */
+section{position:relative}
+.sec{padding:120px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:64px}
+.sec-head h2{font-size:clamp(32px,4.5vw,56px)}
+.sec-head p{max-width:360px;color:var(--muted);font-weight:300}
+
+/* ===== Serviços (numbered list, asymmetric) ===== */
+.services{background:var(--ink);color:var(--paper)}
+.services .sec-head h2{color:var(--paper)}
+.services .sec-head p{color:rgba(244,241,234,.6)}
+.serv-list{border-top:1px solid rgba(244,241,234,.14)}
+.serv-row{
+  display:grid;grid-template-columns:90px 1.1fr 1.4fr auto;gap:32px;align-items:center;
+  padding:34px 0;border-bottom:1px solid rgba(244,241,234,.14);
+  transition:padding .35s ease,background .35s ease;cursor:default;
+}
+.serv-row:hover{background:rgba(244,241,234,.03);padding-left:20px;padding-right:20px}
+.serv-num{font-family:var(--font-d);font-size:16px;color:var(--copper-2);font-weight:600}
+.serv-row h3{font-size:26px;font-weight:500;color:var(--paper);transition:color .3s ease}
+.serv-row:hover h3{color:var(--copper-2)}
+.serv-row p{color:rgba(244,241,234,.6);font-weight:300;font-size:15px}
+.serv-arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(244,241,234,.25);display:flex;align-items:center;justify-content:center;transition:.3s;color:var(--paper)}
+.serv-row:hover .serv-arrow{background:var(--copper);border-color:var(--copper);transform:rotate(-45deg)}
+
+/* ===== Produtos (bento grid with images) ===== */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:18px}
+.prod{position:relative;border-radius:18px;overflow:hidden;background:var(--paper-2);border:1px solid var(--line)}
+.prod img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1);filter:grayscale(.15)}
+.prod:hover img{transform:scale(1.07)}
+.prod::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(17,16,19,.86) 100%)}
+.prod .cap{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;color:var(--paper)}
+.prod .cap b{font-family:var(--font-d);font-size:20px;font-weight:600;display:block;letter-spacing:-.02em}
+.prod .cap span{font-size:13px;font-weight:300;color:rgba(244,241,234,.75);opacity:0;transform:translateY(8px);transition:.4s;display:block;margin-top:4px}
+.prod:hover .cap span{opacity:1;transform:none}
+.prod .tag{position:absolute;top:18px;left:18px;z-index:2;font-family:var(--font-d);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);background:rgba(17,16,19,.5);backdrop-filter:blur(6px);padding:6px 12px;border-radius:30px}
+.prod.big{grid-column:span 2;grid-row:span 2}
+.prod.wide{grid-column:span 2}
+.prod.plain{background:var(--copper);border:0}
+.prod.plain::after{display:none}
+.prod.plain .cap{top:26px;bottom:auto}
+.prod.plain .cap b{font-size:28px}
+.prod.plain .cap p{color:rgba(255,255,255,.85);font-size:14px;font-weight:300;margin-top:12px}
+
+/* ===== Sobre (split) ===== */
+.about{background:var(--paper-2)}
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:72px;align-items:center}
+.about-visual{position:relative}
+.about-visual img{border-radius:20px;width:100%;height:560px;object-fit:cover}
+.about-badge{
+  position:absolute;bottom:-26px;left:-26px;background:var(--ink);color:var(--paper);
+  padding:26px 30px;border-radius:16px;box-shadow:0 30px 60px rgba(17,16,19,.28);
+}
+.about-badge b{font-family:var(--font-d);font-size:44px;font-weight:600;display:block;color:var(--copper-2);letter-spacing:-.03em}
+.about-badge span{font-size:13px;color:rgba(244,241,234,.7)}
+.about-txt h2{font-size:clamp(30px,4vw,50px);margin:22px 0 24px}
+.about-txt p{color:var(--muted);margin-bottom:18px;font-weight:300}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin-top:32px}
+.value{display:flex;gap:14px;align-items:flex-start}
+.value .k{font-family:var(--font-d);font-weight:700;font-size:15px;color:var(--copper);width:34px;height:34px;flex:none;border-radius:9px;background:rgba(192,90,32,.12);display:flex;align-items:center;justify-content:center}
+.value b{font-family:var(--font-d);font-size:15px;font-weight:600;display:block}
+.value span{font-size:13px;color:var(--muted)}
+
+/* ===== Stats band ===== */
+.band{background:var(--ink);color:var(--paper);padding:80px 0}
+.band-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.band .st b{font-family:var(--font-d);font-size:clamp(40px,5vw,64px);font-weight:600;letter-spacing:-.03em;display:block}
+.band .st b i{color:var(--copper-2);font-style:normal}
+.band .st span{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,241,234,.55)}
+.band .st{border-left:1px solid rgba(244,241,234,.16);padding-left:22px}
+
+/* ===== Depoimentos ===== */
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.quote{background:var(--paper-2);border:1px solid var(--line);border-radius:20px;padding:38px 36px;transition:.35s}
+.quote:hover{transform:translateY(-4px);box-shadow:0 24px 50px rgba(17,16,19,.08)}
+.quote .mark{font-family:var(--font-d);font-size:60px;line-height:.6;color:var(--copper);opacity:.35}
+.quote p{font-size:19px;font-weight:300;margin:14px 0 26px;color:var(--ink)}
+.quote .who{display:flex;align-items:center;gap:14px}
+.quote .who .av{width:46px;height:46px;border-radius:50%;background:var(--steel);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600}
+.quote .who b{font-family:var(--font-d);font-size:15px}
+.quote .who span{font-size:13px;color:var(--muted);display:block}
+
+/* ===== CTA ===== */
+.cta{background:var(--copper);color:#fff;text-align:center;border-radius:28px;padding:84px 32px;margin:0 auto;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;opacity:.14;
+  background-image:radial-gradient(circle at 20% 30%,#fff 1px,transparent 1px);background-size:26px 26px}
+.cta h2{font-size:clamp(32px,4.5vw,58px);color:#fff;position:relative}
+.cta p{color:rgba(255,255,255,.88);max-width:520px;margin:18px auto 34px;font-weight:300;position:relative}
+.cta .btn-primary{background:var(--ink);position:relative}
+.cta .btn-primary:hover{background:#000}
+
+/* ===== Contato ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact-info h2{font-size:clamp(30px,4vw,48px);margin:20px 0 28px}
+.info-row{display:flex;gap:18px;padding:22px 0;border-top:1px solid var(--line)}
+.info-row .ic{font-family:var(--font-d);font-weight:700;color:var(--copper);font-size:14px;letter-spacing:.1em;width:70px;flex:none;padding-top:2px}
+.info-row b{font-family:var(--font-d);font-size:17px;font-weight:500;display:block}
+.info-row span{color:var(--muted);font-size:14px}
+.info-row a{color:var(--copper);font-weight:500}
+.map{border-radius:20px;overflow:hidden;border:1px solid var(--line);height:200px;margin-top:26px}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+form{background:var(--ink);border-radius:22px;padding:40px 38px}
+form h3{color:var(--paper);font-size:24px;margin-bottom:26px}
+.field{margin-bottom:18px}
+.field label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,241,234,.55);font-family:var(--font-d);display:block;margin-bottom:8px}
+.field input,.field textarea{
+  width:100%;background:rgba(244,241,234,.05);border:1px solid rgba(244,241,234,.15);border-radius:12px;
+  padding:14px 16px;color:var(--paper);font-family:var(--font-b);font-size:15px;transition:.3s;
+}
+.field input:focus,.field textarea:focus{outline:0;border-color:var(--copper);background:rgba(244,241,234,.08)}
+.field textarea{resize:vertical;min-height:110px}
+form .btn-primary{width:100%;justify-content:center;margin-top:8px}
+
+/* ===== Footer ===== */
+footer{background:var(--ink);color:rgba(244,241,234,.6);padding:72px 0 32px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(244,241,234,.14)}
+.foot-brand .brand{color:var(--paper);font-size:26px;margin-bottom:18px}
+.foot-brand p{font-weight:300;max-width:320px;font-size:15px}
+.foot-col h4{color:var(--paper);font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.foot-col a,.foot-col p{display:block;font-size:15px;font-weight:300;margin-bottom:11px;transition:color .3s}
+.foot-col a:hover{color:var(--copper-2)}
+.foot-bot{display:flex;justify-content:space-between;padding-top:26px;font-size:13px;flex-wrap:wrap;gap:10px}
+.foot-bot a{color:var(--copper-2)}
+
+/* ===== WhatsApp float ===== */
+.wa{position:fixed;bottom:26px;right:26px;z-index:800;width:60px;height:60px;border-radius:50%;
+  background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(37,211,102,.45);
+  transition:transform .3s ease}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:32px;height:32px;fill:#fff}
+
+/* ===== Reveal ===== */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== Responsive ===== */
+@media(max-width:960px){
+  .menu,.nav-cta{display:none}
+  .burger{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:28px}
+  .hero-stats{gap:26px}
+  .prod-grid{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
+  .prod.big{grid-column:span 2;grid-row:span 1}
+  .about-grid,.contact-grid,.quotes{grid-template-columns:1fr;gap:40px}
+  .about-visual img{height:420px}
+  .band-grid{grid-template-columns:1fr 1fr;gap:36px 24px}
+  .serv-row{grid-template-columns:50px 1fr;gap:16px}
+  .serv-row p,.serv-arrow{display:none}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px}
+  .sec{padding:80px 0}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:14px}
+  .hero-stats{flex-wrap:wrap;gap:22px 34px}
+  .prod-grid{grid-template-columns:1fr}
+  .prod.big,.prod.wide{grid-column:span 1}
+  .band-grid{grid-template-columns:1fr 1fr}
+  .values{grid-template-columns:1fr}
+  form,.cta{padding:34px 22px}
+}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="pre-mark">MAURO<span>·</span>MOTORES</div>
+  <div class="pre-bar"><i></i></div>
+</div>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="dot"></span>Mauro<em>Motores</em></a>
+    <nav class="menu">
+      <a href="#servicos">Serviços</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">A Empresa</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#contato" class="nav-cta">Solicitar Orçamento</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80" alt="Oficina industrial de motores">
+  </div>
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="hero-top">
+      <span>Sete Lagoas · Minas Gerais</span>
+      <span>Motores · Bombas · Assistência Técnica</span>
+    </div>
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow hero-eyebrow">Desde antes de 2015 · +10 anos de tradição</span>
+        <h1>Força que <b>move</b> a sua produção.</h1>
+      </div>
+      <div class="hero-side">
+        <p>Venda, rebobinagem e assistência técnica de motores elétricos e bombas d'água — com oficina completa e mão de obra especializada.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary">Pedir orçamento</a>
+          <a href="#servicos" class="btn btn-ghost">Ver serviços</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="st"><b data-count="10">0</b><span>Anos de mercado</span></div>
+      <div class="st"><b><i>+</i></b><span>Motores &amp; bombas a pronta entrega</span></div>
+      <div class="st"><b data-count="100">0</b><span>% mão de obra especializada</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="services sec" id="servicos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">O que fazemos</span>
+        <h2 style="margin-top:20px">Serviços de oficina<br>completa e especializada</h2>
+      </div>
+      <p>Da rebobinagem à manutenção preventiva, tudo com laboratório de testes, torno mecânico e profissionais experientes.</p>
+    </div>
+    <div class="serv-list">
+      <div class="serv-row reveal">
+        <span class="serv-num">01</span>
+        <h3>Manutenção e Rebobinagem</h3>
+        <p>Rebobinagem de motores e bombas de diversas marcas, com serviço de extrema qualidade.</p>
+        <span class="serv-arrow">→</span>
+      </div>
+      <div class="serv-row reveal">
+        <span class="serv-num">02</span>
+        <h3>Assistência Técnica</h3>
+        <p>Oficina totalmente equipada, laboratório de testes e profissionais com anos de experiência.</p>
+        <span class="serv-arrow">→</span>
+      </div>
+      <div class="serv-row reveal">
+        <span class="serv-num">03</span>
+        <h3>Manutenção Preventiva</h3>
+        <p>Contratos de manutenção com os melhores preços do mercado para manter tudo rodando.</p>
+        <span class="serv-arrow">→</span>
+      </div>
+      <div class="serv-row reveal">
+        <span class="serv-num">04</span>
+        <h3>Reformas Completas</h3>
+        <p>Reforma de motores, roçadeiras, motoserras e compressores com peças genuínas.</p>
+        <span class="serv-arrow">→</span>
+      </div>
+      <div class="serv-row reveal">
+        <span class="serv-num">05</span>
+        <h3>Induzidos</h3>
+        <p>Serviço especializado em induzidos de motores elétricos e estacionários.</p>
+        <span class="serv-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section class="sec" id="produtos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Loja &amp; Revenda</span>
+        <h2 style="margin-top:20px">Produtos a pronta entrega</h2>
+      </div>
+      <p>Das melhores marcas do mercado, para aplicação doméstica, comercial e industrial.</p>
+    </div>
+    <div class="prod-grid reveal">
+      <div class="prod big">
+        <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?w=800&q=80" alt="Motores elétricos" loading="lazy">
+        <span class="tag">Linha completa</span>
+        <div class="cap"><b>Motores Elétricos</b><span>Domésticos, comerciais e industriais — vários modelos em estoque.</span></div>
+      </div>
+      <div class="prod">
+        <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&q=80" alt="Bombas centrífugas" loading="lazy">
+        <div class="cap"><b>Bombas Centrífugas</b><span>Para piscinas e irrigação.</span></div>
+      </div>
+      <div class="prod">
+        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80" alt="Bombas submersas" loading="lazy">
+        <div class="cap"><b>Bombas Submersas</b><span>Para poços artesianos.</span></div>
+      </div>
+      <div class="prod plain wide">
+        <div class="cap">
+          <b>Precisa de peças ou material?</b>
+          <p>Fios, cabos, chaves magnéticas, disjuntores, tubos, conexões e mangueiras para irrigação — tudo em um só lugar.</p>
+        </div>
+      </div>
+      <div class="prod wide">
+        <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80" alt="Material elétrico e ferramentas" loading="lazy">
+        <span class="tag">Material elétrico</span>
+        <div class="cap"><b>Ferramentas &amp; Componentes</b><span>Máquinas de solda, ferramentas elétricas e material hidráulico.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="about sec" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1000&q=80" alt="Técnico especializado em manutenção">
+      <div class="about-badge">
+        <b>+10</b>
+        <span>anos movendo Sete Lagoas</span>
+      </div>
+    </div>
+    <div class="about-txt reveal">
+      <span class="eyebrow">A Empresa</span>
+      <h2>Tradição, qualidade e mão de obra que entende de motor.</h2>
+      <p>A Mauro Motores mantém a qualidade e a tradição conquistadas em muitos anos de trabalho. A seriedade é reforçada por um atendimento diferenciado e personalizado, resultado de uma equipe que sabe a importância da excelência.</p>
+      <p>Com loja instalada estrategicamente em Sete Lagoas, oferecemos conserto e manutenção de motores estacionários e elétricos, nacionais e importados, para todas as aplicações — além de peças genuínas e assistência técnica constantemente treinada.</p>
+      <div class="values">
+        <div class="value"><span class="k">É</span><div><b>Ética</b><span>Transparência e responsabilidade</span></div></div>
+        <div class="value"><span class="k">C</span><div><b>Comprometimento</b><span>Parceria de longo prazo</span></div></div>
+        <div class="value"><span class="k">I</span><div><b>Inovação</b><span>Coragem para investir</span></div></div>
+        <div class="value"><span class="k">F</span><div><b>Foco em Resultados</b><span>Iniciativa e proatividade</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="band">
+  <div class="wrap band-grid">
+    <div class="st reveal"><b data-count="10">0</b><span>Anos de tradição</span></div>
+    <div class="st reveal"><b><i>05</i></b><span>Linhas de produto</span></div>
+    <div class="st reveal"><b><i>+</i></b><span>Marcas atendidas</span></div>
+    <div class="st reveal"><b data-count="24">0</b><span>Horas de dedicação</span></div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Quem confia</span>
+        <h2 style="margin-top:20px">Clientes que voltam sempre</h2>
+      </div>
+      <p>Produtores rurais, indústrias e comércios da região contam com a Mauro Motores.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal">
+        <div class="mark">“</div>
+        <p>Levei um motor da bomba do poço pra rebobinar e voltou funcionando como novo. Serviço rápido e preço justo.</p>
+        <div class="who"><span class="av">JC</span><div><b>João Carlos</b><span>Produtor rural · Sete Lagoas</span></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="mark">“</div>
+        <p>Atendimento que explica tudo e resolve. Faço a manutenção preventiva das bombas da nossa indústria com eles há anos.</p>
+        <div class="who"><span class="av">RM</span><div><b>Ricardo M.</b><span>Gerente industrial</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Seu motor parou?<br>A gente resolve.</h2>
+      <p>Fale agora com a nossa equipe e receba um orçamento sem compromisso para venda, conserto ou rebobinagem.</p>
+      <a href="#contato" class="btn btn-primary">Solicitar orçamento agora</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="sec" id="contato" style="padding-top:0">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Fale conosco</span>
+      <h2>Estamos prontos<br>para atender você.</h2>
+      <div class="info-row">
+        <span class="ic">Local</span>
+        <div><b>Av. Raquel Teixeira Viana, 725</b><span>Bairro Canaã · Sete Lagoas — MG · CEP 35700-293</span></div>
+      </div>
+      <div class="info-row">
+        <span class="ic">Fone</span>
+        <div><b>(31) 3774-0211</b><span>Também: (31) 3771-5366</span></div>
+      </div>
+      <div class="info-row">
+        <span class="ic">E-mail</span>
+        <div><b><a href="mailto:vendas@mauromotores.com">vendas@mauromotores.com</a></b><span>Resposta em horário comercial</span></div>
+      </div>
+      <div class="map">
+        <iframe loading="lazy" src="https://maps.google.com/maps?q=Av.%20Raquel%20Teixeira%20Viana%2C%20725%20Sete%20Lagoas%20MG&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Mapa Mauro Motores"></iframe>
+      </div>
+    </div>
+    <form class="reveal" onsubmit="event.preventDefault();this.querySelector('button').textContent='Mensagem enviada ✓'">
+      <h3>Solicite seu orçamento</h3>
+      <div class="field"><label>Nome</label><input type="text" placeholder="Seu nome" required></div>
+      <div class="field"><label>Empresa</label><input type="text" placeholder="Sua empresa (opcional)"></div>
+      <div class="field"><label>Telefone</label><input type="tel" placeholder="(31) 90000-0000" required></div>
+      <div class="field"><label>E-mail</label><input type="email" placeholder="voce@email.com"></div>
+      <div class="field"><label>Mensagem</label><textarea placeholder="Conte o que você precisa..."></textarea></div>
+      <button type="submit" class="btn btn-primary">Enviar solicitação</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand"><span class="dot"></span>Mauro<em>Motores</em></div>
+        <p>Motores elétricos, bombas d'água e assistência técnica com mais de uma década de tradição em Sete Lagoas — MG.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <a href="#servicos">Serviços</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">A Empresa</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <p>Av. Raquel Teixeira Viana, 725<br>Bairro Canaã · Sete Lagoas MG</p>
+        <p>(31) 3774-0211 · (31) 3771-5366</p>
+        <a href="mailto:vendas@mauromotores.com">vendas@mauromotores.com</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Mauro Motores. Todos os direitos reservados.</span>
+      <span>Redesign proposta · conceito <a href="#top">nível awards</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/553137740211?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.1 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<script>
+window.addEventListener('load',function(){
+  setTimeout(function(){document.getElementById('preloader').classList.add('done')},1700);
+});
+var header=document.getElementById('header');
+window.addEventListener('scroll',function(){
+  header.classList.toggle('scrolled',window.scrollY>40);
+});
+document.getElementById('burger').addEventListener('click',function(){
+  document.querySelector('.menu').style.display='flex';
+});
+// reveal
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+// counters
+function runCount(el){
+  var t=+el.dataset.count,c=0,step=Math.max(1,Math.ceil(t/60));
+  var iv=setInterval(function(){c+=step;if(c>=t){c=t;clearInterval(iv);}el.textContent=c;},22);
+}
+var co=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){runCount(e.target);co.unobserve(e.target);}});
+},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(function(el){co.observe(el);});
+</script>
+</body>
+</html>
