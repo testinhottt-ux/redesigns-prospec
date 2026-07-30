@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Líder Odontologia Especializada | Sete Lagoas</title>
+<meta name="description" content="Ortodontia, implantes, prótese e clareamento dental em Sete Lagoas. Equipe especializada e estrutura premium para o seu sorriso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0a0a0a;
+  --off-white:#f5f3ef;
+  --cream:#f0ece4;
+  --dark-teal:#1a3c3a;
+  --gold:#c9a96e;
+  --gold-light:#e8d5a3;
+  --warm-gray:#6b6560;
+  --light-gray:#e2ddd6;
+  --white:#ffffff;
+  --font-serif:'Fraunces',serif;
+  --font-sans:'Space Grotesk',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--off-white);color:var(--black);overflow-x:hidden;line-height:1.6}
+::selection{background:var(--gold);color:var(--black)}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:1280px;margin:0 auto;padding:0 40px}
+@media(max-width:768px){.container{padding:0 24px}}
+
+/* Preloader */
+.preloader{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+.preloader.hidden{opacity:0;visibility:hidden}
+.preloader-logo{font-family:var(--font-serif);font-size:32px;color:var(--gold);letter-spacing:-1px}
+.preloader-bar{position:absolute;bottom:0;left:0;height:3px;background:var(--gold);width:0%;transition:width 2s ease}
+
+/* Navbar */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+.navbar.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(20px);padding:14px 40px;border-bottom:1px solid rgba(201,169,110,.15)}
+.navbar-logo{font-family:var(--font-serif);font-size:24px;color:var(--white);font-weight:600;letter-spacing:-.5px}
+.navbar-logo span{color:var(--gold)}
+.navbar-links{display:flex;gap:32px;list-style:none}
+.navbar-links a{color:rgba(255,255,255,.7);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;transition:color .3s;position:relative}
+.navbar-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.navbar-links a:hover{color:var(--white)}
+.navbar-links a:hover::after{width:100%}
+.navbar-cta{background:var(--gold);color:var(--black);padding:10px 24px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;border:none;cursor:pointer;transition:all .3s}
+.navbar-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.mobile-toggle span{width:24px;height:1.5px;background:var(--white);transition:all .3s}
+@media(max-width:900px){
+  .navbar-links,.navbar-cta{display:none}
+  .mobile-toggle{display:flex}
+  .navbar{padding:16px 24px}
+  .navbar.scrolled{padding:12px 24px}
+  .navbar-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.98);padding:24px;gap:20px;border-bottom:1px solid rgba(201,169,110,.2)}
+  .navbar-links.open + .navbar-cta{display:block}
+}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--black);overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;filter:brightness(.5)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,.85) 30%,rgba(26,60,58,.6) 70%,transparent)}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center;padding:120px 0 80px}
+.hero-tag{font-size:11px;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:24px;font-weight:500}
+.hero-title{font-family:var(--font-serif);font-size:clamp(48px,6vw,80px);color:var(--white);line-height:1.05;font-weight:600;letter-spacing:-2px;margin-bottom:28px}
+.hero-title span{color:var(--gold);font-style:italic;font-weight:300}
+.hero-desc{color:rgba(255,255,255,.6);font-size:16px;line-height:1.8;max-width:480px;margin-bottom:40px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--black);padding:16px 36px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;border:none;cursor:pointer;transition:all .3s}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(255,255,255,.25);color:var(--white);padding:16px 36px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;cursor:pointer;transition:all .3s;background:transparent}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stat{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+.hero-stat-number{font-family:var(--font-serif);font-size:clamp(64px,8vw,120px);color:var(--gold);font-weight:700;line-height:.8;letter-spacing:-3px}
+.hero-stat-label{color:rgba(255,255,255,.4);font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-top:12px}
+.hero-visual{position:relative}
+.hero-visual img{width:100%;border-radius:4px}
+.hero-floating-card{position:absolute;bottom:-20px;left:-20px;background:rgba(10,10,10,.9);backdrop-filter:blur(10px);padding:20px 28px;border:1px solid rgba(201,169,110,.2)}
+.hero-floating-card p{color:var(--white);font-size:13px;font-weight:500}
+.hero-floating-card span{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:40px;text-align:center;padding:100px 0 60px}
+  .hero-desc{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .hero-stat{align-items:center}
+  .hero-visual{display:none}
+}
+
+/* Section common */
+.section{padding:120px 0}
+.section-dark{background:var(--black);color:var(--white)}
+.section-cream{background:var(--cream)}
+.section-tag{font-size:11px;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:16px;font-weight:500}
+.section-title{font-family:var(--font-serif);font-size:clamp(36px,4.5vw,56px);font-weight:600;letter-spacing:-1.5px;line-height:1.1;margin-bottom:20px}
+.section-desc{color:var(--warm-gray);font-size:15px;line-height:1.8;max-width:560px}
+.section-header{margin-bottom:72px}
+.section-header.centered{text-align:center}
+.section-header.centered .section-desc{margin-left:auto;margin-right:auto}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--white);padding:48px 36px;position:relative;transition:all .4s;cursor:default;border:1px solid transparent}
+.service-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 20px 60px rgba(10,10,10,.08)}
+.service-number{font-family:var(--font-serif);font-size:64px;font-weight:800;color:var(--gold);opacity:.15;line-height:.8;margin-bottom:20px}
+.service-card h3{font-family:var(--font-serif);font-size:22px;margin-bottom:12px;font-weight:600}
+.service-card p{color:var(--warm-gray);font-size:14px;line-height:1.7}
+.service-card .service-arrow{position:absolute;bottom:24px;right:24px;width:32px;height:32px;border-radius:50%;border:1px solid var(--light-gray);display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:16px;color:var(--black)}
+.service-card:hover .service-arrow{background:var(--gold);border-color:var(--gold);color:var(--black);transform:rotate(-45deg)}
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr}}
+
+/* About - Split */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-image{position:relative}
+.about-image img{width:100%;height:500px;object-fit:cover;border-radius:4px}
+.about-image::after{content:'';position:absolute;inset:0;border:1px solid rgba(201,169,110,.3);border-radius:4px;top:12px;left:12px;z-index:-1}
+.about-experience{font-family:var(--font-serif);font-size:128px;font-weight:700;color:var(--gold);opacity:.1;line-height:.7;margin-bottom:-20px;letter-spacing:-5px}
+.about-text h2{font-family:var(--font-serif);font-size:42px;font-weight:600;line-height:1.15;margin-bottom:24px;letter-spacing:-1px}
+.about-text p{color:var(--warm-gray);font-size:15px;line-height:1.8;margin-bottom:16px}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;padding-top:40px;border-top:1px solid var(--light-gray)}
+.about-stat h4{font-family:var(--font-serif);font-size:36px;font-weight:700;color:var(--dark-teal)}
+.about-stat p{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--warm-gray);margin-top:4px}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px}}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.team-card{position:relative;overflow:hidden;cursor:default}
+.team-card img{width:100%;height:360px;object-fit:cover;transition:transform .6s}
+.team-card:hover img{transform:scale(1.05)}
+.team-info{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.team-info h4{color:var(--white);font-size:18px;font-family:var(--font-serif);font-weight:600}
+.team-info p{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr}}
+
+/* Numbers */
+.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.number-item{text-align:center}
+.number-value{font-family:var(--font-serif);font-size:64px;font-weight:700;color:var(--gold);line-height:.9;letter-spacing:-2px}
+.number-label{color:rgba(255,255,255,.5);font-size:13px;text-transform:uppercase;letter-spacing:1.5px;margin-top:12px}
+@media(max-width:768px){.numbers-grid{grid-template-columns:repeat(2,1fr);gap:32px}}
+
+/* Testimonials */
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{background:var(--white);padding:40px 32px;position:relative}
+.testimonial-card::before{content:'"';font-family:var(--font-serif);font-size:80px;color:var(--gold);opacity:.2;position:absolute;top:16px;right:24px;line-height:.8}
+.testimonial-card p{color:var(--warm-gray);font-size:14px;line-height:1.8;margin-bottom:24px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-author img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.testimonial-author h5{font-size:14px;font-weight:600}
+.testimonial-author span{font-size:12px;color:var(--warm-gray)}
+@media(max-width:900px){.testimonials-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.testimonials-grid{grid-template-columns:1fr}}
+
+/* CTA */
+.cta-section{position:relative;padding:120px 0;text-align:center;background:var(--black);overflow:hidden}
+.cta-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.15;filter:brightness(.3)}
+.cta-content{position:relative;z-index:2;max-width:640px;margin:0 auto}
+.cta-content h2{font-family:var(--font-serif);font-size:clamp(32px,4vw,52px);color:var(--white);font-weight:600;letter-spacing:-1.5px;margin-bottom:20px}
+.cta-content p{color:rgba(255,255,255,.5);font-size:15px;margin-bottom:36px}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.contact-info h3{font-family:var(--font-serif);font-size:32px;font-weight:600;margin-bottom:24px}
+.contact-info p{color:var(--warm-gray);font-size:14px;line-height:1.8;margin-bottom:8px}
+.contact-detail{margin-top:32px;padding-top:32px;border-top:1px solid var(--light-gray)}
+.contact-detail h4{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:8px;font-weight:600}
+.contact-detail p{color:var(--black);font-weight:500}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.contact-form input,.contact-form textarea{padding:16px 20px;border:1px solid var(--light-gray);background:var(--white);font-family:var(--font-sans);font-size:14px;transition:border-color .3s}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--gold)}
+.contact-form textarea{height:120px;resize:vertical}
+.contact-form button{background:var(--dark-teal);color:var(--white);padding:16px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;border:none;cursor:pointer;transition:all .3s}
+.contact-form button:hover{background:var(--gold);color:var(--black)}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:40px}}
+
+/* Footer */
+.footer{background:var(--black);padding:80px 0 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand h3{font-family:var(--font-serif);font-size:24px;color:var(--white);font-weight:600;margin-bottom:16px}
+.footer-brand h3 span{color:var(--gold)}
+.footer-brand p{color:rgba(255,255,255,.4);font-size:13px;line-height:1.8}
+.footer-col h4{color:var(--white);font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;font-weight:600}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul a{color:rgba(255,255,255,.4);font-size:13px;transition:color .3s}
+.footer-col ul a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;margin-top:24px}
+.footer-bottom p{color:rgba(255,255,255,.2);font-size:12px}
+.footer-social{display:flex;gap:12px}
+.footer-social a{width:36px;height:36px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:14px;color:rgba(255,255,255,.4)}
+.footer-social a:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.footer-bottom{flex-direction:column;gap:16px;text-align:center}}
+
+/* WhatsApp Floating */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;background:#25d366;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.4)}
+.whatsapp-float svg{width:28px;height:28px;fill:white}
+
+/* Scroll Reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:all .6s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Responsive tweaks */
+@media(max-width:480px){
+  .section{padding:64px 0}
+  .hero-title{font-size:36px}
+  .hero-stat-number{font-size:48px}
+}
+</style>
+</head>
+<body>
+
+<div class="preloader" id="preloader">
+  <div class="preloader-bar" id="preloaderBar"></div>
+  <div class="preloader-logo">LD</div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <a href="#" class="navbar-logo">Líder<span>Odontologia</span></a>
+  <ul class="navbar-links" id="navLinks">
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5531975167871" target="_blank" class="navbar-cta">Agende sua Consulta</a>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero" id="home">
+  <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80" alt="Consultorio odontologico moderno" class="hero-bg" loading="eager">
+  <div class="hero-overlay"></div>
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <p class="hero-tag">Referencia em Odontologia em Sete Lagoas</p>
+      <h1 class="hero-title">Seu sorriso<br><span>merece o melhor</span></h1>
+      <p class="hero-desc">Ha mais de 14 anos transformando sorrisos em Sete Lagoas. Equipe especializada, estrutura premium e atendimento humanizado.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5531975167871" target="_blank" class="btn-primary">Agende sua Consulta</a>
+        <a href="#servicos" class="btn-outline">Conheca nossos servicos</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-stat">
+        <div class="hero-stat-number" id="heroCounter">14+</div>
+        <div class="hero-stat-label">Anos de experiencia</div>
+      </div>
+      <div class="hero-floating-card">
+        <p>5 especialistas</p>
+        <span>Atendimento completo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicos">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <p class="section-tag">Nossas Especialidades</p>
+      <h2 class="section-title">Cuidado completo para<br>o seu sorriso</h2>
+      <p class="section-desc">Da ortodontia a implantodontia, oferecemos todas as especialidades em um unico lugar, com tecnologia de ponta e profissionais experientes.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-number">01</div>
+        <h3>Ortodontia</h3>
+        <p>Aparelhos fixos, esteticos e alinhadores invisiveis Clear Correct. Corrigimos o posicionamento dos dentes com eficiencia e conforto.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-number">02</div>
+        <h3>Implante Dentario</h3>
+        <p>Substituicao de dentes perdidos com implantes de titanio. Protese protocolo e carga imediata para devolver funcao e estetica.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-number">03</div>
+        <h3>Protese Dentaria</h3>
+        <p>Protese fixa, sobre implante e tipo protocolo. Solucoes personalizadas para cada caso, com materiais de alta qualidade.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-number">04</div>
+        <h3>Endodontia</h3>
+        <p>Tratamento de canal com tecnologia moderna. Preservacao do dente natural com seguranca e conforto.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-number">05</div>
+        <h3>Clareamento Dental</h3>
+        <p>Clareamento a laser e com moldeiras personalizadas. Resultados rapidos e duradouros para um sorriso mais branco.</p>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-number">06</div>
+        <h3>Odontopediatria</h3>
+        <p>Cuidado especializado para criancas. Atendimento acolhedor que transforma o consultorio em uma experiencia positiva.</p>
+        <div class="service-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&q=80" alt="Clinica odontologica moderna" loading="lazy">
+      </div>
+      <div class="about-text reveal">
+        <p class="section-tag">Nossa Historia</p>
+        <div class="about-experience">14</div>
+        <h2>Excelencia em odontologia<br>desde 2009</h2>
+        <p>A Lider Odontologia Especializada nasceu com a missao de oferecer um atendimento odontologico de excelencia em Sete Lagoas. Ao longo de mais de 14 anos, construimos uma reputacao baseada em qualidade, confianca e resultados.</p>
+        <p>Nossa equipe e formada por cinco profissionais experientes, cada um especializado em sua area, garantindo um tratamento completo e integrado para nossos pacientes.</p>
+        <div class="about-stats">
+          <div class="about-stat"><h4>14+</h4><p>Anos de mercado</p></div>
+          <div class="about-stat"><h4>5</h4><p>Especialistas</p></div>
+          <div class="about-stat"><h4>10+</h4><p>Especialidades</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="numbers">
+  <div class="container">
+    <div class="numbers-grid">
+      <div class="number-item reveal">
+        <div class="number-value" data-count="14">0</div>
+        <div class="number-label">Anos de Experiencia</div>
+      </div>
+      <div class="number-item reveal">
+        <div class="number-value" data-count="5000">0</div>
+        <div class="number-label">Pacientes Atendidos</div>
+      </div>
+      <div class="number-item reveal">
+        <div class="number-value" data-count="5">0</div>
+        <div class="number-label">Especialistas</div>
+      </div>
+      <div class="number-item reveal">
+        <div class="number-value" data-count="15000">0</div>
+        <div class="number-label">Sorrisos Transformados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="equipe">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-tag">Nossa Equipe</p>
+      <h2 class="section-title">Profissionais que<br>cuidam de voce</h2>
+      <p class="section-desc">Conheca nossa equipe de especialistas, dedicados a transformar sorrisos com excelencia e cuidado.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="Dra Luciana Oliveira" loading="lazy">
+        <div class="team-info">
+          <h4>Dra. Luciana Oliveira</h4>
+          <p>Ortodontia e Ortopedia</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80" alt="Dra Roberta Abreu" loading="lazy">
+        <div class="team-info">
+          <h4>Dra. Roberta Abreu</h4>
+          <p>Clinica Geral</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&q=80" alt="Dr Bruno Santos" loading="lazy">
+        <div class="team-info">
+          <h4>Dr. Bruno Santos Ladeira</h4>
+          <p>Cirurgia e Implante</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream" id="depoimentos">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <p class="section-tag">Depoimentos</p>
+      <h2 class="section-title">O que nossos pacientes<br>dizem</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <p>Excelente atendimento! A equipe e muito profissional e atenciosa. Meu tratamento de canal foi super tranquilo. Recomendo de olhos fechados.</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="" loading="lazy">
+          <div>
+            <h5>Maria Silva</h5>
+            <span>Paciente</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <p>Fiz meu tratamento com a Dra. Luciana e o resultado do aparelho invisivel superou minhas expectativas. Processo rapido e confortavel.</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="" loading="lazy">
+          <div>
+            <h5>Carlos Eduardo</h5>
+            <span>Paciente</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <p>Clareamento a laser transformou meu sorriso em apenas algumas sessoes. Ambiente acolhedor e profissionais incriveis. Nota 10!</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="" loading="lazy">
+          <div>
+            <h5>Ana Paula</h5>
+            <span>Paciente</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80" alt="" class="cta-bg" loading="lazy">
+  <div class="container cta-content reveal">
+    <h2>Pronto para transformar<br>seu sorriso?</h2>
+    <p>Agende uma avaliacao gratuita com nossos especialistas e descubra o tratamento ideal para voce.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/5531975167871" target="_blank" class="btn-primary">Fale Conosco pelo WhatsApp</a>
+      <a href="#contato" class="btn-outline">Envie uma mensagem</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contato">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-tag">Contato</p>
+      <h2 class="section-title">Vamos conversar<br>sobre seu sorriso</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Lider Odontologia<br>Especializada</h3>
+        <p>Ha mais de 14 anos cuidando de sorrisos em Sete Lagoas com excelencia e dedicaao.</p>
+        <div class="contact-detail">
+          <h4>Endereco</h4>
+          <p>Rua Prof Abeylard, 279 - Centro</p>
+          <p>Sete Lagoas - MG, 35700-049</p>
+        </div>
+        <div class="contact-detail">
+          <h4>Telefone</h4>
+          <p>(31) 3771-2662</p>
+        </div>
+        <div class="contact-detail">
+          <h4>WhatsApp</h4>
+          <p>(31) 97516-7871 / (31) 99840-4377</p>
+        </div>
+        <div class="contact-detail">
+          <h4>Horarios</h4>
+          <p>Seg a Sex: 08h - 19h</p>
+          <p>Emergencia: WhatsApp</p>
+        </div>
+      </div>
+      <form class="contact-form reveal" onsubmit="event.preventDefault();alert('Obrigado pelo contato! Entraremos em contato em breve.')">
+        <input type="text" placeholder="Nome completo" required>
+        <input type="tel" placeholder="Telefone / WhatsApp" required>
+        <input type="email" placeholder="E-mail">
+        <textarea placeholder="Como podemos ajudar?" required></textarea>
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Lider<span>Odontologia</span></h3>
+        <p>Referencia em odontologia especializada em Sete Lagoas. Cuidamos do seu sorriso com excelencia ha mais de 14 anos.</p>
+        <div class="footer-social" style="margin-top:20px">
+          <a href="https://instagram.com/lider.odontologia" target="_blank" aria-label="Instagram">IN</a>
+          <a href="https://facebook.com/Lider.Odontologia" target="_blank" aria-label="Facebook">FB</a>
+          <a href="https://wa.me/5531975167871" target="_blank" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Servicos</h4>
+        <ul>
+          <li><a href="#servicos">Ortodontia</a></li>
+          <li><a href="#servicos">Implante Dentario</a></li>
+          <li><a href="#servicos">Protese</a></li>
+          <li><a href="#servicos">Clareamento</a></li>
+          <li><a href="#servicos">Endodontia</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="#sobre">Sobre Nos</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="tel:3137712662">(31) 3771-2662</a></li>
+          <li><a href="https://wa.me/5531975167871" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/lider.odontologia" target="_blank">Instagram</a></li>
+          <li><a href="https://facebook.com/Lider.Odontologia" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lider Odontologia Especializada. Todos os direitos reservados.</p>
+      <p>Redesign por <a href="https://brmg.com.br" target="_blank" style="color:var(--gold)">BRMG</a></p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5531975167871" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Preloader
+const preloader = document.getElementById('preloader');
+const preloaderBar = document.getElementById('preloaderBar');
+setTimeout(() => { preloaderBar.style.width = '100%'; }, 100);
+setTimeout(() => { preloader.classList.add('hidden'); }, 2200);
+
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Mobile toggle
+document.getElementById('mobileToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counter animation
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      if (!target) return;
+      let current = 0;
+      const increment = Math.ceil(target / 60);
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          el.textContent = target.toLocaleString('pt-BR') + '+';
+          clearInterval(timer);
+        } else {
+          el.textContent = current.toLocaleString('pt-BR');
+        }
+      }, 30);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
