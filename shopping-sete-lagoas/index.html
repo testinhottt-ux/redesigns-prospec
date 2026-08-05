@@ -152,8 +152,29 @@ nav.scrolled .menu a{color:var(--ink)}
 .cta h2 em{font-style:italic;background:linear-gradient(120deg,var(--amber),var(--magenta));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .cta p{color:rgba(255,255,255,.78);max-width:560px;margin:0 auto 42px;font-size:16px}
 
+/* LOCATION */
+.location{background:var(--bg);color:#fff;padding:120px 0}
+.location .sec-head h2{color:#fff}
+.location .sec-head h2 em{color:var(--lime)}
+.location .sec-head p{color:rgba(255,255,255,.62)}
+.location .tag{color:var(--violet-2)}
+.loc-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:28px;align-items:stretch}
+.loc-map{border-radius:24px;overflow:hidden;min-height:460px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.1);position:relative}
+.loc-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.2) contrast(1.05)}
+.loc-panel{background:linear-gradient(160deg,rgba(0,144,144,.16),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:40px 36px;display:flex;flex-direction:column;justify-content:center}
+.loc-panel h3{font-size:30px;margin-bottom:14px}
+.loc-addr{color:rgba(255,255,255,.78);font-size:15px;margin-bottom:26px;line-height:1.7}
+.loc-info{list-style:none;margin-bottom:30px}
+.loc-info li{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.loc-info li:last-child{border:none}
+.loc-info span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.loc-info b{font-size:14.5px;color:#fff;font-weight:600}
+.loc-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn.ghost-dark{background:transparent;border:1.5px solid rgba(255,255,255,.3);box-shadow:none;color:#fff}
+.btn.ghost-dark:hover{border-color:var(--lime);color:var(--lime);background:rgba(144,192,0,.08)}
+
 /* FOOTER */
-footer{background:var(--bg);color:rgba(255,255,255,.7)}
+footer{background:#031917;color:rgba(255,255,255,.7)}
 .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:50px;padding:84px 0 60px}
 .foot-grid h4{font-size:16px;color:#fff;margin-bottom:22px}
 .foot-grid ul{list-style:none}
@@ -183,6 +204,8 @@ footer{background:var(--bg);color:rgba(255,255,255,.7)}
   .stat+.stat{padding-left:0;border-left:none}
   .cta-bg{background-attachment:scroll}
   .about-feats{grid-template-columns:1fr}
+  .loc-grid{grid-template-columns:1fr}
+  .loc-map{min-height:320px}
 }
 </style>
 </head>
@@ -252,12 +275,12 @@ footer{background:var(--bg);color:rgba(255,255,255,.7)}
       </div>
       <div class="tile rv">
         <span class="num">03</span>
-        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=700&q=80" alt="Gastronomia e praça de alimentação" loading="lazy">
+        <img src="assets/foodcourt.jpg" alt="Gastronomia e praça de alimentação" loading="lazy">
         <div><h3>Gastronomia</h3><p>Praça de alimentação variada.</p></div>
       </div>
       <div class="tile rv">
         <span class="num">04</span>
-        <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=700&q=80" alt="Entretenimento e recreação infantil" loading="lazy">
+        <img src="assets/boliche.jpg" alt="Entretenimento e lazer para toda a família" loading="lazy">
         <div><h3>Entretenimento</h3><p>Diversão para todas as idades.</p></div>
       </div>
     </div>
@@ -336,13 +359,37 @@ footer{background:var(--bg);color:rgba(255,255,255,.7)}
   </div>
 </section>
 
-<section class="cta" id="contato">
-  <div class="cta-bg"></div>
-  <div class="wrap cta-in">
-    <span class="kicker" style="margin-bottom:26px"><span class="dot"></span> (31) 2106-3800</span>
-    <h2>Venha nos <em>visitar</em></h2>
-    <p>Av. Otávio Campelo Ribeiro, 2.801 — Eldorado · CEP 35702-153 · Sete Lagoas/MG. As melhores opções de compras e serviços com mais conforto para você.</p>
-    <a class="btn amber" href="https://wa.me/553121063800">Falar pelo WhatsApp</a>
+<section class="location" id="contato">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="tag">Localização</span>
+        <h2>Fácil de <em>chegar</em>. Difícil de esquecer.</h2>
+      </div>
+      <p>No coração do bairro Eldorado, com amplo estacionamento e acesso pelas principais vias de Sete Lagoas.</p>
+    </div>
+    <div class="loc-grid rv">
+      <div class="loc-map">
+        <iframe
+          title="Mapa Shopping Sete Lagoas"
+          src="https://www.google.com/maps?q=Shopping%20Sete%20Lagoas%2C%20Av.%20Ot%C3%A1vio%20Campelo%20Ribeiro%2C%202801%2C%20Eldorado%2C%20Sete%20Lagoas%20-%20MG&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="loc-panel">
+        <h3>Venha nos visitar</h3>
+        <p class="loc-addr">Av. Otávio Campelo Ribeiro, 2.801<br>Eldorado · CEP 35702-153 · Sete Lagoas/MG</p>
+        <ul class="loc-info">
+          <li><span>Telefone</span><b>(31) 2106-3800</b></li>
+          <li><span>Lojas</span><b>Seg–Sáb 10h–22h</b></li>
+          <li><span>Alimentação</span><b>Todos os dias</b></li>
+          <li><span>Estacionamento</span><b>Amplo e coberto</b></li>
+        </ul>
+        <div class="loc-cta">
+          <a class="btn amber" href="https://www.google.com/maps/dir/?api=1&destination=Shopping+Sete+Lagoas+Av.+Ot%C3%A1vio+Campelo+Ribeiro+2801+Sete+Lagoas+MG">Como chegar</a>
+          <a class="btn ghost-dark" href="https://wa.me/553121063800">WhatsApp</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
