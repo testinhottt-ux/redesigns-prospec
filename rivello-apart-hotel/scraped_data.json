@@ -1,0 +1,146 @@
+{
+  "empresa": {
+    "nome": "Rivello Apart Hotel",
+    "segmento": "Apart hotel / hotel e pousada",
+    "cidade": "Sete Lagoas - MG",
+    "descricao": "Apart hotel no centro de Sete Lagoas, a poucos metros da Lagoa Paulino. 23 apartamentos totalmente mobiliados, com 2 quartos, que acomodam até 4 pessoas. Ideal para descansar, trabalhar ou morar — por diária, quinzena ou mês.",
+    "destaque": "Situado na Rua Paulo Frontin, 1172, um dos endereços mais centrais de Sete Lagoas, a poucos metros da Lagoa Paulino."
+  },
+  "contato": {
+    "endereco": "Rua Paulo Frontin, 1172 - Centro - Sete Lagoas MG",
+    "cep": "35700-049",
+    "telefones": [
+      "(31) 99948-1009",
+      "(31) 3774-5281"
+    ],
+    "whatsapp": "(31) 99948-1009",
+    "email": "rivelloaparthotel@gmail.com",
+    "site_atual": "https://rivelloaparthotel.com.br/"
+  },
+  "apartamentos": {
+    "total": 23,
+    "config": "todos com 2 quartos, totalmente mobiliados, acomodam até 4 pessoas",
+    "amenidades": [
+      "Cama box de casal",
+      "Ar condicionado",
+      "TV LED 32\" com TV a cabo",
+      "Armários",
+      "Cozinha completa montada com utensílios",
+      "Café da manhã diário no apartamento",
+      "Wi-Fi grátis",
+      "Estacionamento privativo e gratuito"
+    ]
+  },
+  "modalidades": [
+    "Diária",
+    "Aluguel quinzenal",
+    "Aluguel mensal",
+    "Aluguel anual"
+  ],
+  "estruturas": [
+    "Alimentação",
+    "Conveniência",
+    "Segurança 24h",
+    "Facilidades",
+    "Wi-Fi",
+    "Especiais"
+  ],
+  "tarifas": [
+    {
+      "tipo": "Apartamento 65m² Individual",
+      "sem_cafe": "R$ 200,00",
+      "com_cafe": "R$ 225,00"
+    },
+    {
+      "tipo": "Apartamento 65m² Casal",
+      "sem_cafe": "R$ 239,00",
+      "com_cafe": "R$ 259,00"
+    },
+    {
+      "tipo": "Apartamento 65m² 2 adultos (2 camas de solteiro)",
+      "sem_cafe": "R$ 239,00",
+      "com_cafe": "R$ 260,00"
+    }
+  ],
+  "tech_site_atual": {
+    "cms": "WordPress 6.4.8 (tema genérico 'hotel-melbourne')",
+    "libs": [
+      "Bootstrap",
+      "FlexSlider",
+      "Font Awesome 4.7",
+      "jQuery"
+    ],
+    "ssl": true,
+    "responsivo": "parcial (tema antigo, Font Awesome 4.7)"
+  },
+  "scraped_at": "2026-08-05T13:15:00",
+  "url_original": "https://rivelloaparthotel.com.br/",
+  "imagens_originais": {
+    "hero_sliders": [
+      "assets/slider1.jpg",
+      "assets/slider2.jpg",
+      "assets/slider3-1.jpg"
+    ],
+    "destaques": [
+      "assets/acomodacoes.jpg",
+      "assets/cafe.jpg",
+      "assets/noivas.jpg",
+      "assets/setelagoas.jpg",
+      "assets/rivello_apart_hotel.jpg"
+    ],
+    "galeria": [
+      "galeria_1-3.jpg",
+      "galeria_1-4.jpg",
+      "galeria_10-1.jpg",
+      "galeria_11-1.jpg",
+      "galeria_12.jpg",
+      "galeria_13.jpg",
+      "galeria_14.jpg",
+      "galeria_15-1.jpg",
+      "galeria_2-2.jpg",
+      "galeria_2-3.jpg",
+      "galeria_3-2.jpg",
+      "galeria_3-3.jpg",
+      "galeria_4-1.jpg",
+      "galeria_4-2.jpg",
+      "galeria_5.jpg",
+      "galeria_6.jpg",
+      "galeria_7-1.jpg",
+      "galeria_8-1.jpg",
+      "galeria_9-2.jpg"
+    ]
+  },
+  "estruturas_detalhadas": {
+    "alimentacao": [
+      "Café da manhã individual, servido no quarto",
+      "Cozinha completa com fogão, microondas, geladeira e utensílios"
+    ],
+    "conveniencia": [
+      "Limpeza diária dos apartamentos",
+      "Roupa de cama e banho",
+      "Serviço de lavanderia"
+    ],
+    "seguranca": [
+      "Monitoramento eletrônico por câmeras",
+      "Estacionamento coberto",
+      "Recepcionista 24 horas"
+    ],
+    "facilidades": [
+      "Faturamento para empresas cadastradas",
+      "Telefone",
+      "Wi-fi gratuito",
+      "Espaço para reuniões dentro do apto ou na área gourmet"
+    ],
+    "especiais": [
+      "Pacotes especiais para Dia da Noiva e Noite de Núpcias",
+      "Suítes com decoração especial e refeições diferenciadas"
+    ]
+  },
+  "cores": {
+    "primaria": "#8D632D",
+    "secundaria": "#202020",
+    "escuro": "#101010",
+    "accent": "#F8504B",
+    "branco": "#FFFFFF"
+  }
+}

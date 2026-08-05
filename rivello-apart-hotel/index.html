@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rivello Apart Hotel — hotel e apart hotel no centro de Sete Lagoas MG, a poucos metros da Lagoa Paulino. 23 apartamentos mobiliados para diária, quinzena ou mês. Reserve pelo WhatsApp.">
+<title>Rivello Apart Hotel — Hospedagem no centro de Sete Lagoas MG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1a17;
+  --ink-2:#262420;
+  --cream:#f4efe6;
+  --cream-2:#eae3d5;
+  --sage:#66735c;
+  --sage-2:#7d8a72;
+  --brass:#b08d57;
+  --muted:#6f695d;
+  --line:rgba(27,26,23,.13);
+  --fd:'Cormorant Garamond',serif;
+  --fb:'Sora',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.03;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:500;line-height:1.02;letter-spacing:-.01em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--fb);font-size:12px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--sage);display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--brass)}
+
+/* Preloader */
+#preloader{position:fixed;inset:0;z-index:10000;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;transition:opacity .6s ease,visibility .6s ease}
+#preloader.done{opacity:0;visibility:hidden}
+.pre-mark{font-family:var(--fd);font-weight:500;font-size:clamp(34px,6vw,60px);color:var(--cream);letter-spacing:.02em}
+.pre-mark i{font-style:italic;color:var(--brass)}
+.pre-bar{width:180px;height:2px;background:rgba(244,239,230,.15);overflow:hidden;border-radius:2px}
+.pre-bar span{display:block;height:100%;width:0;background:var(--brass);animation:load 1.6s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes load{to{width:100%}}
+
+/* Navbar */
+header{position:fixed;top:0;left:0;right:0;z-index:900;transition:all .4s ease}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0;transition:all .4s ease}
+header.scrolled{background:rgba(244,239,230,.8);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+header.scrolled .nav{padding:14px 0}
+.brand{font-family:var(--fd);font-weight:600;font-size:26px;letter-spacing:.01em;display:flex;align-items:center;gap:10px}
+.brand .dot{width:8px;height:8px;background:var(--brass);border-radius:50%;box-shadow:0 0 0 4px rgba(176,141,87,.2)}
+.brand i{font-style:italic;color:var(--sage)}
+.menu{display:flex;gap:34px;align-items:center}
+.menu a{font-size:14px;color:var(--ink);position:relative;padding:4px 0}
+.menu a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--brass);transition:width .3s ease}
+.menu a:hover::after{width:100%}
+.nav-cta{font-family:var(--fb);font-size:13px;font-weight:500;background:var(--ink);color:var(--cream);padding:12px 22px;border-radius:40px;transition:transform .2s ease,background .3s ease}
+.nav-cta:hover{background:var(--sage);transform:translateY(-2px)}
+.nav-cta:active{transform:scale(.97)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding-bottom:60px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,26,23,.42) 0%,rgba(27,26,23,.62) 52%,rgba(27,26,23,.92) 100%)}
+.hero .wrap{position:relative;width:100%}
+.hero-top{position:absolute;top:-42vh;left:32px;right:32px;display:flex;justify-content:space-between;color:rgba(244,239,230,.6);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-family:var(--fb)}
+.hero-inner{display:grid;grid-template-columns:1.5fr .9fr;gap:48px;align-items:end;color:var(--cream)}
+.hero h1{font-size:clamp(52px,9vw,124px);color:var(--cream);font-weight:500;line-height:.98}
+.hero h1 i{font-style:italic;color:var(--brass)}
+.hero-eyebrow{color:var(--brass);margin-bottom:22px}
+.hero-eyebrow::before{background:var(--brass)}
+.hero-side{padding-bottom:12px}
+.hero-side p{color:rgba(244,239,230,.85);font-size:16px;font-weight:300;margin-bottom:24px;max-width:330px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--fb);font-size:14px;font-weight:500;padding:15px 28px;border-radius:44px;display:inline-flex;align-items:center;gap:10px;transition:transform .2s ease,background .3s ease,color .3s ease;cursor:pointer;border:0}
+.btn-primary{background:var(--brass);color:#fff}
+.btn-primary:hover{background:#c39b62;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--cream);border:1px solid rgba(244,239,230,.4)}
+.btn-ghost:hover{background:rgba(244,239,230,.1);transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
+.hero-stats{display:flex;gap:46px;margin-top:50px;border-top:1px solid rgba(244,239,230,.2);padding-top:24px}
+.hero-stats .st b{font-family:var(--fd);font-size:44px;font-weight:500;color:var(--cream);display:block;line-height:1}
+.hero-stats .st b i{font-style:italic;color:var(--brass)}
+.hero-stats .st span{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:rgba(244,239,230,.6);margin-top:6px;display:block}
+
+/* Sections */
+.sec{padding:120px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:60px}
+.sec-head h2{font-size:clamp(40px,5.5vw,72px);font-weight:500}
+.sec-head h2 i{font-style:italic;color:var(--sage)}
+.sec-head p{max-width:350px;color:var(--muted);font-weight:300}
+
+/* Acomodações */
+.rooms-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:16px}
+.room{position:relative;border-radius:14px;overflow:hidden;background:var(--cream-2);border:1px solid var(--line)}
+.room img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.room:hover img{transform:scale(1.06)}
+.room::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 34%,rgba(27,26,23,.85) 100%)}
+.room .cap{position:absolute;left:24px;right:24px;bottom:20px;z-index:2;color:var(--cream)}
+.room .cap b{font-family:var(--fd);font-size:26px;font-weight:500;display:block;line-height:1}
+.room .cap span{font-size:13px;font-weight:300;color:rgba(244,239,230,.8);opacity:0;transform:translateY(8px);transition:.4s;display:block;margin-top:6px}
+.room:hover .cap span{opacity:1;transform:none}
+.room .tag{position:absolute;top:16px;left:16px;z-index:2;font-family:var(--fb);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:rgba(27,26,23,.5);backdrop-filter:blur(6px);padding:6px 12px;border-radius:30px}
+.room.big{grid-column:span 2;grid-row:span 2}
+.room.wide{grid-column:span 2}
+
+/* Amenidades */
+.amen{background:var(--ink);color:var(--cream)}
+.amen .sec-head h2{color:var(--cream)}
+.amen .sec-head h2 i{color:var(--brass)}
+.amen .sec-head p{color:rgba(244,239,230,.6)}
+.amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(244,239,230,.14);border-left:1px solid rgba(244,239,230,.14)}
+.amen-item{padding:40px 30px;border-right:1px solid rgba(244,239,230,.14);border-bottom:1px solid rgba(244,239,230,.14);transition:background .35s ease}
+.amen-item:hover{background:rgba(244,239,230,.03)}
+.amen-num{font-family:var(--fd);font-size:20px;font-style:italic;color:var(--brass);display:block;margin-bottom:16px}
+.amen-item h3{font-size:26px;font-weight:500;color:var(--cream);margin-bottom:8px}
+.amen-item p{font-size:14px;color:rgba(244,239,230,.6);font-weight:300}
+
+/* Sobre / localização */
+.about{background:var(--cream-2)}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.about-visual{position:relative}
+.about-visual img{border-radius:18px;width:100%;height:560px;object-fit:cover}
+.about-badge{position:absolute;bottom:-24px;right:-24px;background:var(--sage);color:var(--cream);padding:26px 30px;border-radius:14px;box-shadow:0 30px 60px rgba(27,26,23,.24)}
+.about-badge b{font-family:var(--fd);font-size:46px;font-weight:500;display:block;line-height:1}
+.about-badge span{font-size:13px;color:rgba(244,239,230,.85)}
+.about-txt .eyebrow{margin-bottom:18px}
+.about-txt h2{font-size:clamp(34px,4.4vw,58px);margin-bottom:22px;font-weight:500}
+.about-txt h2 i{font-style:italic;color:var(--sage)}
+.about-txt p{color:var(--muted);margin-bottom:18px;font-weight:300}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chips b{font-family:var(--fb);font-size:13px;font-weight:500;padding:9px 16px;border-radius:30px;background:#fff;border:1px solid var(--line)}
+
+/* Tarifas */
+.rates-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rate{background:var(--cream-2);border:1px solid var(--line);border-radius:18px;padding:38px 32px;transition:.35s;position:relative}
+.rate:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(27,26,23,.1);border-color:var(--brass)}
+.rate.feat{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.rate .lbl{font-family:var(--fb);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage)}
+.rate.feat .lbl{color:var(--brass)}
+.rate h3{font-family:var(--fd);font-size:30px;font-weight:500;margin:12px 0 6px;line-height:1.05}
+.rate .m2{font-size:13px;color:var(--muted);font-weight:300;margin-bottom:24px}
+.rate.feat .m2{color:rgba(244,239,230,.6)}
+.rate .price{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line)}
+.rate.feat .price{border-color:rgba(244,239,230,.16)}
+.rate .price span{font-size:13px;color:var(--muted);font-weight:300}
+.rate.feat .price span{color:rgba(244,239,230,.6)}
+.rate .price b{font-family:var(--fd);font-size:30px;font-weight:600;color:var(--ink)}
+.rate.feat .price b{color:var(--cream)}
+.rate .price b small{font-size:14px;font-weight:400;color:var(--brass)}
+.rate ul{list-style:none;margin:20px 0 26px;display:flex;flex-wrap:wrap;gap:8px}
+.rate ul li{font-size:12px;font-family:var(--fb);padding:6px 12px;border-radius:20px;background:rgba(102,115,92,.1);color:var(--sage)}
+.rate.feat ul li{background:rgba(244,239,230,.08);color:rgba(244,239,230,.8)}
+.rate .btn{width:100%;justify-content:center}
+.rate.feat .btn-primary{background:var(--brass)}
+.rate:not(.feat) .btn-primary{background:var(--ink)}
+.rates-note{text-align:center;color:var(--muted);font-size:13px;margin-top:26px;font-weight:300}
+
+/* Depoimentos */
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.quote{background:var(--cream-2);border:1px solid var(--line);border-radius:18px;padding:36px 34px;transition:.35s}
+.quote:hover{transform:translateY(-4px);box-shadow:0 24px 50px rgba(27,26,23,.07)}
+.quote .stars{color:var(--brass);font-size:16px;letter-spacing:3px;margin-bottom:14px}
+.quote p{font-family:var(--fd);font-size:24px;font-weight:400;font-style:italic;margin-bottom:22px;line-height:1.35}
+.quote .who{display:flex;align-items:center;gap:14px}
+.quote .who .av{width:46px;height:46px;border-radius:50%;background:var(--sage);color:var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:600;font-size:18px}
+.quote .who b{font-family:var(--fb);font-size:15px;font-weight:500}
+.quote .who span{font-size:13px;color:var(--muted);display:block}
+
+/* Galeria */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:240px;gap:14px}
+.gal figure{position:relative;border-radius:14px;overflow:hidden;margin:0;border:1px solid var(--line);cursor:pointer}
+.gal figure.w2{grid-column:span 2}
+.gal figure.h2{grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:34px 18px 14px;background:linear-gradient(180deg,transparent,rgba(27,26,23,.8));color:var(--cream);font-family:var(--fb);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:.4s}
+.gal figure:hover figcaption{opacity:1;transform:none}
+
+/* CTA */
+.cta{position:relative;border-radius:24px;overflow:hidden;text-align:center;padding:96px 32px;color:var(--cream)}
+.cta-bg{position:absolute;inset:0;z-index:-1}
+.cta-bg img{width:100%;height:100%;object-fit:cover}
+.cta-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,26,23,.72),rgba(27,26,23,.82))}
+.cta h2{font-size:clamp(38px,5vw,68px);color:var(--cream);font-weight:500}
+.cta h2 i{font-style:italic;color:var(--brass)}
+.cta p{color:rgba(244,239,230,.85);max-width:520px;margin:18px auto 32px;font-weight:300}
+
+/* Contato */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+.contact-info h2{font-size:clamp(34px,4.2vw,56px);margin:18px 0 26px;font-weight:500}
+.contact-info h2 i{font-style:italic;color:var(--sage)}
+.info-row{display:flex;gap:18px;padding:20px 0;border-top:1px solid var(--line)}
+.info-row .ic{font-family:var(--fb);font-weight:500;color:var(--sage);font-size:12px;letter-spacing:.12em;text-transform:uppercase;width:88px;flex:none;padding-top:4px}
+.info-row b{font-family:var(--fd);font-size:20px;font-weight:600;display:block;line-height:1.2}
+.info-row span{color:var(--muted);font-size:14px}
+.info-row a{color:var(--brass);font-weight:500}
+.map{border-radius:18px;overflow:hidden;border:1px solid var(--line);height:200px;margin-top:24px}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.28) sepia(.08)}
+form{background:var(--ink);border-radius:20px;padding:38px 36px}
+form h3{color:var(--cream);font-size:30px;margin-bottom:22px;font-family:var(--fd);font-weight:500}
+.field{margin-bottom:18px}
+.field label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,230,.55);font-family:var(--fb);display:block;margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;background:rgba(244,239,230,.05);border:1px solid rgba(244,239,230,.15);border-radius:12px;padding:14px 16px;color:var(--cream);font-family:var(--fb);font-size:15px;transition:.3s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--brass);background:rgba(244,239,230,.08)}
+.field textarea{resize:vertical;min-height:90px}
+.field.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:0}
+.field select option{color:#111}
+form .btn-primary{width:100%;justify-content:center;margin-top:8px;background:var(--brass)}
+
+/* Footer */
+footer{background:var(--ink);color:rgba(244,239,230,.6);padding:70px 0 30px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:46px;border-bottom:1px solid rgba(244,239,230,.14)}
+.foot-brand .brand{color:var(--cream);font-size:28px;margin-bottom:16px}
+.foot-brand p{font-weight:300;max-width:320px;font-size:15px}
+.foot-col h4{color:var(--cream);font-family:var(--fb);font-size:13px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:16px}
+.foot-col a,.foot-col p{display:block;font-size:15px;font-weight:300;margin-bottom:10px;transition:color .3s}
+.foot-col a:hover{color:var(--brass)}
+.foot-bot{display:flex;justify-content:space-between;padding-top:24px;font-size:13px;flex-wrap:wrap;gap:10px}
+
+/* WhatsApp */
+.wa{position:fixed;bottom:26px;right:26px;z-index:800;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px rgba(37,211,102,.45);transition:transform .3s ease}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:32px;height:32px;fill:#fff}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .menu,.nav-cta{display:none}
+  .burger{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:26px}
+  .rooms-grid{grid-template-columns:1fr 1fr;grid-auto-rows:190px}
+  .room.big{grid-column:span 2;grid-row:span 1}
+  .amen-grid{grid-template-columns:1fr 1fr}
+  .about-grid,.contact-grid,.quotes,.rates-grid{grid-template-columns:1fr;gap:40px}
+  .about-visual img{height:420px}
+  .about-badge{right:16px}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px}
+  .sec{padding:78px 0}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:14px}
+  .hero-stats{flex-wrap:wrap;gap:22px 34px}
+  .rooms-grid{grid-template-columns:1fr}
+  .room.big,.room.wide{grid-column:span 1}
+  .amen-grid{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr;grid-auto-rows:200px}
+  .gal figure.w2,.gal figure.h2{grid-column:span 1;grid-row:span 1}
+  .field.row{grid-template-columns:1fr;gap:0}
+  form,.cta{padding:34px 22px}
+}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="pre-mark">Rivello<i>.</i></div>
+  <div class="pre-bar"><span></span></div>
+</div>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="dot"></span>Rivello<i>Apart Hotel</i></a>
+    <nav class="menu">
+      <a href="#acomodacoes">Acomodações</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#sobre">O Hotel</a>
+      <a href="#tarifas">Tarifas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#contato" class="nav-cta">Reservar</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="assets/slider1.jpg" alt="Apartamento do Rivello Apart Hotel"></div>
+  <div class="wrap">
+    <div class="hero-top">
+      <span>Sete Lagoas · Minas Gerais</span>
+      <span>A poucos metros da Lagoa Paulino</span>
+    </div>
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow hero-eyebrow">Hotel &amp; Apart Hotel no centro</span>
+        <h1>Sinta-se em <i>casa</i>, no coração da cidade.</h1>
+      </div>
+      <div class="hero-side">
+        <p>23 apartamentos mobiliados, com cozinha completa e café da manhã — para uma diária, uma quinzena ou o tempo que você precisar.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary">Reservar pelo WhatsApp</a>
+          <a href="#acomodacoes" class="btn btn-ghost">Ver acomodações</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="st"><b data-count="23">0</b><span>Apartamentos mobiliados</span></div>
+      <div class="st"><b data-count="65">0</b><span>m² por apartamento</span></div>
+      <div class="st"><b><i>4</i></b><span>Hóspedes por apto</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACOMODAÇÕES -->
+<section class="sec" id="acomodacoes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Acomodações</span>
+        <h2 style="margin-top:16px">Espaço de verdade,<br>com <i>cara de lar</i></h2>
+      </div>
+      <p>Apartamentos de 65m² com dois quartos, cozinha completa e café da manhã servido no seu apto.</p>
+    </div>
+    <div class="rooms-grid reveal">
+      <div class="room big">
+        <img src="assets/galeria_1-3.jpg" alt="Apartamento mobiliado" loading="lazy">
+        <span class="tag">65 m² · 2 quartos</span>
+        <div class="cap"><b>Apartamento Família</b><span>Acomoda até 4 pessoas, com cozinha completa e ar condicionado.</span></div>
+      </div>
+      <div class="room">
+        <img src="assets/galeria_2-3.jpg" alt="Quarto casal" loading="lazy">
+        <div class="cap"><b>Suíte Casal</b><span>Cama box de casal e TV LED.</span></div>
+      </div>
+      <div class="room">
+        <img src="assets/galeria_3-3.jpg" alt="Sala de estar" loading="lazy">
+        <div class="cap"><b>Sala &amp; Estar</b><span>Ambiente para descansar ou trabalhar.</span></div>
+      </div>
+      <div class="room wide">
+        <img src="assets/galeria_4-2.jpg" alt="Cozinha equipada" loading="lazy">
+        <span class="tag">Cozinha completa</span>
+        <div class="cap"><b>Cozinha totalmente montada</b><span>Com todos os utensílios para preparar suas refeições.</span></div>
+      </div>
+      <div class="room">
+        <img src="assets/cafe.jpg" alt="Café da manhã" loading="lazy">
+        <div class="cap"><b>Café da manhã</b><span>Servido diariamente no apto.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTRUTURA / AMENIDADES -->
+<section class="amen sec" id="estrutura">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Estrutura</span>
+        <h2 style="margin-top:16px">Tudo o que você<br>precisa, <i>incluído</i></h2>
+      </div>
+      <p>Do café da manhã à segurança 24h — pensado para lazer, negócios ou moradia.</p>
+    </div>
+    <div class="amen-grid reveal">
+      <div class="amen-item"><span class="amen-num">01</span><h3>Café da manhã</h3><p>Servido diariamente no conforto do seu apartamento.</p></div>
+      <div class="amen-item"><span class="amen-num">02</span><h3>Cozinha completa</h3><p>Totalmente montada, com utensílios para o seu preparo.</p></div>
+      <div class="amen-item"><span class="amen-num">03</span><h3>Ar condicionado</h3><p>Climatização e TV LED 32" com TV a cabo em todos os aptos.</p></div>
+      <div class="amen-item"><span class="amen-num">04</span><h3>Wi-Fi grátis</h3><p>Internet livre em toda a estrutura do hotel.</p></div>
+      <div class="amen-item"><span class="amen-num">05</span><h3>Estacionamento</h3><p>Privativo e gratuito para os hóspedes.</p></div>
+      <div class="amen-item"><span class="amen-num">06</span><h3>Segurança 24h</h3><p>Tranquilidade para descansar ou trabalhar.</p></div>
+      <div class="amen-item"><span class="amen-num">07</span><h3>Diária ou aluguel</h3><p>Por diária, quinzena, mês — como for melhor pra você.</p></div>
+      <div class="amen-item"><span class="amen-num">08</span><h3>Localização central</h3><p>Na Rua Paulo Frontin, perto de tudo em Sete Lagoas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="about sec" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-txt reveal">
+      <span class="eyebrow">O Hotel</span>
+      <h2>A poucos metros da <i>Lagoa Paulino</i>.</h2>
+      <p>Situado na Rua Paulo Frontin, 1172, um dos endereços mais centrais de Sete Lagoas, o Rivello Apart Hotel reúne o conforto de suas instalações com a praticidade da localização — a poucos metros da Lagoa Paulino, principal cartão-postal da cidade.</p>
+      <p>São 23 apartamentos totalmente mobiliados, pensados para quem quer descansar, trabalhar ou até morar, com a tranquilidade que você merece.</p>
+      <div class="chips">
+        <b>Perto de tudo</b><b>Ambiente familiar</b><b>Praticidade</b><b>Economia</b>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <img src="assets/slider2.jpg" alt="Ambiente do Rivello Apart Hotel">
+      <div class="about-badge"><b>Centro</b><span>Sete Lagoas — MG</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFAS -->
+<section class="sec" id="tarifas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Tarifas</span>
+        <h2 style="margin-top:16px">Diárias <i>transparentes</i></h2>
+      </div>
+      <p>Valores por diária. Para quinzena, mês ou grupos, faça um orçamento pelo WhatsApp.</p>
+    </div>
+    <div class="rates-grid reveal">
+      <div class="rate">
+        <span class="lbl">Individual</span>
+        <h3>Apartamento 65m²</h3>
+        <p class="m2">Cama box, ar condicionado, cozinha completa</p>
+        <div class="price"><span>Sem café da manhã</span><b>R$ 200</b></div>
+        <div class="price"><span>Com café da manhã</span><b>R$ 225</b></div>
+        <ul><li>Wi-Fi</li><li>TV LCD 32"</li><li>Estacionamento</li></ul>
+        <a href="#contato" class="btn btn-primary">Reservar</a>
+      </div>
+      <div class="rate feat">
+        <span class="lbl">Mais procurado</span>
+        <h3>Apartamento Casal 65m²</h3>
+        <p class="m2">Cama box de casal, ar condicionado, cozinha completa</p>
+        <div class="price"><span>Sem café da manhã</span><b>R$ 239</b></div>
+        <div class="price"><span>Com café da manhã</span><b>R$ 259</b></div>
+        <ul><li>Wi-Fi</li><li>TV LCD 32"</li><li>Café no apto</li></ul>
+        <a href="#contato" class="btn btn-primary">Reservar</a>
+      </div>
+      <div class="rate">
+        <span class="lbl">2 adultos</span>
+        <h3>Apartamento 65m²</h3>
+        <p class="m2">Duas camas de solteiro, ar condicionado, cozinha completa</p>
+        <div class="price"><span>Sem café da manhã</span><b>R$ 239</b></div>
+        <div class="price"><span>Com café da manhã</span><b>R$ 260</b></div>
+        <ul><li>Wi-Fi</li><li>TV LCD 32"</li><li>Estacionamento</li></ul>
+        <a href="#contato" class="btn btn-primary">Reservar</a>
+      </div>
+    </div>
+    <p class="rates-note reveal">Também trabalhamos com aluguel quinzenal, mensal e anual. Consulte condições especiais.</p>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Quem se hospeda</span>
+        <h2 style="margin-top:16px">Hóspedes que <i>voltam</i></h2>
+      </div>
+      <p>Viajantes a negócios e famílias que fazem do Rivello a sua casa em Sete Lagoas.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>Apartamento amplo, limpo e com cozinha completa. Fiquei o mês inteiro a trabalho e me senti em casa.</p>
+        <div class="who"><span class="av">MF</span><div><b>Marcelo F.</b><span>Hóspede a negócios</span></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>Localização perfeita, pertinho da Lagoa. O café da manhã no quarto foi um mimo. Recomendo demais.</p>
+        <div class="who"><span class="av">CR</span><div><b>Camila R.</b><span>Viagem em família</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Galeria de Fotos</span>
+        <h2 style="margin-top:16px">O Rivello de <i>verdade</i></h2>
+      </div>
+      <p>Ambientes reais do apart hotel, fotografados no local.</p>
+    </div>
+    <div class="gal reveal">
+      <figure class="w2 h2"><img src="assets/galeria_1-4.jpg" alt="Apartamento Rivello" loading="lazy"><figcaption>Estar &amp; quarto</figcaption></figure>
+      <figure><img src="assets/galeria_2-3.jpg" alt="Apartamento Rivello" loading="lazy"><figcaption>Suíte casal</figcaption></figure>
+      <figure><img src="assets/galeria_3-3.jpg" alt="Apartamento Rivello" loading="lazy"><figcaption>Ambiente amplo</figcaption></figure>
+      <figure><img src="assets/galeria_4-1.jpg" alt="Apartamento Rivello" loading="lazy"><figcaption>Conforto</figcaption></figure>
+      <figure><img src="assets/galeria_5.jpg" alt="Apartamento Rivello" loading="lazy"><figcaption>Quarto aconchegante</figcaption></figure>
+      <figure><img src="assets/galeria_6.jpg" alt="Apartamento Rivello" loading="lazy"><figcaption>Estilo residencial</figcaption></figure>
+      <figure><img src="assets/galeria_7-1.jpg" alt="Apartamento Rivello" loading="lazy"><figcaption>Área de estar</figcaption></figure>
+      <figure><img src="assets/galeria_8-1.jpg" alt="Apartamento Rivello" loading="lazy"><figcaption>Descanso</figcaption></figure>
+      <figure><img src="assets/galeria_9-2.jpg" alt="Apartamento Rivello" loading="lazy"><figcaption>Hospedagem</figcaption></figure>
+      <figure class="w2"><img src="assets/galeria_10-1.jpg" alt="Apartamento Rivello" loading="lazy"><figcaption>Ambiente familiar</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="cta-bg"><img src="assets/slider3-1.jpg" alt="Recepção do hotel"></div>
+      <h2>Sua estadia em<br>Sete Lagoas <i>começa aqui.</i></h2>
+      <p>Consulte disponibilidade e faça sua reserva agora mesmo pelo WhatsApp — atendimento rápido e sem compromisso.</p>
+      <a href="https://wa.me/553199481009?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20Rivello%20Apart%20Hotel." target="_blank" rel="noopener" class="btn btn-primary">Reservar pelo WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="sec" id="contato" style="padding-top:0">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Reservas &amp; Contato</span>
+      <h2>Estamos à sua <i>espera</i>.</h2>
+      <div class="info-row"><span class="ic">Endereço</span><div><b>Rua Paulo Frontin, 1172</b><span>Centro · Sete Lagoas — MG · CEP 35700-049</span></div></div>
+      <div class="info-row"><span class="ic">WhatsApp</span><div><b><a href="https://wa.me/553199481009" target="_blank" rel="noopener">(31) 99948-1009</a></b><span>Central de reservas · também (31) 3774-5281</span></div></div>
+      <div class="info-row"><span class="ic">E-mail</span><div><b><a href="mailto:rivelloaparthotel@gmail.com">rivelloaparthotel@gmail.com</a></b><span>Resposta em horário comercial</span></div></div>
+      <div class="map"><iframe loading="lazy" src="https://maps.google.com/maps?q=Rua%20Paulo%20Frontin%201172%20Centro%20Sete%20Lagoas%20MG&t=&z=16&ie=UTF8&iwloc=&output=embed" title="Mapa Rivello Apart Hotel"></iframe></div>
+    </div>
+    <form class="reveal" onsubmit="event.preventDefault();this.querySelector('button').textContent='Recebido ✓ — retornaremos em breve'">
+      <h3>Solicite sua reserva</h3>
+      <div class="field"><label>Nome</label><input type="text" placeholder="Seu nome" required></div>
+      <div class="field row">
+        <div><label>Check-in</label><input type="date"></div>
+        <div><label>Check-out</label><input type="date"></div>
+      </div>
+      <div class="field"><label>Tipo de apartamento</label>
+        <select>
+          <option>Individual — 65m²</option>
+          <option>Casal — 65m²</option>
+          <option>2 adultos — 65m²</option>
+          <option>Aluguel quinzenal / mensal</option>
+        </select>
+      </div>
+      <div class="field"><label>WhatsApp</label><input type="tel" placeholder="(31) 90000-0000" required></div>
+      <div class="field"><label>Mensagem</label><textarea placeholder="Datas, número de hóspedes, dúvidas..."></textarea></div>
+      <button type="submit" class="btn btn-primary">Enviar solicitação</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand"><span class="dot"></span>Rivello<i>Apart Hotel</i></div>
+        <p>Hotel e apart hotel no centro de Sete Lagoas — MG, a poucos metros da Lagoa Paulino. Conforto de hotel com a liberdade de um apartamento.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <a href="#acomodacoes">Acomodações</a><a href="#estrutura">Estrutura</a>
+        <a href="#tarifas">Tarifas</a><a href="#contato">Contato</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <p>Rua Paulo Frontin, 1172 · Centro<br>Sete Lagoas MG · 35700-049</p>
+        <p>WhatsApp: (31) 99948-1009</p>
+        <a href="mailto:rivelloaparthotel@gmail.com">rivelloaparthotel@gmail.com</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Rivello Apart Hotel · Sete Lagoas — MG.</span>
+      <span>Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/553199481009?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20Rivello%20Apart%20Hotel." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.1 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<script>
+window.addEventListener('load',function(){setTimeout(function(){document.getElementById('preloader').classList.add('done')},1700)});
+var header=document.getElementById('header');
+window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>40)});
+document.getElementById('burger').addEventListener('click',function(){document.querySelector('.menu').style.display='flex'});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+function runCount(el){var t=+el.dataset.count,c=0,step=Math.max(1,Math.ceil(t/50));var iv=setInterval(function(){c+=step;if(c>=t){c=t;clearInterval(iv)}el.textContent=c},24)}
+var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){runCount(e.target);co.unobserve(e.target)}})},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(function(el){co.observe(el)});
+</script>
+</body>
+</html>
