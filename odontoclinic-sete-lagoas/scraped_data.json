@@ -1,0 +1,66 @@
+{
+  "scraped_at": "2026-08-05T14:10:00",
+  "url_original": "https://odontoclinic.com.br/unidades/sete-lagoas/",
+  "site_local": "https://odontoclinicsetelagoas.com.br/",
+  "empresa": {
+    "nome": "Odontoclinic Sete Lagoas",
+    "segmento": "Clinica odontologica",
+    "cidade": "Sete Lagoas - MG",
+    "descricao": "Unidade da rede Odontoclinic, clinica odontologica multifuncional com mais de 200 unidades no Brasil. Eleita 6 vezes como melhor atendimento odontologico do pais (Premio Reciprocidade) e tricampea do Premio Reclame Aqui.",
+    "ano": "24 anos de historia",
+    "cnpj_unidade": "37.581.552/0001-40"
+  },
+  "contato": {
+    "endereco": "Rua Dr. Pedro Luiz, 255 - Loja 101 (Patio Lagoa Shopping), Centro - Sete Lagoas MG",
+    "cep": "35700-004",
+    "telefones": ["(31) 2550-0880", "(31) 98488-0398"],
+    "whatsapp": "5531984880398",
+    "horarios": {
+      "segunda_sexta": "09h - 19h",
+      "sabado": "09h - 13h"
+    },
+    "responsavel_tecnico": "Iany Caroline Pontelo Mota - CRO MG 62860"
+  },
+  "servicos": [
+    {"nome": "Ortodontia", "descricao": "Aparelho convencional, autoligado, estetico e alinhador transparente"},
+    {"nome": "Implante", "descricao": "Implante dentario, carga imediata, overdenture"},
+    {"nome": "Protese", "descricao": "Protese total e reposicao de dentes ausentes"},
+    {"nome": "Harmonizacao Facial", "descricao": "Rinomodelacao e preenchimento labial"},
+    {"nome": "Clareamento Dental", "descricao": "Lentes dentarias, facetas e clareamento"},
+    {"nome": "Clinica Geral e Endodontia", "descricao": "Limpeza, restauracoes, extracao, canal, bruxismo"},
+    {"nome": "Radiografia Panoramica", "descricao": "Diagnostico por imagem"},
+    {"nome": "Aplicacao de Fluor", "descricao": "Protecao infantil e prevencao"}
+  ],
+  "cores": {
+    "primaria": "#0EB3D4",
+    "secundaria": "#0E2A47",
+    "accent": "#FE4A49",
+    "claro": "#F4F8FC",
+    "texto": "#1A2233"
+  },
+  "redes_sociais": {
+    "instagram": "https://www.instagram.com/odontoclinic/",
+    "facebook": "https://www.facebook.com/odontoclinicbr",
+    "linkedin": "https://www.linkedin.com/company/franquias-odontoclinic"
+  },
+  "imagens": {
+    "logo": "assets/logo_odontoclinic.png",
+    "fotos_clinica": ["assets/foto_consulta1.jpeg", "assets/foto_consulta2.jpeg", "assets/foto_consulta3.jpeg"],
+    "fotos_sorriso": ["assets/foto_sorriso1.jpeg", "assets/foto_sorriso2.jpeg", "assets/foto_sorriso3.jpeg"],
+    "fotos_tratamento": ["assets/foto_trat1.jpg", "assets/foto_trat2.jpg", "assets/foto_trat3.jpg", "assets/foto_trat4.jpg", "assets/foto_trat5.jpg", "assets/foto_trat6.jpg"]
+  },
+  "conteudo": {
+    "hero_titulo": "Um sorriso muda tudo",
+    "hero_sub": "A Odontoclinic tem todos os tratamentos para voce em um so lugar - conforto, rapidez e tecnologia.",
+    "destaques": ["24 anos de historia", "Excelencia no atendimento", "Qualidade no produto"],
+    "premios": ["Eleita melhor atendimento odontologico do Brasil por 6 anos consecutivos", "Mais de 200 unidades em todo o pais", "Unica rede tricampea do Premio Reclame Aqui"],
+    "cta": "Agende sua avaliacao"
+  },
+  "tecnico": {
+    "platform": "RockFunnels",
+    "ssl": true,
+    "responsivo": true,
+    "frameworks": ["Bootstrap"],
+    "fonts": ["Inter", "Montserrat"]
+  }
+}
