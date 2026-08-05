@@ -1,0 +1,71 @@
+{
+  "scraped_at": "2026-08-04T00:00:00",
+  "fonte": "Google Business Profile, websearch, vetclinicasbr.com, brasillocais.com, site oficial (fora do ar)",
+  "url_original": "https://www.intervetclinica.com.br",
+  "empresa": {
+    "nome": "Intervet Centro Veterinário",
+    "ano_fundacao": 1996,
+    "cnpj": "nao_encontrado",
+    "dominio": "intervetclinica.com.br",
+    "descricao": "Clínica Veterinária 24 horas, Pet Shop, Banho e Tosa em Sete Lagoas. Fundada em 1996, referência no tratamento da Leishmaniose canina e oncologia.",
+    "sobre": "Fundada em 1996, a Clínica Veterinária Intervet em Sete Lagoas oferece um padrão excepcional de atendimento em clínica e cirurgia de pequenos animais. Somos uma referência na região graças à nossa equipe de especialistas nas áreas de cardiologia, clínica médica, endocrinologia, oftalmologia, gastroenterologia, nefrologia, oncologia e ortopedia."
+  },
+  "contato": {
+    "telefones": ["(31) 3772-1042"],
+    "whatsapp": "5531987359785",
+    "whatsapp_clinica": "5531988950544",
+    "email": "contato@intervetclinica.com.br",
+    "endereco": {
+      "rua": "R. Fernando Pinto, 225 A",
+      "bairro": "Centro",
+      "cidade": "Sete Lagoas",
+      "estado": "MG",
+      "cep": "35700-042",
+      "completo": "R. Fernando Pinto, 225 A - Centro, Sete Lagoas - MG, 35700-042"
+    },
+    "horarios": {
+      "clinica": "24 HORAS",
+      "banho_tosa": "Seg a Sex: 08h às 18h / Sábado: 08h às 13h",
+      "petshop": "Seg a Sex: 08h às 19h / Sábado: 08h às 13h"
+    },
+    "avaliacao_google": "4.7 (288 avaliações)"
+  },
+  "servicos": [
+    {"nome": "Clínica Veterinária 24h", "descricao": "Atendimento clínico contínuo, plantão e emergência de dia e noite"},
+    {"nome": "Cirurgia Geral", "descricao": "Centro cirúrgico com eletroquimioterapia e acompanhamento de especialistas"},
+    {"nome": "Banho & Tosa", "descricao": "Estética completa: banho, tosa, hidratação, corte de unhas e limpeza de ouvidos"},
+    {"nome": "Pet Shop", "descricao": "Rações, acessórios, medicamentos e produtos de higiene"},
+    {"nome": "Farmácia Veterinária", "descricao": "Medicamentos de pronta entrega com orientação profissional"},
+    {"nome": "Vacinas", "descricao": "Protocolos completos de vacinação para cães e gatos"},
+    {"nome": "Exames & Diagnóstico", "descricao": "Ultrassom, raio-x, laboratorial, ecocardiograma, eletrocardiograma e endoscopia"},
+    {"nome": "Internação", "descricao": "Internamento monitorado e suporte integral ao tutor"}
+  ],
+  "especialidades": ["Cardiologia", "Clínica Médica", "Endocrinologia", "Oftalmologia", "Gastroenterologia", "Nefrologia", "Oncologia", "Ortopedia"],
+  "diferenciais": ["Mais de 30 anos de experiência", "Referência em Leishmaniose canina e oncologia", "Atendimento 24 horas", "Equipe de especialistas", "Tecnologia de ponta", "Nota 4.7 no Google com 288 avaliações"],
+  "redes_sociais": {
+    "instagram": "https://www.instagram.com/intervetcentroveterinario/",
+    "facebook": "https://www.facebook.com/centroveterinario.intervet"
+  },
+  "cores": {
+    "primaria": "#0B7285",
+    "secundaria": "#2D9CBF",
+    "accent": "#FFB703",
+    "background": "#FFFFFF",
+    "texto": "#1F2937"
+  },
+  "imagens": {
+    "logo_url": "nao_encontrado",
+    "hero_images": ["nao_encontrado"]
+  },
+  "conteudo": {
+    "hero_titulo": "Início, Intervet 24 horas Sete Lagoas",
+    "hero_subtitulo": "Clínica Veterinária 24 horas, Pet Shop, Banho e Tosa em Sete Lagoas",
+    "cta_texto": "Fale com a Intervet no WhatsApp"
+  },
+  "tecnico": {
+    "platform": "Wix (dominio desconectado - site FORA DO AR)",
+    "ssl": false,
+    "responsivo": null,
+    "status": "SITE FORA DO AR - erro ConnectYourDomain Error | Wix.com"
+  }
+}
