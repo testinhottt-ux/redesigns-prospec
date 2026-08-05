@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cat &amp; Dog Clínica Veterinária — Sete Lagoas/MG | Consultas, Banho e Tosa e Pet Shop</title>
+<meta name="description" content="Clínica veterinária, banho e tosa e pet shop em Sete Lagoas/MG. Consultas, vacinação, castração e cirurgias. +9 mil pets atendidos. Agende pelo WhatsApp (31) 97117-5099.">
+<meta property="og:title" content="Cat &amp; Dog Clínica Veterinária">
+<meta property="og:description" content="O seu pet faz parte da família. A gente cuida assim. Clínica, banho e tosa e pet shop em Sete Lagoas/MG.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --off:#0d110f;
+  --ink:#101512;
+  --green:#1f7a4d;
+  --green-2:#2fa263;
+  --mint:#dff3e6;
+  --cream:#faf7f1;
+  --sand:#f3ede0;
+  --gold:#c8a25a;
+  --white:#ffffff;
+  --line:rgba(16,21,18,.12);
+  --shadow:0 24px 60px -20px rgba(13,17,15,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4,.serif{font-family:'Fraunces',serif;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+section{position:relative}
+
+/* noise overlay */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .35s ease;padding:20px 0}
+nav.scrolled{background:rgba(250,247,241,.85);backdrop-filter:blur(14px);padding:12px 0;box-shadow:0 1px 0 var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;color:var(--white);transition:color .3s}
+nav.scrolled .brand{color:var(--ink)}
+.brand-mark{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--green-2));display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:900;color:#fff;font-size:20px;box-shadow:0 10px 24px -8px rgba(31,122,77,.55)}
+.brand b{font-family:'Fraunces',serif;font-size:19px;letter-spacing:-.02em}
+.brand small{display:block;font-family:'Space Grotesk';font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.menu{display:flex;align-items:center;gap:34px}
+.menu a{font-size:14px;font-weight:500;color:rgba(255,255,255,.85);transition:color .25s;position:relative}
+nav.scrolled .menu a{color:var(--ink)}
+.menu a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--green-2);transition:width .3s}
+.menu a:hover::after{width:100%}
+.menu a:hover{color:var(--white)}
+nav.scrolled .menu a:hover{color:var(--green)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;font-weight:600;font-size:14px;padding:13px 26px;border-radius:100px;transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 14px 30px -12px rgba(31,122,77,.6)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 20px 38px -14px rgba(31,122,77,.7)}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.55);box-shadow:none}
+.btn.ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn.gold{background:linear-gradient(135deg,var(--gold),#dfc283);box-shadow:0 14px 30px -12px rgba(200,162,90,.6)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line);padding:12px 24px;border-radius:100px;font-weight:600;font-size:14px;transition:all .3s}
+.btn-outline:hover{border-color:var(--green);color:var(--green);background:var(--mint)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;color:#fff;background:var(--off);overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1920&q=80') center/cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,14,12,.94) 0%,rgba(13,17,15,.78) 42%,rgba(13,17,15,.25) 100%)}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;padding:140px 0 90px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mint);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:9px 18px;border-radius:100px;margin-bottom:26px;backdrop-filter:blur(4px)}
+.kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--green-2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(47,162,99,.6)}50%{box-shadow:0 0 0 7px rgba(47,162,99,0)}}
+.hero h1{font-size:clamp(44px,6vw,76px);font-weight:900;margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--mint)}
+.hero p.lead{font-size:clamp(16px,1.6vw,19px);color:rgba(255,255,255,.82);max-width:540px;margin-bottom:36px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:52px}
+.hero-stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.16);padding-top:28px;max-width:560px}
+.stat{flex:1;padding-right:28px}
+.stat+.stat{padding-left:28px;border-left:1px solid rgba(255,255,255,.16)}
+.stat b{font-family:'Fraunces',serif;font-size:clamp(26px,3vw,40px);font-weight:900;color:var(--mint)}
+.stat span{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:4px}
+.hero-visual{position:relative}
+.hero-visual img{width:100%;border-radius:26px;box-shadow:var(--shadow);aspect-ratio:4/5;object-fit:cover}
+.hero-card{position:absolute;left:-26px;bottom:26px;background:rgba(255,255,255,.12);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.22);padding:16px 20px;border-radius:18px;display:flex;align-items:center;gap:14px;color:#fff;box-shadow:0 20px 44px -16px rgba(0,0,0,.5)}
+.hero-card .ic{width:42px;height:42px;border-radius:12px;background:rgba(47,162,99,.28);display:grid;place-items:center;font-size:20px}
+.hero-card b{font-family:'Fraunces';font-size:15px}
+.hero-card span{font-size:12px;color:rgba(255,255,255,.72)}
+
+/* MARQUEE */
+.marquee{background:var(--green);color:#fff;overflow:hidden;padding:18px 0;position:relative}
+.marquee-track{display:flex;gap:56px;white-space:nowrap;animation:scroll 32s linear infinite;width:max-content}
+.marquee-track span{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:56px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* SECTION HEAD */
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:60px}
+.sec-head .tag{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.sec-head .tag::before{content:'';width:34px;height:2px;background:var(--green-2)}
+.sec-head h2{font-size:clamp(32px,4.2vw,54px);max-width:620px}
+.sec-head h2 em{font-style:italic;color:var(--green)}
+.sec-head p{max-width:420px;color:#5b625e;font-size:15px}
+.pad{padding:110px 0}
+
+/* SERVICES */
+.services{background:var(--white)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.svc{position:relative;border-radius:22px;overflow:hidden;min-height:460px;display:flex;align-items:flex-end;color:#fff;isolation:isolate;transition:all .45s cubic-bezier(.4,0,.2,1)}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s cubic-bezier(.2,.6,.2,1)}
+.svc::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,rgba(13,17,15,.05) 30%,rgba(13,17,15,.88) 100%);z-index:-1;transition:opacity .4s}
+.svc-body{padding:34px 30px;transform:translateY(12px);transition:transform .45s ease}
+.svc .num{font-family:'Fraunces',serif;font-size:15px;font-weight:900;color:var(--mint);opacity:.9;letter-spacing:.1em;margin-bottom:12px}
+.svc h3{font-size:27px;margin-bottom:10px}
+.svc p{font-size:14px;color:rgba(255,255,255,.82);max-width:300px;opacity:0;max-height:0;transition:all .45s ease}
+.svc .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:13.5px;color:var(--mint);margin-top:14px;opacity:0;transition:all .45s ease}
+.svc:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.svc:hover img{transform:scale(1.07)}
+.svc:hover p,.svc:hover .go{opacity:1;max-height:120px}
+.svc:hover .svc-body{transform:translateY(0)}
+
+/* WHY */
+.why{background:var(--sand)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--cream)}
+.why-item{padding:44px 38px;transition:background .35s}
+.why-item+.why-item{border-left:1px solid var(--line)}
+.why-item:hover{background:#fff}
+.why-item .n{font-family:'Fraunces';font-size:44px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:20px;opacity:.85}
+.why-item .ic{font-size:30px;margin-bottom:22px;color:var(--green)}
+.why-item h3{font-size:20px;margin-bottom:10px}
+.why-item p{font-size:14px;color:#5b625e}
+
+/* DOCTOR */
+.doc{background:var(--white)}
+.doc-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.doc-img{position:relative}
+.doc-img img{width:100%;border-radius:24px;aspect-ratio:4/5;object-fit:cover;box-shadow:var(--shadow)}
+.doc-img::before{content:'';position:absolute;top:-22px;left:-22px;right:44px;bottom:-22px;border:1.5px solid var(--gold);border-radius:28px;z-index:-1}
+.doc-badge{position:absolute;right:-16px;bottom:26px;background:var(--off);color:#fff;padding:18px 22px;border-radius:18px;box-shadow:var(--shadow);text-align:center}
+.doc-badge b{font-family:'Fraunces';font-size:30px;color:var(--mint)}
+.doc-badge span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.doc-txt h3{font-size:clamp(28px,3.4vw,42px);margin-bottom:16px}
+.doc-txt .role{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);background:var(--mint);padding:7px 16px;border-radius:100px;margin-bottom:24px}
+.doc-txt p{color:#5b625e;margin-bottom:18px;font-size:15.5px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px;margin:26px 0 34px}
+.specs li{list-style:none;display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:500}
+.specs li::before{content:'';width:20px;height:20px;border-radius:6px;background:var(--mint);color:var(--green);display:grid;place-items:center;font-size:11px;content:'✓'}
+
+/* REVIEWS */
+.reviews{background:var(--off);color:#fff}
+.reviews .sec-head h2{color:#fff}
+.reviews .sec-head h2 em{color:var(--mint)}
+.reviews .sec-head p{color:rgba(255,255,255,.62)}
+.rating-hero{display:flex;align-items:center;gap:22px;margin-bottom:56px}
+.rating-num{font-family:'Fraunces';font-size:84px;font-weight:900;color:var(--mint);line-height:1}
+.rating-stars{font-size:22px;color:var(--gold);letter-spacing:4px}
+.rating-meta{font-size:14px;color:rgba(255,255,255,.6)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev{padding:30px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);transition:transform .35s ease}
+.rev:hover{transform:translateY(-6px)}
+.rev .st{color:var(--gold);letter-spacing:3px;font-size:14px;margin-bottom:16px}
+.rev p{font-size:14.5px;color:rgba(255,255,255,.82);margin-bottom:22px}
+.rev .who{display:flex;align-items:center;gap:14px}
+.rev .who img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.2)}
+.rev .who b{display:block;font-size:14.5px}
+.rev .who span{font-size:12px;color:rgba(255,255,255,.5)}
+
+/* CTA FINAL */
+.final{color:#fff}
+.final-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=1920&q=80') center/cover fixed no-repeat}
+.final-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(13,17,15,.94),rgba(13,17,15,.72))}
+.final-in{position:relative;z-index:2;text-align:center;padding:140px 0}
+.final h2{font-size:clamp(34px,5vw,62px);max-width:760px;margin:0 auto 22px}
+.final h2 em{font-style:italic;color:var(--mint)}
+.final p{color:rgba(255,255,255,.75);max-width:520px;margin:0 auto 40px;font-size:16px}
+.final .btn{font-size:16px;padding:16px 34px}
+
+/* FOOTER */
+footer{background:var(--off);color:rgba(255,255,255,.7)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding:80px 0 60px}
+.foot-grid h4{font-size:16px;color:#fff;margin-bottom:22px}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:12px;font-size:14.5px;display:flex;align-items:center;gap:10px}
+.foot-brand .brand{color:#fff;margin-bottom:18px}
+.foot-brand p{font-size:14px;max-width:320px}
+.foot-bot{border-top:1px solid rgba(255,255,255,.1);padding:24px 0;font-size:12.5px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:rgba(255,255,255,.45)}
+
+/* WHATSAPP FLOAT */
+.wa{position:fixed;right:26px;bottom:26px;z-index:900;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 16px 36px -10px rgba(37,211,102,.7);transition:transform .3s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:30px;height:30px;fill:#fff}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.6,.2,1)}
+.rv.on{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .menu{display:none}
+  .hero-in{grid-template-columns:1fr;padding:120px 0 70px;gap:44px}
+  .hero-visual{max-width:520px}
+  .hero-card{left:14px}
+  .svc-grid{grid-template-columns:1fr}
+  .svc{min-height:340px}
+  .why-grid{grid-template-columns:1fr}
+  .why-item+.why-item{border-left:none;border-top:1px solid var(--line)}
+  .doc-grid{grid-template-columns:1fr;gap:50px}
+  .specs{grid-template-columns:1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:16px}
+  .foot-grid{grid-template-columns:1fr;gap:34px}
+  .hero-stats{flex-wrap:wrap;gap:22px}
+  .stat{flex:1 1 40%;padding:0}
+  .stat+.stat{padding-left:0;border-left:none}
+  .final-bg{background-attachment:scroll}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="brand">
+      <span class="brand-mark">C&amp;D</span>
+      <span><b>Cat &amp; Dog</b><small>Clínica Veterinária</small></span>
+    </a>
+    <div class="menu">
+      <a href="#servicos">Serviços</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#depoimentos">Avaliações</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <a class="btn" href="https://wa.me/5531971175099?text=Ol%C3%A1!%20Quero%20agendar%20atendimento%20na%20Cat%20%26%20Dog">Agendar Agora</a>
+  </div>
+</nav>
+
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-in">
+    <div>
+      <span class="kicker"><span class="dot"></span> Sete Lagoas · MG · Rua Ouro Preto, 45</span>
+      <h1>O seu pet faz parte da <em>família.</em><br>A gente cuida assim.</h1>
+      <p class="lead">Clínica veterinária, banho e tosa e pet shop na mesma casa. Atendimento próximo, sem correria, com profissionais que conhecem cada pet pelo nome.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://wa.me/5531971175099?text=Ol%C3%A1!%20Quero%20agendar%20atendimento%20na%20Cat%20%26%20Dog">Agendar pelo WhatsApp</a>
+        <a class="btn ghost" href="#servicos">Conhecer Serviços</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>+9 mil</b><span>pets atendidos</span></div>
+        <div class="stat"><b>5.0 ★</b><span>140+ avaliações</span></div>
+        <div class="stat"><b>5+ anos</b><span>cuidando de famílias</span></div>
+      </div>
+    </div>
+    <div class="hero-visual rv">
+      <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=900&q=80" alt="Cachorros felizes na Cat &amp; Dog Clínica Veterinária" loading="eager">
+      <div class="hero-card">
+        <span class="ic">🐾</span>
+        <div><b>Seg a Sáb</b><span>Seg–Sex 8h–18h · Sáb 8h–12h</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Clínica Veterinária <span>·</span> Banho e Tosa <span>·</span> Pet Shop <span>·</span> Vacinação Completa <span>·</span> Taxi Pet <span>·</span> Castração <span>·</span> Cirurgias <span>·</span> Atendimento de Família <span>·</span></span>
+    <span>Clínica Veterinária <span>·</span> Banho e Tosa <span>·</span> Pet Shop <span>·</span> Vacinação Completa <span>·</span> Taxi Pet <span>·</span> Castração <span>·</span> Cirurgias <span>·</span> Atendimento de Família <span>·</span></span>
+  </div>
+</div>
+
+<section class="services pad" id="servicos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="tag">Nossos serviços</span>
+        <h2>Da consulta de rotina ao banho de <em>fim de semana.</em></h2>
+      </div>
+      <p>Tudo em um só lugar: cuidado veterinário completo, beleza e bem-estar para o seu melhor amigo.</p>
+    </div>
+    <div class="svc-grid">
+      <a href="#contato" class="svc rv">
+        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800&q=80" alt="Clínica veterinária Cat &amp; Dog" loading="lazy">
+        <div class="svc-body">
+          <div class="num">01</div>
+          <h3>Clínica Veterinária</h3>
+          <p>Consultas, vacinação, castração, exames e cirurgias para cães e gatos.</p>
+          <span class="go">Saiba mais →</span>
+        </div>
+      </a>
+      <a href="#contato" class="svc rv">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&q=80" alt="Banho e tosa profissional Cat &amp; Dog" loading="lazy">
+        <div class="svc-body">
+          <div class="num">02</div>
+          <h3>Banho e Tosa</h3>
+          <p>Banho profissional, tosa higiênica e estética com produtos de qualidade.</p>
+          <span class="go">Saiba mais →</span>
+        </div>
+      </a>
+      <a href="#contato" class="svc rv">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80" alt="Pet Shop Cat &amp; Dog" loading="lazy">
+        <div class="svc-body">
+          <div class="num">03</div>
+          <h3>Pet Shop</h3>
+          <p>Rações premium, antiparasitários, acessórios e medicamentos no local.</p>
+          <span class="go">Saiba mais →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="why pad" id="diferenciais">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="tag">Por que vir pra Cat &amp; Dog</span>
+        <h2>Estrutura completa, equipe que gosta do <em>que faz.</em></h2>
+      </div>
+      <p>Sem fila, sem pressa e com espaço pensado para o conforto do seu pet.</p>
+    </div>
+    <div class="why-grid rv">
+      <div class="why-item">
+        <div class="n">01</div>
+        <div class="ic">👨‍⚕️</div>
+        <h3>Médicos Veterinários</h3>
+        <p>Equipe formada e constantemente atualizada para cuidar de cães e gatos de todas as idades.</p>
+      </div>
+      <div class="why-item">
+        <div class="n">02</div>
+        <div class="ic">💉</div>
+        <h3>Vacinação Completa</h3>
+        <p>V8, V10, antirrábica, V4 felina e FELV — protocolo completo com orientação clara.</p>
+      </div>
+      <div class="why-item">
+        <div class="n">03</div>
+        <div class="ic">🏥</div>
+        <h3>Estrutura Própria</h3>
+        <p>Espaço pensado e dimensionado para o conforto e a segurança do pet durante o atendimento.</p>
+      </div>
+      <div class="why-item">
+        <div class="n">04</div>
+        <div class="ic">✨</div>
+        <h3>Banho e Tosa</h3>
+        <p>Produtos profissionais e toalhas descartáveis em cada banho para máxima higiene.</p>
+      </div>
+      <div class="why-item">
+        <div class="n">05</div>
+        <div class="ic">🚖</div>
+        <h3>Taxi Pet</h3>
+        <p>Buscamos e levamos o seu pet em Sete Lagoas — praticidade para a sua rotina.</p>
+      </div>
+      <div class="why-item">
+        <div class="n">06</div>
+        <div class="ic">💚</div>
+        <h3>Atendimento de Família</h3>
+        <p>Cada pet recebe atenção individual, com carinho e explicação clara do que ele precisa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="doc pad" id="equipe">
+  <div class="wrap doc-grid">
+    <div class="doc-img rv">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Dra. Isabella, médica veterinária da Cat &amp; Dog" loading="lazy">
+      <div class="doc-badge"><b>5+</b><span>anos de atuação</span></div>
+    </div>
+    <div class="doc-txt rv">
+      <span class="tag" style="display:inline-flex;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green);align-items:center;gap:10px;margin-bottom:16px;"><span style="width:34px;height:2px;background:var(--green-2);display:inline-block"></span>Nossa equipe</span>
+      <h3>Dra. Isabella</h3>
+      <span class="role">Médica veterinária responsável</span>
+      <p>Médica veterinária responsável pela Cat &amp; Dog. Atende cães e gatos de todas as idades em Sete Lagoas há mais de 5 anos.</p>
+      <p>Clínica geral, vacinação, castração e cirurgias. Atendimento calmo, sem pressa, com explicação clara do que o pet precisa.</p>
+      <ul class="specs">
+        <li>Clínica geral</li>
+        <li>Vacinação</li>
+        <li>Castração</li>
+        <li>Cirurgias</li>
+        <li>Atendimento a cães</li>
+        <li>Atendimento a gatos</li>
+      </ul>
+      <a class="btn" href="https://wa.me/5531971175099?text=Ol%C3%A1!%20Quero%20agendar%20consulta%20com%20a%20Dra.%20Isabella">Agendar com a Dra. Isabella</a>
+    </div>
+  </div>
+</section>
+
+<section class="reviews pad" id="depoimentos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="tag" style="color:var(--mint)">Avaliações no Google</span>
+        <h2>O que dizem por <em>aí</em></h2>
+      </div>
+      <p>Avaliações reais de quem confia o pet com a gente.</p>
+    </div>
+    <div class="rating-hero rv">
+      <div class="rating-num">5.0</div>
+      <div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-meta">baseado em <b style="color:#fff">140+ avaliações</b> no Google</div>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <div class="rev rv">
+        <div class="st">★★★★★</div>
+        <p>Atendimento excelente! Os profissionais são sorridentes e muito carinhosos com os animais. A Dra. Isabella tira todas as dúvidas com calma. Recomendo demais!</p>
+        <div class="who">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Ana Paula Silva" loading="lazy">
+          <div><b>Ana Paula Silva</b><span>há 2 semanas</span></div>
+        </div>
+      </div>
+      <div class="rev rv">
+        <div class="st">★★★★★</div>
+        <p>Banho e tosa muito bem feitos. Meu Thor sai sempre cheirosinho e tranquilo. A estrutura da clínica é ótima, super limpa e organizada.</p>
+        <div class="who">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Carlos Eduardo" loading="lazy">
+          <div><b>Carlos Eduardo</b><span>há 1 mês</span></div>
+        </div>
+      </div>
+      <div class="rev rv">
+        <div class="st">★★★★★</div>
+        <p>A Cat &amp; Dog atendeu minha gata em uma emergência. Foram extremamente atenciosos e profissionais. Salvaram a vida dela. Eternamente grata!</p>
+        <div class="who">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Marina Souza" loading="lazy">
+          <div><b>Marina Souza</b><span>há 1 mês</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contato">
+  <div class="final-bg"></div>
+  <div class="wrap final-in">
+    <span class="kicker" style="margin-bottom:26px"><span class="dot"></span> Cat &amp; Dog · Rua Ouro Preto, 45</span>
+    <h2>Vem cuidar do seu pet <em>com a gente.</em></h2>
+    <p>Mande mensagem pelo WhatsApp. A gente confirma o horário e separa tudo certinho.</p>
+    <a class="btn gold" href="https://wa.me/5531971175099?text=Ol%C3%A1!%20Quero%20agendar%20atendimento%20na%20Cat%20%26%20Dog">Falar com a Cat &amp; Dog</a>
+  </div>
+</section>
+
+<footer id="rodape">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="brand">
+          <span class="brand-mark">C&amp;D</span>
+          <span><b>Cat &amp; Dog</b><small>Clínica Veterinária</small></span>
+        </a>
+        <p style="margin-top:18px">Seu pet faz parte da família, e a gente cuida como tal. Clínica veterinária, banho e tosa e pet shop em Sete Lagoas/MG.</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li>WhatsApp: (31) 97117-5099</li>
+          <li>Telefone: (31) 3776-5959</li>
+          <li>Instagram: @catedog7l</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Endereço e Horários</h4>
+        <ul>
+          <li>Rua Ouro Preto, 45 · Sete Lagoas, MG</li>
+          <li>Seg a Sex: 8h às 18h</li>
+          <li>Sábado: 8h às 12h · Domingo: fechado</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Cat &amp; Dog Clínica Veterinária. Todos os direitos reservados.</span>
+      <span>Design por BRMG — brmg.com.br</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5531971175099?text=Ol%C3%A1!%20Quero%20agendar%20atendimento%20na%20Cat%20%26%20Dog" aria-label="WhatsApp Cat &amp; Dog">
+  <svg viewBox="0 0 32 32"><path d="M16 .9C7.7.9.9 7.6.9 16c0 2.7.7 5.3 2 7.6L.8 31.1l7.7-2c2.2 1.2 4.8 1.9 7.5 1.9 8.3 0 15-6.7 15-15C31.1 7.6 24.3.9 16 .9zm0 27.3c-2.4 0-4.6-.7-6.5-1.8l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.3-2-2-4.3-2-6.8 0-6.9 5.6-12.5 12.6-12.5s12.6 5.6 12.6 12.5-5.6 12.7-12.5 12.7zm6.9-9.3c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.3 1.4-.2.2-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1.1-2-2.5-2.2-2.9-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.3-.7.1-.3 0-.5 0-.8 0-.2-.9-2.1-1.2-2.9-.3-.8-.6-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.4 7 6.2 1 .4 1.7.7 2.3.9 1 .3 1.9.3 2.6.2.8-.1 2.3-1 2.7-1.9.3-.9.3-1.7.2-1.9-.1-.1-.3-.2-.7-.4z"/></svg>
+</a>
+
+<script>
+// navbar scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>40)});
+// reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
