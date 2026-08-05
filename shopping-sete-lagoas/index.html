@@ -160,7 +160,9 @@ nav.scrolled .menu a{color:var(--ink)}
 .location .tag{color:var(--violet-2)}
 .loc-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:28px;align-items:stretch}
 .loc-map{border-radius:24px;overflow:hidden;min-height:460px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.1);position:relative;display:block}
-.loc-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;filter:saturate(1.05)}
+.loc-map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.loc-map:hover img{transform:scale(1.05)}
+.loc-map::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,25,23,0) 55%,rgba(3,25,23,.35) 100%)}
 .loc-pin{position:absolute;left:20px;bottom:20px;z-index:3;display:inline-flex;align-items:center;gap:9px;background:rgba(3,25,23,.9);color:#fff;padding:11px 18px;border-radius:100px;font-size:13px;font-weight:600;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.14)}
 .loc-pin .pin-dot{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(144,192,0,.3)}
 .loc-panel{background:linear-gradient(160deg,rgba(0,144,144,.16),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:40px 36px;display:flex;flex-direction:column;justify-content:center}
@@ -372,11 +374,8 @@ footer{background:#031917;color:rgba(255,255,255,.7)}
     </div>
     <div class="loc-grid rv">
       <a class="loc-map" href="https://www.google.com/maps/place/Shopping+Sete+Lagoas/@-19.4737341,-44.2715980,16z" target="_blank" rel="noopener" aria-label="Abrir mapa do Shopping Sete Lagoas">
-        <iframe
-          title="Mapa Shopping Sete Lagoas"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=-44.2836%2C-19.4817%2C-44.2596%2C-19.4657&layer=mapnik&marker=-19.4737341%2C-44.2715980"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <span class="loc-pin"><span class="pin-dot"></span>Shopping Sete Lagoas</span>
+        <img src="assets/mapa.png" alt="Mapa da localização do Shopping Sete Lagoas em Sete Lagoas/MG" loading="lazy">
+        <span class="loc-pin"><span class="pin-dot"></span>Shopping Sete Lagoas · Eldorado</span>
       </a>
       <div class="loc-panel">
         <h3>Venha nos visitar</h3>
