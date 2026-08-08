@@ -210,23 +210,44 @@
   .class-card:hover .cc-more{gap:14px;opacity:1}
 
   /* ---------- Testimonials ---------- */
-  .testimonials{background:var(--cream);padding:120px 0}
-  .testimonials-head{text-align:center;margin-bottom:70px}
-  .testimonials-head .kicker{margin-bottom:18px}
-  .testimonials-head h2{font-family:var(--font-display);font-weight:500;font-size:clamp(2.2rem,4.6vw,3.6rem);letter-spacing:-.02em}
-  .testimonials-head h2 em{font-style:italic;color:var(--rose-deep)}
-  .testi-track-wrap{position:relative}
-  .testi-track{display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 2px 24px;scrollbar-width:none}
-  .testi-track::-webkit-scrollbar{display:none}
-  .testi-card{
-    min-width:min(400px,86vw);scroll-snap-align:start;background:#fff;border:1px solid var(--line);
-    border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:18px;flex-shrink:0;
-    box-shadow:0 20px 50px -26px rgba(90,36,64,.22);
+  .testimonials{
+    background:linear-gradient(135deg,var(--cream) 0%,rgba(245,141,187,.08) 100%);
+    padding:120px 0;position:relative;overflow:hidden;
   }
-  .testi-card .stars svg{width:16px;height:16px;fill:none;stroke:var(--rose-deep);stroke-width:1.6;margin-right:3px}
+  .testimonials::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(224,105,159,.06),transparent 70%);pointer-events:none}
+  .testimonials::after{content:"";position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(245,141,187,.04),transparent 70%);pointer-events:none}
+  .testimonials-head{text-align:center;margin-bottom:80px;position:relative;z-index:2}
+  .testimonials-head .kicker{margin-bottom:18px;animation:kickerFade linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+  @keyframes kickerFade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .testimonials-head h2{font-family:var(--font-display);font-weight:500;font-size:clamp(2.2rem,4.6vw,3.6rem);letter-spacing:-.02em;animation:headingReveal linear both;animation-timeline:view();animation-range:entry 10% cover 50%}
+  @keyframes headingReveal{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  .testimonials-head h2 em{font-style:italic;color:var(--rose-deep)}
+  
+  /* Novo: Grid layout com stagger */
+  .testi-track-wrap{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+  .testi-track{display:contents}
+  .testi-card{
+    background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px;
+    display:flex;flex-direction:column;gap:18px;box-shadow:0 20px 50px -26px rgba(90,36,64,.22);
+    transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s;
+    animation:cardReveal linear both;animation-timeline:view();animation-range:entry 0% cover 60%;
+  }
+  .testi-card:nth-child(1){animation-delay:0s}
+  .testi-card:nth-child(2){animation-delay:0.1s}
+  .testi-card:nth-child(3){animation-delay:0.2s}
+  .testi-card:nth-child(4){animation-delay:0.3s}
+  @keyframes cardReveal{from{opacity:0;transform:translateY(40px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+  
+  .testi-card:hover{transform:translateY(-8px);box-shadow:0 34px 80px -20px rgba(196,73,123,.35)}
+  .testi-card:hover .stars svg{animation:starBounce .6s cubic-bezier(.4,0,.2,1)}
+  @keyframes starBounce{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+  
+  .testi-card .stars{display:flex;gap:2px;align-items:center;margin-bottom:8px}
+  .testi-card .stars svg{width:16px;height:16px;fill:none;stroke:var(--rose-deep);stroke-width:1.6;margin-right:3px;transition:transform .3s}
   .testi-card p{font-family:var(--font-display);font-size:1.06rem;line-height:1.55;font-weight:300;color:var(--ink);flex:1}
   .testi-card .person{display:flex;align-items:center;gap:14px}
-  .testi-card .person img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--rose)}
+  .testi-card .person img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--rose);transition:transform .4s}
+  .testi-card:hover .person img{transform:scale(1.1)}
   .testi-card .person b{font-size:.94rem;display:block}
   .testi-card .person span{font-size:.78rem;color:var(--muted)}
 
@@ -327,6 +348,7 @@
     .class-card.tall{aspect-ratio:4/5;grid-row:auto}
     .footer-grid{grid-template-columns:1fr 1fr}
     .method-panel .mp-media img{height:320px}
+    .testi-track-wrap{grid-template-columns:repeat(2,1fr);gap:24px;padding:0 20px}
   }
   @media (max-width:640px){
     .class-grid{grid-template-columns:1fr}
@@ -339,6 +361,7 @@
     .method-track{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;width:100%;padding:0 20px}
     .method-panel{min-width:84vw;scroll-snap-align:center}
     .method-progress,.method-hint{display:none}
+    .testi-track-wrap{grid-template-columns:1fr;gap:20px;padding:0 16px}
   }
 </style>
 </head>
