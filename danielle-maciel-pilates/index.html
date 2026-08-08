@@ -280,6 +280,41 @@
   .reveal{opacity:0;transform:translateY(44px)}
   .reveal.in{opacity:1;transform:translateY(0);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1)}
 
+  /* ---------- Parallax (scroll-driven) ---------- */
+  .parallax{animation-timeline:view();animation-range:entry 0% cover 100%}
+  .parallax-up{animation:parallaxUp linear both}
+  @keyframes parallaxUp{from{transform:translateY(60px) scale(1.02)}to{transform:translateY(-40px) scale(1)}}
+  
+  /* ---------- Scroll-driven animations ---------- */
+  .fade-in-up{opacity:0;transform:translateY(40px);animation:fadeInUp linear both;animation-timeline:view();animation-range:entry 0% cover 40%}
+  @keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+  
+  .scale-in{transform:scale(.95);opacity:0;animation:scaleIn linear both;animation-timeline:view();animation-range:entry 10% cover 50%}
+  @keyframes scaleIn{to{transform:scale(1);opacity:1}}
+  
+  /* ---------- Enhanced button interactions ---------- */
+  .btn{position:relative;overflow:hidden}
+  .btn::before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.3),transparent);opacity:0;pointer-events:none;animation:btnPulse .6s ease-out forwards}
+  .btn:active::before{animation:btnPulse .6s ease-out}
+  @keyframes btnPulse{0%{opacity:1;transform:scale(0)}to{opacity:0;transform:scale(3)}}
+  
+  /* ---------- Image parallax containers ---------- */
+  .parallax-img{overflow:hidden;position:relative}
+  .parallax-img img{animation:imgParallax linear both;animation-timeline:view();animation-range:entry 0% cover 100%}
+  @keyframes imgParallax{from{transform:translateY(30px) scale(1.08)}to{transform:translateY(-20px) scale(1)}}
+  
+  /* ---------- Card elevation on scroll ---------- */
+  .card-float{animation:cardFloat linear both;animation-timeline:view();animation-range:entry 20% cover 60%}
+  @keyframes cardFloat{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+  
+  /* ---------- Text animation ---------- */
+  .text-shimmer{background:linear-gradient(90deg,var(--ink) 0%,var(--rose-deep) 50%,var(--ink) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s ease-in-out infinite}
+  @keyframes shimmer{0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}
+  
+  /* ---------- Floating elements ---------- */
+  .float-slow{animation:floatSlow 6s ease-in-out infinite}
+  @keyframes floatSlow{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+
   /* ---------- Responsive ---------- */
   @media (max-width:1020px){
     nav,.header-cta .btn-ghost{display:none}
@@ -373,7 +408,7 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-photo">
+      <div class="hero-photo parallax-img">
         <img src="https://images.pexels.com/photos/25599826/pexels-photo-25599826.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Aula de Pilates em estúdio claro e moderno" loading="eager" />
       </div>
       <div class="hero-card">
@@ -400,9 +435,9 @@
   <div class="container">
     <span class="kicker">Sobre a Danielle</span>
     <h2>
-      <span class="line">Movimento é linguagem —</span>
-      <span class="line">e <em>todo corpo</em> entende</span>
-      <span class="line">muito bem quando alguém <em>escuta de verdade</em>.</span>
+      <span class="line fade-in-up">Movimento é linguagem —</span>
+      <span class="line fade-in-up">e <em>todo corpo</em> entende</span>
+      <span class="line fade-in-up">muito bem quando alguém <em>escuta de verdade</em>.</span>
     </h2>
     <p>Formada em Educação Física e especializada em Pilates Clássico, atuo unindo técnica e presença. Cada plano de aula nasce do que o seu corpo conta: suas dores, seus limites, seus objetivos. Sem atalhos, sem comparações — apenas movimento bem orientado, no seu tempo.</p>
   </div>
@@ -428,24 +463,24 @@
   </div>
   <div class="method-pin">
     <div class="method-track" id="method-track">
-      <article class="method-panel">
-        <div class="mp-media"><img src="https://images.pexels.com/photos/25599836/pexels-photo-25599836.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Aluna alongando o corpo no reformer" loading="lazy"/></div>
+      <article class="method-panel card-float">
+         <div class="mp-media parallax-img"><img src="https://images.pexels.com/photos/25599836/pexels-photo-25599836.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Aluna alongando o corpo no reformer" loading="lazy"/></div>
         <div class="mp-body"><span class="num">Pilar 01 — Chão</span><h3>Respiração</h3><p>Inspirar e expirar de forma consciente ativa o centro e prepara o corpo para o trabalho — é o coração de toda a técnica.</p></div>
       </article>
-      <article class="method-panel">
-        <div class="mp-media"><img src="https://images.pexels.com/photos/25596676/pexels-photo-25596676.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Aluna realizando exercício de concentração no reformer" loading="lazy"/></div>
+      <article class="method-panel card-float">
+         <div class="mp-media parallax-img"><img src="https://images.pexels.com/photos/25596676/pexels-photo-25596676.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Aluna realizando exercício de concentração no reformer" loading="lazy"/></div>
         <div class="mp-body"><span class="num">Pilar 02</span><h3>Concentração</h3><p>Cada movimento merece a sua atenção. Presença muda o resultado: corpo conectado, mente quieta.</p></div>
       </article>
-      <article class="method-panel">
-        <div class="mp-media"><img src="https://images.pexels.com/photos/25596664/pexels-photo-25596664.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Exercício de força no centro do corpo" loading="lazy"/></div>
+      <article class="method-panel card-float">
+         <div class="mp-media parallax-img"><img src="https://images.pexels.com/photos/25596664/pexels-photo-25596664.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Exercício de força no centro do corpo" loading="lazy"/></div>
         <div class="mp-body"><span class="num">Pilar 03</span><h3>Controle</h3><p>Técnica milimétrica, movimento gentil. É no controle que a força verdadeira aparece — sem sobrecarga na articulação.</p></div>
       </article>
-      <article class="method-panel">
-        <div class="mp-media"><img src="https://images.pexels.com/photos/25599833/pexels-photo-25599833.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Aluna sorrindo em exercício de centro e força" loading="lazy"/></div>
+      <article class="method-panel card-float">
+         <div class="mp-media parallax-img"><img src="https://images.pexels.com/photos/25599833/pexels-photo-25599833.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Aluna sorrindo em exercício de centro e força" loading="lazy"/></div>
         <div class="mp-body"><span class="num">Pilar 04</span><h3>Centro e Postura</h3><p>De onde tudo parte: o seu centro. Trabalho postural que se traduz em menos dor e uma coluna mais estável no dia a dia.</p></div>
       </article>
-      <article class="method-panel">
-        <div class="mp-media"><img src="https://images.pexels.com/photos/25596674/pexels-photo-25596674.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Movimento fluido em aparelho de Pilates" loading="lazy"/></div>
+      <article class="method-panel card-float">
+         <div class="mp-media parallax-img"><img src="https://images.pexels.com/photos/25596674/pexels-photo-25596674.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Movimento fluido em aparelho de Pilates" loading="lazy"/></div>
         <div class="mp-body"><span class="num">Pilar 05</span><h3>Movimento &amp; Fluidez</h3><p>Fluidez reconecta o corpo ao ritmo natural. Cada sequência desenhada para ser leve de executar — e poderosa no efeito.</p></div>
       </article>
     </div>
@@ -464,9 +499,9 @@
       </div>
       <a href="#contato" class="btn btn-ghost">Quero minha turma</a>
     </div>
-    <div class="class-grid">
-      <article class="class-card">
-        <img src="https://images.pexels.com/photos/25596683/pexels-photo-25596683.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Aula de Pilates Solo em estúdio" loading="lazy"/>
+     <div class="class-grid">
+       <article class="class-card fade-in-up">
+         <img src="https://images.pexels.com/photos/25596683/pexels-photo-25596683.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Aula de Pilates Solo em estúdio" loading="lazy"/>
         <div class="cc-info">
           <span class="tag">Pilates</span>
           <h3>Solo &amp; aparelhos</h3>
@@ -474,8 +509,8 @@
           <span class="cc-more">Ver detalhes &#8594;</span>
         </div>
       </article>
-      <article class="class-card">
-        <img src="https://images.pexels.com/photos/25596780/pexels-photo-25596780.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Prática de força em aparelho reformer" loading="lazy"/>
+       <article class="class-card fade-in-up">
+         <img src="https://images.pexels.com/photos/25596780/pexels-photo-25596780.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Prática de força em aparelho reformer" loading="lazy"/>
         <div class="cc-info">
           <span class="tag">Reformer</span>
           <h3>Pilates no Reformer</h3>
@@ -483,8 +518,8 @@
           <span class="cc-more">Ver planos &#8594;</span>
         </div>
       </article>
-      <article class="class-card">
-        <img src="https://images.pexels.com/photos/1103201/pexels-photo-1103201.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Exercício clínico de correção de postura" loading="lazy"/>
+       <article class="class-card fade-in-up">
+         <img src="https://images.pexels.com/photos/1103201/pexels-photo-1103201.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Exercício clínico de correção de postura" loading="lazy"/>
         <div class="cc-info">
           <span class="tag">Clínico</span>
           <h3>Pilates reabilitação</h3>
@@ -492,8 +527,8 @@
           <span class="cc-more">Ver planos &#8594;</span>
         </div>
       </article>
-      <article class="class-card">
-        <img src="https://images.pexels.com/photos/25602467/pexels-photo-25602467.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Aula de mobilidade e alongamento para gestantes" loading="lazy"/>
+       <article class="class-card fade-in-up">
+         <img src="https://images.pexels.com/photos/25602467/pexels-photo-25602467.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Aula de mobilidade e alongamento para gestantes" loading="lazy"/>
         <div class="cc-info">
           <span class="tag">Gestantes</span>
           <h3>Pilates gravidez</h3>
@@ -501,8 +536,8 @@
           <span class="cc-more">Ver planos &#8594;</span>
         </div>
       </article>
-      <article class="class-card">
-        <img src="https://images.pexels.com/photos/8769168/pexels-photo-8769168.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Treino funcional e mobilidade" loading="lazy"/>
+       <article class="class-card fade-in-up">
+         <img src="https://images.pexels.com/photos/8769168/pexels-photo-8769168.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Treino funcional e mobilidade" loading="lazy"/>
         <div class="cc-info">
           <span class="tag">Funcional</span>
           <h3>Movimento Funcional</h3>
@@ -523,33 +558,33 @@
     </div>
     <div class="test-track-wrap">
       <div class="testi-track">
-        <article class="testi-card">
-          <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.78 4.66 1.13 6.58L12 17.6l-5.9 3.1 1.13-6.58L2.45 9.44l6.6-.96z"/></svg></div>
+         <article class="testi-card scale-in">
+           <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.78 4.66 1.13 6.58L12 17.6l-5.9 3.1 1.13-6.58L2.45 9.44l6.6-.96z"/></svg></div>
           <p>"A Danielle é um presente. Comecei com dores na lombar e hoje sinto o corpo desperto, leve e forte. Não é só exercício, é autocuidado."</p>
           <div class="person">
             <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Aluna Mariana" loading="lazy"/>
             <div><b>Mariana Duarte</b><span>Aluna há 3 anos</span></div>
           </div>
         </article>
-        <article class="testi-card">
-          <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.78 4.66 1.13 6.58L12 17.6l-5.9 3.1 1.13-6.58L2.45 9.44l6.6-.96z"/></svg></div>
-          <p>"Depois da gestação, as aulas de Pilates da Dani me devolveram a confiança. Ela entende cada limite e respeita o tempo do corpo."</p>
+       <article class="testi-card scale-in">
+           <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.78 4.66 1.13 6.58L12 17.6l-5.9 3.1 1.13-6.58L2.45 9.44l6.6-.96z"/></svg></div>
+           <p>"Depois da gestação, as aulas de Pilates da Dani me devolveram a confiança. Ela entende cada limite e respeita o tempo do corpo."</p>
           <div class="person">
             <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Aluna Patrícia" loading="lazy"/>
             <div><b>Patrícia Nogueira</b><span>Mamãe e aluna</span></div>
           </div>
         </article>
-        <article class="testi-card">
-          <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.78 4.66 1.13 6.58L12 17.6l-5.9 3.1 1.13-6.58L2.45 9.44l6.6-.96z"/></svg></div>
-          <p>"Trabalhar o dia inteiro sentado e perceber a diferença na postura não tem preço. Em seis meses, sinto outra coluna — e o melhor: sem dores."</p>
+       <article class="testi-card scale-in">
+           <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.78 4.66 1.13 6.58L12 17.6l-5.9 3.1 1.13-6.58L2.45 9.44l6.6-.96z"/></svg></div>
+           <p>"Trabalhar o dia inteiro sentado e perceber a diferença na postura não tem preço. Em seis meses, sinto outra coluna — e o melhor: sem dores."</p>
           <div class="person">
             <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Aluno Ricardo" loading="lazy"/>
             <div><b>Ricardo Alves</b><span>Trabalha em home office</span></div>
           </div>
         </article>
-        <article class="testi-card">
-          <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.78 4.66 1.13 6.58L12 17.6l-5.9 3.1 1.13-6.58L2.45 9.44l6.6-.96z"/></svg></div>
-          <p>"O método dela é essencial na minha rotina. Força, alinhamento e uma energia incrível a cada aula. Nunca mais parei de vir."</p>
+       <article class="testi-card scale-in">
+           <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.95 5.98 6.6.96-4.78 4.66 1.13 6.58L12 17.6l-5.9 3.1 1.13-6.58L2.45 9.44l6.6-.96z"/></svg></div>
+           <p>"O método dela é essencial na minha rotina. Força, alinhamento e uma energia incrível a cada aula. Nunca mais parei de vir."</p>
           <div class="person">
             <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Aluna Fernanda" loading="lazy"/>
             <div><b>Fernanda Lima</b><span>Praticante desde 2020</span></div>
@@ -562,7 +597,7 @@
 
 <!-- CTA -->
 <section class="cta" id="contato">
-  <div class="container cta-in">
+  <div class="container cta-in fade-in-up">
     <span class="kicker">Comece por aqui</span>
     <h2>Seu corpo está pedindo <em>movimento.</em><br/>A primeira aula é nossa.</h2>
     <p>Agende uma aula experimental individual — sem compromisso, no seu ritmo, com acolhimento e avaliação postural simples e gratuita.</p>
