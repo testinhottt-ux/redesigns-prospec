@@ -30,6 +30,17 @@
             text-transform: uppercase;
             letter-spacing: 3px;
         }
+        .hero .count {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 10px 28px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 50px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #fff;
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -46,6 +57,8 @@
             overflow: hidden;
             transition: all 0.3s ease;
             border: 1px solid #1a1a1a;
+            display: flex;
+            flex-direction: column;
         }
         .card:hover {
             transform: translateY(-10px);
@@ -67,12 +80,16 @@
         }
         .card-body {
             padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         .card-body p {
             color: #888;
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 20px;
+            flex: 1;
         }
         .btn {
             display: inline-block;
@@ -84,6 +101,7 @@
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
+            align-self: flex-start;
         }
         .btn:hover {
             background: #0088CC;
@@ -102,6 +120,7 @@
     <div class="hero">
         <h1>Portfólio de Redesigns</h1>
         <p>Sites profissionais nível awards</p>
+        <span class="count">21 projetos</span>
     </div>
     
     <div class="container">
@@ -113,7 +132,7 @@
                 </div>
                 <div class="card-body">
                     <p>Pizzaria artesanal em Sete Lagoas/MG. Design nível Awwwards com forno a lenha, cardápio interativo, carrinho e checkout. Totalmente responsivo (menu mobile, motion GSAP/Lenis).</p>
-                    <a href="pizza/" class="btn">Ver Redesign</a>
+                    <a href="pizzaria-do-rocha/" class="btn">Ver Redesign</a>
                 </div>
             </div>
 
@@ -163,6 +182,17 @@
 
             <div class="card">
                 <div class="card-header">
+                    <h2>Odontoclinic Sete Lagoas</h2>
+                    <p>Clínica Odontológica</p>
+                </div>
+                <div class="card-body">
+                    <p>Clínica odontológica em Sete Lagoas/MG com foco em sorriso em 1º lugar. Design premium nível Awwwards, fotos reais e experiência mobile impecável.</p>
+                    <a href="odontoclinic-sete-lagoas/" class="btn">Ver Redesign</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
                     <h2>Meu Pet</h2>
                     <p>Pet Shop</p>
                 </div>
@@ -180,6 +210,61 @@
                 <div class="card-body">
                     <p>Escritório de advocacia em Sete Lagoas/MG. Design premium azul-sky escuro com detalhes em ouro. Nível Awwwards.</p>
                     <a href="fabiana-dias-advogados/" class="btn">Ver Redesign</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Bemquerer Imóveis</h2>
+                    <p>Imobiliária</p>
+                </div>
+                <div class="card-body">
+                    <p>Imobiliária em Sete Lagoas/MG. "O próximo capítulo começa em um endereço". Design premium nível Awwwards com foco em imóveis e experiência imersiva.</p>
+                    <a href="bemquerer-imoveis/" class="btn">Ver Redesign</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Danielle Maciel</h2>
+                    <p>Pilates &amp; Educação Física</p>
+                </div>
+                <div class="card-body">
+                    <p>Professora de Pilates e Educação Física. Design nível Awwwards em tons de rosa, tipografia cinética, scrollytelling horizontal e fotos reais únicas.</p>
+                    <a href="danielle-maciel-pilates/" class="btn">Ver Redesign</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Rivello Apart Hotel</h2>
+                    <p>Hotelaria</p>
+                </div>
+                <div class="card-body">
+                    <p>Apart hotel no centro de Sete Lagoas/MG. Design premium nível Awwwards com fotos reais, reservas e experiência de hospedagem moderna.</p>
+                    <a href="rivello-apart-hotel/" class="btn">Ver Redesign</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Gráfica Brasil Cores</h2>
+                    <p>Gráfica Rápida</p>
+                </div>
+                <div class="card-body">
+                    <p>Gráfica em Sete Lagoas/MG especializada em impressos personalizados. Design moderno e profissional com portfólio de produtos.</p>
+                    <a href="grafica-brasil-cores/" class="btn">Ver Redesign</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Mauro Motores</h2>
+                    <p>Motores · Bombas · Assistência Técnica</p>
+                </div>
+                <div class="card-body">
+                    <p>Assistência técnica de motores e bombas em Sete Lagoas/MG. Design técnico e confiável, com serviços detalhados e contato direto.</p>
+                    <a href="mauro-motores/" class="btn">Ver Redesign</a>
                 </div>
             </div>
 
