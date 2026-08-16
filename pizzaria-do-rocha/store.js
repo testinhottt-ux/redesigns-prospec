@@ -2,7 +2,10 @@
 // Persistência: localStorage. Usado por todas as páginas via <script type="module">.
 
 const KEY = 'pizzariaRochaDB';
-const ADMIN_PASS = 'pizzadorochaboademais'; // senha do painel da equipe
+const MENU_VERSION = 4;
+// A senha real do painel vive SOMENTE no servidor (ADMIN_PASS / POST /api/admin/login).
+// O que sobra aqui é só um resumo (FNV-1a) — não permite recuperar a senha original.
+const ADMIN_PASS_HASH = '7481eb56';
 
 const STATUS_FLOW = ['recebido', 'preparando', 'forno', 'saiu_entrega', 'entregue'];
 const STATUS_LABELS = {
@@ -17,17 +20,17 @@ const STATUS_LABELS = {
 // ---- Contato oficial ----
 export const CONTATO = {
   nome: 'Pizzaria do Rocha',
-  telefone: '+55 31 9186-7625',
-  telefoneDigits: '5531918667625',
-  whatsapp: 'https://wa.me/5531918667625',
-  whatsappMsg: 'https://wa.me/5531918667625?text=' +
+  telefone: '(99) 91867-625',
+  telefoneDigits: '559991867625',
+  whatsapp: 'https://wa.me/559991867625',
+  whatsappMsg: 'https://wa.me/559991867625?text=' +
     encodeURIComponent('Olá! Gostaria de fazer um pedido na Pizzaria do Rocha.'),
-  endereco: 'Rua Hait, nº 155 — Bairro Nova Cidade, Sete Lagoas / MG',
-  enderecoCurto: 'Rua Hait, 155 — Nova Cidade, Sete Lagoas/MG',
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=' +
-    encodeURIComponent('Rua Hait 155 Nova Cidade Sete Lagoas MG'),
-  mapEmbed: 'https://maps.google.com/maps?q=' +
-    encodeURIComponent('Rua Hait 155 Nova Cidade Sete Lagoas MG') + '&z=15&output=embed',
+  endereco: '',
+  enderecoCurto: '',
+  mapsUrl: '',
+  mapEmbed: '',
+  horario: 'Todos os dias · 18h às 21h',
+  entrega: 'Entrega rápida · peça pelo WhatsApp ou iFood',
 };
 
 // ---- Fotos ilustrativas (baixadas em ./images) ----
@@ -52,6 +55,11 @@ const FOTO_KEYWORDS = [
   [/quatro|4 queijo|4queijo|especial|premium/i, 'images/pizza-quatro.jpg'],
   [/portug|lombo|presunto|ovo/i, 'images/pizza-portuguesa.jpg'],
   [/frango|catupiry|chicken/i, 'images/pizza-frango.jpg'],
+  // Bebidas (imagens ilustrativas em ./images, sempre marcadas como "Ilustrativa" na UI)
+  [/col(a|a)|refrigerante|fanta|sprite|pepsi|cerveja|lata/i, 'images/bebida-cola.svg'],
+  [/guaran[aá]|antarctica|schin/i, 'images/bebida-guarana.svg'],
+  [/suco|laranja|maracuj[aá]|abacaxi|natural/i, 'images/bebida-suco.svg'],
+  [/[áa]gua|mineral|garrafa|h2o/i, 'images/bebida-agua.svg'],
 ];
 
 export function photoFor(nome, categoria, foto) {
@@ -67,22 +75,39 @@ export function photoFor(nome, categoria, foto) {
 // ---- Seed: pizzas iniciais (só na primeira vez) ----
 function seedItems() {
   const base = [
-    ['Margherita', 'Tradicionais', 42.9, 'Molho de tomate italiano, muçarela fresca e manjericão.', 'images/pizza-margherita.jpg'],
-    ['Pepperoni', 'Tradicionais', 52.9, 'Muçarela, fatias generosas de pepperoni e orégano.', 'images/pizza-pepperoni.jpg'],
-    ['Calabresa', 'Tradicionais', 47.9, 'Calabresa artesanal, cebola roxa e azeitonas.', 'images/pizza-calabresa.jpg'],
-    ['Quatro Queijos', 'Especiais', 58.9, 'Muçarela, provolone, gorgonzola e parmesão.', 'images/pizza-quatro.jpg'],
-    ['Portuguesa', 'Especiais', 54.9, 'Presunto, ovo, cebola, ervilha, azeitona e muçarela.', 'images/pizza-portuguesa.jpg'],
-    ['Frango com Catupiry', 'Especiais', 55.9, 'Frango desfiado temperado com catupiry cremoso.', 'images/pizza-frango.jpg'],
+    ['Portuguesa (à moda) · Média', 'Pizza média · 30 cm · 6 pedaços', 49.99, 'Molho, presunto, cebola, pimentão, bacon, tomate, ovos, muçarela, queijo parmesão ralado, azeitona e orégano.', 'images/pizza-portuguesa.jpg'],
+    ['Portuguesa (à moda) · Gigante', 'Pizza gigante · 35 cm · 8 pedaços', 59.99, 'Molho, presunto, cebola, pimentão, bacon, tomate, ovos, muçarela, queijo parmesão ralado, azeitona e orégano.', 'images/pizza-portuguesa.jpg'],
+    ['Calabresa · Média', 'Pizza média · 30 cm · 6 pedaços', 49.99, 'Molho, frango desfiado, muçarela, calabresa desfiada, cebola, queijo parmesão ralado e orégano.', 'images/pizza-calabresa.jpg'],
+    ['Calabresa · Gigante', 'Pizza gigante · 35 cm · 8 pedaços', 59.99, 'Molho, frango desfiado, muçarela, calabresa desfiada, cebola, queijo parmesão ralado e orégano.', 'images/pizza-calabresa.jpg'],
+    ['Presunto com muçarela · Média', 'Pizza média · 30 cm · 6 pedaços', 49.99, 'Molho de tomate, presunto, bacon, tomate, cebola, muçarela, queijo parmesão e orégano.', 'images/pizza-generica.jpg'],
+    ['Presunto com muçarela · Gigante', 'Pizza gigante · 35 cm · 8 pedaços', 59.99, 'Molho de tomate, presunto, bacon, tomate, cebola, muçarela, queijo parmesão e orégano.', 'images/pizza-generica.jpg'],
+    ['Marguerita · Média', 'Pizza média · 30 cm · 6 pedaços', 49.99, 'Molho, muçarela, tomate, manjericão, queijo ralado e orégano.', 'images/pizza-margherita.jpg'],
+    ['Marguerita · Gigante', 'Pizza gigante · 35 cm · 8 pedaços', 59.99, 'Molho, muçarela, tomate, manjericão, queijo ralado e orégano.', 'images/pizza-margherita.jpg'],
   ];
   return base.map(([nome, categoria, preco, descricao, foto], i) => ({
-    id: 'seed_' + i,
+    id: 'propaganda_' + i,
     nome, categoria, preco, descricao, foto,
-    estoque: 20, ativo: true,
+    estoque: 999, ativo: true,
+  }));
+}
+
+// ---- Seed: bebidas iniciais (entram junto do cardápio na primeira vez / migração) ----
+function seedBebidas() {
+  const base = [
+    ['Coca-Cola Lata 350ml', 'Bebidas', 6.0, 'Refrigerante de cola gelado · lata 350 ml.', 'images/bebida-cola.svg', 120],
+    ['Guaraná Antarctica Lata 350ml', 'Bebidas', 5.5, 'Refrigerante de guaraná gelado · lata 350 ml.', 'images/bebida-guarana.svg', 120],
+    ['Suco de Laranja Natural 500ml', 'Bebidas', 8.0, 'Suco de laranja natural, gelado · copo 500 ml.', 'images/bebida-suco.svg', 60],
+    ['Água Mineral 500ml', 'Bebidas', 4.0, 'Água mineral sem gás · garrafa 500 ml.', 'images/bebida-agua.svg', 100],
+  ];
+  return base.map(([nome, categoria, preco, descricao, foto, estoque], i) => ({
+    id: 'bebida_propaganda_' + i,
+    nome, categoria, preco, descricao, foto,
+    estoque, ativo: true,
   }));
 }
 
 function defaultDB() {
-  return { items: seedItems(), orders: [], cart: [], seeded: true };
+  return { items: [...seedItems(), ...seedBebidas()], orders: [], cart: [], seeded: true, menuVersion: MENU_VERSION };
 }
 
 function load() {
@@ -90,7 +115,16 @@ function load() {
     const raw = localStorage.getItem(KEY);
     if (!raw) { const db = defaultDB(); save(db); return db; }
     const db = JSON.parse(raw);
-    return { items: db.items || [], orders: db.orders || [], cart: db.cart || [], seeded: db.seeded };
+    if (db.menuVersion !== MENU_VERSION) {
+      // Migração NÃO destrói o cardápio customizado nem os pedidos:
+      // mantém os itens atuais e apenas adiciona bebidas que ainda não existem.
+      const atuais = db.items || [];
+      const sobrando = seedBebidas().filter(b => !atuais.some(i => i?.nome === b.nome));
+      const migrated = { ...db, items: [...atuais, ...sobrando], seeded: true, menuVersion: MENU_VERSION };
+      save(migrated);
+      return migrated;
+    }
+    return { items: db.items || [], orders: db.orders || [], cart: db.cart || [], seeded: db.seeded, menuVersion: db.menuVersion };
   } catch (e) {
     return defaultDB();
   }
@@ -179,7 +213,9 @@ export function getOrders() {
 
 export function getOrder(id) { return load().orders.find((o) => o.id === id); }
 
-export function createOrder({ cliente, pagamento }) {
+// id/numero são opcionais: quando o servidor registra o pedido, ele manda os dele
+// para que cliente e painel do dono falem do MESMO pedido.
+export function createOrder({ cliente, pagamento, id, numero }) {
   const db = load();
   const cartLines = db.cart.map((c) => {
     const item = db.items.find((i) => i.id === c.itemId);
@@ -187,8 +223,8 @@ export function createOrder({ cliente, pagamento }) {
   }).filter(Boolean);
   const total = cartLines.reduce((s, l) => s + l.qtd * l.preco, 0);
   const order = {
-    id: uid('ped'),
-    numero: Math.floor(1000 + Math.random() * 9000),
+    id: id || uid('ped'),
+    numero: Number(numero) || Math.floor(1000 + Math.random() * 9000),
     itens: cartLines, total, cliente, pagamento,
     status: 'recebido', criadoEm: Date.now(),
   };
@@ -210,7 +246,16 @@ export function updateOrderStatus(id, status) {
   return order;
 }
 
-// Vincula/atualiza os dados de pagamento de um pedido (asaasId, status, simulacao)
+// Mescla campos vindos do servidor (status, total, pagamento) num pedido local.
+export function patchOrder(id, patch = {}) {
+  const db = load();
+  const order = db.orders.find((o) => o.id === id);
+  if (order) Object.assign(order, patch);
+  save(db);
+  return order;
+}
+
+// Vincula/atualiza os dados de pagamento de um pedido (providerPaymentId, status, simulacao)
 export function setOrderPayment(id, patch = {}) {
   const db = load();
   const order = db.orders.find((o) => o.id === id);
@@ -231,7 +276,17 @@ export function statusLabel(status) { return STATUS_LABELS[status] || status; }
 export function statusFlow() { return STATUS_FLOW.slice(); }
 
 // ---- Admin ----
-export function checkAdminPass(pass) { return pass === ADMIN_PASS; }
+// Conferência local apenas para feedback imediato na tela; quem realmente autoriza
+// as rotas /api/pedidos é o servidor, comparando com ADMIN_PASS.
+function hashSenha(texto) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < texto.length; i++) {
+    h ^= texto.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, '0');
+}
+export function checkAdminPass(pass) { return hashSenha(String(pass ?? '')) === ADMIN_PASS_HASH; }
 
 // ---- Helpers de formatação ----
 export function money(n) { return 'R$ ' + Number(n || 0).toFixed(2).replace('.', ','); }
