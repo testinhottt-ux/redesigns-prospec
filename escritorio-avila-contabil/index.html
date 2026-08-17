@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2ea">
+  <meta name="description" content="Escritório Ávila Contábil: 31 anos de contabilidade, gestão tributária, fiscal, trabalhista e perícias contábeis em Sete Lagoas - MG. CRCMG MG-010175/O.">
+  <title>Escritório Ávila Contábil | Desde 1994 — Sete Lagoas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f5f2ea;
+      --paper-deep: #e9e4d6;
+      --ink: #0e2b23;
+      --ink-soft: #16382e;
+      --muted: #5f6f68;
+      --line: rgba(14, 43, 35, .16);
+      --gold: #b9923e;
+      --gold-dark: #97752c;
+      --white: #fffdf7;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "Manrope", Arial, sans-serif;
+      --radius-lg: 30px;
+      --radius-md: 18px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .05;
+      z-index: 20;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+    ::selection { background: var(--gold); color: var(--white); }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    img { display: block; max-width: 100%; }
+    section { position: relative; }
+    .container { width: min(1200px, calc(100% - 48px)); margin: 0 auto; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .skip-link { position: fixed; left: 16px; top: -80px; z-index: 100; padding: 12px 18px; background: var(--ink); color: var(--white); border-radius: 8px; }
+    .skip-link:focus { top: 16px; }
+
+    [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1); }
+    [data-reveal].is-visible { opacity: 1; transform: none; }
+
+    [data-preloader] {
+      position: fixed; inset: 0; z-index: 90; display: grid; place-items: center;
+      background: var(--ink); color: var(--paper); transition: opacity .7s ease, visibility .7s ease;
+    }
+    [data-preloader].is-hidden { opacity: 0; visibility: hidden; }
+    .preloader-mark { display: grid; gap: 18px; justify-items: center; }
+    .preloader-mark img { width: 96px; height: auto; filter: invert(1); opacity: .92; }
+    .preloader-line { width: 128px; height: 1px; overflow: hidden; background: rgba(245,242,234,.2); }
+    .preloader-line::after { content: ""; display: block; width: 45%; height: 100%; background: var(--gold); animation: loadLine 1s ease-in-out infinite; }
+    .preloader-label { margin: 0; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: rgba(245,242,234,.66); }
+    @keyframes loadLine { from { transform: translateX(-110%); } to { transform: translateX(330%); } }
+
+    .topline { background: var(--ink); color: rgba(245,242,234,.72); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+    .topline-inner { min-height: 34px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding: 4px 0; }
+    .topline strong { color: var(--gold); font-weight: 700; }
+    .topline-socials { display: inline-flex; align-items: center; gap: 14px; }
+    .topline-socials a { display: inline-flex; color: var(--paper); opacity: .85; }
+    .topline-socials a:hover { opacity: 1; color: var(--gold); }
+    .topline-socials svg { width: 12px; height: 12px; }
+
+    .site-header { position: sticky; top: 0; z-index: 40; background: rgba(245,242,234,.9); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); transition: background .25s ease, box-shadow .25s ease; }
+    .site-header.is-scrolled { background: rgba(255,253,247,.97); box-shadow: 0 8px 24px rgba(14,43,35,.06); }
+    .header-inner { min-height: 86px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+    .brand { display: inline-flex; align-items: center; gap: 13px; }
+    .brand img { width: 82px; height: auto; }
+    .brand-caption { display: grid; gap: 3px; border-left: 1px solid var(--line); padding-left: 14px; }
+    .brand-caption strong { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+    .brand-caption span { font-size: 10px; color: var(--muted); }
+    .site-nav { display: flex; align-items: center; gap: clamp(16px, 2.6vw, 34px); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+    .site-nav a { position: relative; padding: 8px 0; }
+    .site-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--gold); transition: right .25s ease; }
+    .site-nav a:hover::after, .site-nav a:focus-visible::after { right: 0; }
+    .header-cta { display: inline-flex; align-items: center; gap: 9px; padding: 13px 17px; border-radius: 999px; background: var(--ink); color: var(--white); font-size: 10px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; transition: transform .25s ease, background .25s ease; }
+    .header-cta:hover { background: var(--gold-dark); transform: translateY(-2px); }
+    .header-cta svg { width: 14px; height: 14px; }
+    .menu-toggle { display: none; border: 0; background: transparent; padding: 8px; color: var(--ink); }
+    .menu-toggle svg { width: 22px; height: 22px; }
+
+    .hero { min-height: 720px; padding: 48px 0 110px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); align-items: stretch; min-height: 640px; }
+    .hero-copy { display: flex; flex-direction: column; justify-content: center; padding: 64px 54px 64px 0; }
+    .eyebrow, .section-kicker { display: inline-flex; align-items: center; gap: 10px; color: var(--gold-dark); font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .eyebrow::before, .section-kicker::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+    .hero h1 { max-width: 680px; margin: 24px 0 26px; font-family: var(--serif); font-size: clamp(3.9rem, 6.8vw, 7.2rem); font-weight: 500; line-height: .85; letter-spacing: -.052em; }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero-lede { max-width: 400px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 21px; border: 1px solid transparent; border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease; }
+    .button:hover { transform: translateY(-3px); }
+    .button-primary { background: var(--ink); color: var(--white); }
+    .button-primary:hover { background: var(--gold-dark); }
+    .button-secondary { border-color: var(--line); color: var(--ink); }
+    .button-secondary:hover { border-color: var(--ink); background: var(--white); }
+    .button svg { width: 15px; height: 15px; }
+    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 50px; color: var(--muted); font-size: 11px; flex-wrap: wrap; }
+    .hero-note span { display: inline-flex; align-items: center; gap: 7px; }
+    .hero-note svg { width: 13px; height: 13px; color: var(--gold); }
+
+    .hero-wide { position: relative; overflow: hidden; border-radius: var(--radius-lg); min-height: 640px; }
+    .hero-wide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-wide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,43,35,.05), rgba(14,43,35,.42)); }
+    .hero-wide-caption { position: absolute; left: 0; bottom: 0; right: 0; z-index: 2; padding: 22px 24px; display: flex; justify-content: space-between; align-items: flex-end; gap: 18px; color: var(--white); }
+    .hero-wide-caption strong { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; }
+    .hero-wide-caption span { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+
+    .stats { border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--white); display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 72px; overflow: hidden; }
+    .stat { padding: 30px 24px; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; font-family: var(--serif); font-size: 2.5rem; font-weight: 500; line-height: 1; color: var(--ink); }
+    .stat strong span { color: var(--gold); }
+    .stat small { display: block; margin-top: 8px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+    .marquee { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 0; margin: 20px 0; }
+    .marquee-track { display: flex; gap: 0; width: max-content; animation: marquee 34s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 26px; padding-right: 26px; font-family: var(--serif); font-size: 1.15rem; color: var(--muted); white-space: nowrap; }
+    .marquee-item svg { width: 14px; height: 14px; color: var(--gold); flex: none; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .section { padding: 96px 0; }
+    .section-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 22px; margin-bottom: 52px; }
+    .section-head h2 { max-width: 680px; margin: 18px 0 0; font-family: var(--serif); font-size: clamp(2.6rem, 4.6vw, 4.3rem); font-weight: 500; line-height: .96; letter-spacing: -.03em; }
+    .section-head h2 em { color: var(--gold); font-style: italic; }
+    .section-head p { max-width: 340px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+    .about-grid { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 64px; align-items: center; }
+    .about-photos { position: relative; }
+    .about-photo-main { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; }
+    .about-photo-main img { width: 100%; height: 100%; object-fit: cover; }
+    .about-photo-float { position: absolute; right: -26px; bottom: -34px; width: 46%; border-radius: var(--radius-md); overflow: hidden; border: 6px solid var(--paper); box-shadow: var(--shadow, 0 24px 60px rgba(14,43,35,.18)); }
+    .about-photo-float img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+    .about-badge { position: absolute; left: -24px; top: 26px; background: var(--ink); color: var(--white); border-radius: 999px; padding: 12px 18px; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; box-shadow: 0 18px 40px rgba(14,43,35,.3); }
+    .about-badge span { color: var(--gold); }
+    .about-copy h2 { font-family: var(--serif); font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 500; line-height: 1; letter-spacing: -.03em; margin: 16px 0 22px; }
+    .about-copy h2 em { color: var(--gold); font-style: italic; }
+    .about-copy p { color: var(--muted); font-size: 14px; line-height: 1.75; }
+    .about-values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 28px; }
+    .about-value { background: var(--white); padding: 16px 18px; }
+    .about-value strong { display: block; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+    .about-value small { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+    .about-cert { display: inline-flex; align-items: center; gap: 9px; margin-top: 26px; font-size: 11px; font-weight: 700; color: var(--gold-dark); }
+    .about-cert svg { width: 15px; height: 15px; }
+
+    .band { position: relative; overflow: hidden; border-radius: var(--radius-lg); min-height: 420px; display: grid; place-items: center; margin: 20px 0; }
+    .band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .band::after { content: ""; position: absolute; inset: 0; background: rgba(14,43,35,.68); }
+    .band-inner { position: relative; z-index: 2; text-align: center; color: var(--white); max-width: 720px; padding: 0 28px; }
+    .band-inner h3 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 500; line-height: 1.02; letter-spacing: -.02em; margin: 14px 0 0; }
+    .band-inner h3 em { color: var(--gold); font-style: italic; }
+    .band-inner p { max-width: 520px; margin: 18px auto 0; font-size: 14px; line-height: 1.7; color: rgba(255,253,247,.85); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .service { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; transition: transform .3s ease, box-shadow .3s ease; display: flex; flex-direction: column; }
+    .service:hover { transform: translateY(-6px); box-shadow: 0 22px 50px rgba(14,43,35,.1); }
+    .service-figure { aspect-ratio: 1/1; overflow: hidden; }
+    .service-figure img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .service:hover .service-figure img { transform: scale(1.06); }
+    .service-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .service-body strong { font-size: 13px; letter-spacing: .01em; line-height: 1.35; }
+    .service-body a { display: inline-flex; align-items: center; gap: 7px; margin-top: auto; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-dark); }
+    .service-body a svg { width: 13px; height: 13px; transition: transform .25s ease; }
+    .service-body a:hover svg { transform: translateX(4px); }
+
+    .clients { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 60px 0; }
+    .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .client { display: flex; align-items: center; justify-content: center; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 22px; min-height: 92px; transition: border-color .25s ease, transform .25s ease; }
+    .client:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .client img { width: auto; max-height: 58px; object-fit: contain; opacity: .82; filter: saturate(.7); transition: opacity .25s ease, filter .25s ease; }
+    .client:hover img { opacity: 1; filter: none; }
+
+    .testimonial { background: var(--ink); color: var(--white); border-radius: var(--radius-lg); padding: 70px clamp(26px, 6vw, 90px); text-align: center; margin-top: 96px; position: relative; overflow: hidden; }
+    .testimonial::before { content: ""; position: absolute; inset: 0; background: radial-gradient(1200px 400px at 80% -10%, rgba(185,146,62,.22), transparent 60%); }
+    .testimonial-mark { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid rgba(185,146,62,.5); border-radius: 50%; margin: 0 auto 26px; color: var(--gold); }
+    .testimonial-mark svg { width: 20px; height: 20px; }
+    .testimonial blockquote { margin: 0 auto; max-width: 720px; font-family: var(--serif); font-size: clamp(1.4rem, 2.6vw, 2.2rem); font-weight: 400; line-height: 1.3; letter-spacing: -.01em; }
+    .testimonial blockquote em { color: var(--gold); font-style: italic; }
+    .testimonial cite { display: block; margin-top: 28px; font-style: normal; }
+    .testimonial cite strong { display: block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--white); }
+    .testimonial cite span { display: block; margin-top: 4px; font-size: 11px; color: rgba(255,253,247,.6); }
+
+    .cta { background: var(--paper-deep); border-radius: var(--radius-lg); padding: 80px clamp(26px, 6vw, 88px); display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; margin-top: 110px; position: relative; overflow: hidden; }
+    .cta-copy h2 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 500; line-height: 1; letter-spacing: -.03em; margin: 16px 0 20px; }
+    .cta-copy h2 em { color: var(--gold-dark); font-style: italic; }
+    .cta-copy p { color: var(--muted); font-size: 14px; line-height: 1.75; max-width: 440px; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .cta-figure { border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4/3; position: relative; }
+    .cta-figure img { width: 100%; height: 100%; object-fit: cover; }
+    .cta-figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(14,43,35,.35)); }
+
+    .contact { margin-top: 110px; }
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+    .contact-info h2 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 500; line-height: 1; letter-spacing: -.03em; margin: 16px 0 20px; }
+    .contact-info > p { color: var(--muted); font-size: 14px; line-height: 1.75; max-width: 420px; }
+    .contact-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 30px; }
+    .contact-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 20px; display: flex; flex-direction: column; gap: 7px; }
+    .contact-card svg { width: 18px; height: 18px; color: var(--gold-dark); }
+    .contact-card strong { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .contact-card a, .contact-card address { font-style: normal; font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.45; }
+    .contact-card address span { display: block; }
+    .contact-form { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 34px; }
+    .contact-form h3 { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; margin: 0 0 22px; }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+    .field input, .field textarea { width: 100%; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px 16px; background: var(--paper); font-size: 13px; color: var(--ink); }
+    .field input:focus, .field textarea:focus { outline: 2px solid var(--gold); outline-offset: -1px; border-color: transparent; }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .form-note { display: flex; align-items: center; gap: 8px; font-size: 10px; color: var(--muted); margin-top: 6px; }
+    .form-note svg { width: 12px; height: 12px; color: var(--gold-dark); }
+
+    .map-frame { margin-top: 64px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); }
+    .map-frame iframe { display: block; width: 100%; height: 420px; border: 0; }
+
+    .site-footer { background: var(--ink); color: rgba(245,242,234,.82); margin-top: 110px; padding: 70px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 44px; }
+    .footer-brand img { width: 92px; height: auto; filter: invert(1); opacity: .92; }
+    .footer-brand p { max-width: 300px; font-size: 12px; line-height: 1.7; color: rgba(245,242,234,.6); margin: 18px 0 0; }
+    .footer-col strong { display: block; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+    .footer-col a { font-size: 12px; color: rgba(245,242,234,.78); }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-contact { display: grid; gap: 12px; }
+    .footer-contact a, .footer-contact address { font-style: normal; font-size: 12px; color: rgba(245,242,234,.78); display: flex; gap: 9px; align-items: flex-start; }
+    .footer-contact a:hover { color: var(--gold); }
+    .footer-contact svg { width: 14px; height: 14px; color: var(--gold); flex: none; margin-top: 2px; }
+    .footer-bottom { border-top: 1px solid rgba(245,242,234,.12); margin-top: 54px; padding: 22px 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 11px; color: rgba(245,242,234,.5); }
+    .footer-bottom strong { color: var(--gold); font-weight: 700; }
+
+    .whatsapp-float { position: fixed; right: 22px; bottom: 22px; z-index: 35; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: var(--white); box-shadow: 0 16px 40px rgba(37,211,102,.4); transition: transform .25s ease; }
+    .whatsapp-float:hover { transform: translateY(-4px) scale(1.04); }
+    .whatsapp-float svg { width: 27px; height: 27px; }
+
+    @media (max-width: 1020px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-copy { padding: 20px 0; }
+      .hero-wide { min-height: 420px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-photo-float { right: 8%; bottom: -28px; }
+      .cta { grid-template-columns: 1fr; gap: 36px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .site-nav { display: none; position: fixed; inset: 82px 0 auto 0; background: var(--white); border-bottom: 1px solid var(--line); padding: 18px 24px 26px; flex-direction: column; align-items: flex-start; gap: 4px; box-shadow: 0 30px 60px rgba(14,43,35,.1); }
+      .site-nav.is-open { display: flex; }
+      .menu-toggle { display: inline-flex; }
+      .stats { grid-template-columns: repeat(2, 1fr); margin-top: 52px; }
+      .stat { border-bottom: 1px solid var(--line); }
+      .stat:nth-child(even) { border-right: 0; }
+      .stat:nth-child(3), .stat:nth-child(4) { border-bottom: 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .section { padding: 72px 0; }
+      .contact-cards { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-wide-caption span { display: none; }
+      .container { width: min(1200px, calc(100% - 32px)); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div data-preloader aria-hidden="true">
+    <div class="preloader-mark">
+      <img src="assets/logo-topo.png" alt="">
+      <div class="preloader-line"></div>
+      <p class="preloader-label">Desde 1994 — Sete Lagoas</p>
+    </div>
+  </div>
+
+  <div class="topline">
+    <div class="container topline-inner">
+      <span>CRCMG <strong>MG-010175/O</strong> · Escritório Ávila Contábil · Desde <strong>1994</strong></span>
+      <div class="topline-socials">
+        <a href="https://www.instagram.com/escritorioavila/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.facebook.com/escritorioavilaeassociados/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Escritório Ávila Contábil — início">
+        <img src="assets/logo-topo.png" alt="Logo Escritório Ávila Contábil">
+        <div class="brand-caption">
+          <strong>Escritório Ávila</strong>
+          <span>Contabilidade &amp; Consultoria</span>
+        </div>
+      </a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+      <nav class="site-nav" aria-label="Navegação principal" data-menu>
+        <a href="#quemsomos">Quem Somos</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#clientes">Clientes</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="header-cta" href="https://api.whatsapp.com/send?phone=5537984988805" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.79h-.02a9.8 9.8 0 0 1-5.01-1.37l-.36-.21-3.73.98.99-3.64-.23-.37a9.74 9.74 0 0 1-1.5-5.21c0-5.4 4.4-9.79 9.82-9.79 2.62 0 5.08 1.02 6.93 2.88a9.74 9.74 0 0 1 2.86 6.94c0 5.4-4.4 9.78-9.75 9.79z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-grid" data-reveal>
+          <div class="hero-copy">
+            <span class="eyebrow">Escritório Ávila Contábil</span>
+            <h1>31 anos de <em>confiança</em> com o seu negócio</h1>
+            <p class="hero-lede">Contabilidade, gestão tributária, fiscal e trabalhista com atendimento direto em Sete Lagoas — do microempreendedor à empresa de grande porte.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://api.whatsapp.com/send?phone=5537984988805" target="_blank" rel="noopener">
+                Agendar conversa
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a class="button button-secondary" href="#solucoes">Nossas soluções</a>
+            </div>
+            <div class="hero-note">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Homenageado pela Câmara Municipal · 2018</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Registro CRCMG MG-010175/O</span>
+            </div>
+          </div>
+          <div class="hero-wide">
+            <img src="assets/banner-1.jpg" alt="Escritório Ávila Contábil — contadores em atividade" fetchpriority="high">
+            <div class="hero-wide-caption">
+              <strong>Confie em quem entende de contabilidade</strong>
+              <span>Sete Lagoas — MG</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats" data-reveal>
+          <div class="stat"><strong>1994<span>+</span></strong><small>Anos de fundação</small></div>
+          <div class="stat"><strong>31<span> </span></strong><small>Anos de mercado</small></div>
+          <div class="stat"><strong>8</strong><small>Áreas de atuação</small></div>
+          <div class="stat"><strong>25<span>+</span></strong><small>Anos de expertise do fundador</small></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">Abertura de Empresas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <span class="marquee-item">Área Contábil <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <span class="marquee-item">Área Fiscal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <span class="marquee-item">Departamento Pessoal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <span class="marquee-item">Certificado Digital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        <span class="marquee-item">Perícias Contábeis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </div>
+    </div>
+
+    <section class="section" id="quemsomos">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="section-kicker">Quem Somos</span>
+            <h2>Contabilidade com <em>senso de responsabilidade</em>, desde 1994</h2>
+          </div>
+          <p>O Escritório Ávila nasceu em Sete Lagoas pelas mãos de Uilton Ávila, profissional com mais de 25 anos de experiência em contabilidade e consultoria.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-photos" data-reveal>
+            <span class="about-badge">Desde <span>1994</span></span>
+            <div class="about-photo-main">
+              <img src="assets/unsplash-sobre.jpg" alt="Reunião de negócios em ambiente contábil">
+            </div>
+            <div class="about-photo-float">
+              <img src="assets/certificado-uilton.jpeg" alt="Certificado de honra ao fundador Uilton Ávila">
+            </div>
+          </div>
+          <div class="about-copy" data-reveal>
+            <span class="section-kicker">Nossa história</span>
+            <h2>Fidelidade ao cliente, <em>rigor técnico</em> em cada detalhe</h2>
+            <p>Somos uma empresa de serviços e consultoria nas áreas contábeis, fiscal, tributária, departamento pessoal e perícia contábil. Com esta trajetória, tornamo-nos referência no mercado contábil de Sete Lagoas devido à vasta capacitação técnica, ao profissionalismo e ao comprometimento de nossos colaboradores.</p>
+            <p>Em 2018, o fundador foi homenageado pela Câmara Municipal de Sete Lagoas pela sua relevante contribuição ao desenvolvimento do município.</p>
+            <div class="about-values">
+              <div class="about-value"><strong>Missão</strong><small>Prover soluções contábeis com eficiência e agilidade para a tomada de decisão.</small></div>
+              <div class="about-value"><strong>Visão</strong><small>Ser referência em Minas Gerais na prestação de serviços contábeis.</small></div>
+              <div class="about-value"><strong>Ética &amp; Transparência</strong><small>Princípios que guiam cada atendimento e cada balanço.</small></div>
+              <div class="about-value"><strong>Comprometimento</strong><small>Responsabilidade com o resultado do cliente, sempre.</small></div>
+            </div>
+            <a class="about-cert" href="#contato">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Registro ativo: CRCMG MG-010175/O
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="band" data-reveal>
+      <img src="assets/banner-9.jpg" alt="Ambiente de escritório contábil do Escritório Ávila">
+      <div class="band-inner">
+        <span class="section-kicker" style="color:#f1ddb6;">Abrimos e mantemos o seu negócio</span>
+        <h3>Do microempreendedor <em>à empresa de grande porte</em></h3>
+        <p>Todos os serviços fiscais, contábeis e trabalhistas em um só lugar, com atendimento próximo e humano.</p>
+      </div>
+    </div>
+
+    <section class="section" id="solucoes">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="section-kicker">Nossas Soluções</span>
+            <h2>Todo o suporte contábil que a sua empresa precisa, <em>em um só lugar</em></h2>
+          </div>
+          <p>Das obrigações rotineiras às decisões estratégicas — cuidamos da parte técnica para você cuidar do negócio.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service" data-reveal>
+            <div class="service-figure"><img src="assets/sol-abertura.jpg" alt="Abertura de empresas"></div>
+            <div class="service-body">
+              <strong>Abertura de Empresas</strong>
+              <a href="https://escritorioavilacontabil.com.br/solucao/abertura-de-empresas/45" target="_blank" rel="noopener">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </article>
+          <article class="service" data-reveal>
+            <div class="service-figure"><img src="assets/sol-contabil.jpg" alt="Área contábil"></div>
+            <div class="service-body">
+              <strong>Área Contábil</strong>
+              <a href="https://escritorioavilacontabil.com.br/solucao/Area-contabil/42" target="_blank" rel="noopener">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </article>
+          <article class="service" data-reveal>
+            <div class="service-figure"><img src="assets/sol-fiscal.jpg" alt="Área fiscal"></div>
+            <div class="service-body">
+              <strong>Área Fiscal</strong>
+              <a href="https://escritorioavilacontabil.com.br/solucao/Area-fiscal/44" target="_blank" rel="noopener">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </article>
+          <article class="service" data-reveal>
+            <div class="service-figure"><img src="assets/sol-rh.jpg" alt="Área trabalhista e departamento pessoal"></div>
+            <div class="service-body">
+              <strong>Área Trabalhista &amp; DP</strong>
+              <a href="https://escritorioavilacontabil.com.br/solucao/Area-trabalhista-e-departamento-pessoal/43" target="_blank" rel="noopener">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </article>
+          <article class="service" data-reveal>
+            <div class="service-figure"><img src="assets/sol-gerencial.jpg" alt="Contabilidade gerencial"></div>
+            <div class="service-body">
+              <strong>Contabilidade Gerencial</strong>
+              <a href="https://escritorioavilacontabil.com.br/solucao/contabilidade-gerencial/3" target="_blank" rel="noopener">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </article>
+          <article class="service" data-reveal>
+            <div class="service-figure"><img src="assets/sol-financeiro.jpg" alt="Orientações sobre produtos financeiros"></div>
+            <div class="service-body">
+              <strong>Orientações sobre Produtos Financeiros</strong>
+              <a href="https://escritorioavilacontabil.com.br/solucao/orientacoes-sobre-produtos-financeiros/5" target="_blank" rel="noopener">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </article>
+          <article class="service" data-reveal>
+            <div class="service-figure"><img src="assets/sol-pericias.jpg" alt="Perícias contábeis"></div>
+            <div class="service-body">
+              <strong>Perícias Contábeis</strong>
+              <a href="https://escritorioavilacontabil.com.br/solucao/pericias-contabeis/4" target="_blank" rel="noopener">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </article>
+          <article class="service" data-reveal>
+            <div class="service-figure"><img src="assets/sol-certificado.png" alt="Certificado digital InFoco"></div>
+            <div class="service-body">
+              <strong>Certificado Digital InFoco</strong>
+              <a href="https://conteudo.infocodigital.com.br/escritorioavila" target="_blank" rel="noopener">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="clients" id="clientes">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="section-kicker">Clientes</span>
+            <h2>Empresas que <em>confiam no Ávila</em></h2>
+          </div>
+          <p>Negócios locais dos mais variados segmentos, atendidos com a mesma dedicação.</p>
+        </div>
+        <div class="clients-grid" data-reveal>
+          <div class="client"><img src="assets/logo-cliente-18.jpg" alt="Premium Academia"></div>
+          <div class="client"><img src="assets/logo-cliente-17.jpg" alt="Laura Coutinho Festas"></div>
+          <div class="client"><img src="assets/logo-cliente-16.jpg" alt="MG Compressores"></div>
+          <div class="client"><img src="assets/logo-cliente-10.jpg" alt="Alinhasete Centro Automotivo"></div>
+          <div class="client"><img src="assets/logo-cliente-9.jpg" alt="AST Engenharia e Segurança do Trabalho"></div>
+          <div class="client"><img src="assets/logo-cliente-7.jpg" alt="Moinho Restaurante"></div>
+          <div class="client"><img src="assets/logo-cliente-6.jpg" alt="Grimaldo Bicalho Reabilitação e Implantes"></div>
+          <div class="client"><img src="assets/logo-cliente-4.jpg" alt="Supermercado Pão de Minas"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:30px;">
+      <div class="container">
+        <div class="testimonial" data-reveal>
+          <div class="testimonial-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+          </div>
+          <blockquote>"Ficamos muito satisfeitos com o serviço da Contabilidade Ávila. Desde sempre contamos com um atendimento preciso e de qualidade. <em>Parabéns a toda equipe.</em>"</blockquote>
+          <cite>
+            <strong>Matheus Martins</strong>
+            <span>AST Assessoria e Segurança do Trabalho</span>
+          </cite>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="cta" data-reveal>
+          <div class="cta-copy">
+            <span class="section-kicker">Atendimento próximo</span>
+            <h2>Fale com a nossa equipe e <em>deixe a parte contábil conosco</em></h2>
+            <p>Atendemos a pessoa física, o microempreendedor e as empresas de grande porte. Tire suas dúvidas pelo WhatsApp ou venha nos visitar em Sete Lagoas.</p>
+            <div class="cta-actions">
+              <a class="button button-primary" href="https://api.whatsapp.com/send?phone=5537984988805" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+              <a class="button button-secondary" href="#contato">Ver contatos</a>
+            </div>
+          </div>
+          <div class="cta-figure">
+            <img src="assets/unsplash-cta.jpg" alt="Consultoria contábil com atendimento personalizado">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contato" style="padding-top:0;">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info" data-reveal>
+            <span class="section-kicker">Fale Conosco</span>
+            <h2>Estamos em <em>Sete Lagoas</em> para atender você</h2>
+            <p>Escritório localizado no Bairro Boa Vista, com estacionamento fácil e atendimento direto com a equipe técnica.</p>
+            <div class="contact-cards">
+              <div class="contact-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <strong>Endereço</strong>
+                <address><span>Rua Paraná, 216 — Boa Vista</span><span>Sete Lagoas · MG · 35700-114</span></address>
+              </div>
+              <div class="contact-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <strong>Telefones</strong>
+                <a href="tel:+553137711444">(31) 3771-1444</a>
+              </div>
+              <div class="contact-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.79h-.02a9.8 9.8 0 0 1-5.01-1.37l-.36-.21-3.73.98.99-3.64-.23-.37a9.74 9.74 0 0 1-1.5-5.21c0-5.4 4.4-9.79 9.82-9.79 2.62 0 5.08 1.02 6.93 2.88a9.74 9.74 0 0 1 2.86 6.94c0 5.4-4.4 9.78-9.75 9.79z"/></svg>
+                <strong>WhatsApp</strong>
+                <a href="https://api.whatsapp.com/send?phone=5537984988805" target="_blank" rel="noopener">(37) 98498-8805</a>
+              </div>
+              <div class="contact-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+                <strong>E-mail</strong>
+                <a href="mailto:contato@escritorioavilacontabil.com.br">contato@escritorioavilacontabil.com.br</a>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="formAvila" data-reveal action="https://api.whatsapp.com/send?phone=5537984988805" method="get" target="_blank" rel="noopener">
+            <h3>Envie uma mensagem</h3>
+            <div class="field">
+              <label for="f-nome">Nome</label>
+              <input id="f-nome" type="text" name="text" placeholder="Seu nome completo" required>
+            </div>
+            <div class="field">
+              <label for="f-email">E-mail</label>
+              <input id="f-email" type="email" name="text" placeholder="voce@empresa.com.br" required>
+            </div>
+            <div class="field">
+              <label for="f-msg">Mensagem</label>
+              <textarea id="f-msg" name="text" placeholder="Como podemos ajudar?" required></textarea>
+            </div>
+            <input type="hidden" name="phone" value="5537984988805">
+            <button class="button button-primary" type="submit" style="width:100%;">
+              Enviar pelo WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+            <p class="form-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Ao enviar, a mensagem abre direto no WhatsApp do escritório.
+            </p>
+          </form>
+        </div>
+
+        <div class="map-frame" data-reveal>
+          <iframe title="Mapa — Escritório Ávila Contábil, Sete Lagoas" src="https://www.google.com/maps?q=Rua+Paran%C3%A1,+216,+Boa+Vista,+Sete+Lagoas+-+MG&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#inicio"><img src="assets/logo-footer.png" alt="Logo Escritório Ávila Contábil"></a>
+          <p>Contabilidade e consultoria nas áreas contábil, fiscal, tributária, trabalhista e perícias contábeis — atendendo Sete Lagoas e região desde 1994.</p>
+        </div>
+        <div class="footer-col">
+          <strong>Navegação</strong>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#quemsomos">Quem Somos</a></li>
+            <li><a href="#solucoes">Soluções</a></li>
+            <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <strong>Soluções</strong>
+          <ul>
+            <li><a href="https://escritorioavilacontabil.com.br/solucao/abertura-de-empresas/45" target="_blank" rel="noopener">Abertura de Empresas</a></li>
+            <li><a href="https://escritorioavilacontabil.com.br/solucao/Area-fiscal/44" target="_blank" rel="noopener">Área Fiscal</a></li>
+            <li><a href="https://escritorioavilacontabil.com.br/solucao/Area-trabalhista-e-departamento-pessoal/43" target="_blank" rel="noopener">Departamento Pessoal</a></li>
+            <li><a href="https://conteudo.infocodigital.com.br/escritorioavila" target="_blank" rel="noopener">Certificado Digital</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <strong>Contato</strong>
+          <div class="footer-contact">
+            <a href="tel:+553137711444"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (31) 3771-1444</a>
+            <a href="https://api.whatsapp.com/send?phone=5537984988805" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.07-.12-.27-.2-.57-.35z"/></svg> (37) 98498-8805</a>
+            <a href="mailto:contato@escritorioavilacontabil.com.br"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg> contato@escritorioavilacontabil.com.br</a>
+            <address><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Rua Paraná, 216 — Boa Vista<br>Sete Lagoas · MG</address>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> · Escritório Ávila Contábil — <strong>CRCMG MG-010175/O</strong></p>
+        <p>Redesign conceitual — BRMG Prospecção de Sites</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=5537984988805" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.79h-.02a9.8 9.8 0 0 1-5.01-1.37l-.36-.21-3.73.98.99-3.64-.23-.37a9.74 9.74 0 0 1-1.5-5.21c0-5.4 4.4-9.79 9.82-9.79 2.62 0 5.08 1.02 6.93 2.88a9.74 9.74 0 0 1 2.86 6.94c0 5.4-4.4 9.78-9.75 9.79z"/></svg>
+  </a>
+
+  <script>
+    const preloader = document.querySelector('[data-preloader]');
+    window.addEventListener('load', () => setTimeout(() => preloader.classList.add('is-hidden'), 400));
+
+    const header = document.querySelector('[data-header]');
+    const onScrollHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
+    window.addEventListener('scroll', onScrollHeader, { passive: true });
+    onScrollHeader();
+
+    const menu = document.querySelector('[data-menu]');
+    const menuToggle = document.querySelector('[data-menu-toggle]');
+    menuToggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', open);
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    const yearEl = document.querySelector('[data-year]');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+
+    document.getElementById('formAvila').addEventListener('submit', function (e) {
+      const nome = document.getElementById('f-nome').value;
+      const mensagem = document.getElementById('f-msg').value;
+      const texto = 'Olá Escritório Ávila, sou ' + nome + '.\n' + mensagem;
+      const url = 'https://api.whatsapp.com/send?phone=5537984988805&text=' + encodeURIComponent(texto);
+      window.open(url, '_blank');
+      e.preventDefault();
+    });
+  </script>
+</body>
+</html>

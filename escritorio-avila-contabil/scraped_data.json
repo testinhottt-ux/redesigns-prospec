@@ -1,0 +1,72 @@
+{
+  "prospecto": {
+    "nome": "Escritório Ávila Contábil",
+    "dominio": "escritorioavilacontabil.com.br",
+    "url": "https://escritorioavilacontabil.com.br/",
+    "cidade": "Sete Lagoas - MG",
+    "segmento": "Contabilidade e consultoria fiscal",
+    "crcmg": "MG-010175/O",
+    "desde": 1994,
+    "http_status": 200,
+    "mx": "30 mx2zmail3.minasnet.com.br",
+    "nota": 4.2,
+    "status": "APROVADO — redesign em andamento"
+  },
+  "contato": {
+    "endereco": "Rua Paraná, Nº 216 - Boa Vista, Sete Lagoas - MG - 35700-114",
+    "telefone_fixo": ["(31) 3771-1444", "(37) 3771-1004"],
+    "whatsapp": "(37) 98498-8805",
+    "whatsapp_link": "https://api.whatsapp.com/send?phone=5537984988805",
+    "email": "contato@escritorioavilacontabil.com.br",
+    "instagram": "https://www.instagram.com/escritorioavila/",
+    "facebook": "https://www.facebook.com/escritorioavilaeassociados/",
+    "twitter": "https://twitter.com/escritorioavila"
+  },
+  "historia": {
+    "fundacao": 1994,
+    "fundador": "Uilton Ávila",
+    "experiencia_fundador": "mais de 25 anos em contabilidade e consultoria",
+    "honraria": "Homenageado pela Câmara Municipal de Sete Lagoas em 2018",
+    "missao": "Prover soluções em serviços contábeis com eficiência e agilidade, fornecendo ao cliente todas as informações fundamentais à tomada de decisão.",
+    "visao": "Ser referência em Minas Gerais na prestação de serviços contábeis.",
+    "valores": ["Transparência", "Comprometimento", "Ética", "Responsabilidade"]
+  },
+  "solucoes": [
+    { "nome": "Abertura de Empresas", "slug": "abertura-de-empresas", "url": "https://escritorioavilacontabil.com.br/solucao/abertura-de-empresas/45" },
+    { "nome": "Área Contábil", "slug": "Area-contabil", "url": "https://escritorioavilacontabil.com.br/solucao/Area-contabil/42" },
+    { "nome": "Área Fiscal", "slug": "Area-fiscal", "url": "https://escritorioavilacontabil.com.br/solucao/Area-fiscal/44" },
+    { "nome": "Área Trabalhista e Departamento Pessoal", "slug": "Area-trabalhista-e-departamento-pessoal", "url": "https://escritorioavilacontabil.com.br/solucao/Area-trabalhista-e-departamento-pessoal/43" },
+    { "nome": "Certificado Digital InFoco", "slug": "certificado-digital-infoco", "url": "https://conteudo.infocodigital.com.br/escritorioavila" },
+    { "nome": "Contabilidade Gerencial", "slug": "contabilidade-gerencial", "url": "https://escritorioavilacontabil.com.br/solucao/contabilidade-gerencial/3" },
+    { "nome": "Orientações Sobre Produtos Financeiros", "slug": "orientacoes-sobre-produtos-financeiros", "url": "https://escritorioavilacontabil.com.br/solucao/orientacoes-sobre-produtos-financeiros/5" },
+    { "nome": "Perícias Contábeis", "slug": "pericias-contabeis", "url": "https://escritorioavilacontabil.com.br/solucao/pericias-contabeis/4" }
+  ],
+  "clientes": [
+    "Premium Academia",
+    "Laura Coutinho Festas",
+    "MG Compressores",
+    "Alinhasete Centro Automotivo",
+    "AST Engenharia e Segurança do Trabalho",
+    "Moinho Restaurante",
+    "Grimaldo Bicalho Reabilitação e Implantes",
+    "Supermercado Pão de Minas"
+  ],
+  "depoimentos": [
+    {
+      "autor": "Matheus Martins",
+      "empresa": "AST Assessoria e Segurança do Trabalho",
+      "texto": "Ficamos muito satisfeitos com o serviço da Contabilidade Ávila. Desde sempre contamos com um atendimento preciso e de qualidade. Parabéns a toda equipe."
+    }
+  ],
+  "paginas": [
+    "/",
+    "/quem-somos",
+    "/depoimentos",
+    "/solucoes",
+    "/clientes",
+    "/fale-conosco",
+    "/solicite-uma-visita",
+    "/ligamos-para-voce",
+    "/blog"
+  ]
+}
