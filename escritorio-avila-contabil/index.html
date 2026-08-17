@@ -99,8 +99,8 @@
     }
     #preloader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
     .preloader-brand { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-    .preloader-brand img { width: 140px; filter: brightness(0) invert(1); opacity: .95; }
-    .preloader-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); }
+    .preloader-brand img { width: 220px; max-width: 80vw; height: auto; }
+    .preloader-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold-light); }
     .preloader-bar-wrap { width: 180px; height: 2px; background: rgba(255,255,255,0.12); border-radius: 2px; overflow: hidden; position: relative; }
     .preloader-bar { width: 0%; height: 100%; background: var(--gold); transition: width .3s ease; }
     .preloader-num { font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,0.6); }
@@ -149,11 +149,7 @@
       display: flex; align-items: center; justify-content: space-between; gap: 24px;
     }
     .brand-link { display: flex; align-items: center; gap: 16px; }
-    .brand-logo { width: 168px; height: auto; object-fit: contain; }
-    .brand-divider { width: 1px; height: 32px; background: var(--line); }
-    .brand-meta { display: flex; flex-direction: column; font-size: 11px; line-height: 1.25; }
-    .brand-meta strong { font-weight: 700; color: var(--ink); letter-spacing: .04em; text-transform: uppercase; font-size: 10px; }
-    .brand-meta span { color: var(--muted); font-size: 10px; font-family: var(--font-mono); }
+    .brand-logo { width: 220px; height: auto; object-fit: contain; }
 
     .nav-menu { display: flex; align-items: center; gap: 32px; font-size: 13px; font-weight: 600; }
     .nav-link {
@@ -426,11 +422,12 @@
     }
     .bento-card.col-6 { grid-column: span 6; }
     .bento-card.col-4 { grid-column: span 4; }
+    .bento-card.col-3 { grid-column: span 3; }
     .bento-card.col-8 { grid-column: span 8; }
     .bento-card.col-12 { grid-column: span 12; }
 
     .bento-media {
-      position: relative; height: 210px; overflow: hidden;
+      position: relative; height: 220px; overflow: hidden;
       background: var(--bg-alt);
     }
     .bento-media img {
@@ -440,21 +437,21 @@
     .bento-card:hover .bento-media img { transform: scale(1.08); }
     .bento-media-tag {
       position: absolute; top: 16px; left: 16px;
-      background: rgba(7, 29, 23, 0.85); backdrop-filter: blur(8px);
-      color: var(--gold-light); padding: 4px 12px; border-radius: 999px;
+      background: rgba(7, 29, 23, 0.88); backdrop-filter: blur(8px);
+      color: var(--gold-light); padding: 5px 14px; border-radius: 999px;
       font-family: var(--font-mono); font-size: 10px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .08em;
+      text-transform: uppercase; letter-spacing: .08em; border: 1px solid rgba(197, 155, 67, 0.3);
     }
     .bento-body {
-      padding: 28px;
+      padding: 30px;
       display: flex; flex-direction: column; gap: 14px; flex: 1;
     }
     .bento-icon {
-      width: 44px; height: 44px; border-radius: 12px;
+      width: 46px; height: 46px; border-radius: 12px;
       background: rgba(197, 155, 67, 0.12); color: var(--gold-dark);
       display: grid; place-items: center;
     }
-    .bento-icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; }
+    .bento-icon svg { width: 24px; height: 24px; stroke: currentColor; fill: none; }
     .bento-title {
       font-family: var(--font-serif);
       font-size: 22px; font-weight: 500; line-height: 1.25; color: var(--ink);
@@ -463,13 +460,13 @@
       font-size: 14px; color: var(--muted); line-height: 1.6;
     }
     .bento-list {
-      list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 12px;
+      list-style: none; display: flex; flex-direction: column; gap: 9px; margin-top: auto; padding-top: 16px;
       border-top: 1px solid var(--line);
     }
     .bento-list li {
-      font-size: 12.5px; color: var(--ink-light); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4;
+      font-size: 12.5px; color: var(--ink-light); display: flex; align-items: flex-start; gap: 8px; line-height: 1.45;
     }
-    .bento-list li svg { width: 14px; height: 14px; stroke: var(--gold-dark); flex-shrink: 0; margin-top: 2px; }
+    .bento-list li svg { width: 15px; height: 15px; stroke: var(--gold-dark); flex-shrink: 0; margin-top: 2px; }
 
     /* Interactive Tax & Regime Diagnostic Tool */
     .simulator-box {
@@ -644,7 +641,7 @@
       display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 60px;
     }
     .footer-brand { display: flex; flex-direction: column; gap: 18px; }
-    .footer-brand img { width: 160px; filter: brightness(0) invert(1); }
+    .footer-brand img { width: 220px; height: auto; }
     .footer-title { font-family: var(--font-serif); font-size: 18px; color: #fff; margin-bottom: 18px; }
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; }
     .footer-links a:hover { color: var(--gold-light); }
@@ -676,7 +673,7 @@
     /* Media Queries */
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; }
-      .bento-card.col-6, .bento-card.col-4, .bento-card.col-8 { grid-column: span 6; }
+      .bento-card.col-6, .bento-card.col-4, .bento-card.col-3, .bento-card.col-8 { grid-column: span 6; }
       .simulator-box { grid-template-columns: 1fr; }
       .metrics-grid { grid-template-columns: repeat(2, 1fr); }
       .timeline-wrap { grid-template-columns: repeat(2, 1fr); }
@@ -689,7 +686,7 @@
       .top-links { display: none; }
       .nav-menu, .btn-header { display: none; }
       .menu-toggle { display: flex; }
-      .bento-card.col-6, .bento-card.col-4, .bento-card.col-8, .bento-card.col-12 { grid-column: span 12; }
+      .bento-card.col-6, .bento-card.col-4, .bento-card.col-3, .bento-card.col-8, .bento-card.col-12 { grid-column: span 12; }
       .metrics-grid { grid-template-columns: 1fr; }
       .timeline-wrap { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
@@ -709,7 +706,7 @@
   <!-- Preloader -->
   <div id="preloader" data-preloader>
     <div class="preloader-brand">
-      <img src="assets/logo-topo.png" alt="Escritório Ávila Contábil">
+      <img src="assets/logo-avila-white.svg" alt="Escritório Ávila Contábil" width="240" height="62">
       <span class="preloader-tag">Desde 1994 · Sete Lagoas / MG</span>
     </div>
     <div class="preloader-bar-wrap">
@@ -741,12 +738,7 @@
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="#inicio" class="brand-link" aria-label="Escritório Ávila Contábil - Início">
-        <img src="assets/logo-topo.png" alt="Escritório Ávila Contábil" class="brand-logo">
-        <div class="brand-divider"></div>
-        <div class="brand-meta">
-          <strong>Escritório Ávila</strong>
-          <span>31 Anos de Tradição</span>
-        </div>
+        <img src="assets/logo-avila.svg" alt="Escritório Ávila Contábil" class="brand-logo" width="220" height="56">
       </a>
 
       <nav class="nav-menu" aria-label="Navegação Principal">
@@ -773,7 +765,7 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <div class="drawer-header">
-      <img src="assets/logo-topo.png" alt="Ávila Contábil" style="width: 140px; filter: brightness(0) invert(1);">
+      <img src="assets/logo-avila-white.svg" alt="Ávila Contábil" style="width: 190px; height: auto;">
       <button class="menu-toggle" id="drawerClose" style="background: rgba(255,255,255,0.1); color: #fff;" aria-label="Fechar Menu">
         <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
@@ -884,12 +876,12 @@
         <div style="text-align: center; max-width: 760px; margin-inline: auto;" data-reveal>
           <span class="section-eyebrow">Soluções Corporativas</span>
           <h2 class="section-title">Especialidades desenhadas para <em>proteger e expandir</em> o seu patrimônio.</h2>
-          <p class="section-lead">Da escrituração fiscal diária a perícias econômicas complexas, entregamos soluções precisas que embasam a tomada de decisão de empresários e gestores.</p>
+          <p class="section-lead">Da estruturação societária à escrituração fiscal diária e perícias econômicas complexas, entregamos soluções precisas que embasam a tomada de decisão de empresários e gestores.</p>
         </div>
 
         <div class="bento-grid">
           
-          <!-- Card 1: Área Fiscal -->
+          <!-- Card 1: Área Fiscal (Destaque Principal) -->
           <div class="bento-card col-6" data-reveal>
             <div class="bento-media">
               <img src="assets/unsplash-fiscal.jpg" alt="Planejamento Tributário e Gestão Fiscal">
@@ -908,7 +900,26 @@
             </div>
           </div>
 
-          <!-- Card 2: Área Contábil IFRS -->
+          <!-- Card 2: Abertura, Holdings & Reestruturação Societária (Destaque Principal) -->
+          <div class="bento-card col-6" data-reveal>
+            <div class="bento-media">
+              <img src="assets/unsplash-societario-award.jpg" alt="Abertura, Holdings e Reestruturação Societária">
+              <span class="bento-media-tag">Holdings &amp; Estruturação Societária</span>
+            </div>
+            <div class="bento-body">
+              <div class="bento-icon">
+                <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg>
+              </div>
+              <h3 class="bento-title">Abertura, Holdings &amp; Reestruturação Societária</h3>
+              <p class="bento-desc">Constituição ágil de empresas, planejamento de Holding Patrimonial/Familiar para proteção de bens e sucessão, além de fusões, cisões, transformações societárias e alvarás.</p>
+              <ul class="bento-list">
+                <li><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Abertura rápida de CNPJ, contratos sociais blindados e registros na JUCEMG.</li>
+                <li><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Estruturação de Holdings, cisões, incorporações e alterações societárias seguras.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 3: Área Contábil IFRS -->
           <div class="bento-card col-6" data-reveal>
             <div class="bento-media">
               <img src="assets/unsplash-contabil.jpg" alt="Área Contábil e Normas IFRS">
@@ -927,8 +938,8 @@
             </div>
           </div>
 
-          <!-- Card 3: Perícias Contábeis -->
-          <div class="bento-card col-4" data-reveal>
+          <!-- Card 4: Perícias Contábeis -->
+          <div class="bento-card col-6" data-reveal>
             <div class="bento-media">
               <img src="assets/unsplash-pericias.jpg" alt="Perícias Contábeis Judiciais e Arbitrais">
               <span class="bento-media-tag">Judicial &amp; Arbitral</span>
@@ -937,44 +948,33 @@
               <div class="bento-icon">
                 <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
               </div>
-              <h3 class="bento-title">Perícias Contábeis</h3>
-              <p class="bento-desc">Perícias judiciais, extrajudiciais e arbitrais: cálculos trabalhistas, contratos financeiros e Balanço de Determinação (Apuração de Haveres em saída ou falecimento de sócios).</p>
+              <h3 class="bento-title">Perícias Contábeis &amp; Apuração de Haveres</h3>
+              <p class="bento-desc">Perícias judiciais, extrajudiciais e arbitrais: cálculos trabalhistas, perícia financeira em contratos de financiamento e Balanço de Determinação para apuração de haveres na saída ou falecimento de sócios.</p>
+              <ul class="bento-list">
+                <li><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Laudos periciais para processos judiciais e câmaras de arbitragem.</li>
+                <li><svg viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Avaliação patrimonial especial em dissoluções societárias e cisões.</li>
+              </ul>
             </div>
           </div>
 
-          <!-- Card 4: Contabilidade Gerencial -->
-          <div class="bento-card col-4" data-reveal>
-            <div class="bento-media">
+          <!-- Card 5: Contabilidade Gerencial -->
+          <div class="bento-card col-3" data-reveal>
+            <div class="bento-media" style="height: 170px;">
               <img src="assets/unsplash-gerencial.jpg" alt="Contabilidade Gerencial e BI">
-              <span class="bento-media-tag">BI &amp; Gestão Financeira</span>
+              <span class="bento-media-tag">BI &amp; Gestão</span>
             </div>
             <div class="bento-body">
               <div class="bento-icon">
                 <svg viewBox="0 0 24 24" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
               </div>
-              <h3 class="bento-title">Contabilidade Gerencial</h3>
-              <p class="bento-desc">Análise de Fluxo de Caixa, Capital de Giro, Ponto de Equilíbrio, Margem de Contribuição, Custo de Capital e Alavancagem Operacional para guiar decisões assertivas.</p>
-            </div>
-          </div>
-
-          <!-- Card 5: Abertura & Reestruturação -->
-          <div class="bento-card col-4" data-reveal>
-            <div class="bento-media">
-              <img src="assets/unsplash-abertura.jpg" alt="Abertura e Reestruturação Societária">
-              <span class="bento-media-tag">Societário &amp; M&amp;A</span>
-            </div>
-            <div class="bento-body">
-              <div class="bento-icon">
-                <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-              </div>
-              <h3 class="bento-title">Abertura &amp; Societário</h3>
-              <p class="bento-desc">Constituição rápida de empresas, elaboração de contratos sociais, fusões, cisões, transformações societárias, alvarás e cadastros junto a órgãos públicos e conselhos.</p>
+              <h3 class="bento-title" style="font-size: 19px;">Contabilidade Gerencial</h3>
+              <p class="bento-desc" style="font-size: 13px;">Análise de Fluxo de Caixa, Capital de Giro, Ponto de Equilíbrio, Margem de Contribuição e Custo de Capital.</p>
             </div>
           </div>
 
           <!-- Card 6: Trabalhista & e-Social -->
-          <div class="bento-card col-4" data-reveal>
-            <div class="bento-media">
+          <div class="bento-card col-3" data-reveal>
+            <div class="bento-media" style="height: 170px;">
               <img src="assets/unsplash-rh.jpg" alt="Área Trabalhista e Departamento Pessoal">
               <span class="bento-media-tag">DP &amp; e-Social</span>
             </div>
@@ -982,38 +982,38 @@
               <div class="bento-icon">
                 <svg viewBox="0 0 24 24" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
               </div>
-              <h3 class="bento-title">Trabalhista &amp; DP</h3>
-              <p class="bento-desc">Folha de pagamento, pró-labore, guias de encargos e atendimento completo às exigências do e-Social e SPED digital com segurança jurídica CLT.</p>
+              <h3 class="bento-title" style="font-size: 19px;">Trabalhista &amp; DP</h3>
+              <p class="bento-desc" style="font-size: 13px;">Folha de pagamento, pró-labore, guias sociais e atendimento integral ao e-Social e SPED unificado.</p>
             </div>
           </div>
 
           <!-- Card 7: Orientação em Produtos Financeiros -->
-          <div class="bento-card col-4" data-reveal>
-            <div class="bento-media">
+          <div class="bento-card col-3" data-reveal>
+            <div class="bento-media" style="height: 170px;">
               <img src="assets/unsplash-investimentos.jpg" alt="Orientação em Produtos Financeiros Imparcial">
-              <span class="bento-media-tag">Imparcial &amp; Isento</span>
+              <span class="bento-media-tag">Isento &amp; Imparcial</span>
             </div>
             <div class="bento-body">
               <div class="bento-icon">
                 <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
               </div>
-              <h3 class="bento-title">Consultoria Financeira</h3>
-              <p class="bento-desc">Orientação isenta e imparcial sobre tributação de investimentos: Previdência PGBL/VGBL, Tesouro Direto, CDB, Fundos, Debêntures e Ações (sem vínculo bancário).</p>
+              <h3 class="bento-title" style="font-size: 19px;">Consultoria Financeira</h3>
+              <p class="bento-desc" style="font-size: 13px;">Orientação isenta sobre tributação de PGBL/VGBL, Tesouro, CDB, Fundos, Debêntures e Ações.</p>
             </div>
           </div>
 
           <!-- Card 8: Certificados Digitais InFoco -->
-          <div class="bento-card col-4" data-reveal>
-            <div class="bento-media">
+          <div class="bento-card col-3" data-reveal>
+            <div class="bento-media" style="height: 170px;">
               <img src="assets/unsplash-certificado.jpg" alt="Certificados Digitais InFoco e-CPF e-CNPJ">
-              <span class="bento-media-tag">Emissão Rápida</span>
+              <span class="bento-media-tag">InFoco Digital</span>
             </div>
             <div class="bento-body">
               <div class="bento-icon">
                 <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
               </div>
-              <h3 class="bento-title">Certificado InFoco</h3>
-              <p class="bento-desc">Emissão e renovação presencial e por videoconferência de Certificados Digitais e-CPF e e-CNPJ com máxima segurança e agilidade para sua empresa.</p>
+              <h3 class="bento-title" style="font-size: 19px;">Certificado InFoco</h3>
+              <p class="bento-desc" style="font-size: 13px;">Emissão e renovação de e-CPF e e-CNPJ presencial ou por videoconferência em minutos.</p>
             </div>
           </div>
 
@@ -1338,7 +1338,7 @@
                   <label class="form-label" for="fService">Assunto Principal *</label>
                   <select id="fService" class="form-select" required>
                     <option value="Troca de Contabilidade / Planejamento Fiscal">Trocar de Contabilidade / Planejamento Fiscal</option>
-                    <option value="Abertura de Nova Empresa">Abertura de Nova Empresa</option>
+                    <option value="Abertura de Nova Empresa ou Holding">Abertura de Nova Empresa ou Holding</option>
                     <option value="Perícia Contábil / Apuração de Haveres">Perícia Contábil / Apuração de Haveres</option>
                     <option value="Consultoria Gerencial e B.I.">Consultoria Gerencial e BI</option>
                     <option value="Certificado Digital InFoco">Certificado Digital InFoco</option>
@@ -1369,7 +1369,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo-footer.png" alt="Escritório Ávila Contábil">
+        <img src="assets/logo-avila-white.svg" alt="Escritório Ávila Contábil" width="220" height="56">
         <p style="font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.65);">
           31 anos de tradição, rigor técnico e excelência em serviços contábeis, planejamento tributário, perícias e consultoria financeira em Minas Gerais.
         </p>
@@ -1382,8 +1382,8 @@
         <h4 class="footer-title">Soluções</h4>
         <ul class="footer-links">
           <li><a href="#solucoes">Área Fiscal &amp; Tributária</a></li>
+          <li><a href="#solucoes">Abertura &amp; Holdings</a></li>
           <li><a href="#solucoes">Área Contábil IFRS</a></li>
-          <li><a href="#solucoes">Abertura de Empresas</a></li>
           <li><a href="#solucoes">Perícias Contábeis</a></li>
           <li><a href="#solucoes">Departamento Pessoal</a></li>
           <li><a href="#solucoes">Certificado Digital InFoco</a></li>
